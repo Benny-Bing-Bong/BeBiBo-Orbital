@@ -1,4 +1,5 @@
 extends Node
+class_name PlayerStateMachine
 
 @export var initial_state: State
 @export var character: CharacterBody2D
@@ -20,6 +21,10 @@ func _ready() -> void:
 			child.transitioned.connect(on_child_transition)
 		else:
 			push_warning("Child " + child.name + " is not a State for PSM")
+	
+	if initial_state:
+		initial_state.enter()
+		current_state = initial_state
 
 func _input(event: InputEvent) -> void:
 	if current_state:
