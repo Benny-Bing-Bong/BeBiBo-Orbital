@@ -10,7 +10,8 @@ func state_input(input: InputEvent) -> void:
 		jump()
 
 func state_process(delta: float) -> void: #TODO: Create falling state
-	pass
+	if !character.is_on_floor():
+		transitioned.emit(self, "falling")
 
 func jump() -> void:
 	transitioned.emit(self, "air")
