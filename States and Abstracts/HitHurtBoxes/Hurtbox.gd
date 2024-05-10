@@ -1,6 +1,7 @@
 extends Area2D
 class_name Hurtbox
 
+#do we need this since we can manually set it in the inspector for diff things
 func _init() -> void:
 	collision_layer = 4 # default to be on enemy, override if needed
 	collision_mask = 2 # default to be on player, override if needed
