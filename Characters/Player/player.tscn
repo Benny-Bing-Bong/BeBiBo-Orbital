@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://iaq2i2lf7gwg"]
+[gd_scene load_steps=51 format=3 uid="uid://iaq2i2lf7gwg"]
 
 [ext_resource type="Script" path="res://Characters/Player/player.gd" id="1_84hpc"]
 [ext_resource type="Texture2D" uid="uid://mi12jiwl05ns" path="res://Art/Character/gamesprite Attack.png" id="1_w5tfx"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Characters/Player/State Label.gd" id="10_6ovdk"]
 [ext_resource type="Script" path="res://Characters/Player/State_Falling.gd" id="10_w1fag"]
 [ext_resource type="Script" path="res://Characters/Player/State_Attack.gd" id="11_i5q18"]
+[ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/Hitbox.gd" id="13_43nee"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eh2ya"]
 radius = 9.0
@@ -74,7 +75,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sword/Slash1Hitbox:disabled")
+tracks/3/path = NodePath("Hitbox/Slash1ColShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -126,7 +127,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sword/Slash2Hitbox:disabled")
+tracks/3/path = NodePath("Hitbox/Slash2ColShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -474,13 +475,14 @@ states/move/position = Vector2(390, 100)
 transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_uw416"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_ucu2m"), "jump_land", "move", SubResource("AnimationNodeStateMachineTransition_ovb1j"), "jump_start", "jump_double", SubResource("AnimationNodeStateMachineTransition_me81o"), "jump_start", "jump_land", SubResource("AnimationNodeStateMachineTransition_siumw"), "jump_double", "jump_land", SubResource("AnimationNodeStateMachineTransition_7hjf8"), "move", "falling", SubResource("AnimationNodeStateMachineTransition_1rj3x"), "falling", "jump_start", SubResource("AnimationNodeStateMachineTransition_6clwg"), "falling", "move", SubResource("AnimationNodeStateMachineTransition_w3872"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_wyo13"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_3gsic"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_piaix"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_ml4yr")]
 graph_offset = Vector2(-41, -83)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_34fjs"]
-size = Vector2(54, 30)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_juwdw"]
+size = Vector2(58, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmo48"]
-size = Vector2(42, 61)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0bom"]
+size = Vector2(51, 64)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_84hpc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -549,17 +551,20 @@ offset_bottom = -24.0
 script = ExtResource("10_6ovdk")
 state_machine = NodePath("../PlayerStateMachine")
 
-[node name="Sword" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("13_43nee")
 
-[node name="Slash1Hitbox" type="CollisionShape2D" parent="Sword"]
-position = Vector2(38, 6)
-shape = SubResource("RectangleShape2D_34fjs")
+[node name="Slash1ColShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(39, 6)
+shape = SubResource("RectangleShape2D_juwdw")
 disabled = true
+debug_color = Color(0.933333, 0.258824, 0.0980392, 0.419608)
 
-[node name="Slash2Hitbox" type="CollisionShape2D" parent="Sword"]
-position = Vector2(37, -6.5)
-shape = SubResource("RectangleShape2D_gmo48")
+[node name="Slash2ColShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(35.5, -8)
+shape = SubResource("RectangleShape2D_p0bom")
 disabled = true
+debug_color = Color(0.933333, 0.258824, 0.0980392, 0.419608)
 
 [connection signal="animation_finished" from="AnimationTree" to="PlayerStateMachine/Landing" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="PlayerStateMachine/Attack" method="_on_animation_tree_animation_finished"]

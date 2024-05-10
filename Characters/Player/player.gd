@@ -30,17 +30,16 @@ func update_animation_parameters() -> void:
 	animation_tree.set("parameters/move/blend_position", direction.x)
 
 func update_facing_direction() -> void:
-	var slash1_col_shape: CollisionShape2D = $Sword/Slash1Hitbox
-	var slash2_col_shape: CollisionShape2D = $Sword/Slash2Hitbox
-	var player_col_shape: CollisionShape2D = $CollisionShape2D
-	var dist1: float = abs(player_col_shape.position.x - slash1_col_shape.position.x)
-	var dist2: float = abs(player_col_shape.position.x - slash2_col_shape.position.x)
+	var slash1_hitbox: CollisionShape2D = $Hitbox/Slash1ColShape2D
+	var slash2_hitbox: CollisionShape2D = $Hitbox/Slash2ColShape2D
+	var distance1: float = abs(slash1_hitbox.global_position.x - global_position.x)
+	var distance2: float = abs(slash2_hitbox.global_position.x - global_position.x)
 	
 	if direction.x > 0:
 		sprite.flip_h = false
-		slash1_col_shape.position.x = dist1
-		slash2_col_shape.position.x = dist2
+		slash1_hitbox.position.x = distance1
+		slash2_hitbox.position.x = distance2
 	elif direction.x < 0:
 		sprite.flip_h = true
-		slash1_col_shape.position.x = -dist1
-		slash2_col_shape.position.x = -dist2
+		slash1_hitbox.position.x = -distance1
+		slash2_hitbox.position.x = -distance2
