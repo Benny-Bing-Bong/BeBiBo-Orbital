@@ -12,5 +12,6 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_area_entered(area: Area2D) -> void:
-	print("Area Entered Detected. Count: " + str(count))
+	print("Area Entered Detected. Count: " + str(count) + "| Area Name: " + area.get_name())
 	count += 1
+	area.get_name()
