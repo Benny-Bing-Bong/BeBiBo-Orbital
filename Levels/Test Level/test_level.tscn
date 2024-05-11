@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://3xe7jwqf2cff"]
+[gd_scene load_steps=9 format=3 uid="uid://3xe7jwqf2cff"]
 
 [ext_resource type="Texture2D" uid="uid://dd88sqdg8bsuj" path="res://Art/Assets/TileSet.png" id="1_d686u"]
 [ext_resource type="PackedScene" uid="uid://iaq2i2lf7gwg" path="res://Characters/Player/player.tscn" id="2_1jbaq"]
-[ext_resource type="Script" path="res://Levels/Test Level/TestHurtArea2D.gd" id="3_tqq36"]
+[ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/Hurtbox.gd" id="3_0bhxj"]
+[ext_resource type="Texture2D" uid="uid://duwr1ojy1jy4h" path="res://icon.svg" id="3_nm571"]
+[ext_resource type="Script" path="res://Levels/Test Level/IconSprite2D.gd" id="4_7kicn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xbt7y"]
 texture = ExtResource("1_d686u")
@@ -104,10 +106,12 @@ texture = ExtResource("1_d686u")
 
 [sub_resource type="TileSet" id="TileSet_hwh7f"]
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_xbt7y")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fj16v"]
-size = Vector2(20, 60)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2k0rv"]
+radius = 64.6735
+height = 129.347
 
 [node name="TestLevel" type="Node2D"]
 
@@ -130,12 +134,18 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_vertical_offset = -0.5
 
-[node name="TestHurtArea2D" type="Area2D" parent="."]
-script = ExtResource("3_tqq36")
+[node name="IconSprite2D" type="Sprite2D" parent="."]
+position = Vector2(-176, 65)
+scale = Vector2(0.185547, 0.394531)
+texture = ExtResource("3_nm571")
+script = ExtResource("4_7kicn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestHurtArea2D"]
-position = Vector2(-172, 53)
-shape = SubResource("RectangleShape2D_fj16v")
-debug_color = Color(0.607843, 0.537255, 0.0705882, 0.419608)
+[node name="TestHurtbox" type="Area2D" parent="IconSprite2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("3_0bhxj")
 
-[connection signal="area_entered" from="TestHurtArea2D" to="TestHurtArea2D" method="_on_area_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IconSprite2D/TestHurtbox"]
+position = Vector2(-2.28882e-05, 4.29153e-06)
+shape = SubResource("CapsuleShape2D_2k0rv")
+debug_color = Color(0.588235, 0.541176, 0.262745, 0.419608)

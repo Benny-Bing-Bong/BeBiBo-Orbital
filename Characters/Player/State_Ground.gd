@@ -10,6 +10,8 @@ func state_input(input: InputEvent) -> void:
 		jump()
 	if input.is_action_pressed("attack"):
 		attack()
+	if input.is_action_pressed("down"):
+		crouch()
 
 func state_process(delta: float) -> void: #TODO: Create falling state
 	if !character.is_on_floor():
@@ -20,3 +22,6 @@ func jump() -> void:
 
 func attack() -> void:
 	transitioned.emit(self, "attack")
+
+func crouch() -> void:
+	transitioned.emit(self, "crouch")
