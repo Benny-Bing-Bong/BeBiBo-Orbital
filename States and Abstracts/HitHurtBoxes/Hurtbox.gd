@@ -16,7 +16,7 @@ func on_area_entered(hitbox: Hitbox) -> void:
 	#For testing
 	print(str(hitbox.hit_value) + " damage taken by " + get_parent().get_name())
 	get_parent().take_damage(hitbox.hit_value)
-	print("Total damage taken so far: " + str(get_parent().get_total_damage()))
+	print("Total damage taken so far: " + str(get_parent().get_total_damage()) + "\n")
 	
 	#Once Damageable/HealthManager script is created
 	#for child in get_parent().get_children():

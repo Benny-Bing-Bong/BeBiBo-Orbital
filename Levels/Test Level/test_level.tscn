@@ -141,6 +141,8 @@ texture = ExtResource("3_nm571")
 script = ExtResource("4_7kicn")
 
 [node name="TestHurtbox" type="Area2D" parent="IconSprite2D"]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("3_0bhxj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="IconSprite2D/TestHurtbox"]
