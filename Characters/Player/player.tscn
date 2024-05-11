@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://iaq2i2lf7gwg"]
+[gd_scene load_steps=61 format=3 uid="uid://iaq2i2lf7gwg"]
 
 [ext_resource type="Script" path="res://Characters/Player/player.gd" id="1_84hpc"]
 [ext_resource type="Texture2D" uid="uid://mi12jiwl05ns" path="res://Art/Character/gamesprite Attack.png" id="1_w5tfx"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Characters/Player/State_Falling.gd" id="10_w1fag"]
 [ext_resource type="Script" path="res://Characters/Player/State_Attack.gd" id="11_i5q18"]
 [ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/Hitbox.gd" id="13_43nee"]
+[ext_resource type="Script" path="res://Characters/Player/State_Crouch.gd" id="13_pl527"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eh2ya"]
 radius = 9.0
@@ -483,6 +484,23 @@ animation = &"attack1"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qg346"]
 animation = &"attack2"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jakbj"]
+animation = &"crouch_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ovdha"]
+animation = &"crouch_move"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ow20d"]
+animation = &"crouch_move"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_vqgs6"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_jakbj")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_ovdha")
+blend_point_1/pos = -1.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_ow20d")
+blend_point_2/pos = 1.0
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0jhnx"]
 animation = &"falling"
 
@@ -542,11 +560,18 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ml4yr"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w1gv1"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3rl7o"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5ym8g"]
+states/End/position = Vector2(1086, 100)
 states/attack1/node = SubResource("AnimationNodeAnimation_qorhj")
 states/attack1/position = Vector2(518, 306)
 states/attack2/node = SubResource("AnimationNodeAnimation_qg346")
 states/attack2/position = Vector2(663, 306)
+states/crouch/node = SubResource("AnimationNodeBlendSpace1D_vqgs6")
+states/crouch/position = Vector2(793, 100)
 states/falling/node = SubResource("AnimationNodeAnimation_0jhnx")
 states/falling/position = Vector2(458, -94)
 states/jump_double/node = SubResource("AnimationNodeAnimation_hvppm")
@@ -557,8 +582,8 @@ states/jump_start/node = SubResource("AnimationNodeAnimation_3c4li")
 states/jump_start/position = Vector2(580, -94)
 states/move/node = SubResource("AnimationNodeBlendSpace1D_vgjj8")
 states/move/position = Vector2(390, 100)
-transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_uw416"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_ucu2m"), "jump_land", "move", SubResource("AnimationNodeStateMachineTransition_ovb1j"), "jump_start", "jump_double", SubResource("AnimationNodeStateMachineTransition_me81o"), "jump_start", "jump_land", SubResource("AnimationNodeStateMachineTransition_siumw"), "jump_double", "jump_land", SubResource("AnimationNodeStateMachineTransition_7hjf8"), "move", "falling", SubResource("AnimationNodeStateMachineTransition_1rj3x"), "falling", "jump_start", SubResource("AnimationNodeStateMachineTransition_6clwg"), "falling", "move", SubResource("AnimationNodeStateMachineTransition_w3872"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_wyo13"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_3gsic"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_piaix"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_ml4yr")]
-graph_offset = Vector2(127, -160)
+transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_uw416"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_ucu2m"), "jump_land", "move", SubResource("AnimationNodeStateMachineTransition_ovb1j"), "jump_start", "jump_double", SubResource("AnimationNodeStateMachineTransition_me81o"), "jump_start", "jump_land", SubResource("AnimationNodeStateMachineTransition_siumw"), "jump_double", "jump_land", SubResource("AnimationNodeStateMachineTransition_7hjf8"), "move", "falling", SubResource("AnimationNodeStateMachineTransition_1rj3x"), "falling", "jump_start", SubResource("AnimationNodeStateMachineTransition_6clwg"), "falling", "move", SubResource("AnimationNodeStateMachineTransition_w3872"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_wyo13"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_3gsic"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_piaix"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_ml4yr"), "move", "crouch", SubResource("AnimationNodeStateMachineTransition_w1gv1"), "crouch", "move", SubResource("AnimationNodeStateMachineTransition_3rl7o")]
+graph_offset = Vector2(167, -23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_juwdw"]
 size = Vector2(58, 36)
@@ -575,8 +600,8 @@ position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_eh2ya")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_m1nc6")
-hframes = 2
+texture = ExtResource("2_tce50")
+hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -590,6 +615,7 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_5ym8g")
 anim_player = NodePath("../AnimationPlayer")
+parameters/crouch/blend_position = 0
 parameters/move/blend_position = 0.0
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "character", "anim_tree")]
@@ -627,6 +653,10 @@ atk2_anim_name = "attack2"
 [node name="DblAtkTimer" type="Timer" parent="PlayerStateMachine/Attack"]
 wait_time = 0.2
 one_shot = true
+
+[node name="Crouch" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("13_pl527")
+crouch_anim_name = "crouch"
 
 [node name="State Label" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
 offset_left = -37.0

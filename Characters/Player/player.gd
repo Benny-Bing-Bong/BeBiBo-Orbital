@@ -28,6 +28,7 @@ func _physics_process(delta: float) -> void:
 
 func update_animation_parameters() -> void:
 	animation_tree.set("parameters/move/blend_position", direction.x)
+	animation_tree.set("parameters/crouch/blend_position", direction.x)
 
 func update_facing_direction() -> void:
 	var slash1_hitbox: CollisionShape2D = $Hitbox/Slash1ColShape2D
