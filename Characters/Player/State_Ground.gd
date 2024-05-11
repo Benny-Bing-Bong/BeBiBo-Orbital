@@ -1,10 +1,5 @@
 extends State
 
-@export var move_anim_name: String
-
-func enter() -> void:
-	playback.travel(move_anim_name)
-
 func state_input(input: InputEvent) -> void:
 	if input.is_action_pressed("up"):
 		jump()

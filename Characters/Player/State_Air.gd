@@ -2,7 +2,6 @@ extends State
 
 @export var jump_velocity: float = -400.0
 @export var double_jump_velocity: float = -300.0
-@export var jump_start_anim_name: String
 @export var jump_double_anim_name: String
 
 @onready var buffer_timer: Timer = $Timer # Prevent immediate transition to land
@@ -10,7 +9,7 @@ extends State
 var has_doubled: bool = false
 
 func enter() -> void:
-	playback.travel(jump_start_anim_name)
+	super()
 	character.velocity.y = jump_velocity
 	buffer_timer.start()
 

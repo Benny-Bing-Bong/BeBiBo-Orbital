@@ -583,7 +583,7 @@ states/jump_start/position = Vector2(580, -94)
 states/move/node = SubResource("AnimationNodeBlendSpace1D_vgjj8")
 states/move/position = Vector2(390, 100)
 transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_uw416"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_ucu2m"), "jump_land", "move", SubResource("AnimationNodeStateMachineTransition_ovb1j"), "jump_start", "jump_double", SubResource("AnimationNodeStateMachineTransition_me81o"), "jump_start", "jump_land", SubResource("AnimationNodeStateMachineTransition_siumw"), "jump_double", "jump_land", SubResource("AnimationNodeStateMachineTransition_7hjf8"), "move", "falling", SubResource("AnimationNodeStateMachineTransition_1rj3x"), "falling", "jump_start", SubResource("AnimationNodeStateMachineTransition_6clwg"), "falling", "move", SubResource("AnimationNodeStateMachineTransition_w3872"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_wyo13"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_3gsic"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_piaix"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_ml4yr"), "move", "crouch", SubResource("AnimationNodeStateMachineTransition_w1gv1"), "crouch", "move", SubResource("AnimationNodeStateMachineTransition_3rl7o")]
-graph_offset = Vector2(167, -23)
+graph_offset = Vector2(144, -130)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_juwdw"]
 size = Vector2(58, 36)
@@ -626,12 +626,12 @@ anim_tree = NodePath("../AnimationTree")
 
 [node name="Ground" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("7_l0kq4")
-move_anim_name = "move"
+first_anim_name = "move"
 
 [node name="Air" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("8_h68dv")
-jump_start_anim_name = "jump_start"
 jump_double_anim_name = "jump_double"
+first_anim_name = "jump_start"
 
 [node name="Timer" type="Timer" parent="PlayerStateMachine/Air"]
 wait_time = 0.1
@@ -639,16 +639,16 @@ one_shot = true
 
 [node name="Landing" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("9_g6evu")
-land_anim_name = "jump_land"
+first_anim_name = "jump_land"
 
 [node name="Falling" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("10_w1fag")
-fall_anim_name = "falling"
+first_anim_name = "falling"
 
 [node name="Attack" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("11_i5q18")
-atk1_anim_name = "attack1"
 atk2_anim_name = "attack2"
+first_anim_name = "attack1"
 
 [node name="DblAtkTimer" type="Timer" parent="PlayerStateMachine/Attack"]
 wait_time = 0.2
@@ -656,7 +656,7 @@ one_shot = true
 
 [node name="Crouch" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("13_pl527")
-crouch_anim_name = "crouch"
+first_anim_name = "crouch"
 
 [node name="State Label" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
 offset_left = -37.0
