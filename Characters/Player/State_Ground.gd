@@ -9,7 +9,7 @@ func state_input(_input: InputEvent) -> void:
 		crouch()
 
 func state_process(_delta: float) -> void: #TODO: Create falling state
-	if !character.is_on_floor():
+	if not character.is_on_floor():
 		transitioned.emit(self, "falling")
 
 func jump() -> void:

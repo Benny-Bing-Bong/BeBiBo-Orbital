@@ -17,11 +17,11 @@ func exit() -> void:
 	has_doubled = false
 
 func state_process(_delta: float) -> void:
-	if character.is_on_floor() && buffer_timer.is_stopped():
+	if character.is_on_floor() and buffer_timer.is_stopped():
 		land()
 
 func state_input(_input: InputEvent) -> void:
-	if _input.is_action_pressed("up") && !has_doubled:
+	if _input.is_action_pressed("up") and !has_doubled:
 		has_doubled = true
 		double_jump()
 

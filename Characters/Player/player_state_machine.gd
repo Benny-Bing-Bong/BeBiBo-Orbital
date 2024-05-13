@@ -43,7 +43,7 @@ func on_child_transition(state: State, new_state_name: String) -> void:
 		return
 	
 	var new_state: State = states.get(new_state_name.to_lower())
-	if !new_state: # check if new state actually exists
+	if not new_state: # check if new state actually exists
 		return
 	
 	if current_state:

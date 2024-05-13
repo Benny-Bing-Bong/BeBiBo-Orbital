@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dd88sqdg8bsuj" path="res://Art/Assets/TileSet.png" id="1_d686u"]
 [ext_resource type="PackedScene" uid="uid://iaq2i2lf7gwg" path="res://Characters/Player/player.tscn" id="2_1jbaq"]
-[ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/Hurtbox.gd" id="3_0bhxj"]
+[ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hurtbox.gd" id="3_0bhxj"]
 [ext_resource type="Texture2D" uid="uid://duwr1ojy1jy4h" path="res://icon.svg" id="3_nm571"]
 [ext_resource type="Script" path="res://Levels/Test Level/IconSprite2D.gd" id="4_7kicn"]
 

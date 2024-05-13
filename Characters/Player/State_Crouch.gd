@@ -13,7 +13,7 @@ func exit() -> void:
 	col_shape.position.y = 1
 
 func state_process(_delta: float) -> void:
-	if !Input.is_action_pressed("down") && !head_raycast.is_colliding():
+	if not Input.is_action_pressed("down") and not head_raycast.is_colliding():
 		go_back_move()
 
 func go_back_move() -> void:
