@@ -19,5 +19,3 @@ func on_area_entered(hitbox: Hitbox) -> void:
 	#for child in get_parent().get_children():
 		#if child is Damageable/HealthManager:
 			#child.take_damage(hitbox.hit_value)
-	
-	

@@ -593,6 +593,7 @@ size = Vector2(51, 64)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_84hpc")
 
 [node name="HeadRayCast2D" type="RayCast2D" parent="."]
