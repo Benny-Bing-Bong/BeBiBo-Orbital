@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://3xe7jwqf2cff"]
+[gd_scene load_steps=8 format=3 uid="uid://3xe7jwqf2cff"]
 
 [ext_resource type="Texture2D" uid="uid://dd88sqdg8bsuj" path="res://Art/Assets/TileSet.png" id="1_d686u"]
 [ext_resource type="PackedScene" uid="uid://iaq2i2lf7gwg" path="res://Characters/Player/player.tscn" id="2_1jbaq"]
 [ext_resource type="Script" path="res://Levels/Test Level/TestHurtArea2D.gd" id="3_tqq36"]
+[ext_resource type="PackedScene" uid="uid://b2vww2ct07iuh" path="res://Characters/Enemies/Gooey/gooey.tscn" id="4_1mmso"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xbt7y"]
 texture = ExtResource("1_d686u")
@@ -137,5 +138,8 @@ script = ExtResource("3_tqq36")
 position = Vector2(-172, 53)
 shape = SubResource("RectangleShape2D_fj16v")
 debug_color = Color(0.607843, 0.537255, 0.0705882, 0.419608)
+
+[node name="Gooey" parent="." instance=ExtResource("4_1mmso")]
+position = Vector2(395, 67)
 
 [connection signal="area_entered" from="TestHurtArea2D" to="TestHurtArea2D" method="_on_area_entered"]
