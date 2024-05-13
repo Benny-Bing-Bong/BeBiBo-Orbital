@@ -1,6 +1,7 @@
 extends State
 
 @onready var col_shape: CollisionShape2D = $"../../CollisionShape2D"
+@onready var head_raycast: RayCast2D = $"../../HeadRayCast2D"
 
 func enter() -> void:
 	super()
@@ -11,15 +12,9 @@ func exit() -> void:
 	col_shape.shape.height = 46
 	col_shape.position.y = 1
 
-func state_input(input: InputEvent) -> void:
-	if input.is_action_released("down"):
-		go_back_move()
-
 func state_process(delta: float) -> void:
-	pass
-
-func state_physics_process(delta: float) -> void:
-	pass
+	if !Input.is_action_pressed("down") && !head_raycast.is_colliding():
+		go_back_move()
 
 func go_back_move() -> void:
 	transitioned.emit(self, "ground")
