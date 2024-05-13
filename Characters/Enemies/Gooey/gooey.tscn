@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bk333ger0fy3u" path="res://Art/Enemies/Gooey/gooey Idle.png" id="1_6po1y"]
 [ext_resource type="Texture2D" uid="uid://keb504va1qjf" path="res://Art/Enemies/Gooey/gooey Crawl.png" id="2_0enxo"]
-[ext_resource type="Script" path="res://States and Abstracts/gravit.gd" id="4_0rt8q"]
+[ext_resource type="Script" path="res://States and Abstracts/gravity.gd" id="4_0rt8q"]
 [ext_resource type="Script" path="res://Characters/Enemies/Gooey/enemy_state_machine.gd" id="5_sopil"]
 [ext_resource type="Script" path="res://Characters/Enemies/Gooey/state_crawl.gd" id="6_7gcbu"]
 [ext_resource type="Script" path="res://Characters/Enemies/Gooey/state_idle.gd" id="6_xg211"]

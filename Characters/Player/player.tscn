@@ -7,14 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://cajtvo5obfu32" path="res://Art/Character/gamesprite Run.png" id="3_rul3q"]
 [ext_resource type="Texture2D" uid="uid://bqjxmydkcphsd" path="res://Art/Character/gamesprite Jump.png" id="4_fctwy"]
 [ext_resource type="Script" path="res://Characters/Player/player_state_machine.gd" id="5_gc0bk"]
-[ext_resource type="Script" path="res://Characters/Player/state_groun.gd" id="8_a7fi5"]
+[ext_resource type="Script" path="res://Characters/Player/state_ground.gd" id="7_l0kq4"]
 [ext_resource type="Script" path="res://Characters/Player/state_air.gd" id="8_h68dv"]
+[ext_resource type="Script" path="res://Characters/Player/state_landing.gd" id="9_g6evu"]
 [ext_resource type="Script" path="res://Characters/Player/state_label.gd" id="10_6ovdk"]
-[ext_resource type="Script" path="res://Characters/Player/state_landin.gd" id="10_45l2s"]
+[ext_resource type="Script" path="res://Characters/Player/state_falling.gd" id="10_w1fag"]
 [ext_resource type="Script" path="res://Characters/Player/state_attack.gd" id="11_i5q18"]
-[ext_resource type="Script" path="res://Characters/Player/state_fallin.gd" id="11_kgqmd"]
-[ext_resource type="Script" path="res://Characters/Player/state_crouc.gd" id="13_ngeis"]
-[ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hitbo.gd" id="15_oo024"]
+[ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hitbox.gd" id="13_43nee"]
+[ext_resource type="Script" path="res://Characters/Player/state_crouch.gd" id="13_pl527"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eh2ya"]
 radius = 9.0
@@ -629,7 +629,7 @@ character = NodePath("..")
 anim_tree = NodePath("../AnimationTree")
 
 [node name="Ground" type="Node" parent="PlayerStateMachine"]
-script = ExtResource("8_a7fi5")
+script = ExtResource("7_l0kq4")
 first_anim_name = "move"
 
 [node name="Air" type="Node" parent="PlayerStateMachine"]
@@ -642,11 +642,11 @@ wait_time = 0.1
 one_shot = true
 
 [node name="Landing" type="Node" parent="PlayerStateMachine"]
-script = ExtResource("10_45l2s")
+script = ExtResource("9_g6evu")
 first_anim_name = "jump_land"
 
 [node name="Falling" type="Node" parent="PlayerStateMachine"]
-script = ExtResource("11_kgqmd")
+script = ExtResource("10_w1fag")
 first_anim_name = "falling"
 
 [node name="Attack" type="Node" parent="PlayerStateMachine"]
@@ -659,7 +659,7 @@ wait_time = 0.2
 one_shot = true
 
 [node name="Crouch" type="Node" parent="PlayerStateMachine"]
-script = ExtResource("13_ngeis")
+script = ExtResource("13_pl527")
 first_anim_name = "crouch"
 
 [node name="State Label" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
@@ -673,7 +673,7 @@ state_machine = NodePath("../PlayerStateMachine")
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 4
-script = ExtResource("15_oo024")
+script = ExtResource("13_43nee")
 
 [node name="Slash1ColShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(39, 6)
