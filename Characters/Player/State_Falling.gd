@@ -1,10 +1,5 @@
 extends State
 
-@export var fall_anim_name: String
-
-func enter() -> void:
-	playback.travel(fall_anim_name)
-
 func state_process(delta: float) -> void:
 	if character.is_on_floor():
 		transitioned.emit(self, "ground")
