@@ -1,5 +1,5 @@
-extends Area2D
 class_name Hurtbox
+extends Area2D
 
 # Note: when creating node from this, make sure to set collisions and masks
 

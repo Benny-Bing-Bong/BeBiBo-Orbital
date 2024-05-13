@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bk333ger0fy3u" path="res://Art/Enemies/Gooey/gooey Idle.png" id="1_6po1y"]
 [ext_resource type="Texture2D" uid="uid://keb504va1qjf" path="res://Art/Enemies/Gooey/gooey Crawl.png" id="2_0enxo"]
-[ext_resource type="Script" path="res://Characters/Enemies/Gooey/Gravity.gd" id="4_0rt8q"]
+[ext_resource type="Script" path="res://States and Abstracts/Gravity.gd" id="4_0rt8q"]
 [ext_resource type="Script" path="res://Characters/Enemies/Gooey/EnemyStateMachine.gd" id="5_sopil"]
 [ext_resource type="Script" path="res://Characters/Enemies/Gooey/Crawl.gd" id="6_7gcbu"]
 [ext_resource type="Script" path="res://Characters/Enemies/Gooey/Idle.gd" id="6_xg211"]
@@ -109,6 +109,7 @@ sprite = NodePath("../AnimatedSprite2D")
 
 [node name="Idle" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("6_xg211")
+first_anim_name = "idle"
 
 [node name="Timer" type="Timer" parent="EnemyStateMachine/Idle"]
 wait_time = 5.0
@@ -116,5 +117,6 @@ autostart = true
 
 [node name="Crawl" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("6_7gcbu")
+first_anim_name = "crawl"
 
 [connection signal="timeout" from="EnemyStateMachine/Idle/Timer" to="EnemyStateMachine/Idle" method="_on_timer_timeout"]

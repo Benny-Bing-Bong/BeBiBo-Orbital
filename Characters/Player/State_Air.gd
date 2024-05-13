@@ -4,9 +4,9 @@ extends State
 @export var double_jump_velocity: float = -300.0
 @export var jump_double_anim_name: String
 
-@onready var buffer_timer: Timer = $Timer # Prevent immediate transition to land
-
 var has_doubled: bool = false
+
+@onready var buffer_timer: Timer = $Timer # Prevent immediate transition to land
 
 func enter() -> void:
 	super()
@@ -16,12 +16,12 @@ func enter() -> void:
 func exit() -> void:
 	has_doubled = false
 
-func state_process(delta: float) -> void:
+func state_process(_delta: float) -> void:
 	if character.is_on_floor() && buffer_timer.is_stopped():
 		land()
 
-func state_input(input: InputEvent) -> void:
-	if input.is_action_pressed("up") && !has_doubled:
+func state_input(_input: InputEvent) -> void:
+	if _input.is_action_pressed("up") && !has_doubled:
 		has_doubled = true
 		double_jump()
 

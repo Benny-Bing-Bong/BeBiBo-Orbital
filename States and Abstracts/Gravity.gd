@@ -1,5 +1,5 @@
-extends Node
 class_name Gravity
+extends Node
 
 @export var character_body : CharacterBody2D
 @export var sprite : AnimatedSprite2D

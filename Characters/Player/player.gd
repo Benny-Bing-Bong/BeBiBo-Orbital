@@ -1,13 +1,13 @@
-extends CharacterBody2D
 class_name Player
+extends CharacterBody2D
 
 @export var speed: float = 200.0
 
-@onready var animation_tree: AnimationTree = $AnimationTree
-@onready var sprite: Sprite2D = $Sprite2D
-
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction: Vector2 = Vector2.ZERO
+
+@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var sprite: Sprite2D = $Sprite2D
 
 func _ready() -> void:
 	animation_tree.active = true
@@ -33,8 +33,12 @@ func update_animation_parameters() -> void:
 func update_facing_direction() -> void:
 	var slash1_hitbox: CollisionShape2D = $Hitbox/Slash1ColShape2D
 	var slash2_hitbox: CollisionShape2D = $Hitbox/Slash2ColShape2D
-	var distance1: float = abs(slash1_hitbox.global_position.x - global_position.x)
-	var distance2: float = abs(slash2_hitbox.global_position.x - global_position.x)
+	var distance1: float = abs(
+			slash1_hitbox.global_position.x - 
+			global_position.x)
+	var distance2: float = abs(
+			slash2_hitbox.global_position.x - 
+			global_position.x)
 	
 	if direction.x > 0:
 		sprite.flip_h = false

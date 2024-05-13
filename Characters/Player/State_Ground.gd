@@ -1,14 +1,14 @@
 extends State
 
-func state_input(input: InputEvent) -> void:
-	if input.is_action_pressed("up"):
+func state_input(_input: InputEvent) -> void:
+	if _input.is_action_pressed("up"):
 		jump()
-	if input.is_action_pressed("attack"):
+	if _input.is_action_pressed("attack"):
 		attack()
-	if input.is_action_pressed("down"):
+	if _input.is_action_pressed("down"):
 		crouch()
 
-func state_process(delta: float) -> void: #TODO: Create falling state
+func state_process(_delta: float) -> void: #TODO: Create falling state
 	if !character.is_on_floor():
 		transitioned.emit(self, "falling")
 
