@@ -6,6 +6,7 @@ extends State
 
 func state_input(_input: InputEvent) -> void:
 	if _input.is_action_pressed("attack"):
+		dbl_atk_timer.stop()
 		dbl_atk_timer.start()
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
