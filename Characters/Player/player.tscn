@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bqjxmydkcphsd" path="res://Art/Character/gamesprite Jump.png" id="4_fctwy"]
 [ext_resource type="Script" path="res://Characters/Player/player_state_machine.gd" id="5_gc0bk"]
 [ext_resource type="Script" path="res://Characters/Player/state_ground.gd" id="7_l0kq4"]
-[ext_resource type="Script" path="res://Characters/Player/state_ai.gd" id="8_h68dv"]
 [ext_resource type="Script" path="res://Characters/Player/state_landing.gd" id="9_g6evu"]
+[ext_resource type="Script" path="res://Characters/Player/state_air.gd" id="9_r27yk"]
 [ext_resource type="Script" path="res://Characters/Player/state_label.gd" id="10_6ovdk"]
 [ext_resource type="Script" path="res://Characters/Player/state_falling.gd" id="10_w1fag"]
 [ext_resource type="Script" path="res://Characters/Player/state_attack.gd" id="11_i5q18"]
@@ -633,7 +633,7 @@ script = ExtResource("7_l0kq4")
 first_anim_name = "move"
 
 [node name="Air" type="Node" parent="PlayerStateMachine"]
-script = ExtResource("8_h68dv")
+script = ExtResource("9_r27yk")
 jump_double_anim_name = "jump_double"
 first_anim_name = "jump_start"
 
