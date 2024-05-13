@@ -10,12 +10,8 @@ func on_area_entered(hitbox: Hitbox) -> void:
 	if hitbox == null:
 		return
 	
-	#For testing
-	print(str(hitbox.hit_value) + " damage taken by " + get_parent().get_name())
-	get_parent().take_damage(hitbox.hit_value)
-	print("Total damage taken so far: " + str(get_parent().get_total_damage()) + "\n")
-	
-	#Once Damageable/HealthManager script is created
-	#for child in get_parent().get_children():
-		#if child is Damageable/HealthManager:
-			#child.take_damage(hitbox.hit_value)
+	# Checks if character with hurtbox is damageable, and if it is,
+	#take damage
+	for child in get_parent().get_children():
+		if child is Damageable:
+			child.take_damage(hitbox.hit_value)
