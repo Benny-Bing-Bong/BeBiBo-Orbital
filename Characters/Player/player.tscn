@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bqjxmydkcphsd" path="res://Art/Character/gamesprite Jump.png" id="4_fctwy"]
 [ext_resource type="Script" path="res://Characters/Player/player_state_machine.gd" id="5_gc0bk"]
 [ext_resource type="Script" path="res://Characters/Player/state_ground.gd" id="7_l0kq4"]
-[ext_resource type="Script" path="res://Characters/Player/state_air.gd" id="8_h68dv"]
+[ext_resource type="Script" path="res://Characters/Player/state_ai.gd" id="8_h68dv"]
 [ext_resource type="Script" path="res://Characters/Player/state_landing.gd" id="9_g6evu"]
 [ext_resource type="Script" path="res://Characters/Player/state_label.gd" id="10_6ovdk"]
 [ext_resource type="Script" path="res://Characters/Player/state_falling.gd" id="10_w1fag"]
