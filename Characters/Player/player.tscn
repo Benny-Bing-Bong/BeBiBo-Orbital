@@ -595,6 +595,9 @@ size = Vector2(51, 64)
 collision_layer = 2
 script = ExtResource("1_84hpc")
 
+[node name="HeadRayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, -20)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_eh2ya")
@@ -670,7 +673,6 @@ state_machine = NodePath("../PlayerStateMachine")
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("13_43nee")
-hit_value = 3
 
 [node name="Slash1ColShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(39, 6)
