@@ -6,6 +6,7 @@ class_name State
 
 var character: CharacterBody2D
 var playback: AnimationNodeStateMachinePlayback
+var anim_sprite: AnimatedSprite2D
 
 signal transitioned(state: State, new_state_name: String)
 
