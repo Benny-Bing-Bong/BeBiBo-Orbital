@@ -13,7 +13,10 @@ config_version=5
 config/name="BeBiBo-Orbital"
 run/main_scene="res://Levels/Test Level/test_level.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.0705882, 0.0627451, 0.0431373, 1)
+boot_splash/image="res://Art/Promotional Art/GameLogo480x480.png"
+config/icon="res://Art/Promotional Art/GameLogo480x480.png"
+config/windows_native_icon="res://Art/Promotional Art/GameLogoWindowsIcon.ico"
 
 [debug]
 
