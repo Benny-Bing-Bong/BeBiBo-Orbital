@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://3xe7jwqf2cff"]
+[gd_scene load_steps=10 format=3 uid="uid://3xe7jwqf2cff"]
 
 [ext_resource type="Texture2D" uid="uid://dd88sqdg8bsuj" path="res://Art/Assets/TileSet.png" id="1_d686u"]
 [ext_resource type="PackedScene" uid="uid://iaq2i2lf7gwg" path="res://Characters/Player/player.tscn" id="2_1jbaq"]
 [ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hurtbox.gd" id="3_0bhxj"]
 [ext_resource type="Texture2D" uid="uid://duwr1ojy1jy4h" path="res://icon.svg" id="3_nm571"]
-[ext_resource type="Shader" path="res://Characters/hit_flash.gdshader" id="3_y8tk8"]
 [ext_resource type="Script" path="res://Levels/Test Level/icon_sprite_damageable.gd" id="6_47rcn"]
 [ext_resource type="PackedScene" uid="uid://b2vww2ct07iuh" path="res://Characters/Enemies/Gooey/gooey.tscn" id="6_jjn7q"]
 
@@ -111,50 +110,9 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_xbt7y")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n52wx"]
-shader = ExtResource("3_y8tk8")
-shader_parameter/active = false
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2k0rv"]
 radius = 64.6735
 height = 129.347
-
-[sub_resource type="Animation" id="Animation_7bstm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/active")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_m7vp6"]
-resource_name = "hit"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/active")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [true, false, true, false, true, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1xarr"]
-_data = {
-"RESET": SubResource("Animation_7bstm"),
-"hit": SubResource("Animation_m7vp6")
-}
 
 [node name="TestLevel" type="Node2D"]
 
@@ -178,7 +136,6 @@ drag_vertical_enabled = true
 drag_vertical_offset = -0.5
 
 [node name="IconSprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_n52wx")
 position = Vector2(-176, 65)
 scale = Vector2(0.185547, 0.394531)
 texture = ExtResource("3_nm571")
@@ -195,9 +152,6 @@ debug_color = Color(0.588235, 0.541176, 0.262745, 0.419608)
 
 [node name="IconSpriteDamageable" type="Node" parent="IconSprite2D"]
 script = ExtResource("6_47rcn")
-health = 6
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="IconSprite2D"]
-libraries = {
-"": SubResource("AnimationLibrary_1xarr")
-}
+[node name="Gooey" parent="." instance=ExtResource("6_jjn7q")]
+position = Vector2(186, 74)
