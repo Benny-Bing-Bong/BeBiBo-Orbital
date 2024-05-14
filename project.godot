@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0.0705882, 0.0627451, 0.0431373, 1)
 boot_splash/image="res://Art/Promotional Art/GameLogoWOutline.png"
 boot_splash/fullsize=false
-config/icon="res://Art/Promotional Art/GameLogoWOutline.png"
+config/icon="res://Art/Promotional Art/GameLogo480x480.png"
 config/windows_native_icon="res://Art/Promotional Art/GameLogoWindowsIcon.ico"
 
 [debug]
