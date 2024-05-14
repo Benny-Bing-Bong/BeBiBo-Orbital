@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://danddf38mrrxk"]
 
-[ext_resource type="PackedScene" uid="uid://cnb1q5qwbielt" path="res://Levels/base_level.tscn" id="1_onc4x"]
+[ext_resource type="PackedScene" path="res://Levels/base_level.tscn" id="1_onc4x"]
 [ext_resource type="PackedScene" uid="uid://d01hjpvimba31" path="res://Levels/Background Scenes for Use/parallax_background.tscn" id="2_jgexa"]
 
 [node name="Level1" instance=ExtResource("1_onc4x")]

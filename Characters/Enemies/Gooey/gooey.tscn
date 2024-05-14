@@ -1,11 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://b2vww2ct07iuh"]
+[gd_scene load_steps=25 format=3 uid="uid://b2vww2ct07iuh"]
 
 [ext_resource type="Texture2D" uid="uid://bk333ger0fy3u" path="res://Art/Enemies/Gooey/gooey Idle.png" id="1_6po1y"]
 [ext_resource type="Texture2D" uid="uid://keb504va1qjf" path="res://Art/Enemies/Gooey/gooey Crawl.png" id="2_0enxo"]
+[ext_resource type="Texture2D" uid="uid://t70a1d1qtddk" path="res://Art/Enemies/Gooey/gooey Knockback.png" id="3_nif0p"]
 [ext_resource type="Script" path="res://States and Abstracts/gravity.gd" id="4_0rt8q"]
 [ext_resource type="Script" path="res://Characters/Enemies/Gooey/enemy_state_machine.gd" id="5_sopil"]
 [ext_resource type="Script" path="res://Characters/Enemies/Gooey/state_crawl.gd" id="6_7gcbu"]
 [ext_resource type="Script" path="res://Characters/Enemies/Gooey/state_idle.gd" id="6_xg211"]
+[ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hurtbox.gd" id="7_wogyy"]
+[ext_resource type="Script" path="res://Characters/Enemies/Gooey/GooeyDamageable.gd" id="8_yyxbb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l6vfy"]
 atlas = ExtResource("2_0enxo")
@@ -39,6 +42,22 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("1_6po1y")
 region = Rect2(96, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5elt"]
+atlas = ExtResource("3_nif0p")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psa54"]
+atlas = ExtResource("3_nif0p")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m43x4"]
+atlas = ExtResource("3_nif0p")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fm5x"]
+atlas = ExtResource("3_nif0p")
+region = Rect2(96, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_53d71"]
 animations = [{
 "frames": [{
@@ -58,11 +77,6 @@ animations = [{
 "name": &"crawl",
 "speed": 10.0
 }, {
-"frames": [],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xg02n")
@@ -79,11 +93,31 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5elt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psa54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m43x4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fm5x")
+}],
+"loop": true,
+"name": &"knockback",
+"speed": 6.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hnt6y"]
 radius = 9.0
 height = 24.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gk1gw"]
+radius = 13.0
 
 [node name="Gooey" type="CharacterBody2D"]
 collision_layer = 4
@@ -92,16 +126,27 @@ collision_mask = 3
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_53d71")
 animation = &"idle"
-frame_progress = 0.00440834
+frame_progress = 0.343405
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 4)
 shape = SubResource("CapsuleShape2D_hnt6y")
 
+[node name="RayCast_Left" type="RayCast2D" parent="."]
+target_position = Vector2(-100, 0)
+collision_mask = 2
+
+[node name="RayCast_Right" type="RayCast2D" parent="."]
+target_position = Vector2(100, 0)
+collision_mask = 2
+
 [node name="Gravity" type="Node" parent="." node_paths=PackedStringArray("character_body", "sprite")]
 script = ExtResource("4_0rt8q")
 character_body = NodePath("..")
 sprite = NodePath("../AnimatedSprite2D")
+
+[node name="GooeyDamageable" type="Node" parent="."]
+script = ExtResource("8_yyxbb")
 
 [node name="EnemyStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "character", "sprite")]
 script = ExtResource("5_sopil")
@@ -114,11 +159,27 @@ script = ExtResource("6_xg211")
 first_anim_name = "idle"
 
 [node name="Timer" type="Timer" parent="EnemyStateMachine/Idle"]
-wait_time = 5.0
-autostart = true
+wait_time = 1.5
+one_shot = true
 
 [node name="Crawl" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("6_7gcbu")
 first_anim_name = "crawl"
 
+[node name="Timer" type="Timer" parent="EnemyStateMachine/Crawl"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("7_wogyy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_gk1gw")
+debug_color = Color(0.890196, 0.258824, 0.505882, 0.419608)
+
 [connection signal="timeout" from="EnemyStateMachine/Idle/Timer" to="EnemyStateMachine/Idle" method="_on_timer_timeout"]
+[connection signal="timeout" from="EnemyStateMachine/Crawl/Timer" to="EnemyStateMachine/Idle" method="_on_timer_timeout"]
+[connection signal="timeout" from="EnemyStateMachine/Crawl/Timer" to="EnemyStateMachine/Crawl" method="_on_timer_timeout"]
