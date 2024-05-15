@@ -646,7 +646,8 @@ position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_eh2ya")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_tce50")
+material = SubResource("ShaderMaterial_2j5v6")
+texture = ExtResource("1_w5tfx")
 hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -700,6 +701,10 @@ first_anim_name = "attack1"
 wait_time = 0.2
 one_shot = true
 
+[node name="Timer" type="Timer" parent="PlayerStateMachine/Attack"]
+wait_time = 0.8
+one_shot = true
+
 [node name="Crouch" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("13_pl527")
 first_anim_name = "crouch"
@@ -731,3 +736,4 @@ debug_color = Color(0.933333, 0.258824, 0.0980392, 0.419608)
 
 [connection signal="animation_finished" from="AnimationTree" to="PlayerStateMachine/Landing" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="PlayerStateMachine/Attack" method="_on_animation_tree_animation_finished"]
+[connection signal="timeout" from="PlayerStateMachine/Attack/Timer" to="PlayerStateMachine/Attack" method="_on_timer_timeout"]
