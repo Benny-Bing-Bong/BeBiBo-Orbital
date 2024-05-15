@@ -1,6 +1,7 @@
-[gd_scene load_steps=34 format=3 uid="uid://b2vww2ct07iuh"]
+[gd_scene load_steps=39 format=3 uid="uid://b2vww2ct07iuh"]
 
 [ext_resource type="Texture2D" uid="uid://bk333ger0fy3u" path="res://Art/Enemies/Gooey/gooey Idle.png" id="1_6po1y"]
+[ext_resource type="Shader" path="res://Characters/hit_flash.gdshader" id="1_b37dw"]
 [ext_resource type="Texture2D" uid="uid://keb504va1qjf" path="res://Art/Enemies/Gooey/gooey Crawl.png" id="2_0enxo"]
 [ext_resource type="Texture2D" uid="uid://chls20jaevwmq" path="res://Art/Enemies/Gooey/gooey Dead.png" id="2_obv2u"]
 [ext_resource type="Texture2D" uid="uid://t70a1d1qtddk" path="res://Art/Enemies/Gooey/gooey Knockback.png" id="3_nif0p"]
@@ -12,6 +13,10 @@
 [ext_resource type="Script" path="res://Characters/Enemies/Gooey/GooeyDamageable.gd" id="8_yyxbb"]
 [ext_resource type="Script" path="res://Characters/Enemies/Gooey/state_knockback.gd" id="10_uohbm"]
 [ext_resource type="Script" path="res://Characters/Enemies/Gooey/state_dead.gd" id="11_d63q4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m65yy"]
+shader = ExtResource("1_b37dw")
+shader_parameter/active = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l6vfy"]
 atlas = ExtResource("2_0enxo")
@@ -162,6 +167,43 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="Animation" id="Animation_eyvft"]
+resource_name = "hit"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_day74"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_75sbo"]
+_data = {
+"RESET": SubResource("Animation_day74"),
+"hit": SubResource("Animation_eyvft")
+}
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hnt6y"]
 radius = 9.0
 height = 24.0
@@ -174,8 +216,14 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_m65yy")
 sprite_frames = SubResource("SpriteFrames_53d71")
 animation = &"dead"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_75sbo")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 4)
