@@ -37,12 +37,10 @@ func detect_player() -> void:
 			crawl()
 		else:
 			anim_sprite.flip_h = false
-			print("facing left")
 			timer.start()
 	elif ray_cast_right.is_colliding():
 		if direction == Vector2.RIGHT:
 			crawl()
 		else:
 			anim_sprite.flip_h = true
-			print("facing right")
 			timer.start()

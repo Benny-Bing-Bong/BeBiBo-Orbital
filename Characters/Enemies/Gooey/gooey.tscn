@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://b2vww2ct07iuh"]
+[gd_scene load_steps=34 format=3 uid="uid://b2vww2ct07iuh"]
 
 [ext_resource type="Texture2D" uid="uid://bk333ger0fy3u" path="res://Art/Enemies/Gooey/gooey Idle.png" id="1_6po1y"]
 [ext_resource type="Texture2D" uid="uid://keb504va1qjf" path="res://Art/Enemies/Gooey/gooey Crawl.png" id="2_0enxo"]
+[ext_resource type="Texture2D" uid="uid://chls20jaevwmq" path="res://Art/Enemies/Gooey/gooey Dead.png" id="2_obv2u"]
 [ext_resource type="Texture2D" uid="uid://t70a1d1qtddk" path="res://Art/Enemies/Gooey/gooey Knockback.png" id="3_nif0p"]
 [ext_resource type="Script" path="res://States and Abstracts/gravity.gd" id="4_0rt8q"]
 [ext_resource type="Script" path="res://Characters/Enemies/Gooey/enemy_state_machine.gd" id="5_sopil"]
@@ -9,6 +10,8 @@
 [ext_resource type="Script" path="res://Characters/Enemies/Gooey/state_idle.gd" id="6_xg211"]
 [ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hurtbox.gd" id="7_wogyy"]
 [ext_resource type="Script" path="res://Characters/Enemies/Gooey/GooeyDamageable.gd" id="8_yyxbb"]
+[ext_resource type="Script" path="res://Characters/Enemies/Gooey/state_knockback.gd" id="10_uohbm"]
+[ext_resource type="Script" path="res://Characters/Enemies/Gooey/state_dead.gd" id="11_d63q4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l6vfy"]
 atlas = ExtResource("2_0enxo")
@@ -25,6 +28,30 @@ region = Rect2(64, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_c1r87"]
 atlas = ExtResource("2_0enxo")
 region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7leh0"]
+atlas = ExtResource("2_obv2u")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ildkb"]
+atlas = ExtResource("2_obv2u")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dojsa"]
+atlas = ExtResource("2_obv2u")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5dqy"]
+atlas = ExtResource("2_obv2u")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp7jc"]
+atlas = ExtResource("2_obv2u")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cakvc"]
+atlas = ExtResource("2_obv2u")
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xg02n"]
 atlas = ExtResource("1_6po1y")
@@ -79,6 +106,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_7leh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ildkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dojsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5dqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qp7jc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cakvc")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_xg02n")
 }, {
 "duration": 1.0,
@@ -125,8 +175,7 @@ collision_mask = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_53d71")
-animation = &"idle"
-frame_progress = 0.343405
+animation = &"dead"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 4)
@@ -147,6 +196,9 @@ sprite = NodePath("../AnimatedSprite2D")
 
 [node name="GooeyDamageable" type="Node" parent="."]
 script = ExtResource("8_yyxbb")
+
+[node name="Timer" type="Timer" parent="GooeyDamageable"]
+one_shot = true
 
 [node name="EnemyStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "character", "sprite")]
 script = ExtResource("5_sopil")
@@ -170,6 +222,18 @@ first_anim_name = "crawl"
 wait_time = 3.0
 one_shot = true
 
+[node name="Knockback" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("10_uohbm")
+first_anim_name = "knockback"
+
+[node name="Timer" type="Timer" parent="EnemyStateMachine/Knockback"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Dead" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("11_d63q4")
+first_anim_name = "dead"
+
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 2
@@ -180,6 +244,8 @@ position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_gk1gw")
 debug_color = Color(0.890196, 0.258824, 0.505882, 0.419608)
 
+[connection signal="timeout" from="GooeyDamageable/Timer" to="GooeyDamageable" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemyStateMachine/Idle/Timer" to="EnemyStateMachine/Idle" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemyStateMachine/Crawl/Timer" to="EnemyStateMachine/Idle" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemyStateMachine/Crawl/Timer" to="EnemyStateMachine/Crawl" method="_on_timer_timeout"]
+[connection signal="timeout" from="EnemyStateMachine/Knockback/Timer" to="EnemyStateMachine/Knockback" method="_on_timer_timeout"]

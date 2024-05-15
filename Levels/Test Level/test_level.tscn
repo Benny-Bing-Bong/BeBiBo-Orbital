@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://3xe7jwqf2cff"]
+[gd_scene load_steps=15 format=3 uid="uid://3xe7jwqf2cff"]
 
 [ext_resource type="Texture2D" uid="uid://dd88sqdg8bsuj" path="res://Art/Assets/TileSet.png" id="1_d686u"]
 [ext_resource type="PackedScene" uid="uid://iaq2i2lf7gwg" path="res://Characters/Player/player.tscn" id="2_1jbaq"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://duwr1ojy1jy4h" path="res://icon.svg" id="3_nm571"]
 [ext_resource type="Shader" path="res://Characters/hit_flash.gdshader" id="3_y8tk8"]
 [ext_resource type="Script" path="res://Levels/Test Level/icon_sprite_damageable.gd" id="6_47rcn"]
+[ext_resource type="PackedScene" uid="uid://b2vww2ct07iuh" path="res://Characters/Enemies/Gooey/gooey.tscn" id="7_lp1m0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xbt7y"]
 texture = ExtResource("1_d686u")
@@ -200,3 +201,6 @@ health = 6
 libraries = {
 "": SubResource("AnimationLibrary_1xarr")
 }
+
+[node name="Gooey" parent="." instance=ExtResource("7_lp1m0")]
+position = Vector2(219, 75)
