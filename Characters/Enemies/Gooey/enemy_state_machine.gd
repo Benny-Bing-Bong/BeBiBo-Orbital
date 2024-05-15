@@ -5,8 +5,6 @@ class_name EnemyStateMachine
 @export var character: CharacterBody2D
 @export var sprite: AnimatedSprite2D
 
-signal interrupt_state(new_state: State)
-
 var current_state: State
 var states: Dictionary = {}
 
@@ -27,8 +25,6 @@ func _ready() -> void:
 	if initial_state:
 		initial_state.enter()
 		current_state = initial_state
-	
-	interrupt_state.connect(on_state_interrupt_state)
 
 func _input(event: InputEvent) -> void:
 	if current_state:
@@ -55,6 +51,3 @@ func on_child_transition(state: State, new_state_name: String) -> void:
 	
 	current_state = new_state
 	current_state.enter()
-	
-func on_state_interrupt_state(new_state: String) -> void:
-	on_child_transition(current_state, new_state)

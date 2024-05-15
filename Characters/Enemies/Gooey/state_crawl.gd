@@ -14,6 +14,7 @@ func state_physics_process(delta: float) -> void:
 	direction = Vector2.RIGHT if anim_sprite.flip_h else Vector2.LEFT
 		
 	character.velocity.x = direction.x * speed * delta
+	print(timer.time_left)
 	
 	if direction == Vector2.LEFT and not ray_cast_left.is_colliding():
 		if timer.is_stopped():
