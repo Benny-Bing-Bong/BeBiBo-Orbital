@@ -5,8 +5,6 @@ extends Node
 
 func take_damage(value: int) -> void:
 	health -= value
-	print(str(value) + " damage taken by " + get_parent().get_name() +
-			" | Total health left: " + str(health))
 	
 	if health <= 0:
 		_die()
