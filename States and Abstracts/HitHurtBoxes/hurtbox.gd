@@ -11,9 +11,7 @@ func on_area_entered(hitbox: Hitbox) -> void:
 		return
 	
 	# Checks if character with hurtbox is damageable, and if it is,
-	#take damage. If theres a hit flash animation, play it
+	#take damage
 	for child in get_parent().get_children():
 		if child is Damageable:
 			child.take_damage(hitbox.hit_value)
-		if child is AnimationPlayer:
-			child.play("hit")

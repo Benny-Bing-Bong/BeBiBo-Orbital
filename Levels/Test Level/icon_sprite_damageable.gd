@@ -1,7 +1,6 @@
 extends Damageable
 
 func _die() -> void:
-	$"../AnimationPlayer".active = false
 	await flash_times(3)
 	get_parent().queue_free()
 
