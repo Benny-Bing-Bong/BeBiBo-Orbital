@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://iaq2i2lf7gwg"]
+[gd_scene load_steps=67 format=3 uid="uid://iaq2i2lf7gwg"]
 
 [ext_resource type="Shader" path="res://Characters/hit_flash.gdshader" id="1_6r3x5"]
 [ext_resource type="Script" path="res://Characters/Player/player.gd" id="1_84hpc"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Characters/Player/state_ground.gd" id="7_l0kq4"]
 [ext_resource type="Script" path="res://Characters/Player/state_air.gd" id="8_h68dv"]
 [ext_resource type="Script" path="res://Characters/Player/state_landing.gd" id="9_g6evu"]
+[ext_resource type="Script" path="res://States and Abstracts/gravity.gd" id="9_k3q15"]
 [ext_resource type="Script" path="res://Characters/Player/state_label.gd" id="10_6ovdk"]
 [ext_resource type="Script" path="res://Characters/Player/state_falling.gd" id="10_w1fag"]
 [ext_resource type="Script" path="res://Characters/Player/state_attack.gd" id="11_i5q18"]
@@ -672,6 +673,10 @@ size = Vector2(51, 64)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_84hpc")
+
+[node name="Gravity" type="Node" parent="." node_paths=PackedStringArray("character_body")]
+script = ExtResource("9_k3q15")
+character_body = NodePath("..")
 
 [node name="HeadRayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, -20)
