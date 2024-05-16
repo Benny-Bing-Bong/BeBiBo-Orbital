@@ -7,11 +7,14 @@ extends State
 var has_doubled: bool = false
 
 @onready var buffer_timer: Timer = $Timer # Prevent immediate transition to land
+@onready var wallhang_timer: Timer = $WallhangTimer # Prevent immediate wallhang
+
 
 func enter() -> void:
 	super()
 	character.velocity.y = jump_velocity
 	buffer_timer.start()
+	wallhang_timer.start()
 
 func exit() -> void:
 	has_doubled = false
@@ -19,6 +22,9 @@ func exit() -> void:
 func state_process(_delta: float) -> void:
 	if character.is_on_floor() and buffer_timer.is_stopped():
 		land()
+	
+	if character.is_on_wall() and wallhang_timer.is_stopped():
+		wallhang()
 
 func state_input(_input: InputEvent) -> void:
 	if _input.is_action_pressed("up") and !has_doubled:
@@ -27,6 +33,9 @@ func state_input(_input: InputEvent) -> void:
 
 func land() -> void:
 	transitioned.emit(self, "landing")
+
+func wallhang() -> void:
+	transitioned.emit(self, "wallhang")
 
 func double_jump() -> void:
 	character.velocity.y = double_jump_velocity

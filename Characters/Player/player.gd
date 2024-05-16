@@ -12,7 +12,6 @@ func _ready() -> void:
 	animation_tree.active = true
 
 func _physics_process(delta: float) -> void:
-	
 	direction = Input.get_vector("left", "right", "up", "down")
 	if direction.x != 0:
 		velocity.x = direction.x * speed
