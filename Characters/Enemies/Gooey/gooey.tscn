@@ -238,10 +238,9 @@ collision_mask = 2
 target_position = Vector2(200, 0)
 collision_mask = 2
 
-[node name="Gravity" type="Node" parent="." node_paths=PackedStringArray("character_body", "sprite")]
+[node name="Gravity" type="Node" parent="." node_paths=PackedStringArray("character_body")]
 script = ExtResource("4_0rt8q")
 character_body = NodePath("..")
-sprite = NodePath("../AnimatedSprite2D")
 
 [node name="GooeyDamageable" type="Node" parent="."]
 script = ExtResource("8_yyxbb")

@@ -3,7 +3,6 @@ extends CharacterBody2D
 
 @export var speed: float = 200.0
 
-var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction: Vector2 = Vector2.ZERO
 
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -13,16 +12,14 @@ func _ready() -> void:
 	animation_tree.active = true
 
 func _physics_process(delta: float) -> void:
-	if not is_on_floor():
-		velocity.y += gravity * delta
-	
 	direction = Input.get_vector("left", "right", "up", "down")
 	if direction.x != 0:
 		velocity.x = direction.x * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 	
-	move_and_slide()
+	# currently called in gravity
+	#move_and_slide()
 	update_animation_parameters()
 	update_facing_direction()
 
