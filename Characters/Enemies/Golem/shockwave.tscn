@@ -55,13 +55,13 @@ position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_b70mf")
 autoplay = "default"
 script = ExtResource("2_m0yxk")
-shockwave_speed = 20.0
 
 [node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(0, 10)
 script = ExtResource("2_n0w6k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_gpa7y")
+debug_color = Color(0.905882, 0.286275, 0.270588, 0.419608)
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

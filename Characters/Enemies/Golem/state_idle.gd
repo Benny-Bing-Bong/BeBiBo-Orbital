@@ -17,7 +17,6 @@ func state_physics_process(_delta: float) -> void:
 	detect_player()
 	update_facing_direction()
 	move()
-	
 	character.move_and_slide()
 
 func detect_player() -> void:

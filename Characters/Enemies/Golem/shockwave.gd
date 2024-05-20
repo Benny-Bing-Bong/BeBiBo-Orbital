@@ -1,9 +1,9 @@
 extends AnimatedSprite2D
 
-@export var shockwave_speed: float = 0
+var shockwave_speed: int = 200
 
 func _physics_process(delta: float) -> void:
-	move_local_x(shockwave_speed)
+	move_local_x(shockwave_speed * delta)
 
 func _on_animation_finished() -> void:
 	queue_free()

@@ -205,14 +205,14 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_etb0w"]
-size = Vector2(100, 63)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o31r5"]
 size = Vector2(38, 63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dne02"]
 size = Vector2(38, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etb0w"]
+size = Vector2(100, 63)
 
 [node name="Golem" type="CharacterBody2D"]
 position = Vector2(0, -48)
@@ -223,6 +223,14 @@ collision_mask = 3
 sprite_frames = SubResource("SpriteFrames_82uc0")
 animation = &"move"
 
+[node name="LeftCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-29, 16.5)
+shape = SubResource("RectangleShape2D_o31r5")
+
+[node name="RightCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(29, 16.5)
+shape = SubResource("RectangleShape2D_dne02")
+
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 2
@@ -231,15 +239,7 @@ script = ExtResource("3_xtt4j")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, 16.5)
 shape = SubResource("RectangleShape2D_etb0w")
-debug_color = Color(0.662745, 0.509804, 0.176471, 0.419608)
-
-[node name="LeftCollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-29, 16.5)
-shape = SubResource("RectangleShape2D_o31r5")
-
-[node name="RightCollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(29, 16.5)
-shape = SubResource("RectangleShape2D_dne02")
+debug_color = Color(0.866667, 0.313726, 0.439216, 0.419608)
 
 [node name="RayCasts" type="Node2D" parent="."]
 
@@ -271,7 +271,7 @@ position = Vector2(45, 32)
 script = ExtResource("3_kqljo")
 character_body = NodePath("..")
 
-[node name="GolemDamageable" type="Node" parent="."]
+[node name="Damageable" type="Node" parent="."]
 script = ExtResource("5_6r617")
 health = 10
 
@@ -309,11 +309,5 @@ one_shot = true
 wait_time = 1.8
 one_shot = true
 
-[node name="TimerReset" type="Timer" parent="EnemyStateMachine/Move"]
-wait_time = 1.8
-one_shot = true
-
 [connection signal="timeout" from="EnemyStateMachine/Move/Timer" to="EnemyStateMachine/Move" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemyStateMachine/Move/TimerFirstAtk" to="EnemyStateMachine/Move" method="_on_timer_first_atk_timeout"]
-[connection signal="timeout" from="EnemyStateMachine/Move/TimerSecondAtk" to="EnemyStateMachine/Move" method="_on_timer_second_atk_timeout"]
-[connection signal="timeout" from="EnemyStateMachine/Move/TimerReset" to="EnemyStateMachine/Move" method="_on_timer_reset_timeout"]
