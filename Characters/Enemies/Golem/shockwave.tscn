@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://deibdvnyqbcsy"]
+
+[ext_resource type="Texture2D" uid="uid://dkie1343kyfor" path="res://Art/Enemies/Golem/Shockwaves.png" id="1_mj6v7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5byyf"]
+atlas = ExtResource("1_mj6v7")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrvm1"]
+atlas = ExtResource("1_mj6v7")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wx66y"]
+atlas = ExtResource("1_mj6v7")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3k4x"]
+atlas = ExtResource("1_mj6v7")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h373r"]
+atlas = ExtResource("1_mj6v7")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b70mf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5byyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrvm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wx66y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3k4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h373r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Shockwave" type="AnimatedSprite2D"]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_b70mf")
+frame = 1
+frame_progress = 0.189077
