@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://deibdvnyqbcsy"]
+[gd_scene load_steps=11 format=3 uid="uid://deibdvnyqbcsy"]
 
 [ext_resource type="Texture2D" uid="uid://dkie1343kyfor" path="res://Art/Enemies/Golem/Shockwaves.png" id="1_mj6v7"]
+[ext_resource type="Script" path="res://Characters/Enemies/Golem/shockwave.gd" id="2_m0yxk"]
+[ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hitbox.gd" id="2_n0w6k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5byyf"]
 atlas = ExtResource("1_mj6v7")
@@ -40,13 +42,26 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h373r")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpa7y"]
+size = Vector2(26, 12)
+
 [node name="Shockwave" type="AnimatedSprite2D"]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_b70mf")
-frame = 1
-frame_progress = 0.189077
+autoplay = "default"
+script = ExtResource("2_m0yxk")
+shockwave_speed = 20.0
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("2_n0w6k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_gpa7y")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
