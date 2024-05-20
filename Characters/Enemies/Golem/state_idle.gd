@@ -3,6 +3,7 @@ extends State
 @export var ray_cast_left: RayCast2D
 @export var ray_cast_right: RayCast2D
 @export var shockwave_location: Node2D
+@export var speed: float = 20
 
 var direction: Vector2
 
@@ -13,7 +14,7 @@ func enter() -> void:
 	timer.start()
 
 func state_physics_process(_delta: float) -> void:
-	character.velocity.x = move_toward(character.velocity.x, 0, 500)
+	character.velocity.x = move_toward(character.velocity.x, 0, speed)
 	detect_player()
 	update_facing_direction()
 	move()

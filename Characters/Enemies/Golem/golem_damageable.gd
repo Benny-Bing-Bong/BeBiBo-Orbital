@@ -1,4 +1,6 @@
 extends Damageable
 
 func _die() -> void:
-	get_parent().queue_free()
+	for child in get_parent().get_children():
+		if child is EnemyStateMachine:
+			child.emit_signal("interrupt_state", "dead")
