@@ -7,13 +7,14 @@ var direction: Vector2 = Vector2.ZERO
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var player_state_machine: PlayerStateMachine = $PlayerStateMachine
 
 func _ready() -> void:
 	animation_tree.active = true
 
 func _physics_process(delta: float) -> void:
 	direction = Input.get_vector("left", "right", "up", "down")
-	if direction.x != 0:
+	if direction.x != 0 and player_state_machine.get_can_move():
 		velocity.x = direction.x * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
