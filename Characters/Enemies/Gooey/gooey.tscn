@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://b2vww2ct07iuh"]
+[gd_scene load_steps=41 format=3 uid="uid://b2vww2ct07iuh"]
 
 [ext_resource type="Texture2D" uid="uid://bk333ger0fy3u" path="res://Art/Enemies/Gooey/gooey Idle.png" id="1_6po1y"]
 [ext_resource type="Shader" path="res://Characters/hit_flash.gdshader" id="1_b37dw"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://Characters/Enemies/Gooey/GooeyDamageable.gd" id="8_yyxbb"]
 [ext_resource type="Script" path="res://Characters/Enemies/Gooey/state_knockback.gd" id="10_uohbm"]
 [ext_resource type="Script" path="res://Characters/Enemies/Gooey/state_dead.gd" id="11_d63q4"]
+[ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hitbox.gd" id="14_1aner"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m65yy"]
 resource_local_to_scene = true
@@ -212,6 +213,9 @@ height = 24.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gk1gw"]
 radius = 13.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3jeeu"]
+radius = 13.0
+
 [node name="Gooey" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 3
@@ -290,7 +294,15 @@ script = ExtResource("7_wogyy")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_gk1gw")
-debug_color = Color(0.890196, 0.258824, 0.505882, 0.419608)
+debug_color = Color(0.635294, 0.521569, 0.203922, 0.419608)
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("14_1aner")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_3jeeu")
+debug_color = Color(0.878431, 0.313726, 0.34902, 0.419608)
 
 [connection signal="timeout" from="GooeyDamageable/Timer" to="GooeyDamageable" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemyStateMachine/Idle/Timer" to="EnemyStateMachine/Idle" method="_on_timer_timeout"]
