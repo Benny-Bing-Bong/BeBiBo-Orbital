@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://deibdvnyqbcsy"]
+
+[ext_resource type="Texture2D" uid="uid://dkie1343kyfor" path="res://Art/Enemies/Golem/Shockwaves.png" id="1_mj6v7"]
+[ext_resource type="Script" path="res://Characters/Enemies/Golem/shockwave.gd" id="2_m0yxk"]
+[ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hitbox.gd" id="2_n0w6k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5byyf"]
+atlas = ExtResource("1_mj6v7")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrvm1"]
+atlas = ExtResource("1_mj6v7")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wx66y"]
+atlas = ExtResource("1_mj6v7")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3k4x"]
+atlas = ExtResource("1_mj6v7")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h373r"]
+atlas = ExtResource("1_mj6v7")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b70mf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5byyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrvm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wx66y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3k4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h373r")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpa7y"]
+size = Vector2(26, 12)
+
+[node name="Shockwave" type="AnimatedSprite2D"]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_b70mf")
+autoplay = "default"
+script = ExtResource("2_m0yxk")
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(0, 10)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("2_n0w6k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_gpa7y")
+debug_color = Color(0.905882, 0.286275, 0.270588, 0.419608)
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
