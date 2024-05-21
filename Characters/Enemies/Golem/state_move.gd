@@ -22,6 +22,10 @@ func enter() -> void:
 	timer_second_atk.start()
 	timer_reset.start()
 
+func exit() -> void:
+	timer_first_atk.stop()
+	timer_reset.stop()
+
 func state_physics_process(_delta: float) -> void:
 	character.velocity.x = direction.x * speed
 	character.move_and_slide()
