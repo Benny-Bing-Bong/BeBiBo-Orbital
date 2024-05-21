@@ -231,7 +231,7 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 4)
+position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_hnt6y")
 
 [node name="RayCast_Left" type="RayCast2D" parent="."]
