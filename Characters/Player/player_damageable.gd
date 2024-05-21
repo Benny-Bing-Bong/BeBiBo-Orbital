@@ -1,5 +1,8 @@
 extends Damageable
 
+func _ready() -> void:
+	health = HealthManager.curr_health
+
 func take_damage(value: int) -> void:
 	super(value)
 	HealthManager.set_health(health)

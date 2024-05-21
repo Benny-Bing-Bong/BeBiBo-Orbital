@@ -9,6 +9,7 @@ extends Node2D
 
 func _ready() -> void:
 	HealthManager.connect("on_health_changed", update_bar)
+	update_bar(HealthManager.curr_health)
 
 func update_bar(curr_health: int) -> void:
 	if curr_health >= 3:
