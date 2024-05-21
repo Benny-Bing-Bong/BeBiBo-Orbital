@@ -17,5 +17,5 @@ func set_health(new_value: int) -> void:
 	
 	if curr_health > max_health:
 		curr_health = max_health
-	
+	print("HealthManager signal emitted")
 	on_health_changed.emit(curr_health)
