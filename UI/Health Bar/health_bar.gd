@@ -11,7 +11,6 @@ func _ready() -> void:
 	HealthManager.connect("on_health_changed", update_bar)
 
 func update_bar(curr_health: int) -> void:
-	print("updatebar called")
 	if curr_health >= 3:
 		heart3.texture = core_normal
 	elif curr_health < 3:

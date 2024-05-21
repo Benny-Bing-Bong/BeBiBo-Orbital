@@ -3,10 +3,13 @@ extends Node
 const max_health: int = 3
 var curr_health: int
 
-signal on_health_changed(new_health: int)
+signal on_health_changed(curr_health: int)
 
+# TODO: There needs to be some data file that saves the health, so that on load
+#in a new scene, health is not always reset to max health
 func _ready() -> void:
 	curr_health = max_health
+	set_health(curr_health)
 
 func set_health(new_value: int) -> void:
 	curr_health = new_value
@@ -17,5 +20,5 @@ func set_health(new_value: int) -> void:
 	
 	if curr_health > max_health:
 		curr_health = max_health
-	print("HealthManager signal emitted")
+	
 	on_health_changed.emit(curr_health)
