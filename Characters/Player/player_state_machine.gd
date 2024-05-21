@@ -1,6 +1,8 @@
 class_name PlayerStateMachine
 extends Node
 
+signal interrupted_state(new_state: String)
+
 @export var initial_state: State
 @export var character: CharacterBody2D
 @export var anim_tree: AnimationTree
@@ -25,6 +27,8 @@ func _ready() -> void:
 	if initial_state:
 		initial_state.enter()
 		current_state = initial_state
+	
+	interrupted_state.connect(on_interrupted_state)
 
 func _input(event: InputEvent) -> void:
 	if current_state:
@@ -51,3 +55,9 @@ func on_child_transition(state: State, new_state_name: String) -> void:
 	
 	current_state = new_state
 	current_state.enter()
+
+func get_can_move() -> bool:
+	return current_state.can_move
+
+func on_interrupted_state(new_state: String) -> void:
+	on_child_transition(current_state, new_state)

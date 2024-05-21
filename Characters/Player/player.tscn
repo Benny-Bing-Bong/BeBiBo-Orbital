@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://iaq2i2lf7gwg"]
+[gd_scene load_steps=89 format=3 uid="uid://iaq2i2lf7gwg"]
 
 [ext_resource type="Shader" path="res://Characters/hit_flash.gdshader" id="1_6r3x5"]
 [ext_resource type="Script" path="res://Characters/Player/player.gd" id="1_84hpc"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bqjxmydkcphsd" path="res://Art/Character/gamesprite Jump.png" id="4_fctwy"]
 [ext_resource type="Texture2D" uid="uid://cexysuoxkv580" path="res://Art/Character/gamesprite Wallhang.png" id="4_gd0oy"]
 [ext_resource type="Script" path="res://Characters/Player/player_state_machine.gd" id="5_gc0bk"]
+[ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hurtbox.gd" id="5_wqm32"]
 [ext_resource type="Script" path="res://Characters/Player/state_ground.gd" id="7_l0kq4"]
 [ext_resource type="Script" path="res://Characters/Player/state_air.gd" id="8_h68dv"]
 [ext_resource type="Script" path="res://Characters/Player/state_landing.gd" id="9_g6evu"]
@@ -17,18 +18,30 @@
 [ext_resource type="Script" path="res://Characters/Player/state_label.gd" id="10_6ovdk"]
 [ext_resource type="Script" path="res://Characters/Player/state_falling.gd" id="10_w1fag"]
 [ext_resource type="Script" path="res://Characters/Player/state_attack.gd" id="11_i5q18"]
+[ext_resource type="Script" path="res://Characters/Player/player_damageable.gd" id="13_6xbaq"]
 [ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hitbox.gd" id="13_43nee"]
 [ext_resource type="Script" path="res://Characters/Player/state_crouch.gd" id="13_pl527"]
 [ext_resource type="Script" path="res://Characters/Player/state_wallhang.gd" id="18_clyem"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eh2ya"]
-radius = 9.0
-height = 46.0
+[ext_resource type="Script" path="res://Characters/Player/state_death.gd" id="22_y3374"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2j5v6"]
 resource_local_to_scene = true
 shader = ExtResource("1_6r3x5")
 shader_parameter/active = false
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eh2ya"]
+radius = 9.0
+height = 46.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_juwdw"]
+size = Vector2(58, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0bom"]
+size = Vector2(51, 64)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cpbuv"]
+radius = 9.0
+height = 46.0
 
 [sub_resource type="Animation" id="Animation_x3aya"]
 length = 0.001
@@ -622,6 +635,9 @@ blend_point_1/pos = -1.0
 blend_point_2/node = SubResource("AnimationNodeAnimation_ow20d")
 blend_point_2/pos = 1.0
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e0ece"]
+animation = &"death"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0jhnx"]
 animation = &"falling"
 
@@ -696,14 +712,34 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ltv4g"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_krahm"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3th4d"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yuuli"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lxjvs"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nb7d3"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ssvea"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_go45j"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eu65c"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_viho6"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5ym8g"]
-states/End/position = Vector2(1086, 100)
+states/End/position = Vector2(1298, 100)
 states/attack1/node = SubResource("AnimationNodeAnimation_qorhj")
 states/attack1/position = Vector2(518, 306)
 states/attack2/node = SubResource("AnimationNodeAnimation_qg346")
 states/attack2/position = Vector2(663, 306)
 states/crouch/node = SubResource("AnimationNodeBlendSpace1D_vqgs6")
 states/crouch/position = Vector2(793, 100)
+states/death/node = SubResource("AnimationNodeAnimation_e0ece")
+states/death/position = Vector2(1197, -15)
 states/falling/node = SubResource("AnimationNodeAnimation_0jhnx")
 states/falling/position = Vector2(458, -94)
 states/jump_double/node = SubResource("AnimationNodeAnimation_hvppm")
@@ -716,34 +752,52 @@ states/move/node = SubResource("AnimationNodeBlendSpace1D_vgjj8")
 states/move/position = Vector2(390, 100)
 states/wallhang/node = SubResource("AnimationNodeAnimation_2hujq")
 states/wallhang/position = Vector2(580, -246)
-transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_uw416"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_ucu2m"), "jump_land", "move", SubResource("AnimationNodeStateMachineTransition_ovb1j"), "jump_start", "jump_double", SubResource("AnimationNodeStateMachineTransition_me81o"), "jump_start", "jump_land", SubResource("AnimationNodeStateMachineTransition_siumw"), "jump_double", "jump_land", SubResource("AnimationNodeStateMachineTransition_7hjf8"), "move", "falling", SubResource("AnimationNodeStateMachineTransition_1rj3x"), "falling", "jump_start", SubResource("AnimationNodeStateMachineTransition_6clwg"), "falling", "move", SubResource("AnimationNodeStateMachineTransition_w3872"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_wyo13"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_3gsic"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_piaix"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_ml4yr"), "move", "crouch", SubResource("AnimationNodeStateMachineTransition_w1gv1"), "crouch", "move", SubResource("AnimationNodeStateMachineTransition_3rl7o"), "jump_start", "wallhang", SubResource("AnimationNodeStateMachineTransition_grq51"), "jump_double", "wallhang", SubResource("AnimationNodeStateMachineTransition_ffgga"), "wallhang", "jump_start", SubResource("AnimationNodeStateMachineTransition_7weve"), "wallhang", "falling", SubResource("AnimationNodeStateMachineTransition_ltv4g")]
-graph_offset = Vector2(79, -14)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_juwdw"]
-size = Vector2(58, 36)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0bom"]
-size = Vector2(51, 64)
+transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_uw416"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_ucu2m"), "jump_land", "move", SubResource("AnimationNodeStateMachineTransition_ovb1j"), "jump_start", "jump_double", SubResource("AnimationNodeStateMachineTransition_me81o"), "jump_start", "jump_land", SubResource("AnimationNodeStateMachineTransition_siumw"), "jump_double", "jump_land", SubResource("AnimationNodeStateMachineTransition_7hjf8"), "move", "falling", SubResource("AnimationNodeStateMachineTransition_1rj3x"), "falling", "jump_start", SubResource("AnimationNodeStateMachineTransition_6clwg"), "falling", "move", SubResource("AnimationNodeStateMachineTransition_w3872"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_wyo13"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_3gsic"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_piaix"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_ml4yr"), "move", "crouch", SubResource("AnimationNodeStateMachineTransition_w1gv1"), "crouch", "move", SubResource("AnimationNodeStateMachineTransition_3rl7o"), "jump_start", "wallhang", SubResource("AnimationNodeStateMachineTransition_grq51"), "jump_double", "wallhang", SubResource("AnimationNodeStateMachineTransition_ffgga"), "wallhang", "jump_start", SubResource("AnimationNodeStateMachineTransition_7weve"), "wallhang", "falling", SubResource("AnimationNodeStateMachineTransition_ltv4g"), "jump_double", "death", SubResource("AnimationNodeStateMachineTransition_krahm"), "jump_land", "death", SubResource("AnimationNodeStateMachineTransition_3th4d"), "crouch", "death", SubResource("AnimationNodeStateMachineTransition_yuuli"), "wallhang", "death", SubResource("AnimationNodeStateMachineTransition_lxjvs"), "jump_start", "death", SubResource("AnimationNodeStateMachineTransition_nb7d3"), "falling", "death", SubResource("AnimationNodeStateMachineTransition_ssvea"), "move", "death", SubResource("AnimationNodeStateMachineTransition_go45j"), "attack2", "death", SubResource("AnimationNodeStateMachineTransition_eu65c"), "attack1", "death", SubResource("AnimationNodeStateMachineTransition_viho6")]
+graph_offset = Vector2(286, -184)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_84hpc")
 
-[node name="Gravity" type="Node" parent="." node_paths=PackedStringArray("character_body")]
-script = ExtResource("9_k3q15")
-character_body = NodePath("..")
-
 [node name="HeadRayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, -20)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_2j5v6")
+texture = ExtResource("3_wxcsf")
+hframes = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_eh2ya")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_2j5v6")
-texture = ExtResource("4_gd0oy")
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("13_43nee")
+
+[node name="Slash1ColShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(39, 6)
+shape = SubResource("RectangleShape2D_juwdw")
+disabled = true
+debug_color = Color(0.933333, 0.258824, 0.0980392, 0.419608)
+
+[node name="Slash2ColShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(35.5, -8)
+shape = SubResource("RectangleShape2D_p0bom")
+disabled = true
+debug_color = Color(0.933333, 0.258824, 0.0980392, 0.419608)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("5_wqm32")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_cpbuv")
+debug_color = Color(0.65098, 0.517647, 0.117647, 0.419608)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -759,6 +813,13 @@ tree_root = SubResource("AnimationNodeStateMachine_5ym8g")
 anim_player = NodePath("../AnimationPlayer")
 parameters/crouch/blend_position = 0
 parameters/move/blend_position = 0.0
+
+[node name="Gravity" type="Node" parent="." node_paths=PackedStringArray("character_body")]
+script = ExtResource("9_k3q15")
+character_body = NodePath("..")
+
+[node name="PlayerDamageable" type="Node" parent="."]
+script = ExtResource("13_6xbaq")
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "character", "anim_tree")]
 script = ExtResource("5_gc0bk")
@@ -812,6 +873,11 @@ first_anim_name = "crouch"
 script = ExtResource("18_clyem")
 first_anim_name = "wallhang"
 
+[node name="Death" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("22_y3374")
+can_move = false
+first_anim_name = "death"
+
 [node name="State Label" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
 offset_left = -37.0
 offset_top = -47.0
@@ -819,23 +885,6 @@ offset_right = 37.0
 offset_bottom = -24.0
 script = ExtResource("10_6ovdk")
 state_machine = NodePath("../PlayerStateMachine")
-
-[node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 4
-script = ExtResource("13_43nee")
-
-[node name="Slash1ColShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(39, 6)
-shape = SubResource("RectangleShape2D_juwdw")
-disabled = true
-debug_color = Color(0.933333, 0.258824, 0.0980392, 0.419608)
-
-[node name="Slash2ColShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(35.5, -8)
-shape = SubResource("RectangleShape2D_p0bom")
-disabled = true
-debug_color = Color(0.933333, 0.258824, 0.0980392, 0.419608)
 
 [connection signal="animation_finished" from="AnimationTree" to="PlayerStateMachine/Landing" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="PlayerStateMachine/Attack" method="_on_animation_tree_animation_finished"]
