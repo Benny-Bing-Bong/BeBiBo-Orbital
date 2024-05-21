@@ -21,6 +21,7 @@ config/windows_native_icon="res://Art/Promotional Art/GameLogoWindowsIcon.ico"
 [autoload]
 
 GameManager="*res://Managers/game_manager.gd"
+HealthManager="*res://Managers/health_manager.gd"
 
 [debug]
 
