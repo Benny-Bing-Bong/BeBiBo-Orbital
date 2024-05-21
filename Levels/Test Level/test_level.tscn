@@ -170,7 +170,6 @@ layer_0/tile_data = PackedInt32Array(393204, 131072, 1, 458740, 131072, 2, 52427
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
 process_callback = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
