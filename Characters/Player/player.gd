@@ -13,11 +13,13 @@ func _ready() -> void:
 	animation_tree.active = true
 
 func _physics_process(delta: float) -> void:
-	direction = Input.get_vector("left", "right", "up", "down")
-	if direction.x != 0 and player_state_machine.get_can_move():
-		velocity.x = direction.x * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
+	if player_state_machine.get_can_move():
+		direction = Input.get_vector("left", "right", "up", "down")
+		if direction.x != 0:
+			velocity.x = direction.x * speed
+		else:
+			velocity.x = move_toward(velocity.x, 0, speed)
+	
 	
 	# currently called in gravity
 	#move_and_slide()
@@ -25,8 +27,8 @@ func _physics_process(delta: float) -> void:
 	update_facing_direction()
 
 func update_animation_parameters() -> void:
-	animation_tree.set("parameters/move/blend_position", direction.x)
-	animation_tree.set("parameters/crouch/blend_position", direction.x)
+		animation_tree.set("parameters/move/blend_position", direction.x)
+		animation_tree.set("parameters/crouch/blend_position", direction.x)
 
 func update_facing_direction() -> void:
 	var slash1_hitbox: CollisionShape2D = $Hitbox/Slash1ColShape2D
