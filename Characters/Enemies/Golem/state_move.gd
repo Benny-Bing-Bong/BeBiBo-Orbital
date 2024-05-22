@@ -8,44 +8,35 @@ var direction: Vector2
 var wave_left: Node2D
 var wave_right: Node2D
 
-@onready var timer: Timer = $Timer # 2x of animation duration, so walk twice
-@onready var timer_first_atk: Timer = $TimerFirstAtk
-@onready var timer_second_atk: Timer = $TimerSecondAtk
-@onready var timer_reset: Timer = $TimerReset
 @onready var wave_spawn: Node2D = $"../../ShockwaveSpawnLocs"
+@onready var move_animation_player: AnimationPlayer = $MoveAnimationPlayer
 
 func enter() -> void:
 	super()
 	direction = Vector2.RIGHT if anim_sprite.flip_h else Vector2.LEFT
-	timer.start()
-	timer_first_atk.start()
-	timer_second_atk.start()
-	timer_reset.start()
+	move_animation_player.play("summon_shockwaves")
 
 func exit() -> void:
-	timer_first_atk.stop()
-	timer_reset.stop()
+	move_animation_player.stop()
 
 func state_physics_process(_delta: float) -> void:
 	character.velocity.x = direction.x * speed
 	character.move_and_slide()
 
-func _on_timer_timeout() -> void:
-	transitioned.emit(self, "idle")
-
-func _on_timer_first_atk_timeout() -> void:
+#called in MoveAnimationPlayer under summon_shockwaves
+func step_one() -> void:
 	instantiate_waves()
 	put_at_position(0, 1)
 	add_wave_to_scene()
 
-func _on_timer_second_atk_timeout() -> void:
+#called in MoveAnimationPlayer under summon_shockwaves
+func step_two() -> void:
 	instantiate_waves()
 	put_at_position(2, 3)
 	add_wave_to_scene()
 
-func _on_timer_reset_timeout() -> void:
-	timer_first_atk.start()
-	timer_second_atk.start()
+func go_back_idle() -> void:
+	transitioned.emit(self, "idle")
 
 func instantiate_waves() -> void:
 	wave_left = shockwave.instantiate()
