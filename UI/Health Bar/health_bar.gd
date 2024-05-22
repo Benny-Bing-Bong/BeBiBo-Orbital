@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @export var core_normal: Texture2D
 @export var core_broken: Texture2D

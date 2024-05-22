@@ -30,10 +30,6 @@ text = "HP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HealthBarControl" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(56, 16)
+[node name="HealthBar" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_hw2kd")]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
-
-[node name="HealthBar" parent="MarginContainer/VBoxContainer/HBoxContainer/HealthBarControl" instance=ExtResource("1_hw2kd")]
