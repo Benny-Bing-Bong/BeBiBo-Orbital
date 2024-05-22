@@ -16,11 +16,14 @@ func state_input(_input: InputEvent) -> void:
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name == first_anim_name:
 		if dbl_atk_timer.is_stopped():
-			transitioned.emit(self, "ground")
+			go_back_move()
 		else:
 			playback.travel(atk2_anim_name)
 	if anim_name == atk2_anim_name:
-		transitioned.emit(self, "ground")
+		go_back_move()
 
 func _on_timer_timeout() -> void:
+	transitioned.emit(self, "ground")
+
+func  go_back_move() -> void:
 	transitioned.emit(self, "ground")
