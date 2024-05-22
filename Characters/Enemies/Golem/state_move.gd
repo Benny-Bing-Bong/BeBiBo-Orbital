@@ -35,6 +35,7 @@ func step_two() -> void:
 	put_at_position(2, 3)
 	add_wave_to_scene()
 
+#called in MoveAnimationPlayer under summon_shockwaves
 func go_back_idle() -> void:
 	transitioned.emit(self, "idle")
 
