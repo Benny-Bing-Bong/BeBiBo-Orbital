@@ -19,3 +19,7 @@ func able_to(action: String) -> bool:
 func unlock(action: String) -> void:
 	if unlock_dictionary.has(action):
 		unlock_dictionary[action] = true
+
+func reset_unlocks() -> void:
+	for key: String in unlock_dictionary.keys():
+		unlock_dictionary[key] = false
