@@ -11,6 +11,10 @@ var player_in_range: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# if related unlock has already been unlocked, remove from scene
+	if UnlockManager.able_to(unlock_name):
+		queue_free()
+	
 	tutorial_label.text = tutorial_string
 
 func _input(event: InputEvent) -> void:
@@ -18,6 +22,7 @@ func _input(event: InputEvent) -> void:
 		pickup_label.visible = false
 		sprite_2d.visible = false
 		tutorial_label.visible = true
+		UnlockManager.unlock(unlock_name)
 		
 		await get_tree().create_timer(10).timeout
 		
