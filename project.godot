@@ -22,6 +22,8 @@ config/windows_native_icon="res://Art/Promotional Art/GameLogoWindowsIcon.ico"
 
 GameManager="*res://Managers/game_manager.gd"
 HealthManager="*res://Managers/health_manager.gd"
+UnlockManager="*res://Managers/unlock_manager.gd"
+SaveLoadManager="*res://Managers/save_load_manager.gd"
 
 [debug]
 
