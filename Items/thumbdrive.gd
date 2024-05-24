@@ -29,9 +29,11 @@ func _input(event: InputEvent) -> void:
 		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	player_in_range = true
-	pickup_label.visible = true
+	if not tutorial_label.visible:
+		player_in_range = true
+		pickup_label.visible = true
 
 func _on_body_exited(body: Node2D) -> void:
-	player_in_range = false
-	pickup_label.visible = false
+	if not tutorial_label.visible:
+		player_in_range = false
+		pickup_label.visible = false
