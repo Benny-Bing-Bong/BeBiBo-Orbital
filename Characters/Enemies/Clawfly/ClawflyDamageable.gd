@@ -7,8 +7,6 @@ func take_damage(value: int) -> void:
 		if child is EnemyStateMachine:
 			if health - value <= 0:
 				child.emit_signal("interrupt_state", "dead")
-			else:
-				child.emit_signal("interrupt_state", "knockback")
 	super.take_damage(value)
 
 func _die() -> void:
@@ -17,6 +15,7 @@ func _die() -> void:
 		timer.start()
 
 func flash_times(times: int) -> void:
+	print("yes")
 	for n in times:
 		get_parent().visible = false
 		await get_tree().create_timer(0.2).timeout
@@ -27,3 +26,4 @@ func flash_times(times: int) -> void:
 func _on_timer_timeout() -> void:
 	await flash_times(3)
 	get_parent().queue_free()
+

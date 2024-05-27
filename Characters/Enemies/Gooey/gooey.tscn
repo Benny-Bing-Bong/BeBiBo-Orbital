@@ -16,7 +16,6 @@
 [ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hitbox.gd" id="14_1aner"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m65yy"]
-resource_local_to_scene = true
 shader = ExtResource("1_b37dw")
 shader_parameter/active = false
 
@@ -173,7 +172,7 @@ animations = [{
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/active")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -181,7 +180,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_eyvft"]
@@ -223,7 +222,7 @@ collision_mask = 3
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_m65yy")
 sprite_frames = SubResource("SpriteFrames_53d71")
-animation = &"dead"
+animation = &"knockback"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
