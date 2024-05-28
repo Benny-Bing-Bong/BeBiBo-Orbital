@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci4klsnqge7t8"]
+
+[ext_resource type="Script" path="res://Items/thumbdrive.gd" id="1_l3oft"]
+[ext_resource type="Texture2D" uid="uid://do1nd8w54efes" path="res://Art/Items/thumbdrive.png" id="2_o7s8a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o7gke"]
+radius = 21.0238
+
+[node name="Thumbdrive" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_l3oft")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_o7s8a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_o7gke")
+
+[node name="PickupLabel" type="Label" parent="."]
+visible = false
+offset_left = -66.0
+offset_top = -60.0
+offset_right = 69.0
+offset_bottom = -37.0
+text = "Press F to pick up"
+horizontal_alignment = 3
+
+[node name="TutorialLabel" type="Label" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -147.0
+offset_top = -59.0
+offset_right = 148.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 3
+autowrap_mode = 2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

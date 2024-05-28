@@ -12,4 +12,5 @@ func land() -> void:
 	transitioned.emit(self, "ground")
 
 func jump() -> void:
-	transitioned.emit(self, "air")
+	if UnlockManager.able_to("jump"):
+		transitioned.emit(self, "air")
