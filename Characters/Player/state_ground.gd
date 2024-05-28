@@ -13,12 +13,10 @@ func state_process(_delta: float) -> void:
 		transitioned.emit(self, "falling")
 
 func jump() -> void:
-	if UnlockManager.able_to("jump"):
-		transitioned.emit(self, "air")
+	transitioned.emit(self, "air")
 
 func attack() -> void:
 	transitioned.emit(self, "attack")
 
 func crouch() -> void:
-	if UnlockManager.able_to("crouch"):
-		transitioned.emit(self, "crouch")
+	transitioned.emit(self, "crouch")
