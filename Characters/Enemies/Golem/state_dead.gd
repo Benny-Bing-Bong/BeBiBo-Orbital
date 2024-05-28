@@ -6,6 +6,7 @@ extends State
 
 func enter() -> void:
 	super()
+	can_move = false
 	anim_duration_timer.start()
 
 func state_physics_process(_delta: float) -> void:
