@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hitbox.gd" id="14_1aner"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m65yy"]
+resource_local_to_scene = true
 shader = ExtResource("1_b37dw")
 shader_parameter/active = false
 
@@ -172,7 +173,7 @@ animations = [{
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/active")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -180,7 +181,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_eyvft"]
@@ -222,7 +223,7 @@ collision_mask = 3
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_m65yy")
 sprite_frames = SubResource("SpriteFrames_53d71")
-animation = &"knockback"
+animation = &"dead"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -247,6 +248,9 @@ character_body = NodePath("..")
 
 [node name="GooeyDamageable" type="Node" parent="."]
 script = ExtResource("8_yyxbb")
+
+[node name="Timer" type="Timer" parent="GooeyDamageable"]
+one_shot = true
 
 [node name="EnemyStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "character", "sprite")]
 script = ExtResource("5_sopil")
@@ -282,8 +286,6 @@ one_shot = true
 script = ExtResource("11_d63q4")
 first_anim_name = "dead"
 
-[node name="AnimDurationTimer" type="Timer" parent="EnemyStateMachine/Dead"]
-
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 2
@@ -304,8 +306,8 @@ position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_3jeeu")
 debug_color = Color(0.878431, 0.313726, 0.34902, 0.419608)
 
+[connection signal="timeout" from="GooeyDamageable/Timer" to="GooeyDamageable" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemyStateMachine/Idle/Timer" to="EnemyStateMachine/Idle" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemyStateMachine/Crawl/Timer" to="EnemyStateMachine/Idle" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemyStateMachine/Crawl/Timer" to="EnemyStateMachine/Crawl" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemyStateMachine/Knockback/Timer" to="EnemyStateMachine/Knockback" method="_on_timer_timeout"]
-[connection signal="timeout" from="EnemyStateMachine/Dead/AnimDurationTimer" to="EnemyStateMachine/Dead" method="_on_anim_duration_timer_timeout"]

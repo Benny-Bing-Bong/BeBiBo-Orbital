@@ -11,8 +11,4 @@ func take_damage(value: int) -> void:
 
 # to handle in respective entities
 func _die() -> void:
-	for child in get_parent().get_children():
-		if child is Hitbox:
-			child.queue_free()
-		if child is Hurtbox:
-			child.queue_free()
+	pass
