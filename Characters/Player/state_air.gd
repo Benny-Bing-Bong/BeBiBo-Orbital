@@ -35,8 +35,10 @@ func land() -> void:
 	transitioned.emit(self, "landing")
 
 func wallhang() -> void:
-	transitioned.emit(self, "wallhang")
+	if UnlockManager.able_to("wallhang"):
+		transitioned.emit(self, "wallhang")
 
 func double_jump() -> void:
-	character.velocity.y = double_jump_velocity
-	playback.travel(jump_double_anim_name)
+	if UnlockManager.able_to("double_jump"):
+		character.velocity.y = double_jump_velocity
+		playback.travel(jump_double_anim_name)
