@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://iaq2i2lf7gwg"]
+[gd_scene load_steps=89 format=3 uid="uid://iaq2i2lf7gwg"]
 
 [ext_resource type="Shader" path="res://Characters/hit_flash.gdshader" id="1_6r3x5"]
 [ext_resource type="Script" path="res://Characters/Player/player.gd" id="1_84hpc"]
@@ -635,6 +635,9 @@ blend_point_1/pos = -1.0
 blend_point_2/node = SubResource("AnimationNodeAnimation_ow20d")
 blend_point_2/pos = 1.0
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e0ece"]
+animation = &"death"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0jhnx"]
 animation = &"falling"
 
@@ -709,14 +712,34 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ltv4g"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_krahm"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3th4d"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yuuli"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lxjvs"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nb7d3"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ssvea"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_go45j"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eu65c"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_viho6"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5ym8g"]
-states/End/position = Vector2(1086, 100)
+states/End/position = Vector2(1298, 100)
 states/attack1/node = SubResource("AnimationNodeAnimation_qorhj")
 states/attack1/position = Vector2(518, 306)
 states/attack2/node = SubResource("AnimationNodeAnimation_qg346")
 states/attack2/position = Vector2(663, 306)
 states/crouch/node = SubResource("AnimationNodeBlendSpace1D_vqgs6")
 states/crouch/position = Vector2(793, 100)
+states/death/node = SubResource("AnimationNodeAnimation_e0ece")
+states/death/position = Vector2(1197, -15)
 states/falling/node = SubResource("AnimationNodeAnimation_0jhnx")
 states/falling/position = Vector2(458, -94)
 states/jump_double/node = SubResource("AnimationNodeAnimation_hvppm")
