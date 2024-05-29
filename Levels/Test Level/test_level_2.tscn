@@ -165,7 +165,7 @@ position = Vector2(1435, -4)
 
 [node name="ChangeLevelArea2D" parent="." instance=ExtResource("6_3uhc8")]
 position = Vector2(-356, 46)
-new_level_path = "res://Levels/Test Level/test_level.tscn"
+new_level_name = "Level1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeLevelArea2D"]
 shape = SubResource("RectangleShape2D_1gv41")
@@ -175,5 +175,5 @@ offset_left = -27.0
 offset_top = -37.0
 offset_right = 45.0
 offset_bottom = 38.0
-text = "Level Changer here"
+text = "To test level1"
 autowrap_mode = 2
