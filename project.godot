@@ -24,6 +24,7 @@ GameManager="*res://Managers/game_manager.gd"
 HealthManager="*res://Managers/health_manager.gd"
 UnlockManager="*res://Managers/unlock_manager.gd"
 SaveLoadManager="*res://Managers/save_load_manager.gd"
+SceneManager="*res://Managers/scene_manager.gd"
 
 [debug]
 
@@ -97,6 +98,7 @@ interact={
 2d_physics/layer_2="PLAYER"
 2d_physics/layer_3="ENEMIES"
 2d_physics/layer_4="UNLOCKS"
+2d_physics/layer_5="LEVELCHANGER"
 
 [rendering]
 
