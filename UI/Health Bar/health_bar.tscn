@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bphn4e53jq6ix" path="res://Art/UI/ui Health Icon Broken.png" id="3_yos2l"]
 
 [node name="HealthBar" type="Control"]
-custom_minimum_size = Vector2(56, 15)
+custom_minimum_size = Vector2(56, 21)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 56.0
@@ -15,13 +15,13 @@ core_normal = ExtResource("2_wa3vw")
 core_broken = ExtResource("3_yos2l")
 
 [node name="Heart1Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(8, 8)
+position = Vector2(8, 11)
 texture = ExtResource("2_wa3vw")
 
 [node name="Heart2Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(28, 8)
+position = Vector2(28, 11)
 texture = ExtResource("2_wa3vw")
 
 [node name="Heart3Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(48, 8)
+position = Vector2(48, 11)
 texture = ExtResource("2_wa3vw")

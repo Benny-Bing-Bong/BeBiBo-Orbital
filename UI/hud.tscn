@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://biu8yengrvq78"]
+[gd_scene load_steps=4 format=3 uid="uid://biu8yengrvq78"]
 
 [ext_resource type="Theme" uid="uid://b87efi81vr2yb" path="res://Themes/main_theme.tres" id="1_aodyr"]
 [ext_resource type="PackedScene" uid="uid://vlcy5cgx3axs" path="res://UI/Health Bar/health_bar.tscn" id="1_hw2kd"]
+[ext_resource type="PackedScene" uid="uid://bm7l0lyshbvex" path="res://UI/Tutorial Screen/tutorial_label.tscn" id="3_3qmxs"]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -34,4 +35,13 @@ vertical_alignment = 1
 
 [node name="HealthBar" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_hw2kd")]
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_3qmxs")]
+layout_mode = 2
+size_flags_horizontal = 8

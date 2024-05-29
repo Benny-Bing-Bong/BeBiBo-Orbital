@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm7l0lyshbvex"]
+
+[ext_resource type="Theme" uid="uid://b87efi81vr2yb" path="res://Themes/main_theme.tres" id="1_ifo4d"]
+[ext_resource type="Script" path="res://UI/Tutorial Screen/tutorial_label.gd" id="2_fnhrj"]
+
+[node name="PanelContainer" type="PanelContainer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -168.0
+offset_bottom = 71.0
+grow_horizontal = 0
+theme = ExtResource("1_ifo4d")
+script = ExtResource("2_fnhrj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Tutorial"
+horizontal_alignment = 1
+
+[node name="TutorialLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 2
+
+[node name="CloseLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Press X to Close"
+horizontal_alignment = 1
