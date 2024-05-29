@@ -49,7 +49,7 @@ position = Vector2(1349, -43)
 [node name="Gooey4" parent="Enemies" index="3" instance=ExtResource("4_gngkw")]
 position = Vector2(2224, -156)
 
-[node name="ChangeLevelArea2D" parent="." index="7" instance=ExtResource("5_v5i6i")]
+[node name="ChangeLevelArea2D" parent="." index="6" instance=ExtResource("5_v5i6i")]
 position = Vector2(2359, -186)
 new_level_name = "Level1-2"
 
