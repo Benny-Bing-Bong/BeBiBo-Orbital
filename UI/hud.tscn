@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://biu8yengrvq78"]
+[gd_scene load_steps=3 format=3 uid="uid://biu8yengrvq78"]
 
+[ext_resource type="Theme" uid="uid://b87efi81vr2yb" path="res://Themes/main_theme.tres" id="1_aodyr"]
 [ext_resource type="PackedScene" uid="uid://vlcy5cgx3axs" path="res://UI/Health Bar/health_bar.tscn" id="1_hw2kd"]
 
 [node name="HUD" type="CanvasLayer"]
@@ -25,6 +26,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme = ExtResource("1_aodyr")
 theme_override_font_sizes/font_size = 16
 text = "HP"
 horizontal_alignment = 1
