@@ -25,5 +25,5 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 func _on_timer_timeout() -> void:
 	transitioned.emit(self, "ground")
 
-func  go_back_move() -> void:
+func go_back_move() -> void:
 	transitioned.emit(self, "ground")

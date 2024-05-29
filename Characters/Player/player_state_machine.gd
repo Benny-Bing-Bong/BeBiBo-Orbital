@@ -4,7 +4,7 @@ extends Node
 signal interrupted_state(new_state: String)
 
 @export var initial_state: State
-@export var character: CharacterBody2D
+@export var character: Player
 @export var anim_tree: AnimationTree
 
 var current_state: State

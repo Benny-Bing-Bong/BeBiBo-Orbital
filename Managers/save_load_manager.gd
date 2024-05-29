@@ -5,7 +5,7 @@ var file_path: String = "user://save_file.tres"
 func save_game() -> void:
 	var to_save: SaveLoadResource = SaveLoadResource.new()
 	
-	to_save.unlock_dictionary = UnlockManager.unlock_dictionary
+	to_save.unlock_dictionary = UnlockManager.save_dictionary()
 	
 	ResourceSaver.save(to_save, file_path)
 
@@ -17,4 +17,4 @@ func load_game() -> void:
 		save_game()
 		saved = load(file_path) as SaveLoadResource
 	
-	UnlockManager.unlock_dictionary = saved.unlock_dictionary
+	UnlockManager.load_dictionary(saved.unlock_dictionary)

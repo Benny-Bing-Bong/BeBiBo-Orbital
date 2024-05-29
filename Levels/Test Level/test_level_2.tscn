@@ -140,6 +140,11 @@ position = Vector2(296, 207)
 unlock_name = "wallhang"
 tutorial_string = "You have unlocked wallhang!"
 
+[node name="Thumbdrive5" parent="Thumbdrives" instance=ExtResource("5_vfsav")]
+position = Vector2(-224, 216)
+unlock_name = "dash"
+tutorial_string = "You have unlocked dash!"
+
 [node name="Player" parent="." instance=ExtResource("2_t6fdd")]
 position = Vector2(20, -39)
 

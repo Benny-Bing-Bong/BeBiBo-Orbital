@@ -7,6 +7,8 @@ func state_input(_input: InputEvent) -> void:
 		attack()
 	if _input.is_action_pressed("down"):
 		crouch()
+	if _input.is_action_pressed("dash"):
+		dash()
 
 func state_process(_delta: float) -> void:
 	if not character.is_on_floor():
@@ -22,3 +24,7 @@ func attack() -> void:
 func crouch() -> void:
 	if UnlockManager.able_to("crouch"):
 		transitioned.emit(self, "crouch")
+
+func dash() -> void:
+	if UnlockManager.able_to("dash"):
+		transitioned.emit(self, "dash")

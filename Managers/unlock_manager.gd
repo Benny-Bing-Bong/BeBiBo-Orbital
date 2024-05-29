@@ -6,8 +6,9 @@ var unlock_dictionary: Dictionary = {
 	"jump": false,
 	"double_jump": false,
 	"crouch": false,
-	"wallhang": false,
-}
+	"dash": false,
+	"wallhang": false
+	}
 
 # check if can do given action, and returns it. Default value if not found
 #is false
@@ -23,3 +24,10 @@ func unlock(action: String) -> void:
 func reset_unlocks() -> void:
 	for key: String in unlock_dictionary.keys():
 		unlock_dictionary[key] = false
+
+func load_dictionary(dict: Dictionary) -> void:
+	for key: String in dict.keys():
+		unlock_dictionary[key] = dict[key]
+
+func save_dictionary() -> Dictionary:
+	return unlock_dictionary
