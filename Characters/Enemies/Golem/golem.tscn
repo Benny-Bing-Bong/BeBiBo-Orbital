@@ -51,6 +51,7 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lskya"]
+resource_local_to_scene = true
 shader = ExtResource("1_k6d8b")
 shader_parameter/active = false
 

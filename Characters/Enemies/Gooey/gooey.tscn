@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hitbox.gd" id="14_1aner"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m65yy"]
+resource_local_to_scene = true
 shader = ExtResource("1_b37dw")
 shader_parameter/active = false
 
