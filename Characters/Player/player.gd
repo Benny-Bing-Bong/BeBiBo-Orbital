@@ -48,3 +48,9 @@ func update_facing_direction() -> void:
 		sprite.flip_h = true
 		slash1_hitbox.position.x = -distance1
 		slash2_hitbox.position.x = -distance2
+
+func get_facing_direction() -> Vector2:
+	if sprite.flip_h == false:
+		return Vector2.RIGHT
+	else:
+		return Vector2.LEFT

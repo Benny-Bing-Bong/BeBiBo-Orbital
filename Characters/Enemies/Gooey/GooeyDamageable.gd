@@ -1,7 +1,5 @@
 extends Damageable
 
-@onready var timer: Timer = $Timer
-
 func take_damage(value: int) -> void:
 	super(value)
 	if health > 0:
