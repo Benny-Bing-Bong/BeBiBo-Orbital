@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0irrfrykprg3"]
+[gd_scene load_steps=10 format=3 uid="uid://c0irrfrykprg3"]
 
 [ext_resource type="Texture2D" uid="uid://dd88sqdg8bsuj" path="res://Art/Assets/TileSet.png" id="1_nqn6w"]
 [ext_resource type="PackedScene" uid="uid://iaq2i2lf7gwg" path="res://Characters/Player/player.tscn" id="2_t6fdd"]
 [ext_resource type="PackedScene" uid="uid://bc3tov8n23ie2" path="res://Characters/Enemies/Golem/golem.tscn" id="3_c0gqj"]
 [ext_resource type="PackedScene" uid="uid://biu8yengrvq78" path="res://UI/hud.tscn" id="4_8mfku"]
 [ext_resource type="PackedScene" uid="uid://ci4klsnqge7t8" path="res://Items/thumbdrive.tscn" id="5_vfsav"]
+[ext_resource type="PackedScene" uid="uid://b7sls0rhprq1n" path="res://Levels/change_level_area_2d.tscn" id="6_3uhc8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xbt7y"]
 texture = ExtResource("1_nqn6w")
@@ -109,6 +110,9 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_xbt7y")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gv41"]
+size = Vector2(24, 91)
+
 [node name="TestLevel2" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -163,3 +167,18 @@ drag_vertical_offset = -0.5
 position = Vector2(1435, -4)
 
 [node name="HUD" parent="." instance=ExtResource("4_8mfku")]
+
+[node name="ChangeLevelArea2D" parent="." instance=ExtResource("6_3uhc8")]
+position = Vector2(-356, 46)
+new_level_name = "Level1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeLevelArea2D"]
+shape = SubResource("RectangleShape2D_1gv41")
+
+[node name="Label" type="Label" parent="ChangeLevelArea2D"]
+offset_left = -27.0
+offset_top = -37.0
+offset_right = 45.0
+offset_bottom = 38.0
+text = "To test level1"
+autowrap_mode = 2

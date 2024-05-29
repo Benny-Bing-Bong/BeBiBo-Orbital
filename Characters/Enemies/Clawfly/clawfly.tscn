@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hurtbox.gd" id="12_s10uv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hp2dg"]
+resource_local_to_scene = true
 shader = ExtResource("1_3u320")
 shader_parameter/active = false
 
