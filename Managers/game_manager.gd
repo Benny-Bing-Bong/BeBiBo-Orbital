@@ -9,14 +9,16 @@ func _ready() -> void:
 	player_alive = true
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("restart") and player_alive:
-		get_tree().reload_current_scene()
+	if event.is_action_pressed("restart"):
+		player_alive = true
+		HealthManager.set_health(3)
+		SceneManager.transition_to_scene("Level1-1")
 	
 	if event.is_action_pressed("reset"):
+		player_alive = true
 		HealthManager.set_health(3)
 		UnlockManager.reset_unlocks()
-		player_alive = true
-		get_tree().reload_current_scene()
+		SceneManager.transition_to_scene("Level1-1")
 
 # save the game on quit (by clicking X at top right)
 func _notification(what: int) -> void:
