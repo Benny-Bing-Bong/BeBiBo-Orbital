@@ -8,8 +8,10 @@ var scenes: Dictionary = {
 }
 
 func transition_to_scene(scene_name: String) -> void:
-	var scene_path: String = scenes.get(scene_name)
-	if scene_path == null:
+	var scene_path: String
+	if scenes.has(scene_name):
+		scene_path = scenes.get(scene_name)
+	else:
 		return
 	
 	var err: int = get_tree().change_scene_to_file(scene_path)
