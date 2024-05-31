@@ -18,6 +18,8 @@ const ANTI_ENEMY: int = 6
 
 func _ready() -> void:
 	animation_tree.active = true
+	# temporary fix for visual bug before implementing phase manager
+	RenderingServer.global_shader_parameter_set("inverted", false)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("phase") and UnlockManager.able_to("phase"):
