@@ -1,7 +1,7 @@
 [gd_scene load_steps=71 format=3 uid="uid://bc3tov8n23ie2"]
 
+[ext_resource type="Shader" path="res://Characters/Enemies/hit_flash.gdshader" id="1_dnqmm"]
 [ext_resource type="Texture2D" uid="uid://bf6x7nu44rxpr" path="res://Art/Enemies/Golem/Golem Idle.png" id="1_j4hcj"]
-[ext_resource type="Shader" path="res://Characters/hit_flash.gdshader" id="1_k6d8b"]
 [ext_resource type="Texture2D" uid="uid://bvtqt8h1hbi1f" path="res://Art/Enemies/Golem/Golem Death.png" id="1_yclpc"]
 [ext_resource type="Texture2D" uid="uid://dnpla5lwkkivf" path="res://Art/Enemies/Golem/Golem Moving.png" id="2_guwnx"]
 [ext_resource type="Script" path="res://States and Abstracts/gravity.gd" id="3_kqljo"]
@@ -52,7 +52,7 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lskya"]
 resource_local_to_scene = true
-shader = ExtResource("1_k6d8b")
+shader = ExtResource("1_dnqmm")
 shader_parameter/active = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dg85"]
@@ -490,12 +490,12 @@ shape = SubResource("RectangleShape2D_dne02")
 [node name="RayCast2D_Left" type="RayCast2D" parent="RayCasts"]
 position = Vector2(0, 34)
 target_position = Vector2(-130, 0)
-collision_mask = 2
+collision_mask = 18
 
 [node name="RayCast2D_Right" type="RayCast2D" parent="RayCasts"]
 position = Vector2(0, 34)
 target_position = Vector2(130, 0)
-collision_mask = 2
+collision_mask = 18
 
 [node name="ShockwaveSpawnLocs" type="Node2D" parent="."]
 

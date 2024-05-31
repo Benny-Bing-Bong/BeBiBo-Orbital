@@ -9,7 +9,8 @@ var unlock_dictionary: Dictionary = {
 	"double_jump": false,
 	"crouch": false,
 	"dash": false,
-	"wallhang": false
+	"wallhang": false,
+	"phase": false
 	}
 
 # check if can do given action, and returns it. Default value if not found

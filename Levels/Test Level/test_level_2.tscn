@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://c0irrfrykprg3"]
 
 [ext_resource type="Texture2D" uid="uid://dd88sqdg8bsuj" path="res://Art/Assets/TileSet.png" id="1_nqn6w"]
-[ext_resource type="PackedScene" uid="uid://iaq2i2lf7gwg" path="res://Characters/Player/player.tscn" id="2_t6fdd"]
+[ext_resource type="PackedScene" uid="uid://bd06xtnb3u2f2" path="res://Characters/Player/player.tscn" id="2_t6fdd"]
 [ext_resource type="PackedScene" uid="uid://bc3tov8n23ie2" path="res://Characters/Enemies/Golem/golem.tscn" id="3_c0gqj"]
 [ext_resource type="PackedScene" uid="uid://biu8yengrvq78" path="res://UI/hud.tscn" id="4_8mfku"]
 [ext_resource type="PackedScene" uid="uid://ci4klsnqge7t8" path="res://Items/thumbdrive.tscn" id="5_vfsav"]
-[ext_resource type="PackedScene" uid="uid://b7sls0rhprq1n" path="res://Levels/change_level_area_2d.tscn" id="6_3uhc8"]
+[ext_resource type="PackedScene" uid="uid://bpbmmhjdbu223" path="res://Levels/change_level_area_2d.tscn" id="6_3uhc8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xbt7y"]
 texture = ExtResource("1_nqn6w")
@@ -148,6 +148,11 @@ tutorial_string = "You have unlocked wallhang!"
 position = Vector2(-224, 216)
 unlock_name = "dash"
 tutorial_string = "You have unlocked dash!"
+
+[node name="Thumbdrive6" parent="Thumbdrives" instance=ExtResource("5_vfsav")]
+position = Vector2(1216, 211)
+unlock_name = "phase"
+tutorial_string = "You have unlocked phase!"
 
 [node name="Player" parent="." instance=ExtResource("2_t6fdd")]
 position = Vector2(20, -39)

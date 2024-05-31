@@ -1,7 +1,7 @@
 [gd_scene load_steps=41 format=3 uid="uid://b2vww2ct07iuh"]
 
 [ext_resource type="Texture2D" uid="uid://bk333ger0fy3u" path="res://Art/Enemies/Gooey/gooey Idle.png" id="1_6po1y"]
-[ext_resource type="Shader" path="res://Characters/hit_flash.gdshader" id="1_b37dw"]
+[ext_resource type="Shader" path="res://Characters/Enemies/hit_flash.gdshader" id="1_b37dw"]
 [ext_resource type="Texture2D" uid="uid://keb504va1qjf" path="res://Art/Enemies/Gooey/gooey Crawl.png" id="2_0enxo"]
 [ext_resource type="Texture2D" uid="uid://chls20jaevwmq" path="res://Art/Enemies/Gooey/gooey Dead.png" id="2_obv2u"]
 [ext_resource type="Texture2D" uid="uid://t70a1d1qtddk" path="res://Art/Enemies/Gooey/gooey Knockback.png" id="3_nif0p"]
@@ -235,11 +235,11 @@ shape = SubResource("CapsuleShape2D_hnt6y")
 
 [node name="RayCast_Left" type="RayCast2D" parent="."]
 target_position = Vector2(-200, 0)
-collision_mask = 2
+collision_mask = 18
 
 [node name="RayCast_Right" type="RayCast2D" parent="."]
 target_position = Vector2(200, 0)
-collision_mask = 2
+collision_mask = 18
 
 [node name="Gravity" type="Node" parent="." node_paths=PackedStringArray("character_body")]
 script = ExtResource("4_0rt8q")
@@ -296,7 +296,7 @@ debug_color = Color(0.635294, 0.521569, 0.203922, 0.419608)
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 18
 script = ExtResource("14_1aner")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
