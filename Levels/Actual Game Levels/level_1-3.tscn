@@ -78,8 +78,6 @@ position = Vector2(1843, -71)
 
 [node name="ChangeLevelArea2D" parent="." index="7" instance=ExtResource("6_og6dt")]
 position = Vector2(2060, -59)
-collision_layer = 64
-collision_mask = 18
 new_level_name = "Level1-4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeLevelArea2D" index="0"]
