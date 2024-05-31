@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ci4klsnqge7t8" path="res://Items/thumbdrive.tscn" id="3_hr85b"]
 [ext_resource type="PackedScene" uid="uid://b2vww2ct07iuh" path="res://Characters/Enemies/Gooey/gooey.tscn" id="4_8cljg"]
 [ext_resource type="PackedScene" uid="uid://bc3tov8n23ie2" path="res://Characters/Enemies/Golem/golem.tscn" id="5_1ke5w"]
-[ext_resource type="PackedScene" uid="uid://b7sls0rhprq1n" path="res://Levels/change_level_area_2d.tscn" id="6_og6dt"]
+[ext_resource type="PackedScene" uid="uid://bpbmmhjdbu223" path="res://Levels/change_level_area_2d.tscn" id="6_og6dt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i38ao"]
 size = Vector2(8, 86)
@@ -78,6 +78,8 @@ position = Vector2(1843, -71)
 
 [node name="ChangeLevelArea2D" parent="." index="7" instance=ExtResource("6_og6dt")]
 position = Vector2(2060, -59)
+collision_layer = 64
+collision_mask = 18
 new_level_name = "Level1-4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeLevelArea2D" index="0"]

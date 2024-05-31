@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bc3tov8n23ie2" path="res://Characters/Enemies/Golem/golem.tscn" id="3_c0gqj"]
 [ext_resource type="PackedScene" uid="uid://biu8yengrvq78" path="res://UI/hud.tscn" id="4_8mfku"]
 [ext_resource type="PackedScene" uid="uid://ci4klsnqge7t8" path="res://Items/thumbdrive.tscn" id="5_vfsav"]
-[ext_resource type="PackedScene" uid="uid://b7sls0rhprq1n" path="res://Levels/change_level_area_2d.tscn" id="6_3uhc8"]
+[ext_resource type="PackedScene" uid="uid://bpbmmhjdbu223" path="res://Levels/change_level_area_2d.tscn" id="6_3uhc8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xbt7y"]
 texture = ExtResource("1_nqn6w")
