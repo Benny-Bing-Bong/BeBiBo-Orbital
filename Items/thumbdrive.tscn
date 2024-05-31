@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ci4klsnqge7t8"]
+[gd_scene load_steps=5 format=3 uid="uid://ci4klsnqge7t8"]
 
 [ext_resource type="Script" path="res://Items/thumbdrive.gd" id="1_l3oft"]
 [ext_resource type="Texture2D" uid="uid://do1nd8w54efes" path="res://Art/Items/thumbdrive.png" id="2_o7s8a"]
+[ext_resource type="Theme" uid="uid://b87efi81vr2yb" path="res://Themes/main_theme.tres" id="3_xvq78"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o7gke"]
 radius = 21.0238
@@ -19,28 +20,13 @@ shape = SubResource("CircleShape2D_o7gke")
 
 [node name="PickupLabel" type="Label" parent="."]
 visible = false
-offset_left = -66.0
-offset_top = -60.0
-offset_right = 69.0
-offset_bottom = -37.0
+offset_left = -92.0
+offset_top = -47.0
+offset_right = 92.0
+offset_bottom = -24.0
+theme = ExtResource("3_xvq78")
 text = "Press F to pick up"
 horizontal_alignment = 3
-
-[node name="TutorialLabel" type="Label" parent="."]
-visible = false
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -147.0
-offset_top = -59.0
-offset_right = 148.0
-offset_bottom = -36.0
-grow_horizontal = 2
-grow_vertical = 0
-horizontal_alignment = 3
-autowrap_mode = 2
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
