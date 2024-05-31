@@ -4,13 +4,25 @@ extends CharacterBody2D
 @export var speed: float = 200.0
 
 var direction: Vector2 = Vector2.ZERO
+var inverted: bool = false
+const PLAYER_COLLISION: int = 2
+const ENEMY_COLLISION: int = 3
+const ANTI_PLAYER: int = 5
+const ANTI_ENEMY: int = 6
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var player_state_machine: PlayerStateMachine = $PlayerStateMachine
+@onready var hitbox: Hitbox = $Hitbox
+@onready var phase_cooldown: Timer = $PhaseCooldown
 
 func _ready() -> void:
 	animation_tree.active = true
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("phase") and UnlockManager.able_to("phase"):
+		if phase_cooldown.is_stopped():
+			phase_shift()
 
 func _physics_process(delta: float) -> void:
 	if player_state_machine.get_can_move():
@@ -54,3 +66,28 @@ func get_facing_direction() -> Vector2:
 		return Vector2.RIGHT
 	else:
 		return Vector2.LEFT
+
+func phase_shift() -> void:
+	# sprite inversion
+	if not inverted:
+		RenderingServer.global_shader_parameter_set("inverted", true)
+	else:
+		RenderingServer.global_shader_parameter_set("inverted", false)
+	
+	# play animation and start cooldown timer
+	sprite.phase_animation()
+	phase_cooldown.start()
+	
+	# buffer to ensure phase change is complete before setting collision values
+	await get_tree().create_timer(0.5).timeout
+	
+	# set new phase's collision layers and masks
+	set_collision_layer_value(PLAYER_COLLISION, not get_collision_layer_value(PLAYER_COLLISION))
+	set_collision_layer_value(ANTI_PLAYER, not get_collision_layer_value(ANTI_PLAYER))
+	hitbox.set_collision_layer_value(PLAYER_COLLISION, not hitbox.get_collision_layer_value(PLAYER_COLLISION))
+	hitbox.set_collision_layer_value(ANTI_PLAYER, not hitbox.get_collision_layer_value(ANTI_PLAYER))
+	hitbox.set_collision_mask_value(ENEMY_COLLISION, not hitbox.get_collision_mask_value(ENEMY_COLLISION))
+	hitbox.set_collision_mask_value(ANTI_ENEMY, not hitbox.get_collision_mask_value(ANTI_ENEMY))
+	
+	inverted = not inverted
+	

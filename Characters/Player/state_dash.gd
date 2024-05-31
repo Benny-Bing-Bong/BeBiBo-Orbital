@@ -27,6 +27,7 @@ func dash_effect() -> void:
 	ghost.hframes = character.sprite.hframes
 	ghost.frame = character.sprite.frame
 	ghost.flip_h = character.sprite.flip_h
+	ghost.material.shader = character.sprite.material.shader
 	
 	get_tree().current_scene.add_child(ghost)
 
