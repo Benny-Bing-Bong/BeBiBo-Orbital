@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsgwh3oimb7gi"
-path="res://.godot/imported/Gooey Idle Promo.png-9578fb64470a6671c0780f261ac57479.ctex"
+uid="uid://biihyn67n5ioa"
+path="res://.godot/imported/Attack Frame1.png-5f6802875a6e2dad7d4517772b082803.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Promotional Art/Gooey Idle Promo.png"
-dest_files=["res://.godot/imported/Gooey Idle Promo.png-9578fb64470a6671c0780f261ac57479.ctex"]
+source_file="res://Art/Promotional Art/Character Promos/Attack Frame1.png"
+dest_files=["res://.godot/imported/Attack Frame1.png-5f6802875a6e2dad7d4517772b082803.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xow44ubf8c48"
-path="res://.godot/imported/Gooey Crawl Promo.png-32005d508447d36b6599857ca104b5da.ctex"
+uid="uid://b5wydbx0q6hkb"
+path="res://.godot/imported/Attack Frame2.png-fa09ff7b77ab1c7dc2b4fc919f4bd724.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Promotional Art/Gooey Crawl Promo.png"
-dest_files=["res://.godot/imported/Gooey Crawl Promo.png-32005d508447d36b6599857ca104b5da.ctex"]
+source_file="res://Art/Promotional Art/Character Promos/Attack Frame2.png"
+dest_files=["res://.godot/imported/Attack Frame2.png-fa09ff7b77ab1c7dc2b4fc919f4bd724.ctex"]
 
 [params]
 
