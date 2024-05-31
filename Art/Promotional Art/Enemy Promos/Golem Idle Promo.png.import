@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bio27vg5cnmvr"
-path="res://.godot/imported/Attack Frame2.png-c10435381a85a29f8c8d91e96fe60678.ctex"
+uid="uid://c7qi5bq58tkw8"
+path="res://.godot/imported/Golem Idle Promo.png-240028ce920f491d2ea920b2431b97a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Promotional Art/Attack Frame2.png"
-dest_files=["res://.godot/imported/Attack Frame2.png-c10435381a85a29f8c8d91e96fe60678.ctex"]
+source_file="res://Art/Promotional Art/Enemy Promos/Golem Idle Promo.png"
+dest_files=["res://.godot/imported/Golem Idle Promo.png-240028ce920f491d2ea920b2431b97a4.ctex"]
 
 [params]
 
