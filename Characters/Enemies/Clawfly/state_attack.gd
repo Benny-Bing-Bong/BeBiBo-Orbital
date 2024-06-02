@@ -2,7 +2,7 @@ extends State
 
 @onready var timer: Timer = $Timer
 
-var speed: float = 8000.0
+var speed: float = 12000.0
 var direction: Vector2
 
 func enter() -> void:

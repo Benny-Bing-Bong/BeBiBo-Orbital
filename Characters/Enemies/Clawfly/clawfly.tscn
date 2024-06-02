@@ -259,7 +259,7 @@ script = ExtResource("9_d24gl")
 first_anim_name = "attack"
 
 [node name="Timer" type="Timer" parent="EnemyStateMachine/Attack"]
-wait_time = 3.0
+wait_time = 2.0
 
 [node name="Dead" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("10_u35mv")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://5knv0m88jh0i"]
+
+[ext_resource type="PackedScene" uid="uid://b2vww2ct07iuh" path="res://Characters/Enemies/Gooey/gooey.tscn" id="1_48wki"]
+[ext_resource type="Shader" path="res://Characters/Enemies/anti_hit_flash.gdshader" id="2_5uy1s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cffsg"]
+resource_local_to_scene = true
+shader = ExtResource("2_5uy1s")
+shader_parameter/active = false
+
+[node name="Gooey" instance=ExtResource("1_48wki")]
+collision_layer = 32
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_cffsg")
+
+[node name="Hurtbox" parent="." index="8"]
+collision_layer = 32
+collision_mask = 16
+
+[node name="Hitbox" parent="." index="9"]
+collision_layer = 32

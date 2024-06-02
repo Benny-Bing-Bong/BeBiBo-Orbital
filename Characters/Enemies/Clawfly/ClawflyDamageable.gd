@@ -1,7 +1,5 @@
 extends Damageable
 
-@onready var timer: Timer = $Timer
-
 func _die() -> void:
 	super()
 	for child in get_parent().get_children():

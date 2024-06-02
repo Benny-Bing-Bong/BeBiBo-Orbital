@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1omajlkm34yo"]
+[gd_scene load_steps=9 format=3 uid="uid://c1omajlkm34yo"]
 
 [ext_resource type="PackedScene" uid="uid://cnb1q5qwbielt" path="res://Levels/base_level.tscn" id="1_53qao"]
 [ext_resource type="PackedScene" uid="uid://d01hjpvimba31" path="res://Levels/Background Scenes for Use/parallax_background.tscn" id="2_im8s7"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bc3tov8n23ie2" path="res://Characters/Enemies/Golem/golem.tscn" id="4_l7who"]
 [ext_resource type="PackedScene" uid="uid://b2vww2ct07iuh" path="res://Characters/Enemies/Gooey/gooey.tscn" id="5_r0plq"]
 [ext_resource type="PackedScene" uid="uid://cx65k3re7acsc" path="res://Characters/Enemies/Clawfly/clawfly.tscn" id="6_ghkxx"]
+[ext_resource type="PackedScene" uid="uid://bpbmmhjdbu223" path="res://Levels/change_level_area_2d.tscn" id="7_ixld0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sg546"]
+size = Vector2(15, 60)
 
 [node name="BaseLevel" instance=ExtResource("1_53qao")]
 
@@ -58,3 +62,11 @@ position = Vector2(1309, -244)
 
 [node name="Clawfly3" parent="Enemies" index="7" instance=ExtResource("6_ghkxx")]
 position = Vector2(1706, -196)
+
+[node name="ChangeLevelArea2D" parent="." index="7" instance=ExtResource("7_ixld0")]
+position = Vector2(2418, -132)
+new_level_name = "Level1-5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeLevelArea2D" index="0"]
+position = Vector2(2.5, -11)
+shape = SubResource("RectangleShape2D_sg546")
