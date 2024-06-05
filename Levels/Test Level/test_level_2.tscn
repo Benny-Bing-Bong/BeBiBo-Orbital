@@ -154,6 +154,11 @@ position = Vector2(1216, 211)
 unlock_name = "phase"
 tutorial_string = "You have unlocked phase!"
 
+[node name="Thumbdrive7" parent="Thumbdrives" instance=ExtResource("5_vfsav")]
+position = Vector2(45, 247)
+unlock_name = "laser"
+tutorial_string = "You have unlocked laser!"
+
 [node name="Player" parent="." instance=ExtResource("2_t6fdd")]
 position = Vector2(20, -39)
 

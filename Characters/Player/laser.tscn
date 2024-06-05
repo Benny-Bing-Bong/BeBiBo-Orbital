@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwotlsknt0jcl"]
+
+[ext_resource type="Texture2D" uid="uid://bameceg6ip0ip" path="res://Art/Character/Laser.png" id="1_bhluv"]
+[ext_resource type="Shader" path="res://Characters/Player/player.gdshader" id="1_l0g5r"]
+[ext_resource type="Script" path="res://Characters/Player/laser.gd" id="2_1r0xj"]
+[ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hitbox.gd" id="2_xqx02"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d64fu"]
+shader = ExtResource("1_l0g5r")
+shader_parameter/active = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t5sfb"]
+size = Vector2(28, 3)
+
+[node name="Laser" type="Sprite2D" node_paths=PackedStringArray("hitbox")]
+material = SubResource("ShaderMaterial_d64fu")
+texture = ExtResource("1_bhluv")
+script = ExtResource("2_1r0xj")
+hitbox = NodePath("Hitbox")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("2_xqx02")
+hit_value = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_t5sfb")
+debug_color = Color(0.866667, 0.329412, 0.32549, 0.419608)
+
+[node name="RemoveTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="RemoveTimer" to="." method="_on_remove_timer_timeout"]

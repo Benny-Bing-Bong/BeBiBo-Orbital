@@ -10,7 +10,8 @@ var unlock_dictionary: Dictionary = {
 	"crouch": false,
 	"dash": false,
 	"wallhang": false,
-	"phase": false
+	"phase": false,
+	"laser": false,
 	}
 
 # check if can do given action, and returns it. Default value if not found

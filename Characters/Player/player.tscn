@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://bd06xtnb3u2f2"]
+[gd_scene load_steps=104 format=3 uid="uid://bd06xtnb3u2f2"]
 
 [ext_resource type="Script" path="res://Characters/Player/player.gd" id="1_84hpc"]
 [ext_resource type="Texture2D" uid="uid://mi12jiwl05ns" path="res://Art/Character/gamesprite Attack.png" id="1_w5tfx"]
@@ -28,6 +28,8 @@
 [ext_resource type="Script" path="res://Characters/Player/state_death.gd" id="22_y3374"]
 [ext_resource type="Script" path="res://Characters/Player/state_dash.gd" id="23_iaxxi"]
 [ext_resource type="PackedScene" uid="uid://bnbcewtwc5fnp" path="res://Characters/Player/dash_ghost.tscn" id="24_pobnm"]
+[ext_resource type="Script" path="res://Characters/Player/state_laser.gd" id="27_lt1hx"]
+[ext_resource type="PackedScene" uid="uid://cwotlsknt0jcl" path="res://Characters/Player/laser.tscn" id="28_xu40i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2j5v6"]
 resource_local_to_scene = true
@@ -582,6 +584,45 @@ tracks/2/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 }
 
+[sub_resource type="Animation" id="Animation_0k27p"]
+resource_name = "laser"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_v4wtv")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
 [sub_resource type="Animation" id="Animation_pitre"]
 resource_name = "run"
 length = 0.8
@@ -661,45 +702,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_0k27p"]
-resource_name = "laser"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("14_v4wtv")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8vjsx"]
@@ -863,7 +865,7 @@ states/attack2/position = Vector2(663, 306)
 states/crouch/node = SubResource("AnimationNodeBlendSpace1D_vqgs6")
 states/crouch/position = Vector2(793, 100)
 states/dash/node = SubResource("AnimationNodeAnimation_d700u")
-states/dash/position = Vector2(342.5, 7)
+states/dash/position = Vector2(286.5, -15)
 states/death/node = SubResource("AnimationNodeAnimation_e0ece")
 states/death/position = Vector2(1197, -15)
 states/falling/node = SubResource("AnimationNodeAnimation_0jhnx")
@@ -875,13 +877,13 @@ states/jump_land/position = Vector2(627, -20)
 states/jump_start/node = SubResource("AnimationNodeAnimation_3c4li")
 states/jump_start/position = Vector2(580, -94)
 states/laser/node = SubResource("AnimationNodeAnimation_qms0u")
-states/laser/position = Vector2(334.5, 192)
+states/laser/position = Vector2(286.5, 221)
 states/move/node = SubResource("AnimationNodeBlendSpace1D_vgjj8")
 states/move/position = Vector2(390, 100)
 states/wallhang/node = SubResource("AnimationNodeAnimation_2hujq")
 states/wallhang/position = Vector2(580, -246)
 transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_uw416"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_ucu2m"), "jump_land", "move", SubResource("AnimationNodeStateMachineTransition_ovb1j"), "jump_start", "jump_double", SubResource("AnimationNodeStateMachineTransition_me81o"), "jump_start", "jump_land", SubResource("AnimationNodeStateMachineTransition_siumw"), "jump_double", "jump_land", SubResource("AnimationNodeStateMachineTransition_7hjf8"), "move", "falling", SubResource("AnimationNodeStateMachineTransition_1rj3x"), "falling", "jump_start", SubResource("AnimationNodeStateMachineTransition_6clwg"), "falling", "move", SubResource("AnimationNodeStateMachineTransition_w3872"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_wyo13"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_3gsic"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_piaix"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_ml4yr"), "move", "crouch", SubResource("AnimationNodeStateMachineTransition_w1gv1"), "crouch", "move", SubResource("AnimationNodeStateMachineTransition_3rl7o"), "jump_start", "wallhang", SubResource("AnimationNodeStateMachineTransition_grq51"), "jump_double", "wallhang", SubResource("AnimationNodeStateMachineTransition_ffgga"), "wallhang", "jump_start", SubResource("AnimationNodeStateMachineTransition_7weve"), "wallhang", "falling", SubResource("AnimationNodeStateMachineTransition_ltv4g"), "jump_double", "death", SubResource("AnimationNodeStateMachineTransition_krahm"), "jump_land", "death", SubResource("AnimationNodeStateMachineTransition_3th4d"), "crouch", "death", SubResource("AnimationNodeStateMachineTransition_yuuli"), "wallhang", "death", SubResource("AnimationNodeStateMachineTransition_lxjvs"), "jump_start", "death", SubResource("AnimationNodeStateMachineTransition_nb7d3"), "falling", "death", SubResource("AnimationNodeStateMachineTransition_ssvea"), "move", "death", SubResource("AnimationNodeStateMachineTransition_go45j"), "attack2", "death", SubResource("AnimationNodeStateMachineTransition_eu65c"), "attack1", "death", SubResource("AnimationNodeStateMachineTransition_viho6"), "move", "dash", SubResource("AnimationNodeStateMachineTransition_a3drh"), "dash", "move", SubResource("AnimationNodeStateMachineTransition_r351g"), "move", "laser", SubResource("AnimationNodeStateMachineTransition_gosh3"), "laser", "move", SubResource("AnimationNodeStateMachineTransition_fru2u")]
-graph_offset = Vector2(-37.5, -85)
+graph_offset = Vector2(-67.5, -172)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
@@ -1013,6 +1015,12 @@ one_shot = true
 [node name="GhostTimer" type="Timer" parent="PlayerStateMachine/Dash"]
 wait_time = 0.05
 
+[node name="Laser" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("27_lt1hx")
+laser_scene = ExtResource("28_xu40i")
+can_move = false
+first_anim_name = "laser"
+
 [node name="Death" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("22_y3374")
 can_move = false
@@ -1032,6 +1040,7 @@ one_shot = true
 
 [connection signal="animation_finished" from="AnimationTree" to="PlayerStateMachine/Landing" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="PlayerStateMachine/Attack" method="_on_animation_tree_animation_finished"]
+[connection signal="animation_finished" from="AnimationTree" to="PlayerStateMachine/Laser" method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="PlayerStateMachine/Attack/Timer" to="PlayerStateMachine/Attack" method="_on_timer_timeout"]
 [connection signal="timeout" from="PlayerStateMachine/Dash/DashDuration" to="PlayerStateMachine/Dash" method="_on_dash_duration_timeout"]
 [connection signal="timeout" from="PlayerStateMachine/Dash/GhostTimer" to="PlayerStateMachine/Dash" method="_on_ghost_timer_timeout"]
