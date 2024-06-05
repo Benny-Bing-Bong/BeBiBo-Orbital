@@ -14,7 +14,6 @@ const ANTI_ENEMY: int = 6
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var player_state_machine: PlayerStateMachine = $PlayerStateMachine
 @onready var hitbox: Hitbox = $Hitbox
-@onready var phase_cooldown: Timer = $PhaseCooldown
 
 func _ready() -> void:
 	animation_tree.active = true
@@ -22,9 +21,9 @@ func _ready() -> void:
 	RenderingServer.global_shader_parameter_set("inverted", false)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("phase") and UnlockManager.able_to("phase"):
-		if phase_cooldown.is_stopped():
-			phase_shift()
+	if (event.is_action_pressed("phase") and UnlockManager.able_to("phase")
+	and CooldownManager.skill_ready("phase")):
+		phase_shift()
 
 func _physics_process(delta: float) -> void:
 	if player_state_machine.get_can_move():
@@ -78,7 +77,7 @@ func phase_shift() -> void:
 	
 	# play animation and start cooldown timer
 	sprite.phase_animation()
-	phase_cooldown.start()
+	CooldownManager.start_cooldown("phase")
 	
 	# buffer to ensure phase change is complete before setting collision values
 	await get_tree().create_timer(0.5).timeout

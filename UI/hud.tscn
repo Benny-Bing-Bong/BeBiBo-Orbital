@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://biu8yengrvq78"]
+[gd_scene load_steps=7 format=3 uid="uid://biu8yengrvq78"]
 
 [ext_resource type="Theme" uid="uid://b87efi81vr2yb" path="res://Themes/main_theme.tres" id="1_aodyr"]
 [ext_resource type="PackedScene" uid="uid://vlcy5cgx3axs" path="res://UI/Health Bar/health_bar.tscn" id="1_hw2kd"]
 [ext_resource type="PackedScene" uid="uid://bm7l0lyshbvex" path="res://UI/Tutorial Screen/tutorial_label.tscn" id="3_3qmxs"]
+[ext_resource type="PackedScene" uid="uid://bd20qosecy1v3" path="res://UI/Cooldowns/cooldown_icon.tscn" id="4_vnq75"]
+[ext_resource type="Texture2D" uid="uid://bxwcnfh7yup4k" path="res://Art/UI/ui Skill Phase.png" id="5_3wgv4"]
+[ext_resource type="Texture2D" uid="uid://cguxsbpd0hgke" path="res://Art/UI/ui Skill Laser.png" id="6_mbh0q"]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -45,3 +48,19 @@ size_flags_horizontal = 3
 [node name="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_3qmxs")]
 layout_mode = 2
 size_flags_horizontal = 8
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="PhaseCooldownIcon" parent="MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("4_vnq75")]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+sprite_icon = ExtResource("5_3wgv4")
+skill_name = "phase"
+
+[node name="LaserCooldownIcon" parent="MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("4_vnq75")]
+layout_mode = 2
+sprite_icon = ExtResource("6_mbh0q")
+skill_name = "laser"

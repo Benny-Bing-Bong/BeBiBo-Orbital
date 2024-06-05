@@ -25,6 +25,7 @@ HealthManager="*res://Managers/health_manager.gd"
 SaveLoadManager="*res://Managers/save_load_manager.gd"
 SceneManager="*res://Managers/scene_manager.gd"
 UnlockManager="*res://Managers/unlock_manager.gd"
+CooldownManager="*res://Managers/cooldown_manager.tscn"
 
 [debug]
 

@@ -32,5 +32,6 @@ func dash() -> void:
 		transitioned.emit(self, "dash")
 
 func laser() -> void:
-	if UnlockManager.able_to("laser"):
+	if UnlockManager.able_to("laser") and CooldownManager.skill_ready("laser"):
+		CooldownManager.start_cooldown("laser")
 		transitioned.emit(self, "laser")
