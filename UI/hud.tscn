@@ -45,22 +45,20 @@ size_flags_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_3qmxs")]
+[node name="TutorialLabel" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_3qmxs")]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="CooldownHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 10
 
-[node name="PhaseCooldownIcon" parent="MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("4_vnq75")]
+[node name="PhaseCooldownIcon" parent="MarginContainer/VBoxContainer/CooldownHBoxContainer" instance=ExtResource("4_vnq75")]
 layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 4
 sprite_icon = ExtResource("5_3wgv4")
 skill_name = "phase"
 
-[node name="LaserCooldownIcon" parent="MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("4_vnq75")]
+[node name="LaserCooldownIcon" parent="MarginContainer/VBoxContainer/CooldownHBoxContainer" instance=ExtResource("4_vnq75")]
 layout_mode = 2
 sprite_icon = ExtResource("6_mbh0q")
 skill_name = "laser"

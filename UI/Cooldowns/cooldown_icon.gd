@@ -7,13 +7,13 @@ extends Control
 @onready var timer_label: Label = $TimerLabel
 
 func _ready() -> void:
-	# if skill has not been unlocked yet, remove from scene
+	# if skill has not been unlocked yet, hide from scene first
 	if not UnlockManager.able_to(skill_name):
-		queue_free()
-		return
+		visible = false
 	
 	sprite_2d.texture = sprite_icon
 	timer_label.visible = false
+	UnlockManager.connect("skill_unlocked", on_skill_unlocked)
 
 func _process(delta: float) -> void:
 	if not CooldownManager.skill_ready(skill_name):
@@ -23,3 +23,8 @@ func _process(delta: float) -> void:
 	else:
 		timer_label.visible = false
 		sprite_2d.modulate = Color(1,1,1)
+
+# show the moment skill is unlocked in the level
+func on_skill_unlocked(name: String) -> void:
+	if name == skill_name:
+		visible = true
