@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3756qbr2j2uh"]
+[gd_scene load_steps=7 format=3 uid="uid://c3756qbr2j2uh"]
 
 [ext_resource type="Script" path="res://UI/Stamina/stamina_bar.gd" id="1_tpc0o"]
+[ext_resource type="Texture2D" uid="uid://brr84ob44kc5q" path="res://Art/UI/ui StaminaBar.png" id="2_efgcv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jacu1"]
 
@@ -48,3 +49,9 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_1qns7")
 max_value = 300.0
 value = 170.0
 show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 102.0
+offset_bottom = 12.0
+texture = ExtResource("2_efgcv")
