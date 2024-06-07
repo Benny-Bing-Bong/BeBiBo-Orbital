@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://biu8yengrvq78"]
+[gd_scene load_steps=9 format=3 uid="uid://biu8yengrvq78"]
 
 [ext_resource type="Theme" uid="uid://b87efi81vr2yb" path="res://Themes/main_theme.tres" id="1_aodyr"]
 [ext_resource type="PackedScene" uid="uid://vlcy5cgx3axs" path="res://UI/Health Bar/health_bar.tscn" id="1_hw2kd"]
 [ext_resource type="PackedScene" uid="uid://bm7l0lyshbvex" path="res://UI/Tutorial Screen/tutorial_label.tscn" id="3_3qmxs"]
+[ext_resource type="Script" path="res://UI/Stamina/st_label.gd" id="3_88o5t"]
+[ext_resource type="PackedScene" uid="uid://c3756qbr2j2uh" path="res://UI/Stamina/stamina_bar.tscn" id="3_tm42f"]
 [ext_resource type="PackedScene" uid="uid://bd20qosecy1v3" path="res://UI/Cooldowns/cooldown_icon.tscn" id="4_vnq75"]
 [ext_resource type="Texture2D" uid="uid://bxwcnfh7yup4k" path="res://Art/UI/ui Skill Phase.png" id="5_3wgv4"]
 [ext_resource type="Texture2D" uid="uid://cguxsbpd0hgke" path="res://Art/UI/ui Skill Laser.png" id="6_mbh0q"]
@@ -26,7 +28,11 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="HPLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="HPLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -36,10 +42,19 @@ text = "HP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HealthBar" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_hw2kd")]
+[node name="HealthBar" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("1_hw2kd")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+
+[node name="STLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_aodyr")
+text = "ST"
+script = ExtResource("3_88o5t")
+
+[node name="StaminaBar" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_tm42f")]
+layout_mode = 2
 
 [node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2

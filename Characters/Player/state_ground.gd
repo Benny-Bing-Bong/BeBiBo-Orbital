@@ -28,7 +28,8 @@ func crouch() -> void:
 		transitioned.emit(self, "crouch")
 
 func dash() -> void:
-	if UnlockManager.able_to("dash"):
+	if UnlockManager.able_to("dash") and StaminaManager.has_charge():
+		StaminaManager.use_charge()
 		transitioned.emit(self, "dash")
 
 func laser() -> void:
