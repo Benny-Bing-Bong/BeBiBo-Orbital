@@ -3,4 +3,6 @@
 [ext_resource type="FontFile" uid="uid://bgox44dfi7o3s" path="res://Themes/Retro Gaming.ttf" id="1_a6pmb"]
 
 [resource]
+Button/fonts/font = ExtResource("1_a6pmb")
+HeaderLarge/font_sizes/font_size = 58
 Label/fonts/font = ExtResource("1_a6pmb")
