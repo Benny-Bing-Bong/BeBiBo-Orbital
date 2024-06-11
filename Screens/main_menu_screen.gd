@@ -1,6 +1,6 @@
 extends Control
 
-@onready var load_button: Button = $MarginContainer/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer/VBoxContainer/LoadButton
+@export var load_button: Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
