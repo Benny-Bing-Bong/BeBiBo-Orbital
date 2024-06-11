@@ -5,4 +5,5 @@
 [resource]
 Button/fonts/font = ExtResource("1_a6pmb")
 HeaderLarge/font_sizes/font_size = 58
+HeaderMedium/font_sizes/font_size = 42
 Label/fonts/font = ExtResource("1_a6pmb")

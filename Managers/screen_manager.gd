@@ -1,7 +1,7 @@
 extends Node
 
 var layer: int = 1
-var stack: Array #use pop_back and push_back, not the front versions
+var stack: Array # use pop_back and push_back, not the front versions
 
 var screens: Dictionary = {
 	"pause": preload("res://Screens/pause_screen.tscn"),
@@ -9,6 +9,17 @@ var screens: Dictionary = {
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("esc"):
+		if not GameManager.on_main_screen and stack.is_empty():
+			add_layer_to_screen("pause")
+		else:
+			remove_layer_from_screen()
+
+func remove_all_layers() -> void:
+	while not stack.is_empty():
+		remove_layer_from_screen()
 
 func add_layer_to_screen(name: String) -> void:
 	var screen_resource: Resource = screens[name]
@@ -41,10 +52,3 @@ func remove_layer_from_screen() -> void:
 		
 		# remove screen from scene
 		screen.queue_free()
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("esc"):
-		if not GameManager.on_main_screen and stack.is_empty():
-			add_layer_to_screen("pause")
-		else:
-			remove_layer_from_screen()
