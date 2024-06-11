@@ -28,3 +28,7 @@ func _notification(what: int) -> void:
 
 func player_died() -> void:
 	player_alive = false
+
+func restart_player() -> void:
+	player_alive = true
+	HealthManager.set_health(3)

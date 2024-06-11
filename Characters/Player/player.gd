@@ -47,6 +47,10 @@ func update_animation_parameters() -> void:
 func update_facing_direction() -> void:
 	var slash1_hitbox: CollisionShape2D = $Hitbox/Slash1ColShape2D
 	var slash2_hitbox: CollisionShape2D = $Hitbox/Slash2ColShape2D
+	
+	if not slash1_hitbox or not slash2_hitbox:
+		return # return if hitboxes are not present
+	
 	var distance1: float = abs(
 			slash1_hitbox.global_position.x - 
 			global_position.x)

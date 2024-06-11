@@ -5,6 +5,7 @@ var stack: Array # use pop_back and push_back, not the front versions
 
 var screens: Dictionary = {
 	"pause": preload("res://Screens/pause_screen.tscn"),
+	"death": preload("res://Screens/death_screen.tscn"),
 }
 
 func _ready() -> void:
@@ -31,8 +32,8 @@ func add_layer_to_screen(name: String) -> void:
 		# set the layer for the screen, and push it to the stack
 		screen.layer = layer
 		
-		# if stack is empty, means trying to pause, so pause the game
-		if stack.is_empty():
+		# pause the game if layer being added is pause
+		if name == "pause":
 			get_tree().paused = true
 		
 		stack.push_back(screen)
