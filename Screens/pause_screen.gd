@@ -3,6 +3,17 @@ extends CanvasLayer
 func _on_resume_button_pressed() -> void:
 	ScreenManager.remove_layer_from_screen()
 
+func _on_restart_button_pressed() -> void:
+	HealthManager.set_health(3)
+	GameManager.player_alive = true
+	ScreenManager.remove_all_layers()
+	SceneManager.transition_to_scene("Level1-1")
+
 func _on_main_button_pressed() -> void:
 	ScreenManager.remove_layer_from_screen()
+	SaveLoadManager.save_game()
 	SceneManager.transition_to_scene("Main")
+
+func _on_quit_button_pressed() -> void:
+	SaveLoadManager.save_game()
+	get_tree().quit()
