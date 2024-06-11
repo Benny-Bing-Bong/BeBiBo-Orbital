@@ -9,6 +9,8 @@ func state_input(_input: InputEvent) -> void:
 		crouch()
 	if _input.is_action_pressed("dash"):
 		dash()
+	if _input.is_action_pressed("laser"):
+		laser()
 
 func state_process(_delta: float) -> void:
 	if not character.is_on_floor():
@@ -26,5 +28,11 @@ func crouch() -> void:
 		transitioned.emit(self, "crouch")
 
 func dash() -> void:
-	if UnlockManager.able_to("dash"):
+	if UnlockManager.able_to("dash") and StaminaManager.has_charge():
+		StaminaManager.use_charge()
 		transitioned.emit(self, "dash")
+
+func laser() -> void:
+	if UnlockManager.able_to("laser") and CooldownManager.skill_ready("laser"):
+		CooldownManager.start_cooldown("laser")
+		transitioned.emit(self, "laser")

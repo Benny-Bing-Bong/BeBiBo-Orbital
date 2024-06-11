@@ -16,8 +16,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and player_in_range:
-		UnlockManager.unlock(unlock_name)
-		UnlockManager.trigger_tutorial(tutorial_string)
+		UnlockManager.unlock(unlock_name, tutorial_string)
 		
 		queue_free()
 
