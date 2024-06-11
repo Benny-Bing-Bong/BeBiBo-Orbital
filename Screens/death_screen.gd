@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-
 func _on_restart_button_pressed() -> void:
 	GameManager.restart_player()
 	ScreenManager.remove_all_layers()
