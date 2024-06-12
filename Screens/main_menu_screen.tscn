@@ -1,0 +1,105 @@
+[gd_scene load_steps=4 format=3 uid="uid://b65scuh2cx2p2"]
+
+[ext_resource type="Texture2D" uid="uid://cj40d5ppybk48" path="res://Art/Assets/Main Menu/MainMenuBackground.png" id="1_eis1e"]
+[ext_resource type="Script" path="res://Screens/main_menu_screen.gd" id="1_g6npe"]
+[ext_resource type="Texture2D" uid="uid://blim551camq0o" path="res://Art/Promotional Art/GameLogo48x48.png" id="2_y3u8g"]
+
+[node name="MainMenuScreen" type="Control" node_paths=PackedStringArray("load_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g6npe")
+load_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer/VBoxContainer/LoadButton")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_eis1e")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 33)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(73, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_y3u8g")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+text = "PHASESHIFT"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="NewButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "New Game"
+
+[node name="LoadButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Load Game"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer/VBoxContainer/NewButton" to="." method="_on_new_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer/VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

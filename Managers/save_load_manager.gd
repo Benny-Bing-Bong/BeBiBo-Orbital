@@ -18,3 +18,19 @@ func load_game() -> void:
 		saved = load(file_path) as SaveLoadResource
 	
 	UnlockManager.load_dictionary(saved.unlock_dictionary)
+
+func has_save_file() -> bool:
+	var saved: SaveLoadResource = load(file_path)
+	
+	if not saved:
+		return false
+	else:
+		return true
+
+func delete_save() -> void:
+	# reset all the current saved in the current instance of game
+	UnlockManager.reset_unlocks()
+	
+	# delete actual save file
+	DirAccess.remove_absolute(file_path)
+	

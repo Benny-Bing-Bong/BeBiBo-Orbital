@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BeBiBo-Orbital"
-run/main_scene="res://Levels/Actual Game Levels/level_1-1.tscn"
+run/main_scene="res://Screens/main_menu_screen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0.0705882, 0.0627451, 0.0431373, 1)
 boot_splash/image="res://Art/Promotional Art/GameLogo480x480.png"
@@ -27,6 +27,7 @@ SceneManager="*res://Managers/scene_manager.gd"
 UnlockManager="*res://Managers/unlock_manager.gd"
 CooldownManager="*res://Managers/cooldown_manager.tscn"
 StaminaManager="*res://Managers/stamina_manager.gd"
+ScreenManager="*res://Managers/screen_manager.gd"
 
 [debug]
 
@@ -49,6 +50,10 @@ project/assembly_name="BeBiBo-Orbital"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[gui]
+
+theme/custom="res://Themes/main_theme.tres"
 
 [input]
 
@@ -78,16 +83,6 @@ attack={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(438, 14),"global_position":Vector2(442, 55),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
-restart={
-"deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":112,"echo":false,"script":null)
-]
-}
-reset={
-"deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194332,"key_label":0,"unicode":0,"echo":false,"script":null)
-]
-}
 interact={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"key_label":0,"unicode":102,"echo":false,"script":null)
@@ -111,6 +106,11 @@ close={
 laser={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":113,"echo":false,"script":null)
+]
+}
+esc={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 

@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6m65plkr3qct"]
+
+[ext_resource type="Script" path="res://Screens/pause_screen.gd" id="1_u6a4d"]
+
+[node name="PauseScreen" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_u6a4d")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="PauseLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="RestartButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="MainButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Save and Quit to Main Menu"
+
+[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Save and Quit Game"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/MainButton" to="." method="_on_main_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

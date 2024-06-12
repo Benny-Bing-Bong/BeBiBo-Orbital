@@ -36,8 +36,9 @@ func _physics_process(delta: float) -> void:
 	
 	# currently called in gravity
 	#move_and_slide()
-	update_animation_parameters()
-	update_facing_direction()
+	if GameManager.player_alive:
+		update_animation_parameters()
+		update_facing_direction()
 
 func update_animation_parameters() -> void:
 		animation_tree.set("parameters/move/blend_position", direction.x)
@@ -46,6 +47,7 @@ func update_animation_parameters() -> void:
 func update_facing_direction() -> void:
 	var slash1_hitbox: CollisionShape2D = $Hitbox/Slash1ColShape2D
 	var slash2_hitbox: CollisionShape2D = $Hitbox/Slash2ColShape2D
+	
 	var distance1: float = abs(
 			slash1_hitbox.global_position.x - 
 			global_position.x)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://c0irrfrykprg3"]
+[gd_scene load_steps=11 format=3 uid="uid://c0irrfrykprg3"]
 
 [ext_resource type="Texture2D" uid="uid://dd88sqdg8bsuj" path="res://Art/Assets/TileSet.png" id="1_nqn6w"]
+[ext_resource type="Script" path="res://Levels/Test Level/test_level_2.gd" id="1_pt0a4"]
 [ext_resource type="PackedScene" uid="uid://bd06xtnb3u2f2" path="res://Characters/Player/player.tscn" id="2_t6fdd"]
 [ext_resource type="PackedScene" uid="uid://bc3tov8n23ie2" path="res://Characters/Enemies/Golem/golem.tscn" id="3_c0gqj"]
 [ext_resource type="PackedScene" uid="uid://biu8yengrvq78" path="res://UI/hud.tscn" id="4_8mfku"]
@@ -114,6 +115,7 @@ sources/0 = SubResource("TileSetAtlasSource_xbt7y")
 size = Vector2(24, 91)
 
 [node name="TestLevel2" type="Node2D"]
+script = ExtResource("1_pt0a4")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_7m4e7")
