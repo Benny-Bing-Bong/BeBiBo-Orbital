@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://bc3tov8n23ie2"]
+[gd_scene load_steps=73 format=3 uid="uid://bc3tov8n23ie2"]
 
 [ext_resource type="Shader" path="res://Characters/Enemies/hit_flash.gdshader" id="1_dnqmm"]
 [ext_resource type="Texture2D" uid="uid://bf6x7nu44rxpr" path="res://Art/Enemies/Golem/Golem Idle.png" id="1_j4hcj"]
@@ -410,6 +410,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_senvk"]
+size = Vector2(76, 47)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etb0w"]
 size = Vector2(100, 63)
 
@@ -474,9 +477,9 @@ collision_mask = 18
 script = ExtResource("5_08epv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, 16.5)
-shape = SubResource("RectangleShape2D_etb0w")
-debug_color = Color(1, 0.00392157, 0.0823529, 0.419608)
+position = Vector2(0, 24.5)
+shape = SubResource("RectangleShape2D_senvk")
+debug_color = Color(0.847059, 0.360784, 0.294118, 0.419608)
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 4
@@ -484,7 +487,7 @@ collision_mask = 2
 script = ExtResource("3_xtt4j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(0, 16.5)
+position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_etb0w")
 debug_color = Color(0.662745, 0.509804, 0.176471, 0.419608)
 
