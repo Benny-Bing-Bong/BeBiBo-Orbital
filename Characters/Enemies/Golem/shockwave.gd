@@ -1,6 +1,6 @@
 extends AnimatedSprite2D
 
-var shockwave_speed: int = 300
+var shockwave_speed: int = 250
 
 func _physics_process(delta: float) -> void:
 	move_local_x(shockwave_speed * delta)
