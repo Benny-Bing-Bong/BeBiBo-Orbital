@@ -212,10 +212,10 @@ size = Vector2(39, 19)
 size = Vector2(347, 145.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_antsk"]
-size = Vector2(45, 22.25)
+size = Vector2(34, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7pcpd"]
-size = Vector2(39, 19)
+size = Vector2(42, 22)
 
 [node name="Clawfly" type="CharacterBody2D"]
 collision_layer = 4
@@ -231,7 +231,6 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 3.5)
 shape = SubResource("RectangleShape2D_b5l0v")
 
 [node name="ClawflyDamageable" type="Node" parent="."]
@@ -282,7 +281,6 @@ collision_mask = 18
 script = ExtResource("11_spc0r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-0.5, 3.875)
 shape = SubResource("RectangleShape2D_antsk")
 debug_color = Color(0.94902, 0.188235, 0.34902, 0.419608)
 
@@ -292,7 +290,6 @@ collision_mask = 2
 script = ExtResource("12_s10uv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(-0.5, 3.5)
 shape = SubResource("RectangleShape2D_7pcpd")
 debug_color = Color(0.556863, 0.552941, 0.239216, 0.419608)
 
