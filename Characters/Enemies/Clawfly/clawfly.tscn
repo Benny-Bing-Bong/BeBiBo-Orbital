@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://byihdy6o8y0tu" path="res://Art/Enemies/Clawfly/Clawfly Attack.png" id="1_hiri1"]
 [ext_resource type="Texture2D" uid="uid://d4def4ukkkcgt" path="res://Art/Enemies/Clawfly/Clawfly Dead.png" id="2_26tvy"]
 [ext_resource type="Texture2D" uid="uid://6lonn0wkff2r" path="res://Art/Enemies/Clawfly/Clawfly Idle.png" id="3_n5lec"]
-[ext_resource type="Texture2D" uid="uid://btdeojeyj7od7" path="res://Art/Enemies/Clawfly/Clawfly Warning.png" id="4_1hekp"]
+[ext_resource type="Texture2D" uid="uid://d2q7koj480c4h" path="res://Art/Enemies/Clawfly/Clawfly Warning.png" id="4_1hekp"]
 [ext_resource type="Script" path="res://Characters/Enemies/Clawfly/ClawflyDamageable.gd" id="6_iun0l"]
 [ext_resource type="Script" path="res://Characters/Enemies/Gooey/enemy_state_machine.gd" id="7_tfuth"]
 [ext_resource type="Script" path="res://Characters/Enemies/Clawfly/state_idle.gd" id="8_qkn7o"]
@@ -67,27 +67,27 @@ region = Rect2(176, 0, 44, 44)
 atlas = ExtResource("3_n5lec")
 region = Rect2(220, 0, 44, 44)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ob8sk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ntp5"]
 atlas = ExtResource("4_1hekp")
 region = Rect2(0, 0, 44, 44)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u70nc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd6d2"]
 atlas = ExtResource("4_1hekp")
 region = Rect2(44, 0, 44, 44)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jeo00"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbsvi"]
 atlas = ExtResource("4_1hekp")
 region = Rect2(88, 0, 44, 44)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8i0j0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_n50n8"]
 atlas = ExtResource("4_1hekp")
 region = Rect2(132, 0, 44, 44)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_05ebp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tw6l6"]
 atlas = ExtResource("4_1hekp")
 region = Rect2(176, 0, 44, 44)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y0p4p"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pb6gg"]
 atlas = ExtResource("4_1hekp")
 region = Rect2(220, 0, 44, 44)
 
@@ -146,26 +146,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ob8sk")
+"texture": SubResource("AtlasTexture_5ntp5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u70nc")
+"texture": SubResource("AtlasTexture_qd6d2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jeo00")
+"texture": SubResource("AtlasTexture_xbsvi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8i0j0")
+"texture": SubResource("AtlasTexture_n50n8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_05ebp")
+"texture": SubResource("AtlasTexture_tw6l6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y0p4p")
+"texture": SubResource("AtlasTexture_pb6gg")
 }],
 "loop": true,
 "name": &"warning",
-"speed": 8.0
+"speed": 10.0
 }]
 
 [sub_resource type="Animation" id="Animation_42s42"]
@@ -223,7 +223,8 @@ collision_layer = 4
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_hp2dg")
 sprite_frames = SubResource("SpriteFrames_2ppw4")
-animation = &"attack"
+animation = &"warning"
+frame_progress = 0.795315
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -246,12 +247,16 @@ sprite = NodePath("../AnimatedSprite2D")
 script = ExtResource("8_qkn7o")
 first_anim_name = "idle"
 
+[node name="Timer" type="Timer" parent="EnemyStateMachine/Idle"]
+one_shot = true
+
 [node name="Warning" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("8_w3lqp")
 first_anim_name = "warning"
 
 [node name="Timer" type="Timer" parent="EnemyStateMachine/Warning"]
 wait_time = 2.0
+one_shot = true
 
 [node name="Attack" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("9_d24gl")
@@ -259,6 +264,7 @@ first_anim_name = "attack"
 
 [node name="Timer" type="Timer" parent="EnemyStateMachine/Attack"]
 wait_time = 2.0
+one_shot = true
 
 [node name="Dead" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("10_u35mv")
@@ -268,7 +274,7 @@ first_anim_name = "dead"
 [node name="AnimDurationTimer" type="Timer" parent="EnemyStateMachine/Dead"]
 
 [node name="DetectionArea" type="Area2D" parent="."]
-collision_layer = 4
+collision_layer = 128
 collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
@@ -292,7 +298,9 @@ script = ExtResource("12_s10uv")
 shape = SubResource("RectangleShape2D_7pcpd")
 debug_color = Color(0.556863, 0.552941, 0.239216, 0.419608)
 
+[connection signal="timeout" from="EnemyStateMachine/Idle/Timer" to="EnemyStateMachine/Idle" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemyStateMachine/Warning/Timer" to="EnemyStateMachine/Warning" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemyStateMachine/Attack/Timer" to="EnemyStateMachine/Attack" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemyStateMachine/Dead/AnimDurationTimer" to="EnemyStateMachine/Dead" method="_on_anim_duration_timer_timeout"]
 [connection signal="body_entered" from="DetectionArea" to="EnemyStateMachine/Idle" method="_on_detection_area_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="EnemyStateMachine/Attack" method="_on_detection_area_body_entered"]
