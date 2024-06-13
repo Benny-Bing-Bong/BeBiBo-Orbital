@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bc3tov8n23ie2" path="res://Characters/Enemies/Golem/golem.tscn" id="5_yfmwg"]
 [ext_resource type="PackedScene" uid="uid://bpbmmhjdbu223" path="res://Levels/change_level_area_2d.tscn" id="6_5iosk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ieo1h"]
-size = Vector2(6, 82)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c6jul"]
+normal = Vector2(-1, 0)
 
 [node name="BaseLevel" instance=ExtResource("1_yy50q")]
 
@@ -58,4 +58,4 @@ position = Vector2(2205, -57)
 new_level_name = "Level1-3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeLevelArea2D" index="0"]
-shape = SubResource("RectangleShape2D_ieo1h")
+shape = SubResource("WorldBoundaryShape2D_c6jul")
