@@ -1,7 +1,7 @@
 extends State
 
 @export var shockwave: PackedScene
-@export var speed: float = 20.0
+@export var speed: float = 10.0
 
 var direction: Vector2
 # For shockwave instances
