@@ -223,8 +223,7 @@ collision_layer = 4
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_hp2dg")
 sprite_frames = SubResource("SpriteFrames_2ppw4")
-animation = &"warning"
-frame_progress = 0.795315
+animation = &"idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
