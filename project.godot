@@ -123,6 +123,7 @@ esc={
 2d_physics/layer_5="ANTI PLAYER"
 2d_physics/layer_6="ANTI ENEMIES"
 2d_physics/layer_7="LEVELCHANGER"
+2d_physics/layer_8="ENEMYDETECTION"
 
 [rendering]
 
