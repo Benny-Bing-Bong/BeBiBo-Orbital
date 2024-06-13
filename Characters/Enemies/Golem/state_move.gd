@@ -1,12 +1,12 @@
 extends State
 
 @export var shockwave: PackedScene
-@export var speed: float = 20.0
+@export var speed: float = 10.0
 
 var direction: Vector2
 # For shockwave instances
-var wave_left: Node2D
-var wave_right: Node2D
+var wave_left: Shockwave
+var wave_right: Shockwave
 
 @onready var wave_spawn: Node2D = $"../../ShockwaveSpawnLocs"
 @onready var move_animation_player: AnimationPlayer = $MoveAnimationPlayer
@@ -42,7 +42,7 @@ func go_back_idle() -> void:
 func instantiate_waves() -> void:
 	wave_left = shockwave.instantiate()
 	wave_right = shockwave.instantiate()
-	wave_left.scale.x = -1
+	wave_left.flip_shockwave()
 
 func put_at_position(first: int, second: int) -> void:
 	if direction == Vector2.LEFT:

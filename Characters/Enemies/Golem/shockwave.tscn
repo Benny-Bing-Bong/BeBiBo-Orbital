@@ -1,8 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://deibdvnyqbcsy"]
+[gd_scene load_steps=12 format=3 uid="uid://deibdvnyqbcsy"]
 
 [ext_resource type="Texture2D" uid="uid://dkie1343kyfor" path="res://Art/Enemies/Golem/Shockwaves.png" id="1_mj6v7"]
 [ext_resource type="Script" path="res://Characters/Enemies/Golem/shockwave.gd" id="2_m0yxk"]
 [ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hitbox.gd" id="2_n0w6k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1yyt"]
+size = Vector2(20, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5byyf"]
 atlas = ExtResource("1_mj6v7")
@@ -50,14 +53,24 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpa7y"]
 size = Vector2(26, 12)
 
-[node name="Shockwave" type="AnimatedSprite2D"]
+[node name="Shockwave" type="RigidBody2D" node_paths=PackedStringArray("animated_sprite_2d")]
+collision_layer = 4
+collision_mask = 19
+lock_rotation = true
+script = ExtResource("2_m0yxk")
+animated_sprite_2d = NodePath("AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_f1yyt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_b70mf")
 autoplay = "default"
-script = ExtResource("2_m0yxk")
 
 [node name="Hitbox" type="Area2D" parent="."]
-position = Vector2(0, 10)
+position = Vector2(0, -6)
 collision_layer = 4
 collision_mask = 18
 script = ExtResource("2_n0w6k")
@@ -66,4 +79,4 @@ script = ExtResource("2_n0w6k")
 shape = SubResource("RectangleShape2D_gpa7y")
 debug_color = Color(0.905882, 0.286275, 0.270588, 0.419608)
 
-[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
