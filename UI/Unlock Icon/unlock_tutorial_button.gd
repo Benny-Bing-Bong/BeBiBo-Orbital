@@ -5,7 +5,8 @@ extends Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if not ScreenManager.has_screen(skill_name):
+	if (not ScreenManager.has_screen(skill_name) or
+		not UnlockManager.able_to(skill_name)):
 		queue_free()
 		return
 	

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://co2ysxhka6nr" path="res://Screens/Unlock Screens/base_unlock_screen.tscn" id="1_heuvl"]
 [ext_resource type="Texture2D" uid="uid://c802ee4l4s41h" path="res://Art/Game Screenshots/Attack Screenshot.png" id="2_ago2y"]
 
-[node name="BaseUnlockScreen" instance=ExtResource("1_heuvl")]
+[node name="AttackUnlockScreen" instance=ExtResource("1_heuvl")]
 skill_name = "attack"
 skill_description = "Press Left Mouse Button (LMB) to do an attack. If you click LMB just before the first attack finishes, you will do a second combo attack, which deals more damage. Attack and defeat enemies!"
 screenshot = ExtResource("2_ago2y")
