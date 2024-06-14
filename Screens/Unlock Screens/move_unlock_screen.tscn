@@ -5,5 +5,5 @@
 
 [node name="BaseUnlockScreen" instance=ExtResource("1_2jp0g")]
 skill_name = "move"
-skill_description = "Press A or D to move toward the left and right. You can use these keys to get around to different places in the world"
+skill_description = "Press A or D to move toward the left or right. You can use these keys to get around to different places in the world."
 screenshot = ExtResource("2_a8duh")

@@ -7,7 +7,8 @@ var screens: Dictionary = {
 	"pause": preload("res://Screens/pause_screen.tscn"),
 	"death": preload("res://Screens/death_screen.tscn"),
 	"unlocks": preload("res://Screens/unlocks_screen.tscn"),
-	"move": preload("res://Screens/Unlock Screens/move_unlock_screen.tscn")
+	"move": preload("res://Screens/Unlock Screens/move_unlock_screen.tscn"),
+	"attack": preload("res://Screens/Unlock Screens/attack_unlock_screen.tscn"),
 }
 
 func _ready() -> void:
