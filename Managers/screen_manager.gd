@@ -6,6 +6,7 @@ var stack: Array # use pop_back and push_back, not the front versions
 var screens: Dictionary = {
 	"pause": preload("res://Screens/pause_screen.tscn"),
 	"death": preload("res://Screens/death_screen.tscn"),
+	"unlocks": preload("res://Screens/unlocks_screen.tscn"),
 }
 
 func _ready() -> void:
@@ -23,7 +24,12 @@ func remove_all_layers() -> void:
 		remove_layer_from_screen()
 
 func add_layer_to_screen(name: String) -> void:
-	var screen_resource: Resource = screens[name]
+	var screen_resource: Resource
+	
+	if screens.has(name):
+		screen_resource = screens[name]
+	else:
+		return
 	
 	if screen_resource: # if the screen exists
 		layer += 1
