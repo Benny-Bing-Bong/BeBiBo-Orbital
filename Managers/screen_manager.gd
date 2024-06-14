@@ -53,3 +53,6 @@ func remove_layer_from_screen() -> void:
 		
 		# remove screen from scene
 		screen.queue_free()
+
+func has_screen(name: String) -> bool:
+	return screens.has(name)

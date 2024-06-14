@@ -5,6 +5,10 @@ extends Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if not ScreenManager.has_screen(skill_name):
+		queue_free()
+		return
+	
 	text = skill_name.capitalize()
 	icon = sprite_icon
 
