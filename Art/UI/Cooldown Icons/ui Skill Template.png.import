@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cguxsbpd0hgke"
-path="res://.godot/imported/ui Skill Laser.png-a4e5cdef144fcdab5c80847392b743f3.ctex"
+uid="uid://d2ne1umnerbjo"
+path="res://.godot/imported/ui Skill Template.png-0eb090e3c6c71cfd207555205e6a8724.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/ui Skill Laser.png"
-dest_files=["res://.godot/imported/ui Skill Laser.png-a4e5cdef144fcdab5c80847392b743f3.ctex"]
+source_file="res://Art/UI/Cooldown Icons/ui Skill Template.png"
+dest_files=["res://.godot/imported/ui Skill Template.png-0eb090e3c6c71cfd207555205e6a8724.ctex"]
 
 [params]
 

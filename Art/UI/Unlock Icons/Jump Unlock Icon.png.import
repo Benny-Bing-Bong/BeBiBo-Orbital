@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxwcnfh7yup4k"
-path="res://.godot/imported/ui Skill Phase.png-5e8df87b72c7743affa5a7a4dbada14c.ctex"
+uid="uid://cu464n61ad2rm"
+path="res://.godot/imported/Jump Unlock Icon.png-8142152c57fa3b81334fe941b1ad4b3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/ui Skill Phase.png"
-dest_files=["res://.godot/imported/ui Skill Phase.png-5e8df87b72c7743affa5a7a4dbada14c.ctex"]
+source_file="res://Art/UI/Unlock Icons/Jump Unlock Icon.png"
+dest_files=["res://.godot/imported/Jump Unlock Icon.png-8142152c57fa3b81334fe941b1ad4b3e.ctex"]
 
 [params]
 

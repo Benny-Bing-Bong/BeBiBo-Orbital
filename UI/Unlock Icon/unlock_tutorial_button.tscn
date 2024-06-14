@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://caw0mewdmywpx"]
+
+[ext_resource type="Texture2D" uid="uid://b0pubi550qqyy" path="res://Art/UI/Unlock Icons/Unlock Icon Template.png" id="1_l6p0q"]
+[ext_resource type="Script" path="res://UI/Unlock Icon/unlock_tutorial_button.gd" id="2_txo3c"]
+
+[node name="UnlockTutorialButton" type="Button"]
+custom_minimum_size = Vector2(90, 120)
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Skill Name"
+icon = ExtResource("1_l6p0q")
+icon_alignment = 1
+vertical_icon_alignment = 0
+script = ExtResource("2_txo3c")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
