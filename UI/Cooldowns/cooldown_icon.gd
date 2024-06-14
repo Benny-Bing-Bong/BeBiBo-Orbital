@@ -2,9 +2,11 @@ extends Control
 
 @export var sprite_icon: Texture2D
 @export var skill_name: String
+@export var key_name: String
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var timer_label: Label = $TimerLabel
+@onready var key_label: Label = $KeyLabel
 
 func _ready() -> void:
 	# if skill has not been unlocked yet, hide from scene first
@@ -12,6 +14,7 @@ func _ready() -> void:
 		visible = false
 	
 	sprite_2d.texture = sprite_icon
+	key_label.text = key_name
 	timer_label.visible = false
 	UnlockManager.connect("skill_unlocked", on_skill_unlocked)
 
