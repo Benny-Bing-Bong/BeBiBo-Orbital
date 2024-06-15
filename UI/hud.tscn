@@ -73,13 +73,16 @@ size_flags_vertical = 10
 layout_mode = 2
 sprite_icon = ExtResource("5_3wgv4")
 skill_name = "phase"
+key_name = "Tab"
 
 [node name="LaserCooldownIcon" parent="MarginContainer/VBoxContainer/CooldownHBoxContainer" instance=ExtResource("4_vnq75")]
 layout_mode = 2
 sprite_icon = ExtResource("6_mbh0q")
 skill_name = "laser"
+key_name = "Q"
 
 [node name="BombCooldownIcon" parent="MarginContainer/VBoxContainer/CooldownHBoxContainer" instance=ExtResource("4_vnq75")]
 layout_mode = 2
 sprite_icon = ExtResource("9_wotxx")
 skill_name = "bomb"
+key_name = "E"

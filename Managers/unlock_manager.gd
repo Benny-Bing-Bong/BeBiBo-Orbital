@@ -19,6 +19,9 @@ var unlock_dictionary: Dictionary = {
 # check if can do given action, and returns it. Default value if not found
 #is false
 func able_to(action: String) -> bool:
+	if action == "move" or action == "attack":
+		return true
+	
 	return unlock_dictionary.get(action, false)
 
 # first check if the key is being tracked by the dictionary. if it is,

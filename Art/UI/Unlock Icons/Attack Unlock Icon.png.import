@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxwcnfh7yup4k"
-path="res://.godot/imported/ui Skill Phase.png-5e8df87b72c7743affa5a7a4dbada14c.ctex"
+uid="uid://bjnmakyjk4m2y"
+path="res://.godot/imported/Attack Unlock Icon.png-70d0cf3dc7a57e5344213957b0ab51fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/ui Skill Phase.png"
-dest_files=["res://.godot/imported/ui Skill Phase.png-5e8df87b72c7743affa5a7a4dbada14c.ctex"]
+source_file="res://Art/UI/Unlock Icons/Attack Unlock Icon.png"
+dest_files=["res://.godot/imported/Attack Unlock Icon.png-70d0cf3dc7a57e5344213957b0ab51fc.ctex"]
 
 [params]
 

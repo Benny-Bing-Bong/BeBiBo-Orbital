@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://UI/Cooldowns/cooldown_icon.gd" id="1_hl4t3"]
 [ext_resource type="Theme" uid="uid://b87efi81vr2yb" path="res://Themes/main_theme.tres" id="2_47fnn"]
-[ext_resource type="Texture2D" uid="uid://d2ne1umnerbjo" path="res://Art/UI/ui Skill Template.png" id="2_rshvi"]
+[ext_resource type="Texture2D" uid="uid://d2ne1umnerbjo" path="res://Art/UI/Cooldown Icons/ui Skill Template.png" id="2_rshvi"]
 
 [node name="CooldownIcon" type="Control"]
 custom_minimum_size = Vector2(40, 40)
@@ -34,3 +34,17 @@ theme = ExtResource("2_47fnn")
 theme_override_font_sizes/font_size = 12
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="KeyLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -21.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 10
+text = "Key"
+vertical_alignment = 2

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxyykegc8bg1f"]
+
+[ext_resource type="PackedScene" uid="uid://co2ysxhka6nr" path="res://Screens/Unlock Screens/base_unlock_screen.tscn" id="1_hpv2u"]
+[ext_resource type="Texture2D" uid="uid://bp3ren3qr7t4y" path="res://Art/Game Screenshots/Jump Screenshot.png" id="2_tibrn"]
+
+[node name="JumpUnlockScreen" instance=ExtResource("1_hpv2u")]
+skill_name = "jump"
+skill_description = "Press W or Spacebar to jump. Pressing A or S while jumping will allow you to jump towards the left or right while in the air. Jump to get to higher platforms."
+screenshot = ExtResource("2_tibrn")

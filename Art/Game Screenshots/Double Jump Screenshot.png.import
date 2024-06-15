@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2ne1umnerbjo"
-path="res://.godot/imported/ui Skill Template.png-ab87cf31bc089fec68b84731048a6c3d.ctex"
+uid="uid://gv2jbc8avyvc"
+path="res://.godot/imported/Double Jump Screenshot.png-896a691eb1e92aa88120b3374d2ae072.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/ui Skill Template.png"
-dest_files=["res://.godot/imported/ui Skill Template.png-ab87cf31bc089fec68b84731048a6c3d.ctex"]
+source_file="res://Art/Game Screenshots/Double Jump Screenshot.png"
+dest_files=["res://.godot/imported/Double Jump Screenshot.png-896a691eb1e92aa88120b3374d2ae072.ctex"]
 
 [params]
 

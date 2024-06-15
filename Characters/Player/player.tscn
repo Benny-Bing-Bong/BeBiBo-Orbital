@@ -1084,6 +1084,7 @@ can_move = false
 first_anim_name = "bomb"
 
 [node name="State Label" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
+visible = false
 offset_left = -37.0
 offset_top = -47.0
 offset_right = 37.0

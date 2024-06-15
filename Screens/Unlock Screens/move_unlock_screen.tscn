@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp38watgsewxo"]
+
+[ext_resource type="PackedScene" uid="uid://co2ysxhka6nr" path="res://Screens/Unlock Screens/base_unlock_screen.tscn" id="1_2jp0g"]
+[ext_resource type="Texture2D" uid="uid://viqp0dxwiq7h" path="res://Art/Game Screenshots/Move Screenshot.png" id="2_a8duh"]
+
+[node name="MoveUnlockScreen" instance=ExtResource("1_2jp0g")]
+skill_name = "move"
+skill_description = "Press A or D to move toward the left or right. You can use these keys to get around to different places in the world."
+screenshot = ExtResource("2_a8duh")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dho5fhj7d4nbn"]
+
+[ext_resource type="PackedScene" uid="uid://co2ysxhka6nr" path="res://Screens/Unlock Screens/base_unlock_screen.tscn" id="1_16t0y"]
+[ext_resource type="Texture2D" uid="uid://gv2jbc8avyvc" path="res://Art/Game Screenshots/Double Jump Screenshot.png" id="2_5jgqp"]
+
+[node name="DoubleJumpUnlockScreen" instance=ExtResource("1_16t0y")]
+skill_name = "double_jump"
+skill_description = "Press W or Spacebar while you are in the air after jumping once to do a double jump. You will be able to reach higher areas that you weren't able to before!"
+screenshot = ExtResource("2_5jgqp")
