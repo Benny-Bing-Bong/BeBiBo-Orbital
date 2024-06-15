@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://bd06xtnb3u2f2"]
+[gd_scene load_steps=109 format=3 uid="uid://bd06xtnb3u2f2"]
 
 [ext_resource type="Script" path="res://Characters/Player/player.gd" id="1_84hpc"]
 [ext_resource type="Texture2D" uid="uid://mi12jiwl05ns" path="res://Art/Character/gamesprite Attack.png" id="1_w5tfx"]
@@ -24,12 +24,15 @@
 [ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hitbox.gd" id="13_43nee"]
 [ext_resource type="Script" path="res://Characters/Player/state_crouch.gd" id="13_pl527"]
 [ext_resource type="Texture2D" uid="uid://02gslt7h7yi5" path="res://Art/Character/gamesprite Laser.png" id="14_v4wtv"]
+[ext_resource type="Texture2D" uid="uid://b353sn4j6ky5m" path="res://Art/Character/gamesprite Bomb.png" id="15_h0n8r"]
 [ext_resource type="Script" path="res://Characters/Player/state_wallhang.gd" id="18_clyem"]
 [ext_resource type="Script" path="res://Characters/Player/state_death.gd" id="22_y3374"]
 [ext_resource type="Script" path="res://Characters/Player/state_dash.gd" id="23_iaxxi"]
 [ext_resource type="PackedScene" uid="uid://bnbcewtwc5fnp" path="res://Characters/Player/dash_ghost.tscn" id="24_pobnm"]
 [ext_resource type="Script" path="res://Characters/Player/state_laser.gd" id="27_lt1hx"]
 [ext_resource type="PackedScene" uid="uid://cwotlsknt0jcl" path="res://Characters/Player/laser.tscn" id="28_xu40i"]
+[ext_resource type="Script" path="res://Characters/Player/state_bomb.gd" id="30_yu8il"]
+[ext_resource type="PackedScene" uid="uid://ccea0rbjfgnqp" path="res://Characters/Player/pulse_bomb.tscn" id="32_nqita"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2j5v6"]
 resource_local_to_scene = true
@@ -203,6 +206,46 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_iol44"]
+resource_name = "bomb"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("15_h0n8r")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_s318n"]
@@ -709,6 +752,7 @@ _data = {
 "RESET": SubResource("Animation_x3aya"),
 "attack1": SubResource("Animation_inh1f"),
 "attack2": SubResource("Animation_kcwca"),
+"bomb": SubResource("Animation_iol44"),
 "crouch_idle": SubResource("Animation_s318n"),
 "crouch_move": SubResource("Animation_o5n8u"),
 "dash": SubResource("Animation_82s0o"),
@@ -729,6 +773,9 @@ animation = &"attack1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qg346"]
 animation = &"attack2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b1dg3"]
+animation = &"bomb"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jakbj"]
 animation = &"crouch_idle"
@@ -862,6 +909,8 @@ states/attack1/node = SubResource("AnimationNodeAnimation_qorhj")
 states/attack1/position = Vector2(518, 306)
 states/attack2/node = SubResource("AnimationNodeAnimation_qg346")
 states/attack2/position = Vector2(663, 306)
+states/bomb/node = SubResource("AnimationNodeAnimation_b1dg3")
+states/bomb/position = Vector2(633.5, 205)
 states/crouch/node = SubResource("AnimationNodeBlendSpace1D_vqgs6")
 states/crouch/position = Vector2(793, 100)
 states/dash/node = SubResource("AnimationNodeAnimation_d700u")
@@ -883,7 +932,7 @@ states/move/position = Vector2(390, 100)
 states/wallhang/node = SubResource("AnimationNodeAnimation_2hujq")
 states/wallhang/position = Vector2(580, -246)
 transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_uw416"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_ucu2m"), "jump_land", "move", SubResource("AnimationNodeStateMachineTransition_ovb1j"), "jump_start", "jump_double", SubResource("AnimationNodeStateMachineTransition_me81o"), "jump_start", "jump_land", SubResource("AnimationNodeStateMachineTransition_siumw"), "jump_double", "jump_land", SubResource("AnimationNodeStateMachineTransition_7hjf8"), "move", "falling", SubResource("AnimationNodeStateMachineTransition_1rj3x"), "falling", "jump_start", SubResource("AnimationNodeStateMachineTransition_6clwg"), "falling", "move", SubResource("AnimationNodeStateMachineTransition_w3872"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_wyo13"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_3gsic"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_piaix"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_ml4yr"), "move", "crouch", SubResource("AnimationNodeStateMachineTransition_w1gv1"), "crouch", "move", SubResource("AnimationNodeStateMachineTransition_3rl7o"), "jump_start", "wallhang", SubResource("AnimationNodeStateMachineTransition_grq51"), "jump_double", "wallhang", SubResource("AnimationNodeStateMachineTransition_ffgga"), "wallhang", "jump_start", SubResource("AnimationNodeStateMachineTransition_7weve"), "wallhang", "falling", SubResource("AnimationNodeStateMachineTransition_ltv4g"), "jump_double", "death", SubResource("AnimationNodeStateMachineTransition_krahm"), "jump_land", "death", SubResource("AnimationNodeStateMachineTransition_3th4d"), "crouch", "death", SubResource("AnimationNodeStateMachineTransition_yuuli"), "wallhang", "death", SubResource("AnimationNodeStateMachineTransition_lxjvs"), "jump_start", "death", SubResource("AnimationNodeStateMachineTransition_nb7d3"), "falling", "death", SubResource("AnimationNodeStateMachineTransition_ssvea"), "move", "death", SubResource("AnimationNodeStateMachineTransition_go45j"), "attack2", "death", SubResource("AnimationNodeStateMachineTransition_eu65c"), "attack1", "death", SubResource("AnimationNodeStateMachineTransition_viho6"), "move", "dash", SubResource("AnimationNodeStateMachineTransition_a3drh"), "dash", "move", SubResource("AnimationNodeStateMachineTransition_r351g"), "move", "laser", SubResource("AnimationNodeStateMachineTransition_gosh3"), "laser", "move", SubResource("AnimationNodeStateMachineTransition_fru2u")]
-graph_offset = Vector2(-67.5, -172)
+graph_offset = Vector2(87.5, 31)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
@@ -933,6 +982,7 @@ debug_color = Color(0.65098, 0.517647, 0.117647, 0.419608)
 libraries = {
 "": SubResource("AnimationLibrary_8vjsx")
 }
+autoplay = "bomb"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 active = false
@@ -1006,6 +1056,7 @@ first_anim_name = "wallhang"
 [node name="Dash" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("23_iaxxi")
 ghost = ExtResource("24_pobnm")
+can_move = false
 first_anim_name = "dash"
 
 [node name="DashDuration" type="Timer" parent="PlayerStateMachine/Dash"]
@@ -1025,6 +1076,12 @@ first_anim_name = "laser"
 script = ExtResource("22_y3374")
 can_move = false
 first_anim_name = "death"
+
+[node name="Bomb" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("30_yu8il")
+bomb_scene = ExtResource("32_nqita")
+can_move = false
+first_anim_name = "bomb"
 
 [node name="State Label" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
 offset_left = -37.0

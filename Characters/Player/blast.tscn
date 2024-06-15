@@ -1,0 +1,34 @@
+[gd_scene load_steps=9 format=3 uid="uid://cr2emvylbpw3i"]
+
+[ext_resource type="Texture2D" uid="uid://c4r1t50kgq2v4" path="res://Art/Character/Pulse Bomb.png" id="1_26dn3"]
+[ext_resource type="Shader" path="res://Characters/Player/player_projectile.gdshader" id="1_n6fva"]
+[ext_resource type="Script" path="res://blast.gd" id="1_s2ipu"]
+[ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hitbox.gd" id="3_jar0v"]
+[ext_resource type="Shader" path="res://Characters/Player/player.gdshader" id="3_l71ro"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tsi4t"]
+shader = ExtResource("1_n6fva")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ulvjk"]
+shader = ExtResource("3_l71ro")
+shader_parameter/active = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jgk5w"]
+radius = 7.0
+
+[node name="Blast" type="Sprite2D" node_paths=PackedStringArray("hitbox")]
+material = SubResource("ShaderMaterial_tsi4t")
+scale = Vector2(10, 10)
+texture = ExtResource("1_26dn3")
+hframes = 4
+script = ExtResource("1_s2ipu")
+hitbox = NodePath("Hitbox")
+
+[node name="Hitbox" type="Area2D" parent="."]
+material = SubResource("ShaderMaterial_ulvjk")
+collision_layer = 2
+collision_mask = 6
+script = ExtResource("3_jar0v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_jgk5w")

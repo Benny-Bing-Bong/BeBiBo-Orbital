@@ -1,6 +1,16 @@
 extends State
 
+@export var bomb_scene: PackedScene
+var bomb_speed: int = 500
+
+func state_physics_process(delta: float) -> void:
+	character.velocity.x = 0
+
 func state_input(_input: InputEvent) -> void:
+	if _input.is_action_pressed("fire"):
+		throw()
+	if _input.is_action_pressed("left") or _input.is_action_pressed("right"):
+		go_back_move()
 	if _input.is_action_pressed("up"):
 		jump()
 	if _input.is_action_pressed("attack"):
@@ -11,13 +21,20 @@ func state_input(_input: InputEvent) -> void:
 		dash()
 	if _input.is_action_pressed("laser"):
 		laser()
-	if _input.is_action_pressed("bomb"):
-		bomb()
 
-func state_process(_delta: float) -> void:
-	if not character.is_on_floor():
-		transitioned.emit(self, "falling")
-
+func throw() -> void:
+	var bomb: RigidBody2D = bomb_scene.instantiate()
+	var mouse_position: Vector2 = character.get_global_mouse_position()
+	
+	bomb.global_position.y = character.global_position.y
+	bomb.global_position.x = character.global_position.x
+	
+	if character.inverted:
+		bomb.change_to_anti()
+	
+	character.get_parent().add_child(bomb)
+	transitioned.emit(self, "ground")
+	
 func jump() -> void:
 	if UnlockManager.able_to("jump"):
 		transitioned.emit(self, "air")
@@ -39,5 +56,5 @@ func laser() -> void:
 		CooldownManager.start_cooldown("laser")
 		transitioned.emit(self, "laser")
 
-func bomb() -> void:
-	transitioned.emit(self, "bomb")
+func go_back_move() -> void:
+	transitioned.emit(self, "ground")

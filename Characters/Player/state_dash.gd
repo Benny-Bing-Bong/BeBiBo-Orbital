@@ -9,7 +9,6 @@ extends State
 
 func enter() -> void:
 	super()
-	can_move = false
 	dash_duration.start()
 	ghost_timer.start()
 	hurtbox.monitoring = false
