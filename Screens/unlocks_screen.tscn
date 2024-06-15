@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bd6ipgw4l7ooj"]
+[gd_scene load_steps=12 format=3 uid="uid://bd6ipgw4l7ooj"]
 
 [ext_resource type="PackedScene" uid="uid://3nhl5anqig7i" path="res://UI/back_button.tscn" id="1_ap10c"]
 [ext_resource type="PackedScene" uid="uid://caw0mewdmywpx" path="res://UI/Unlock Icon/unlock_tutorial_button.tscn" id="2_dkbhs"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://8es0jjgijkx4" path="res://Art/UI/Unlock Icons/Dash Unlock Icon.png" id="8_hg3q7"]
 [ext_resource type="Texture2D" uid="uid://u6vpkig60j1r" path="res://Art/UI/Unlock Icons/Wallhang Unlock Icon.png" id="9_yt2qo"]
 [ext_resource type="Texture2D" uid="uid://cf0518ae1w4h1" path="res://Art/UI/Unlock Icons/Phase Unlock Icon.png" id="10_8aese"]
+[ext_resource type="Texture2D" uid="uid://dieo4s4oa5bsg" path="res://Art/UI/Unlock Icons/Laser Unlock Icon.png" id="11_khuep"]
 
 [node name="UnlocksScreen" type="CanvasLayer"]
 
@@ -111,3 +112,8 @@ sprite_icon = ExtResource("8_hg3q7")
 layout_mode = 2
 skill_name = "phase"
 sprite_icon = ExtResource("10_8aese")
+
+[node name="UnlockTutorialButton9" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_dkbhs")]
+layout_mode = 2
+skill_name = "laser"
+sprite_icon = ExtResource("11_khuep")

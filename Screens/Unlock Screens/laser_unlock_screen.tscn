@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d04emympuhrut"]
+
+[ext_resource type="PackedScene" uid="uid://co2ysxhka6nr" path="res://Screens/Unlock Screens/base_unlock_screen.tscn" id="1_6552q"]
+[ext_resource type="Texture2D" uid="uid://bq2cj60qh1qec" path="res://Art/Game Screenshots/Laser Screenshot.png" id="2_mtmt3"]
+
+[node name="LaserUnlockScreen" instance=ExtResource("1_6552q")]
+skill_name = "laser"
+skill_description = "Press Q to charge up and shoot a powerful laser. You are immobile while charging the laser, and you have to wait a while before using it again. Note: You can only shoot at eye level, so you can't defeat short enemies with it."
+screenshot = ExtResource("2_mtmt3")

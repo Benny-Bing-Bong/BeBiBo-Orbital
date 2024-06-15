@@ -17,6 +17,7 @@ var screens: Dictionary = {
 	"wallhang": 
 		preload("res://Screens/Unlock Screens/wallhang_unlock_screen.tscn"),
 	"phase": preload("res://Screens/Unlock Screens/phase_unlock_screen.tscn"),
+	"laser": preload("res://Screens/Unlock Screens/laser_unlock_screen.tscn"),
 }
 
 func _ready() -> void:
