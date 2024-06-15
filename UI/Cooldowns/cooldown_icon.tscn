@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://UI/Cooldowns/cooldown_icon.gd" id="1_hl4t3"]
 [ext_resource type="Theme" uid="uid://b87efi81vr2yb" path="res://Themes/main_theme.tres" id="2_47fnn"]
-[ext_resource type="Texture2D" uid="uid://d2ne1umnerbjo" path="res://Art/UI/ui Skill Template.png" id="2_rshvi"]
+[ext_resource type="Texture2D" uid="uid://d2ne1umnerbjo" path="res://Art/UI/Cooldown Icons/ui Skill Template.png" id="2_rshvi"]
 
 [node name="CooldownIcon" type="Control"]
 custom_minimum_size = Vector2(40, 40)

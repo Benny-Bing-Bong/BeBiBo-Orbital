@@ -6,8 +6,8 @@
 [ext_resource type="Script" path="res://UI/Stamina/st_label.gd" id="3_88o5t"]
 [ext_resource type="PackedScene" uid="uid://c3756qbr2j2uh" path="res://UI/Stamina/stamina_bar.tscn" id="3_tm42f"]
 [ext_resource type="PackedScene" uid="uid://bd20qosecy1v3" path="res://UI/Cooldowns/cooldown_icon.tscn" id="4_vnq75"]
-[ext_resource type="Texture2D" uid="uid://bxwcnfh7yup4k" path="res://Art/UI/ui Skill Phase.png" id="5_3wgv4"]
-[ext_resource type="Texture2D" uid="uid://cguxsbpd0hgke" path="res://Art/UI/ui Skill Laser.png" id="6_mbh0q"]
+[ext_resource type="Texture2D" uid="uid://bxwcnfh7yup4k" path="res://Art/UI/Cooldown Icons/ui Skill Phase.png" id="5_3wgv4"]
+[ext_resource type="Texture2D" uid="uid://cguxsbpd0hgke" path="res://Art/UI/Cooldown Icons/ui Skill Laser.png" id="6_mbh0q"]
 
 [node name="HUD" type="CanvasLayer"]
 
