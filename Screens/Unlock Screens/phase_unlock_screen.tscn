@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckd8oohp2x2jy"]
+
+[ext_resource type="PackedScene" uid="uid://co2ysxhka6nr" path="res://Screens/Unlock Screens/base_unlock_screen.tscn" id="1_1t3xn"]
+[ext_resource type="Texture2D" uid="uid://nfso0h17kd2k" path="res://Art/Game Screenshots/Phase Screenshot.png" id="2_0s0g5"]
+
+[node name="PhaseUnlockScreen" instance=ExtResource("1_1t3xn")]
+skill_name = "phase"
+skill_description = "Press Tab to switch between the NORMAL and ANTI phase. 
+You can only hit NORMAL and ANTI enemies using the respective phases. However, you can still be hurt by all enemies in different phases. Be careful!"
+screenshot = ExtResource("2_0s0g5")
