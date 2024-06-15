@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkwsboctuseeo"
-path="res://.godot/imported/ui Skill Bomb.png-49dd4b8267d70957f3242278ce256e09.ctex"
+uid="uid://c7jhylrdr4en4"
+path="res://.godot/imported/ui Skill Bomb.png-c1e631459ac9fa82e61b3736900c8042.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/ui Skill Bomb.png"
-dest_files=["res://.godot/imported/ui Skill Bomb.png-49dd4b8267d70957f3242278ce256e09.ctex"]
+source_file="res://Art/UI/Cooldown Icons/ui Skill Bomb.png"
+dest_files=["res://.godot/imported/ui Skill Bomb.png-c1e631459ac9fa82e61b3736900c8042.ctex"]
 
 [params]
 
