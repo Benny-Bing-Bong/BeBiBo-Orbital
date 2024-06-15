@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://biu8yengrvq78"]
+[gd_scene load_steps=10 format=3 uid="uid://biu8yengrvq78"]
 
 [ext_resource type="Theme" uid="uid://b87efi81vr2yb" path="res://Themes/main_theme.tres" id="1_aodyr"]
 [ext_resource type="PackedScene" uid="uid://vlcy5cgx3axs" path="res://UI/Health Bar/health_bar.tscn" id="1_hw2kd"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bd20qosecy1v3" path="res://UI/Cooldowns/cooldown_icon.tscn" id="4_vnq75"]
 [ext_resource type="Texture2D" uid="uid://bxwcnfh7yup4k" path="res://Art/UI/ui Skill Phase.png" id="5_3wgv4"]
 [ext_resource type="Texture2D" uid="uid://cguxsbpd0hgke" path="res://Art/UI/ui Skill Laser.png" id="6_mbh0q"]
+[ext_resource type="Texture2D" uid="uid://dkwsboctuseeo" path="res://Art/UI/ui Skill Bomb.png" id="9_wotxx"]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -77,3 +78,8 @@ skill_name = "phase"
 layout_mode = 2
 sprite_icon = ExtResource("6_mbh0q")
 skill_name = "laser"
+
+[node name="BombCooldownIcon" parent="MarginContainer/VBoxContainer/CooldownHBoxContainer" instance=ExtResource("4_vnq75")]
+layout_mode = 2
+sprite_icon = ExtResource("9_wotxx")
+skill_name = "bomb"

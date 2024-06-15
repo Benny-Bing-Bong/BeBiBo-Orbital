@@ -2,10 +2,12 @@ extends Node
 
 @onready var phase_cooldown: Timer = $PhaseCooldown
 @onready var laser_cooldown: Timer = $LaserCooldown
+@onready var bomb_cooldown: Timer = $BombCooldown
 
 @onready var cooldown_names: Dictionary = {
 		"phase": phase_cooldown,
 		"laser": laser_cooldown,
+		"bomb": bomb_cooldown
 }
 
 func start_cooldown(name: String) -> void:

@@ -13,6 +13,7 @@ var unlock_dictionary: Dictionary = {
 	"wallhang": false,
 	"phase": false,
 	"laser": false,
+	"bomb": false,
 	}
 
 # check if can do given action, and returns it. Default value if not found

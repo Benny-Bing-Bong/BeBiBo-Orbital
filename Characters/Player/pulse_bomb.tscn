@@ -58,7 +58,7 @@ collision_layer = 2
 collision_mask = 37
 max_contacts_reported = 1
 contact_monitor = true
-linear_velocity = Vector2(300, -300)
+linear_velocity = Vector2(400, -300)
 script = ExtResource("1_g8dvt")
 blast = ExtResource("2_amxey")
 

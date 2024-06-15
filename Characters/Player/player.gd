@@ -71,11 +71,6 @@ func get_facing_direction() -> Vector2:
 
 func phase_shift() -> void:
 	
-	# phase shift only works in ground state
-	for child in get_children():
-		if child is PlayerStateMachine:
-			child.emit_signal("interrupted_state", "ground")
-	
 	# sprite inversion
 	if not PhaseManager.is_anti():
 		RenderingServer.global_shader_parameter_set("inverted", true)

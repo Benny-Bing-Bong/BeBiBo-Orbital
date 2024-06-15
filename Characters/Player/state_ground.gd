@@ -40,4 +40,6 @@ func laser() -> void:
 		transitioned.emit(self, "laser")
 
 func bomb() -> void:
-	transitioned.emit(self, "bomb")
+	if UnlockManager.able_to("bomb") and CooldownManager.skill_ready("bomb"):
+		CooldownManager.start_cooldown("bomb")
+		transitioned.emit(self, "bomb")
