@@ -11,6 +11,8 @@ func state_input(_input: InputEvent) -> void:
 		dash()
 	if _input.is_action_pressed("laser"):
 		laser()
+	if _input.is_action_pressed("bomb"):
+		bomb()
 
 func state_process(_delta: float) -> void:
 	if not character.is_on_floor():
@@ -36,3 +38,8 @@ func laser() -> void:
 	if UnlockManager.able_to("laser") and CooldownManager.skill_ready("laser"):
 		CooldownManager.start_cooldown("laser")
 		transitioned.emit(self, "laser")
+
+func bomb() -> void:
+	if UnlockManager.able_to("bomb") and CooldownManager.skill_ready("bomb"):
+		CooldownManager.start_cooldown("bomb")
+		transitioned.emit(self, "bomb")

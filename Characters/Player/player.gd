@@ -4,7 +4,6 @@ extends CharacterBody2D
 @export var speed: float = 200.0
 
 var direction: Vector2 = Vector2.ZERO
-var inverted: bool = false
 const PLAYER_COLLISION: int = 2
 const ENEMY_COLLISION: int = 3
 const ANTI_PLAYER: int = 5
@@ -18,7 +17,7 @@ const ANTI_ENEMY: int = 6
 func _ready() -> void:
 	animation_tree.active = true
 	# temporary fix for visual bug before implementing phase manager
-	RenderingServer.global_shader_parameter_set("inverted", false)
+	RenderingServer.global_shader_parameter_set("inverted", PhaseManager.is_anti())
 
 func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("phase") and UnlockManager.able_to("phase")
@@ -71,8 +70,9 @@ func get_facing_direction() -> Vector2:
 		return Vector2.LEFT
 
 func phase_shift() -> void:
+	
 	# sprite inversion
-	if not inverted:
+	if not PhaseManager.is_anti():
 		RenderingServer.global_shader_parameter_set("inverted", true)
 	else:
 		RenderingServer.global_shader_parameter_set("inverted", false)
@@ -92,5 +92,5 @@ func phase_shift() -> void:
 	hitbox.set_collision_mask_value(ENEMY_COLLISION, not hitbox.get_collision_mask_value(ENEMY_COLLISION))
 	hitbox.set_collision_mask_value(ANTI_ENEMY, not hitbox.get_collision_mask_value(ANTI_ENEMY))
 	
-	inverted = not inverted
+	PhaseManager.phase_shift()
 	

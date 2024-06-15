@@ -1,0 +1,75 @@
+[gd_scene load_steps=14 format=3 uid="uid://ccea0rbjfgnqp"]
+
+[ext_resource type="Shader" path="res://Characters/Player/player.gdshader" id="1_2161e"]
+[ext_resource type="Script" path="res://Characters/Player/pulse_bomb.gd" id="1_g8dvt"]
+[ext_resource type="Texture2D" uid="uid://c4r1t50kgq2v4" path="res://Art/Character/Pulse Bomb.png" id="1_u3oex"]
+[ext_resource type="PackedScene" uid="uid://cr2emvylbpw3i" path="res://Characters/Player/blast.tscn" id="2_amxey"]
+[ext_resource type="Shader" path="res://Characters/Player/player_projectile.gdshader" id="4_vgj07"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ccu1l"]
+shader = ExtResource("1_2161e")
+shader_parameter/active = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h63eu"]
+shader = ExtResource("4_vgj07")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01ulw"]
+atlas = ExtResource("1_u3oex")
+region = Rect2(0, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xx6w"]
+atlas = ExtResource("1_u3oex")
+region = Rect2(11, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t585q"]
+atlas = ExtResource("1_u3oex")
+region = Rect2(22, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urcvh"]
+atlas = ExtResource("1_u3oex")
+region = Rect2(33, 0, 11, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gns4r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01ulw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xx6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t585q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urcvh")
+}],
+"loop": false,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xuyi5"]
+size = Vector2(5.5, 5)
+
+[node name="Pulse Bomb" type="RigidBody2D"]
+material = SubResource("ShaderMaterial_ccu1l")
+collision_layer = 2
+collision_mask = 37
+max_contacts_reported = 1
+contact_monitor = true
+linear_velocity = Vector2(400, -300)
+script = ExtResource("1_g8dvt")
+blast = ExtResource("2_amxey")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_h63eu")
+sprite_frames = SubResource("SpriteFrames_gns4r")
+autoplay = "default"
+frame = 3
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xuyi5")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
