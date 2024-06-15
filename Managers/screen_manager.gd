@@ -10,6 +10,7 @@ var screens: Dictionary = {
 	"move": preload("res://Screens/Unlock Screens/move_unlock_screen.tscn"),
 	"attack": preload("res://Screens/Unlock Screens/attack_unlock_screen.tscn"),
 	"jump": preload("res://Screens/Unlock Screens/jump_unlock_screen.tscn"),
+	"double_jump": preload("res://Screens/Unlock Screens/double_jump_unlock_screen.tscn"),
 }
 
 func _ready() -> void:
