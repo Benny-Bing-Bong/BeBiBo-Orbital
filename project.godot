@@ -28,6 +28,7 @@ UnlockManager="*res://Managers/unlock_manager.gd"
 CooldownManager="*res://Managers/cooldown_manager.tscn"
 StaminaManager="*res://Managers/stamina_manager.gd"
 ScreenManager="*res://Managers/screen_manager.gd"
+PhaseManager="*res://Managers/phase_manager.gd"
 
 [debug]
 

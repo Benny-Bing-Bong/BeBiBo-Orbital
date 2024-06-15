@@ -29,9 +29,6 @@ func throw() -> void:
 	bomb.global_position.y = character.global_position.y
 	bomb.global_position.x = character.global_position.x
 	
-	if character.inverted:
-		bomb.change_to_anti()
-	
 	character.get_parent().add_child(bomb)
 	transitioned.emit(self, "ground")
 	

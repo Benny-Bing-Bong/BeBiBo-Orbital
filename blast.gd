@@ -11,10 +11,9 @@ func _ready() -> void:
 	tween.set_trans(Tween.TRANS_LINEAR)
 	tween.set_ease(Tween.EASE_OUT)
 	# Tween to execute
-	tween.tween_property(self, "modulate:a", 0.0, 1)
+	tween.tween_property(self, "modulate:a", 0.0, 0.5)
 	# Remove from level scebe once tween is executed
 	await tween.finished
-	RenderingServer.global_shader_parameter_set("invert_projectile", RenderingServer.global_shader_parameter_get("inverted"))
 	queue_free()
 
 func change_to_anti() -> void:
