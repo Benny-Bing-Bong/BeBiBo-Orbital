@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c4r1t50kgq2v4" path="res://Art/Character/Pulse Bomb.png" id="1_26dn3"]
 [ext_resource type="Shader" path="res://Characters/Player/player_projectile.gdshader" id="1_n6fva"]
-[ext_resource type="Script" path="res://blast.gd" id="1_s2ipu"]
+[ext_resource type="Script" path="res://Characters/Player/blast.gd" id="1_s2ipu"]
 [ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hitbox.gd" id="3_jar0v"]
 [ext_resource type="Shader" path="res://Characters/Player/player.gdshader" id="3_l71ro"]
 
