@@ -14,6 +14,8 @@ var screens: Dictionary = {
 		preload("res://Screens/Unlock Screens/double_jump_unlock_screen.tscn"),
 	"crouch": preload("res://Screens/Unlock Screens/crouch_unlock_screen.tscn"),
 	"dash": preload("res://Screens/Unlock Screens/dash_unlock_screen.tscn"),
+	"wallhang": 
+		preload("res://Screens/Unlock Screens/wallhang_unlock_screen.tscn"),
 }
 
 func _ready() -> void:
