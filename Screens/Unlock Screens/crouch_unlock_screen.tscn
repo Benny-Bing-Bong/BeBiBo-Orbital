@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv6pnpdeniicd"]
+
+[ext_resource type="PackedScene" uid="uid://co2ysxhka6nr" path="res://Screens/Unlock Screens/base_unlock_screen.tscn" id="1_t8dr8"]
+[ext_resource type="Texture2D" uid="uid://gjxby4868ylh" path="res://Art/Game Screenshots/Crouch Screenshot.png" id="2_gs0fp"]
+
+[node name="CrouchUnlockScreen" instance=ExtResource("1_t8dr8")]
+skill_name = "crouch"
+skill_description = "Press S while you are on the ground to crouch and become just a little bit shorter. You can now access tight-fitting areas like vents."
+screenshot = ExtResource("2_gs0fp")

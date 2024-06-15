@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bd6ipgw4l7ooj"]
+[gd_scene load_steps=9 format=3 uid="uid://bd6ipgw4l7ooj"]
 
 [ext_resource type="PackedScene" uid="uid://3nhl5anqig7i" path="res://UI/back_button.tscn" id="1_ap10c"]
 [ext_resource type="PackedScene" uid="uid://caw0mewdmywpx" path="res://UI/Unlock Icon/unlock_tutorial_button.tscn" id="2_dkbhs"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bjnmakyjk4m2y" path="res://Art/UI/Unlock Icons/Attack Unlock Icon.png" id="4_y351t"]
 [ext_resource type="Texture2D" uid="uid://cu464n61ad2rm" path="res://Art/UI/Unlock Icons/Jump Unlock Icon.png" id="5_lf2bc"]
 [ext_resource type="Texture2D" uid="uid://dako6jrx86b4h" path="res://Art/UI/Unlock Icons/Double Jump Unlock Icon.png" id="6_qbnoy"]
+[ext_resource type="Texture2D" uid="uid://bvgkht5vp5cx3" path="res://Art/UI/Unlock Icons/Crouch Unlock Icon.png" id="7_2cnvr"]
+[ext_resource type="Texture2D" uid="uid://8es0jjgijkx4" path="res://Art/UI/Unlock Icons/Dash Unlock Icon.png" id="8_hg3q7"]
 
 [node name="UnlocksScreen" type="CanvasLayer"]
 
@@ -87,3 +89,13 @@ sprite_icon = ExtResource("5_lf2bc")
 layout_mode = 2
 skill_name = "double_jump"
 sprite_icon = ExtResource("6_qbnoy")
+
+[node name="UnlockTutorialButton5" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_dkbhs")]
+layout_mode = 2
+skill_name = "crouch"
+sprite_icon = ExtResource("7_2cnvr")
+
+[node name="UnlockTutorialButton6" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_dkbhs")]
+layout_mode = 2
+skill_name = "dash"
+sprite_icon = ExtResource("8_hg3q7")

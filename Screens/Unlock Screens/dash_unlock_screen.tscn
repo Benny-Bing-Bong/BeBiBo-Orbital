@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b43rl74xjcy2m"]
+
+[ext_resource type="PackedScene" uid="uid://co2ysxhka6nr" path="res://Screens/Unlock Screens/base_unlock_screen.tscn" id="1_von6f"]
+[ext_resource type="Texture2D" uid="uid://dh5v6xwhfgftk" path="res://Art/Game Screenshots/Dash Screenshot.png" id="2_drngm"]
+
+[node name="DashUnlockScreen" instance=ExtResource("1_von6f")]
+skill_name = "dash"
+skill_description = "Press Shift to dash forward briefly. While you are dashing, enemies cannot hurt you, so you can use dash to avoid attacks. You have a set number of dashes you can store, and they recharge over time."
+screenshot = ExtResource("2_drngm")
