@@ -36,7 +36,7 @@ func set_health(new_value: int) -> void:
 	
 	on_health_changed.emit(curr_health)
 
-# Health Functions
+# Phase Functions
 func phase_shift() -> void:
 	inverted = not inverted
 

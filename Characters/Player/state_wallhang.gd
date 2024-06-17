@@ -2,7 +2,6 @@ extends State
 
 @export var impulse: float = 400
 
-# currently not pushing off yet
 func state_input(_input: InputEvent) -> void:
 	if _input.is_action_pressed("up"):
 		
