@@ -27,7 +27,7 @@ func spawn_laser() -> void:
 		laser.scale.x = -1
 	
 	# set correct collision masks in case player in in anti phase
-	if PhaseManager.is_anti():
+	if PlayerManager.is_anti():
 		laser.change_to_anti()
 	
 	# spawn the laser

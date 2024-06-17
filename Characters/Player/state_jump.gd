@@ -1,25 +1,25 @@
 extends State
 
 @export var jump_velocity: float = -400.0
-@export var double_jump_velocity: float = -300.0
-@export var jump_double_anim_name: String
-
-var has_doubled: bool = false
+@export var air_accel: float = 25
 
 @onready var buffer_timer: Timer = $Timer # Prevent immediate transition to land
 @onready var wallhang_timer: Timer = $WallhangTimer # Prevent immediate wallhang
 
-
 func enter() -> void:
 	super()
+	PlayerManager.jumped = true
+	
 	character.velocity.y = jump_velocity
+	character.accel = air_accel
+	
 	buffer_timer.start()
 	wallhang_timer.start()
 	
 	PlayerSFX.jump()
 
 func exit() -> void:
-	has_doubled = false
+	character.accel = character.max_speed
 
 func state_process(_delta: float) -> void:
 	if character.is_on_floor() and buffer_timer.is_stopped():
@@ -29,37 +29,35 @@ func state_process(_delta: float) -> void:
 		wallhang()
 
 func state_physics_process(_delta: float) -> void:
-	#if character.velocity.y >= 0:
-	#	get_parent().emit_signal("interrupted_state", "falling")
-	pass
+	if character.velocity.y >= 0:
+		get_parent().emit_signal("interrupted_state", "falling")
 
 func state_input(_input: InputEvent) -> void:
-	if _input.is_action_pressed("up") and !has_doubled:
-		has_doubled = true
+	if _input.is_action_pressed("up"):
 		double_jump()
-	
-	if _input.is_action_pressed("attack"):
-		attack()
-	
 	if _input.is_action_pressed("dash"):
 		dash()
+	if _input.is_action_pressed("attack"):
+		air_attack()
 
 func land() -> void:
 	transitioned.emit(self, "landing")
-
-func attack() -> void:
-	transitioned.emit(self, "attack")
 
 func wallhang() -> void:
 	if UnlockManager.able_to("wallhang"):
 		transitioned.emit(self, "wallhang")
 
 func double_jump() -> void:
-	if UnlockManager.able_to("double_jump"):
-		character.velocity.y = double_jump_velocity
-		playback.travel(jump_double_anim_name)
+	if UnlockManager.able_to("double_jump") and PlayerManager.can_double_jump():
+		transitioned.emit(self, "doublejump")
 
 func dash() -> void:
 	if UnlockManager.able_to("dash") and StaminaManager.has_charge():
 		StaminaManager.use_charge()
 		transitioned.emit(self, "dash")
+
+func air_attack() -> void:
+	if PlayerManager.can_air1():
+		transitioned.emit(self, "airattack")
+	elif PlayerManager.can_air2():
+		transitioned.emit(self, "airattack2")
