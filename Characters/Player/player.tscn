@@ -200,7 +200,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Hitbox/Slash2ColShape2D:disabled")
+tracks/3/path = NodePath("Hitbox2/Slash2ColShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -970,7 +970,13 @@ shape = SubResource("RectangleShape2D_juwdw")
 disabled = true
 debug_color = Color(0.933333, 0.258824, 0.0980392, 0.419608)
 
-[node name="Slash2ColShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="Hitbox2" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("13_43nee")
+hit_value = 2
+
+[node name="Slash2ColShape2D" type="CollisionShape2D" parent="Hitbox2"]
 position = Vector2(35.5, -8)
 shape = SubResource("RectangleShape2D_p0bom")
 disabled = true

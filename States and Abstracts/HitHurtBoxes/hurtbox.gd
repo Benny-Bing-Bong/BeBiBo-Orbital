@@ -15,5 +15,6 @@ func on_area_entered(hitbox: Hitbox) -> void:
 	for child in get_parent().get_children():
 		if child is Damageable:
 			child.take_damage(hitbox.hit_value)
+			print("Damage Taken: " + str(hitbox.hit_value))
 		if child is AnimationPlayer:
 			child.play("hit")

@@ -14,6 +14,7 @@ const ANTI_ENEMY: int = 6
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var player_state_machine: PlayerStateMachine = $PlayerStateMachine
 @onready var hitbox: Hitbox = $Hitbox
+@onready var hitbox_2: Hitbox = $Hitbox2
 
 func _ready() -> void:
 	animation_tree.active = true
@@ -46,7 +47,7 @@ func update_animation_parameters() -> void:
 
 func update_facing_direction() -> void:
 	var slash1_hitbox: CollisionShape2D = $Hitbox/Slash1ColShape2D
-	var slash2_hitbox: CollisionShape2D = $Hitbox/Slash2ColShape2D
+	var slash2_hitbox: CollisionShape2D = $Hitbox2/Slash2ColShape2D
 	
 	var distance1: float = abs(
 			slash1_hitbox.global_position.x - 
@@ -86,12 +87,28 @@ func phase_shift() -> void:
 	await get_tree().create_timer(0.5).timeout
 	
 	# set new phase's collision layers and masks
-	set_collision_layer_value(PLAYER_COLLISION, not get_collision_layer_value(PLAYER_COLLISION))
-	set_collision_layer_value(ANTI_PLAYER, not get_collision_layer_value(ANTI_PLAYER))
-	hitbox.set_collision_layer_value(PLAYER_COLLISION, not hitbox.get_collision_layer_value(PLAYER_COLLISION))
-	hitbox.set_collision_layer_value(ANTI_PLAYER, not hitbox.get_collision_layer_value(ANTI_PLAYER))
-	hitbox.set_collision_mask_value(ENEMY_COLLISION, not hitbox.get_collision_mask_value(ENEMY_COLLISION))
-	hitbox.set_collision_mask_value(ANTI_ENEMY, not hitbox.get_collision_mask_value(ANTI_ENEMY))
+	set_collision_layer_value(PLAYER_COLLISION, 
+			not get_collision_layer_value(PLAYER_COLLISION))
+	set_collision_layer_value(ANTI_PLAYER, 
+			not get_collision_layer_value(ANTI_PLAYER))
+	
+	hitbox.set_collision_layer_value(PLAYER_COLLISION, 
+			not hitbox.get_collision_layer_value(PLAYER_COLLISION))
+	hitbox.set_collision_layer_value(ANTI_PLAYER, 
+			not hitbox.get_collision_layer_value(ANTI_PLAYER))
+	hitbox.set_collision_mask_value(ENEMY_COLLISION, 
+			not hitbox.get_collision_mask_value(ENEMY_COLLISION))
+	hitbox.set_collision_mask_value(ANTI_ENEMY, 
+			not hitbox.get_collision_mask_value(ANTI_ENEMY))
+	
+	hitbox_2.set_collision_layer_value(PLAYER_COLLISION, 
+			not hitbox_2.get_collision_layer_value(PLAYER_COLLISION))
+	hitbox_2.set_collision_layer_value(ANTI_PLAYER, 
+			not hitbox_2.get_collision_layer_value(ANTI_PLAYER))
+	hitbox_2.set_collision_mask_value(ENEMY_COLLISION, 
+			not hitbox_2.get_collision_mask_value(ENEMY_COLLISION))
+	hitbox_2.set_collision_mask_value(ANTI_ENEMY, 
+			not hitbox_2.get_collision_mask_value(ANTI_ENEMY))
 	
 	PlayerManager.phase_shift()
 	
