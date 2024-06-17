@@ -1,7 +1,7 @@
 extends State
 
 @export var jump_velocity: float = -400.0
-@export var jump_accel: float = 25
+@export var air_accel: float = 25
 
 @onready var buffer_timer: Timer = $Timer # Prevent immediate transition to land
 @onready var wallhang_timer: Timer = $WallhangTimer # Prevent immediate wallhang
@@ -11,7 +11,7 @@ func enter() -> void:
 	PlayerManager.jumped = true
 	
 	character.velocity.y = jump_velocity
-	character.accel = jump_accel
+	character.accel = air_accel
 	
 	buffer_timer.start()
 	wallhang_timer.start()

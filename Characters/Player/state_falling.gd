@@ -1,7 +1,16 @@
 extends State
 
+@export var air_accel: float = 25
+
 @onready var buffer_timer: Timer = $Timer # Prevent immediate transition to land
 @onready var wallhang_timer: Timer = $WallhangTimer
+
+func enter() -> void:
+	super()
+	character.accel = air_accel
+
+func exit() -> void:
+	character.accel = character.max_speed
 
 func state_process(_delta: float) -> void:
 	if character.is_on_floor():
