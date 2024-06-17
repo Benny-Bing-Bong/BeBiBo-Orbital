@@ -13,6 +13,10 @@ var inverted: bool
 var jumped: bool
 var double_jumped: bool
 
+# Air Attack Vars
+var air1ed: bool
+var air2ed: bool
+
 func _ready() -> void:
 	curr_health = max_health
 	inverted = false
@@ -49,3 +53,14 @@ func can_jump() -> bool:
 
 func can_double_jump() -> bool:
 	return not double_jumped
+
+# Air Attack Functions
+func reset_air_attacks() -> void:
+	air1ed = false
+	air2ed = false
+
+func can_air1() -> bool:
+	return not air1ed
+
+func can_air2() -> bool:
+	return not air2ed

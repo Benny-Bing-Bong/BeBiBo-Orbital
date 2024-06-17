@@ -50,6 +50,8 @@ func update_animation_parameters() -> void:
 func update_facing_direction() -> void:
 	var slash1_hitbox: CollisionShape2D = $Hitbox/Slash1ColShape2D
 	var slash2_hitbox: CollisionShape2D = $Hitbox2/Slash2ColShape2D
+	var air1_hitbox: CollisionShape2D = $Hitbox/Air1ColShape2D
+	var air2_hitbox: CollisionShape2D = $Hitbox2/Air2ColShape2D
 	
 	var distance1: float = abs(
 			slash1_hitbox.global_position.x - 
@@ -57,15 +59,25 @@ func update_facing_direction() -> void:
 	var distance2: float = abs(
 			slash2_hitbox.global_position.x - 
 			global_position.x)
+	var distance3: float = abs(
+			air1_hitbox.global_position.x - 
+			global_position.x)
+	var distance4: float = abs(
+			air2_hitbox.global_position.x - 
+			global_position.x)
 	
 	if direction.x > 0:
 		sprite.flip_h = false
 		slash1_hitbox.position.x = distance1
 		slash2_hitbox.position.x = distance2
+		air1_hitbox.position.x = distance3
+		air2_hitbox.position.x = distance4
 	elif direction.x < 0:
 		sprite.flip_h = true
 		slash1_hitbox.position.x = -distance1
 		slash2_hitbox.position.x = -distance2
+		air1_hitbox.position.x = -distance3
+		air2_hitbox.position.x = -distance4
 
 func get_facing_direction() -> Vector2:
 	if sprite.flip_h == false:

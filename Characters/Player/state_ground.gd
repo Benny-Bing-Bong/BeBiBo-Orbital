@@ -19,6 +19,7 @@ func state_process(_delta: float) -> void:
 		transitioned.emit(self, "falling")
 	if character.is_on_floor():
 		PlayerManager.reset_jumps()
+		PlayerManager.reset_air_attacks()
 
 func jump() -> void:
 	if UnlockManager.able_to("jump") and PlayerManager.can_jump():
