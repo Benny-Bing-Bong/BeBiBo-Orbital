@@ -1,7 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
-@export var speed: float = 200.0
+@export var accel: float = 200.0
+@export var max_speed: float = 200.0
 
 var direction: Vector2 = Vector2.ZERO
 
@@ -19,7 +20,8 @@ const ANTI_ENEMY: int = 6
 func _ready() -> void:
 	animation_tree.active = true
 	# temporary fix for visual bug before implementing phase manager
-	RenderingServer.global_shader_parameter_set("inverted", PlayerManager.is_anti())
+	RenderingServer.global_shader_parameter_set("inverted", 
+		PlayerManager.is_anti())
 
 func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("phase") and UnlockManager.able_to("phase")
@@ -30,9 +32,9 @@ func _physics_process(delta: float) -> void:
 	if player_state_machine.get_can_move():
 		direction = Input.get_vector("left", "right", "up", "down")
 		if direction.x != 0:
-			velocity.x = direction.x * speed
+			velocity.x = move_toward(velocity.x, direction.x * max_speed, accel)
 		else:
-			velocity.x = move_toward(velocity.x, 0, speed)
+			velocity.x = move_toward(velocity.x, 0, accel)
 	
 	
 	# currently called in gravity
