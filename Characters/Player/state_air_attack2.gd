@@ -13,6 +13,8 @@ func enter() -> void:
 	
 	gravity.disable()
 	character.velocity.y = 0
+	
+	PlayerSFX.attack()
 
 func exit() -> void:
 	gravity.enable()

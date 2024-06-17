@@ -6,6 +6,7 @@ func _ready() -> void:
 func take_damage(value: int) -> void:
 	super(value)
 	PlayerManager.set_health(health)
+	PlayerSFX.hurt()
 
 func _die() -> void:
 	super()

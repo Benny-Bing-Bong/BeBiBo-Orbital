@@ -7,6 +7,8 @@ func enter() -> void:
 	throw()
 
 func throw() -> void:
+	PlayerSFX.throw()
+	
 	var bomb: RigidBody2D = bomb_scene.instantiate()
 	var mouse_position: Vector2 = character.get_global_mouse_position()
 	

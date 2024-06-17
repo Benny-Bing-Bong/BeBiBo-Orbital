@@ -5,6 +5,8 @@ extends State
 func enter() -> void:
 	super()
 	timer.start()
+	
+	PlayerSFX.attack()
 
 func _on_timer_timeout() -> void:
 	go_back_move()
