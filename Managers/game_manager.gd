@@ -17,4 +17,4 @@ func player_died() -> void:
 
 func restart_player() -> void:
 	player_alive = true
-	HealthManager.set_health(3)
+	PlayerManager.set_health(3)

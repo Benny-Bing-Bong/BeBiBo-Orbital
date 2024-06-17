@@ -8,8 +8,8 @@ extends Control
 @onready var heart3: Sprite2D = $Heart3Sprite2D
 
 func _ready() -> void:
-	HealthManager.connect("on_health_changed", update_bar)
-	update_bar(HealthManager.curr_health)
+	PlayerManager.connect("on_health_changed", update_bar)
+	update_bar(PlayerManager.curr_health)
 
 func update_bar(curr_health: int) -> void:
 	if curr_health >= 3:

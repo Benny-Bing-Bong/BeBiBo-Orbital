@@ -21,14 +21,13 @@ config/windows_native_icon="res://Art/Promotional Art/GameLogoWindowsIcon.ico"
 [autoload]
 
 GameManager="*res://Managers/game_manager.gd"
-HealthManager="*res://Managers/health_manager.gd"
 SaveLoadManager="*res://Managers/save_load_manager.gd"
 SceneManager="*res://Managers/scene_manager.gd"
 UnlockManager="*res://Managers/unlock_manager.gd"
 CooldownManager="*res://Managers/cooldown_manager.tscn"
 StaminaManager="*res://Managers/stamina_manager.gd"
 ScreenManager="*res://Managers/screen_manager.gd"
-PhaseManager="*res://Managers/phase_manager.gd"
+PlayerManager="*res://Managers/player_manager.gd"
 
 [debug]
 

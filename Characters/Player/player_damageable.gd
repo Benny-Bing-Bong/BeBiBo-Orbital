@@ -1,11 +1,11 @@
 extends Damageable
 
 func _ready() -> void:
-	health = HealthManager.curr_health
+	health = PlayerManager.curr_health
 
 func take_damage(value: int) -> void:
 	super(value)
-	HealthManager.set_health(health)
+	PlayerManager.set_health(health)
 
 func _die() -> void:
 	super()
