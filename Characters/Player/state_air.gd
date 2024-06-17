@@ -36,17 +36,11 @@ func state_input(_input: InputEvent) -> void:
 		has_doubled = true
 		double_jump()
 	
-	if _input.is_action_pressed("attack"):
-		attack()
-	
 	if _input.is_action_pressed("dash"):
 		dash()
 
 func land() -> void:
 	transitioned.emit(self, "landing")
-
-func attack() -> void:
-	transitioned.emit(self, "attack")
 
 func wallhang() -> void:
 	if UnlockManager.able_to("wallhang"):
