@@ -23,4 +23,4 @@ func fall() -> void:
 
 func jump() -> void:
 	if UnlockManager.able_to("jump"):
-		transitioned.emit(self, "air")
+		transitioned.emit(self, "jump")

@@ -17,10 +17,12 @@ func state_input(_input: InputEvent) -> void:
 func state_process(_delta: float) -> void:
 	if not character.is_on_floor():
 		transitioned.emit(self, "falling")
+	if character.is_on_floor():
+		PlayerManager.reset_jumps()
 
 func jump() -> void:
-	if UnlockManager.able_to("jump"):
-		transitioned.emit(self, "air")
+	if UnlockManager.able_to("jump") and PlayerManager.can_jump():
+		transitioned.emit(self, "jump")
 
 func attack() -> void:
 	transitioned.emit(self, "attack")
