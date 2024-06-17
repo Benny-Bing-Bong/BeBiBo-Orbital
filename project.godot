@@ -29,6 +29,8 @@ CooldownManager="*res://Managers/cooldown_manager.tscn"
 StaminaManager="*res://Managers/stamina_manager.gd"
 ScreenManager="*res://Managers/screen_manager.gd"
 PhaseManager="*res://Managers/phase_manager.gd"
+GameMusic="*res://Audio/Music/game_music.tscn"
+PlayerSFX="*res://Audio/SFX/player_sfx_manager.gd"
 
 [debug]
 

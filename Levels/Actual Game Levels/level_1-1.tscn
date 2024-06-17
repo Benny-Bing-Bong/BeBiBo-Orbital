@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwldbm8wj5a8p"]
+[gd_scene load_steps=8 format=3 uid="uid://bwldbm8wj5a8p"]
 
 [ext_resource type="PackedScene" uid="uid://cnb1q5qwbielt" path="res://Levels/base_level.tscn" id="1_8add6"]
+[ext_resource type="Script" path="res://Levels/Actual Game Levels/level_1-1.gd" id="2_4rw0t"]
 [ext_resource type="PackedScene" uid="uid://d01hjpvimba31" path="res://Levels/Background Scenes for Use/parallax_background.tscn" id="2_fgliy"]
 [ext_resource type="PackedScene" uid="uid://ci4klsnqge7t8" path="res://Items/thumbdrive.tscn" id="3_aaviu"]
 [ext_resource type="PackedScene" uid="uid://b2vww2ct07iuh" path="res://Characters/Enemies/Gooey/gooey.tscn" id="4_gngkw"]
@@ -10,6 +11,7 @@
 normal = Vector2(-1, 0)
 
 [node name="BaseLevel" instance=ExtResource("1_8add6")]
+script = ExtResource("2_4rw0t")
 
 [node name="ParallaxBackground" parent="." index="0" instance=ExtResource("2_fgliy")]
 

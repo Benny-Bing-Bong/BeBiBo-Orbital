@@ -17,6 +17,8 @@ func enter() -> void:
 	hurtbox.monitoring = false
 	gravity.disable()
 	character.velocity.y = 0
+	
+	PlayerSFX.dash()
 
 func state_physics_process(_delta: float) -> void:
 	var direction: Vector2 = character.get_facing_direction()

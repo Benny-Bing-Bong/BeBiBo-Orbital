@@ -15,6 +15,8 @@ func enter() -> void:
 	character.velocity.y = jump_velocity
 	buffer_timer.start()
 	wallhang_timer.start()
+	
+	PlayerSFX.jump()
 
 func exit() -> void:
 	has_doubled = false

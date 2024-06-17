@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b8epbxv0iyar4"
+path="res://.godot/imported/Phase Shift.wav-04ba44f5b1735e3e8c6b200472e3cf48.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/Phase Shift.wav"
+dest_files=["res://.godot/imported/Phase Shift.wav-04ba44f5b1735e3e8c6b200472e3cf48.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

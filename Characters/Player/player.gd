@@ -81,6 +81,7 @@ func phase_shift() -> void:
 	# play animation and start cooldown timer
 	sprite.phase_animation()
 	CooldownManager.start_cooldown("phase")
+	PlayerSFX.phase_shift()
 	
 	# buffer to ensure phase change is complete before setting collision values
 	await get_tree().create_timer(0.5).timeout
