@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://bd06xtnb3u2f2"]
+[gd_scene load_steps=116 format=3 uid="uid://bd06xtnb3u2f2"]
 
 [ext_resource type="Script" path="res://Characters/Player/player.gd" id="1_84hpc"]
 [ext_resource type="Texture2D" uid="uid://mi12jiwl05ns" path="res://Art/Character/gamesprite Attack.png" id="1_w5tfx"]
@@ -911,36 +911,40 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ry1g7"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oo5bx"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dnabt"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5ym8g"]
 states/End/position = Vector2(1298, 100)
 states/attack1/node = SubResource("AnimationNodeAnimation_qorhj")
-states/attack1/position = Vector2(518, 306)
+states/attack1/position = Vector2(477, 344)
 states/attack2/node = SubResource("AnimationNodeAnimation_qg346")
-states/attack2/position = Vector2(663, 306)
+states/attack2/position = Vector2(630, 344)
 states/bomb/node = SubResource("AnimationNodeAnimation_b1dg3")
-states/bomb/position = Vector2(627, 187)
+states/bomb/position = Vector2(904, 259)
 states/crouch/node = SubResource("AnimationNodeBlendSpace1D_vqgs6")
 states/crouch/position = Vector2(793, 100)
 states/dash/node = SubResource("AnimationNodeAnimation_d700u")
-states/dash/position = Vector2(286.5, -15)
+states/dash/position = Vector2(217.5, -30)
 states/death/node = SubResource("AnimationNodeAnimation_e0ece")
 states/death/position = Vector2(1197, -15)
 states/falling/node = SubResource("AnimationNodeAnimation_0jhnx")
-states/falling/position = Vector2(458, -94)
+states/falling/position = Vector2(454, -248)
 states/jump_double/node = SubResource("AnimationNodeAnimation_hvppm")
-states/jump_double/position = Vector2(718, -94)
+states/jump_double/position = Vector2(726, -248)
 states/jump_land/node = SubResource("AnimationNodeAnimation_gwppb")
-states/jump_land/position = Vector2(627, -20)
+states/jump_land/position = Vector2(640, -73)
 states/jump_start/node = SubResource("AnimationNodeAnimation_3c4li")
-states/jump_start/position = Vector2(580, -94)
+states/jump_start/position = Vector2(580, -248)
 states/laser/node = SubResource("AnimationNodeAnimation_qms0u")
-states/laser/position = Vector2(286.5, 221)
+states/laser/position = Vector2(217.5, 232)
 states/move/node = SubResource("AnimationNodeBlendSpace1D_vgjj8")
 states/move/position = Vector2(390, 100)
 states/wallhang/node = SubResource("AnimationNodeAnimation_2hujq")
-states/wallhang/position = Vector2(580, -246)
-transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_uw416"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_ucu2m"), "jump_land", "move", SubResource("AnimationNodeStateMachineTransition_ovb1j"), "jump_start", "jump_double", SubResource("AnimationNodeStateMachineTransition_me81o"), "jump_start", "jump_land", SubResource("AnimationNodeStateMachineTransition_siumw"), "jump_double", "jump_land", SubResource("AnimationNodeStateMachineTransition_7hjf8"), "move", "falling", SubResource("AnimationNodeStateMachineTransition_1rj3x"), "falling", "jump_start", SubResource("AnimationNodeStateMachineTransition_6clwg"), "falling", "move", SubResource("AnimationNodeStateMachineTransition_w3872"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_wyo13"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_3gsic"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_piaix"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_ml4yr"), "move", "crouch", SubResource("AnimationNodeStateMachineTransition_w1gv1"), "crouch", "move", SubResource("AnimationNodeStateMachineTransition_3rl7o"), "jump_start", "wallhang", SubResource("AnimationNodeStateMachineTransition_grq51"), "jump_double", "wallhang", SubResource("AnimationNodeStateMachineTransition_ffgga"), "wallhang", "jump_start", SubResource("AnimationNodeStateMachineTransition_7weve"), "wallhang", "falling", SubResource("AnimationNodeStateMachineTransition_ltv4g"), "jump_double", "death", SubResource("AnimationNodeStateMachineTransition_krahm"), "jump_land", "death", SubResource("AnimationNodeStateMachineTransition_3th4d"), "crouch", "death", SubResource("AnimationNodeStateMachineTransition_yuuli"), "wallhang", "death", SubResource("AnimationNodeStateMachineTransition_lxjvs"), "jump_start", "death", SubResource("AnimationNodeStateMachineTransition_nb7d3"), "falling", "death", SubResource("AnimationNodeStateMachineTransition_ssvea"), "move", "death", SubResource("AnimationNodeStateMachineTransition_go45j"), "attack2", "death", SubResource("AnimationNodeStateMachineTransition_eu65c"), "attack1", "death", SubResource("AnimationNodeStateMachineTransition_viho6"), "move", "dash", SubResource("AnimationNodeStateMachineTransition_a3drh"), "dash", "move", SubResource("AnimationNodeStateMachineTransition_r351g"), "move", "laser", SubResource("AnimationNodeStateMachineTransition_gosh3"), "laser", "move", SubResource("AnimationNodeStateMachineTransition_fru2u"), "dash", "falling", SubResource("AnimationNodeStateMachineTransition_w5r1h"), "jump_start", "dash", SubResource("AnimationNodeStateMachineTransition_d255h"), "jump_double", "dash", SubResource("AnimationNodeStateMachineTransition_ry1g7")]
-graph_offset = Vector2(19.5, -189)
+states/wallhang/position = Vector2(580, -349)
+transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_uw416"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_ucu2m"), "jump_land", "move", SubResource("AnimationNodeStateMachineTransition_ovb1j"), "jump_start", "jump_double", SubResource("AnimationNodeStateMachineTransition_me81o"), "jump_start", "jump_land", SubResource("AnimationNodeStateMachineTransition_siumw"), "jump_double", "jump_land", SubResource("AnimationNodeStateMachineTransition_7hjf8"), "move", "falling", SubResource("AnimationNodeStateMachineTransition_1rj3x"), "falling", "jump_start", SubResource("AnimationNodeStateMachineTransition_6clwg"), "falling", "move", SubResource("AnimationNodeStateMachineTransition_w3872"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_wyo13"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_3gsic"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_piaix"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_ml4yr"), "move", "crouch", SubResource("AnimationNodeStateMachineTransition_w1gv1"), "crouch", "move", SubResource("AnimationNodeStateMachineTransition_3rl7o"), "jump_start", "wallhang", SubResource("AnimationNodeStateMachineTransition_grq51"), "jump_double", "wallhang", SubResource("AnimationNodeStateMachineTransition_ffgga"), "wallhang", "jump_start", SubResource("AnimationNodeStateMachineTransition_7weve"), "wallhang", "falling", SubResource("AnimationNodeStateMachineTransition_ltv4g"), "jump_double", "death", SubResource("AnimationNodeStateMachineTransition_krahm"), "jump_land", "death", SubResource("AnimationNodeStateMachineTransition_3th4d"), "crouch", "death", SubResource("AnimationNodeStateMachineTransition_yuuli"), "wallhang", "death", SubResource("AnimationNodeStateMachineTransition_lxjvs"), "jump_start", "death", SubResource("AnimationNodeStateMachineTransition_nb7d3"), "falling", "death", SubResource("AnimationNodeStateMachineTransition_ssvea"), "move", "death", SubResource("AnimationNodeStateMachineTransition_go45j"), "attack2", "death", SubResource("AnimationNodeStateMachineTransition_eu65c"), "attack1", "death", SubResource("AnimationNodeStateMachineTransition_viho6"), "move", "dash", SubResource("AnimationNodeStateMachineTransition_a3drh"), "dash", "move", SubResource("AnimationNodeStateMachineTransition_r351g"), "move", "laser", SubResource("AnimationNodeStateMachineTransition_gosh3"), "laser", "move", SubResource("AnimationNodeStateMachineTransition_fru2u"), "dash", "falling", SubResource("AnimationNodeStateMachineTransition_w5r1h"), "jump_start", "dash", SubResource("AnimationNodeStateMachineTransition_d255h"), "jump_double", "dash", SubResource("AnimationNodeStateMachineTransition_ry1g7"), "falling", "wallhang", SubResource("AnimationNodeStateMachineTransition_oo5bx"), "bomb", "death", SubResource("AnimationNodeStateMachineTransition_dnabt")]
+graph_offset = Vector2(122.5, -438)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
