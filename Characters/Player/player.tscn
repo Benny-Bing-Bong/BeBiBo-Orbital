@@ -1032,6 +1032,14 @@ first_anim_name = "jump_land"
 script = ExtResource("10_w1fag")
 first_anim_name = "falling"
 
+[node name="WallhangTimer" type="Timer" parent="PlayerStateMachine/Falling"]
+wait_time = 0.4
+one_shot = true
+
+[node name="Timer" type="Timer" parent="PlayerStateMachine/Falling"]
+wait_time = 0.1
+one_shot = true
+
 [node name="Attack" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("11_i5q18")
 atk2_anim_name = "attack2"
@@ -1084,7 +1092,6 @@ can_move = false
 first_anim_name = "bomb"
 
 [node name="State Label" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
-visible = false
 offset_left = -37.0
 offset_top = -47.0
 offset_right = 37.0

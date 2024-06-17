@@ -10,3 +10,10 @@ func _physics_process(delta : float) -> void:
 		character_body.velocity.y += gravity * delta
 	
 	character_body.move_and_slide()
+	
+
+func enable() -> void:
+	gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+	
+func disable() -> void:
+	gravity = 0

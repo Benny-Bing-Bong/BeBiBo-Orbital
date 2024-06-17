@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnbcewtwc5fnp"]
+[gd_scene load_steps=5 format=3 uid="uid://bnbcewtwc5fnp"]
 
 [ext_resource type="Shader" path="res://Characters/Player/player.gdshader" id="1_k8ggq"]
 [ext_resource type="Script" path="res://Characters/Player/dash_ghost.gd" id="1_l1jdt"]
+[ext_resource type="Texture2D" uid="uid://dq74jh64gpwr8" path="res://Art/Character/gamesprite SingleDash.png" id="2_ta2y7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7rkgr"]
 shader = ExtResource("1_k8ggq")
@@ -9,4 +10,5 @@ shader_parameter/active = false
 
 [node name="DashGhost" type="Sprite2D"]
 material = SubResource("ShaderMaterial_7rkgr")
+texture = ExtResource("2_ta2y7")
 script = ExtResource("1_l1jdt")
