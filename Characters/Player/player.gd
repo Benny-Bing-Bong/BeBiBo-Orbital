@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var speed: float = 200.0
 
 var direction: Vector2 = Vector2.ZERO
+
 const PLAYER_COLLISION: int = 2
 const ENEMY_COLLISION: int = 3
 const ANTI_PLAYER: int = 5
