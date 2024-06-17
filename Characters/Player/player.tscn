@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://bd06xtnb3u2f2"]
+[gd_scene load_steps=114 format=3 uid="uid://bd06xtnb3u2f2"]
 
 [ext_resource type="Script" path="res://Characters/Player/player.gd" id="1_84hpc"]
 [ext_resource type="Texture2D" uid="uid://mi12jiwl05ns" path="res://Art/Character/gamesprite Attack.png" id="1_w5tfx"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" path="res://Characters/Player/state_death.gd" id="22_y3374"]
 [ext_resource type="Script" path="res://Characters/Player/state_dash.gd" id="23_iaxxi"]
 [ext_resource type="PackedScene" uid="uid://bnbcewtwc5fnp" path="res://Characters/Player/dash_ghost.tscn" id="24_pobnm"]
+[ext_resource type="Script" path="res://Characters/Player/state_attack2.gd" id="25_j6qsb"]
 [ext_resource type="Script" path="res://Characters/Player/state_laser.gd" id="27_lt1hx"]
 [ext_resource type="PackedScene" uid="uid://cwotlsknt0jcl" path="res://Characters/Player/laser.tscn" id="28_xu40i"]
 [ext_resource type="Script" path="res://Characters/Player/state_bomb.gd" id="30_yu8il"]
@@ -1060,15 +1061,22 @@ one_shot = true
 
 [node name="Attack" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("11_i5q18")
-atk2_anim_name = "attack2"
 first_anim_name = "attack1"
+
+[node name="Timer" type="Timer" parent="PlayerStateMachine/Attack"]
+wait_time = 0.4
+one_shot = true
 
 [node name="DblAtkTimer" type="Timer" parent="PlayerStateMachine/Attack"]
 wait_time = 0.2
 one_shot = true
 
-[node name="Timer" type="Timer" parent="PlayerStateMachine/Attack"]
-wait_time = 0.8
+[node name="Attack2" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("25_j6qsb")
+first_anim_name = "attack2"
+
+[node name="Timer" type="Timer" parent="PlayerStateMachine/Attack2"]
+wait_time = 0.4
 one_shot = true
 
 [node name="Crouch" type="Node" parent="PlayerStateMachine"]
@@ -1118,8 +1126,8 @@ script = ExtResource("10_6ovdk")
 state_machine = NodePath("../PlayerStateMachine")
 
 [connection signal="animation_finished" from="AnimationTree" to="PlayerStateMachine/Landing" method="_on_animation_tree_animation_finished"]
-[connection signal="animation_finished" from="AnimationTree" to="PlayerStateMachine/Attack" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="PlayerStateMachine/Laser" method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="PlayerStateMachine/Attack/Timer" to="PlayerStateMachine/Attack" method="_on_timer_timeout"]
+[connection signal="timeout" from="PlayerStateMachine/Attack2/Timer" to="PlayerStateMachine/Attack2" method="_on_timer_timeout"]
 [connection signal="timeout" from="PlayerStateMachine/Dash/DashDuration" to="PlayerStateMachine/Dash" method="_on_dash_duration_timeout"]
 [connection signal="timeout" from="PlayerStateMachine/Dash/GhostTimer" to="PlayerStateMachine/Dash" method="_on_ghost_timer_timeout"]
