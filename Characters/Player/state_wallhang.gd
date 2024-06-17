@@ -1,10 +1,16 @@
 extends State
 
-var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
+@export var impulse: float = 400
 
-# currently not pushing off yet
 func state_input(_input: InputEvent) -> void:
 	if _input.is_action_pressed("up"):
+		
+		# Add bounce off wall impulse
+		if character.get_wall_normal().x > 0:
+			character.velocity.x += impulse
+		elif character.get_wall_normal().x < 0:
+			character.velocity.x -= impulse
+		
 		jump()
 
 func state_physics_process(_delta: float) -> void:
@@ -23,4 +29,4 @@ func fall() -> void:
 
 func jump() -> void:
 	if UnlockManager.able_to("jump"):
-		transitioned.emit(self, "air")
+		transitioned.emit(self, "jump")
