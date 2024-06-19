@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://c1wfkf8kn1gsu"
-path="res://.godot/imported/PickUp.wav-6f8bf17ddb5ea73903a842c509dc320c.sample"
+uid="uid://b5cejdyy1ocp"
+path="res://.godot/imported/Dash.wav-5df097994495b06a0c7c48e6e043e654.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/PickUp.wav"
-dest_files=["res://.godot/imported/PickUp.wav-6f8bf17ddb5ea73903a842c509dc320c.sample"]
+source_file="res://Audio/SFX/PlayerSFX/Dash.wav"
+dest_files=["res://.godot/imported/Dash.wav-5df097994495b06a0c7c48e6e043e654.sample"]
 
 [params]
 

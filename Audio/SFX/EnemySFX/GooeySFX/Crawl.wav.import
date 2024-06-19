@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://b8epbxv0iyar4"
-path="res://.godot/imported/Phase Shift.wav-04ba44f5b1735e3e8c6b200472e3cf48.sample"
+uid="uid://dnf2tcmbeikih"
+path="res://.godot/imported/Crawl.wav-a7775ff3f73159159f1a1458604c2a6d.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/Phase Shift.wav"
-dest_files=["res://.godot/imported/Phase Shift.wav-04ba44f5b1735e3e8c6b200472e3cf48.sample"]
+source_file="res://Audio/SFX/EnemySFX/GooeySFX/Crawl.wav"
+dest_files=["res://.godot/imported/Crawl.wav-a7775ff3f73159159f1a1458604c2a6d.sample"]
 
 [params]
 

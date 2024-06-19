@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://c5a8neikncis3"
-path="res://.godot/imported/Death 1.wav-8013de9ff62b700fe528629a39589821.sample"
+uid="uid://dnk0ns2ero3q1"
+path="res://.godot/imported/Idle.wav-464bb91e35797146430dbae1306d1f07.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/Death 1.wav"
-dest_files=["res://.godot/imported/Death 1.wav-8013de9ff62b700fe528629a39589821.sample"]
+source_file="res://Audio/SFX/EnemySFX/GolemSFX/Idle.wav"
+dest_files=["res://.godot/imported/Idle.wav-464bb91e35797146430dbae1306d1f07.sample"]
 
 [params]
 

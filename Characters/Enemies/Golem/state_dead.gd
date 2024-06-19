@@ -8,6 +8,7 @@ func enter() -> void:
 	super()
 	can_move = false
 	anim_duration_timer.start()
+	GolemSFX.die()
 
 func state_physics_process(_delta: float) -> void:
 	character.velocity.x = move_toward(character.velocity.x, 0, speed)

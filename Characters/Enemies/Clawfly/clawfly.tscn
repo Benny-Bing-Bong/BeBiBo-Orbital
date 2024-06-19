@@ -257,12 +257,20 @@ first_anim_name = "warning"
 wait_time = 2.0
 one_shot = true
 
+[node name="SoundTimer" type="Timer" parent="EnemyStateMachine/Warning"]
+wait_time = 0.1
+one_shot = true
+
 [node name="Attack" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("9_d24gl")
 first_anim_name = "attack"
 
 [node name="Timer" type="Timer" parent="EnemyStateMachine/Attack"]
 wait_time = 2.0
+one_shot = true
+
+[node name="SoundTimer" type="Timer" parent="EnemyStateMachine/Attack"]
+wait_time = 0.1
 one_shot = true
 
 [node name="Dead" type="Node" parent="EnemyStateMachine"]

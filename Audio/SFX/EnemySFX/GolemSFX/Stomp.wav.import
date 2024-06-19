@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://ctdu7vlg88ei8"
-path="res://.godot/imported/Jump.wav-804c644c46c0853f47ec5df35a3990e7.sample"
+uid="uid://ccite8phb40ui"
+path="res://.godot/imported/Stomp.wav-e674100abc14a8f581e00dc2d6a70a66.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/Jump.wav"
-dest_files=["res://.godot/imported/Jump.wav-804c644c46c0853f47ec5df35a3990e7.sample"]
+source_file="res://Audio/SFX/EnemySFX/GolemSFX/Stomp.wav"
+dest_files=["res://.godot/imported/Stomp.wav-e674100abc14a8f581e00dc2d6a70a66.sample"]
 
 [params]
 

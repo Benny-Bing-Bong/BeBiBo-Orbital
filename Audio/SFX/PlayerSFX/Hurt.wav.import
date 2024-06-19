@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://b5cejdyy1ocp"
-path="res://.godot/imported/Dash.wav-e97a2375b7115af17e79f3c543fff47e.sample"
+uid="uid://bf7jw81d8ujhc"
+path="res://.godot/imported/Hurt.wav-cea124da578cbc3e9ee74b5b7f327252.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/Dash.wav"
-dest_files=["res://.godot/imported/Dash.wav-e97a2375b7115af17e79f3c543fff47e.sample"]
+source_file="res://Audio/SFX/PlayerSFX/Hurt.wav"
+dest_files=["res://.godot/imported/Hurt.wav-cea124da578cbc3e9ee74b5b7f327252.sample"]
 
 [params]
 

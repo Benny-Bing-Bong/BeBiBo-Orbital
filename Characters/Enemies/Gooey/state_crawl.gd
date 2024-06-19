@@ -3,6 +3,7 @@ extends State
 @onready var ray_cast_left: RayCast2D = $"../../RayCast_Left"
 @onready var ray_cast_right: RayCast2D = $"../../RayCast_Right"
 @onready var timer: Timer = $Timer
+@onready var sound_timer: Timer = $SoundTimer
 
 var timer_active: bool = false
 var speed: float = 2000.0
@@ -14,6 +15,10 @@ func state_physics_process(delta: float) -> void:
 	direction = Vector2.RIGHT if anim_sprite.flip_h else Vector2.LEFT
 		
 	character.velocity.x = direction.x * speed * delta
+	
+	if sound_timer.is_stopped():
+		GooeySFX.crawl()
+		sound_timer.start()
 	
 	if direction == Vector2.LEFT and not ray_cast_left.is_colliding():
 		if timer.is_stopped():

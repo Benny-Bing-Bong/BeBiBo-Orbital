@@ -2,7 +2,7 @@ extends AudioStreamPlayer
 
 const game_music: AudioStreamMP3 = preload("res://Audio/Music/game_music.mp3")
 
-func _play_music(music: AudioStreamMP3, volume: float = -20) -> void:
+func _play_music(music: AudioStreamMP3, volume: float = -10) -> void:
 	if stream == music:
 		return
 	

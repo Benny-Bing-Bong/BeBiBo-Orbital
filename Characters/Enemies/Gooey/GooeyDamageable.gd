@@ -2,6 +2,7 @@ extends Damageable
 
 func take_damage(value: int) -> void:
 	super(value)
+	GooeySFX.hurt()
 	if health > 0:
 		for child in get_parent().get_children():
 			if child is EnemyStateMachine:

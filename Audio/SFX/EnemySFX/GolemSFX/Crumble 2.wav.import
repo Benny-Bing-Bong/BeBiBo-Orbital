@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://po0egwtfxrdo"
+path="res://.godot/imported/Crumble 2.wav-77ec0c97303d5477d6c1cf46594dd78e.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/EnemySFX/GolemSFX/Crumble 2.wav"
+dest_files=["res://.godot/imported/Crumble 2.wav-77ec0c97303d5477d6c1cf46594dd78e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
