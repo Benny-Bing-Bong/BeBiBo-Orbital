@@ -10,7 +10,7 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w48r1"]
 normal = Vector2(-1, 0)
 
-[node name="BaseLevel" instance=ExtResource("1_8add6")]
+[node name="Level1-1" instance=ExtResource("1_8add6")]
 script = ExtResource("2_4rw0t")
 
 [node name="ParallaxBackground" parent="." index="0" instance=ExtResource("2_fgliy")]
