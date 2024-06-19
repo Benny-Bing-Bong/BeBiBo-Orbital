@@ -6,6 +6,8 @@ const ANTI_PLAYER_COLLISION: int = 16
 const ANTI_ENEMY_WORLD_MASK: int = 33
 
 func _ready() -> void:
+	PlayerSFX.blast()
+	
 	var tween: Tween = create_tween()
 	# Set transition and ease for following tweens
 	tween.set_trans(Tween.TRANS_LINEAR)

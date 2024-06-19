@@ -25,12 +25,14 @@ func state_physics_process(_delta: float) -> void:
 
 #called in MoveAnimationPlayer under summon_shockwaves
 func step_one() -> void:
+	GolemSFX.stomp()
 	instantiate_waves()
 	put_at_position(0, 1)
 	add_wave_to_scene()
 
 #called in MoveAnimationPlayer under summon_shockwaves
 func step_two() -> void:
+	GolemSFX.stomp()
 	instantiate_waves()
 	put_at_position(2, 3)
 	add_wave_to_scene()

@@ -28,6 +28,12 @@ CooldownManager="*res://Managers/cooldown_manager.tscn"
 StaminaManager="*res://Managers/stamina_manager.gd"
 ScreenManager="*res://Managers/screen_manager.gd"
 PlayerManager="*res://Managers/player_manager.gd"
+PlayerSFX="*res://Audio/SFX/PlayerSFX/player_sfx_manager.gd"
+GameMusic="*res://Audio/Music/game_music.tscn"
+SFX="*res://Audio/SFX/sfx_manager.gd"
+GolemSFX="*res://Audio/SFX/EnemySFX/GolemSFX/golem_sfx_manager.gd"
+GooeySFX="*res://Audio/SFX/EnemySFX/GooeySFX/gooey_sfx_manager.gd"
+ClawflySFX="*res://Audio/SFX/EnemySFX/ClawflySFX/clawfly_sfx_manager.gd"
 
 [debug]
 

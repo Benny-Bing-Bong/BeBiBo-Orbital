@@ -2,6 +2,7 @@ extends State
 
 @onready var timer: Timer = $Timer
 @onready var detection_area: Area2D = $"../../DetectionArea"
+@onready var sound_timer: Timer = $SoundTimer
 
 var speed: float = 9000.0
 var direction: Vector2
@@ -21,6 +22,11 @@ func state_physics_process(delta: float) -> void:
 		anim_sprite.flip_h = false
 		
 	character.velocity = direction * speed * delta
+	
+	if sound_timer.is_stopped():
+		ClawflySFX.buzz()
+		sound_timer.start()
+	
 	character.move_and_slide()
 
 func _on_detection_area_body_entered(body: Node2D) -> void:

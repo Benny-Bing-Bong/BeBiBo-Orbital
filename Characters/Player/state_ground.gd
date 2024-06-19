@@ -1,5 +1,6 @@
 extends State
 
+@onready var timer: Timer = $Timer
 @onready var atk_buffer_timer: Timer = $AtkBufferTimer
 
 func enter() -> void:
@@ -26,6 +27,10 @@ func state_process(_delta: float) -> void:
 	if character.is_on_floor():
 		PlayerManager.reset_jumps()
 		PlayerManager.reset_air_attacks()
+		
+		if character.velocity.x != 0 and timer.is_stopped():
+			PlayerSFX.run()
+			timer.start()
 
 func jump() -> void:
 	if UnlockManager.able_to("jump") and PlayerManager.can_jump():

@@ -3,6 +3,7 @@ extends State
 func enter() -> void:
 	super()
 	GameManager.player_died()
+	PlayerSFX.die()
 	# wait for death animation to play first
 	await get_tree().create_timer(2).timeout
 	

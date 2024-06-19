@@ -10,6 +10,8 @@ func enter() -> void:
 	can_move = false
 	anim_duration_timer.start()
 	
+	ClawflySFX.die()
+	
 
 func state_physics_process(delta: float) -> void:
 	anim_sprite.flip_v = true

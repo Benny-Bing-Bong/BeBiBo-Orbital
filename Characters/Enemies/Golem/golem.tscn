@@ -469,7 +469,9 @@ libraries = {
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_lskya")
 sprite_frames = SubResource("SpriteFrames_82uc0")
-animation = &"idle"
+animation = &"dead"
+frame = 21
+frame_progress = 1.0
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 4
@@ -550,6 +552,11 @@ first_anim_name = "idle"
 [node name="Timer" type="Timer" parent="EnemyStateMachine/Idle"]
 wait_time = 2.4
 one_shot = true
+
+[node name="SoundTimer" type="Timer" parent="EnemyStateMachine/Idle"]
+wait_time = 4.0
+one_shot = true
+autostart = true
 
 [node name="Move" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("6_5i53n")

@@ -15,6 +15,8 @@ func enter() -> void:
 	
 	buffer_timer.start()
 	wallhang_timer.start()
+	
+	PlayerSFX.jump()
 
 func exit() -> void:
 	character.accel = character.max_speed

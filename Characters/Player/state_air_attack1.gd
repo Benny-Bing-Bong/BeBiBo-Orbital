@@ -11,6 +11,8 @@ func enter() -> void:
 	
 	timer.start()
 	character.velocity.y = -up_impulse
+	
+	PlayerSFX.attack()
 
 func state_input(_input: InputEvent) -> void:
 	if _input.is_action_pressed("attack"):

@@ -270,6 +270,10 @@ first_anim_name = "crawl"
 wait_time = 3.0
 one_shot = true
 
+[node name="SoundTimer" type="Timer" parent="EnemyStateMachine/Crawl"]
+wait_time = 0.2
+one_shot = true
+
 [node name="Knockback" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("10_uohbm")
 first_anim_name = "knockback"

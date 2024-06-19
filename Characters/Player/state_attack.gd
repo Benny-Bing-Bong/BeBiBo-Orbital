@@ -6,6 +6,8 @@ extends State
 func enter() -> void:
 	super()
 	timer.start()
+	
+	PlayerSFX.attack()
 
 func state_input(_input: InputEvent) -> void:
 	if _input.is_action_pressed("attack"):

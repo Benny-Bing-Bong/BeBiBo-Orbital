@@ -7,6 +7,7 @@ var speed: float = 200.0
 func enter() -> void:
 	super()
 	can_move = false
+	GooeySFX.die()
 	anim_duration_timer.start()
 
 func state_physics_process(delta: float) -> void:
