@@ -1,5 +1,11 @@
 extends State
 
+@onready var atk_buffer_timer: Timer = $AtkBufferTimer
+
+func enter() -> void:
+	super()
+	atk_buffer_timer.start()
+
 func state_input(_input: InputEvent) -> void:
 	if _input.is_action_pressed("up"):
 		jump()
@@ -26,7 +32,8 @@ func jump() -> void:
 		transitioned.emit(self, "jump")
 
 func attack() -> void:
-	transitioned.emit(self, "attack")
+	if atk_buffer_timer.is_stopped():
+		transitioned.emit(self, "attack")
 
 func crouch() -> void:
 	if UnlockManager.able_to("crouch"):
