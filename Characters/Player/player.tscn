@@ -1180,6 +1180,7 @@ first_anim_name = "move"
 
 [node name="Timer" type="Timer" parent="PlayerStateMachine/Ground"]
 wait_time = 0.2
+one_shot = true
 
 [node name="AtkBufferTimer" type="Timer" parent="PlayerStateMachine/Ground"]
 wait_time = 0.05
