@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cnb1q5qwbielt"]
+[gd_scene load_steps=15 format=3 uid="uid://cnb1q5qwbielt"]
 
 [ext_resource type="Texture2D" uid="uid://b3sn3twsvajog" path="res://Art/Assets/Cyberpunk City Tileset/Assets/Tiles.png" id="1_smwv0"]
 [ext_resource type="Texture2D" uid="uid://dxpsuhf1sao1t" path="res://Art/Assets/Cyberpunk City Tileset/Assets/Props-01.png" id="2_u0vgo"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bd06xtnb3u2f2" path="res://Characters/Player/player.tscn" id="4_qf7cn"]
 [ext_resource type="Texture2D" uid="uid://dq276wnx1cm3y" path="res://Art/Assets/AbandonedCity Tileset/FullTileset.png" id="5_pgqao"]
 [ext_resource type="PackedScene" uid="uid://biu8yengrvq78" path="res://UI/hud.tscn" id="6_iclmu"]
+[ext_resource type="Script" path="res://Levels/enemy_container.gd" id="7_2vbjv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ps833"]
 texture = ExtResource("1_smwv0")
@@ -2336,5 +2337,8 @@ position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_vertical_offset = -0.5
+
+[node name="EnemyContainer" type="Node" parent="."]
+script = ExtResource("7_2vbjv")
 
 [node name="HUD" parent="." instance=ExtResource("6_iclmu")]
