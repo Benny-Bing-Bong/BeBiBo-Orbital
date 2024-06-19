@@ -21,6 +21,11 @@ func test_setting_health_above_max() -> void:
 	assert_eq(PlayerManager.curr_health, PlayerManager.max_health, 
 			"Health should never be above max")
 
+func test_on_health_changed_signal_emitted() -> void:
+	watch_signals(PlayerManager)
+	PlayerManager.set_health(1)
+	assert_signal_emitted(PlayerManager, 'on_health_changed')
+
 func test_jumping() -> void:
 	PlayerManager.jumped = true
 	assert_false(PlayerManager.can_jump())
