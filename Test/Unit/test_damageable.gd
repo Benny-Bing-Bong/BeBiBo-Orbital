@@ -1,11 +1,11 @@
 extends GutTest
 
-var DamageableScript: Script = load("res://States and Abstracts/damageable.gd")
+var damageable_script: Script = load("res://States and Abstracts/damageable.gd")
 
 var _damageable: Damageable
 
 func before_each() -> void:
-	_damageable = DamageableScript.new()
+	_damageable = damageable_script.new()
 
 func test_take_damage() -> void:
 	var first_health: int = _damageable.health
