@@ -9,7 +9,7 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w48r1"]
 normal = Vector2(-1, 0)
 
-[node name="BaseLevel" instance=ExtResource("1_8add6")]
+[node name="Level1-1" instance=ExtResource("1_8add6")]
 
 [node name="ParallaxBackground" parent="." index="0" instance=ExtResource("2_fgliy")]
 
@@ -35,18 +35,16 @@ limit_right = 2342
 limit_bottom = 58
 editor_draw_limits = true
 
-[node name="Enemies" type="Node" parent="." index="5"]
-
-[node name="Gooey" parent="Enemies" index="0" instance=ExtResource("4_gngkw")]
+[node name="Gooey" parent="EnemyContainer" index="0" instance=ExtResource("4_gngkw")]
 position = Vector2(605, -44)
 
-[node name="Gooey2" parent="Enemies" index="1" instance=ExtResource("4_gngkw")]
+[node name="Gooey2" parent="EnemyContainer" index="1" instance=ExtResource("4_gngkw")]
 position = Vector2(1242, -44)
 
-[node name="Gooey3" parent="Enemies" index="2" instance=ExtResource("4_gngkw")]
+[node name="Gooey3" parent="EnemyContainer" index="2" instance=ExtResource("4_gngkw")]
 position = Vector2(1349, -43)
 
-[node name="Gooey4" parent="Enemies" index="3" instance=ExtResource("4_gngkw")]
+[node name="Gooey4" parent="EnemyContainer" index="3" instance=ExtResource("4_gngkw")]
 position = Vector2(2224, -156)
 
 [node name="ChangeLevelArea2D" parent="." index="6" instance=ExtResource("5_v5i6i")]

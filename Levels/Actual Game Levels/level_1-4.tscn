@@ -11,7 +11,7 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_82nr6"]
 normal = Vector2(-1, 0)
 
-[node name="BaseLevel" instance=ExtResource("1_53qao")]
+[node name="Level1-4" instance=ExtResource("1_53qao")]
 
 [node name="ParallaxBackground" parent="." index="0" instance=ExtResource("2_im8s7")]
 
@@ -37,30 +37,28 @@ limit_right = 2400
 limit_bottom = 54
 editor_draw_limits = true
 
-[node name="Enemies" type="Node" parent="." index="5"]
-
-[node name="Golem" parent="Enemies" index="0" instance=ExtResource("4_l7who")]
+[node name="Golem" parent="EnemyContainer" index="0" instance=ExtResource("4_l7who")]
 position = Vector2(2313, -164)
 
-[node name="Gooey" parent="Enemies" index="1" instance=ExtResource("5_r0plq")]
+[node name="Gooey" parent="EnemyContainer" index="1" instance=ExtResource("5_r0plq")]
 position = Vector2(2015, -115)
 
-[node name="Gooey2" parent="Enemies" index="2" instance=ExtResource("5_r0plq")]
+[node name="Gooey2" parent="EnemyContainer" index="2" instance=ExtResource("5_r0plq")]
 position = Vector2(1231, -49)
 
-[node name="Gooey3" parent="Enemies" index="3" instance=ExtResource("5_r0plq")]
+[node name="Gooey3" parent="EnemyContainer" index="3" instance=ExtResource("5_r0plq")]
 position = Vector2(627, -51)
 
-[node name="Gooey4" parent="Enemies" index="4" instance=ExtResource("5_r0plq")]
+[node name="Gooey4" parent="EnemyContainer" index="4" instance=ExtResource("5_r0plq")]
 position = Vector2(346, -34)
 
-[node name="Clawfly" parent="Enemies" index="5" instance=ExtResource("6_ghkxx")]
+[node name="Clawfly" parent="EnemyContainer" index="5" instance=ExtResource("6_ghkxx")]
 position = Vector2(989, -173)
 
-[node name="Clawfly2" parent="Enemies" index="6" instance=ExtResource("6_ghkxx")]
+[node name="Clawfly2" parent="EnemyContainer" index="6" instance=ExtResource("6_ghkxx")]
 position = Vector2(1309, -244)
 
-[node name="Clawfly3" parent="Enemies" index="7" instance=ExtResource("6_ghkxx")]
+[node name="Clawfly3" parent="EnemyContainer" index="7" instance=ExtResource("6_ghkxx")]
 position = Vector2(1706, -196)
 
 [node name="ChangeLevelArea2D" parent="." index="6" instance=ExtResource("7_ixld0")]
