@@ -1,5 +1,7 @@
 extends Node
 
+signal enemies_cleared()
+
 var scenes: Dictionary = {
 	"Level1": "res://Levels/level_1.tscn",
 	"TestLevel1": "res://Levels/Test Level/test_level.tscn",
@@ -22,3 +24,6 @@ func transition_to_scene(scene_name: String) -> void:
 	var err: int = get_tree().change_scene_to_file(scene_path)
 	if not err == OK:
 		print("Error: Unable to change scene")
+
+func all_enemies_died() -> void:
+	enemies_cleared.emit()

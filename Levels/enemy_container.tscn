@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8a1pitv018ht"]
+
+[ext_resource type="Script" path="res://Levels/enemy_container.gd" id="1_jtdlv"]
+
+[node name="EnemyContainer" type="Node"]
+script = ExtResource("1_jtdlv")
