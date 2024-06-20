@@ -34,6 +34,10 @@ func transition_to_scene(scene_name: String) -> void:
 	else:
 		return
 	
+	# Make sure enemies becomes 0 when going back to main to prevent bugs
+	if scene_name == "Main":
+		enemies_left = 0
+	
 	var err: int = get_tree().change_scene_to_file(scene_path)
 	if not err == OK:
 		print("Error: Unable to change scene")
