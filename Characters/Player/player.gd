@@ -10,6 +10,8 @@ const PLAYER_COLLISION: int = 2
 const ENEMY_COLLISION: int = 3
 const ANTI_PLAYER: int = 5
 const ANTI_ENEMY: int = 6
+const DEFAULT_PLATFORM: int = 9
+const ANTI_PLATFORM: int = 10
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var sprite: Sprite2D = $Sprite2D
@@ -100,6 +102,12 @@ func phase_shift() -> void:
 	
 	# buffer to ensure phase change is complete before setting collision values
 	await get_tree().create_timer(0.5).timeout
+	
+	# set default or anti platform mask
+	set_collision_mask_value(DEFAULT_PLATFORM,
+			not get_collision_mask_value(DEFAULT_PLATFORM))
+	set_collision_mask_value(ANTI_PLATFORM,
+			not get_collision_mask_value(ANTI_PLATFORM))
 	
 	# set new phase's collision layers and masks
 	set_collision_layer_value(PLAYER_COLLISION, 

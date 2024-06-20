@@ -35,9 +35,9 @@
 [ext_resource type="Script" path="res://Characters/Player/state_air_attack1.gd" id="27_08k08"]
 [ext_resource type="Script" path="res://Characters/Player/state_laser.gd" id="27_lt1hx"]
 [ext_resource type="Script" path="res://Characters/Player/state_air_attack2.gd" id="28_ctmys"]
-[ext_resource type="PackedScene" uid="uid://cwotlsknt0jcl" path="res://Characters/Player/laser.tscn" id="28_xu40i"]
+[ext_resource type="PackedScene" path="res://Characters/Player/laser.tscn" id="28_xu40i"]
 [ext_resource type="Script" path="res://Characters/Player/state_bomb.gd" id="30_yu8il"]
-[ext_resource type="PackedScene" uid="uid://ccea0rbjfgnqp" path="res://Characters/Player/pulse_bomb.tscn" id="32_nqita"]
+[ext_resource type="PackedScene" path="res://Characters/Player/pulse_bomb.tscn" id="32_nqita"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2j5v6"]
 resource_local_to_scene = true
@@ -1085,6 +1085,7 @@ graph_offset = Vector2(-102.5, -450)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
+collision_mask = 257
 script = ExtResource("1_84hpc")
 
 [node name="HeadRayCast2D" type="RayCast2D" parent="."]

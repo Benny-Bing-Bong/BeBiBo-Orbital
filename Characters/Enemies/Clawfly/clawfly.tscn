@@ -219,6 +219,7 @@ size = Vector2(42, 22)
 
 [node name="Clawfly" type="CharacterBody2D"]
 collision_layer = 4
+collision_mask = 769
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_hp2dg")

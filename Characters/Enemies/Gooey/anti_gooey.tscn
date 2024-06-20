@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://5knv0m88jh0i"]
+[gd_scene load_steps=4 format=3 uid="uid://bjsyb8bfpsmi"]
 
 [ext_resource type="PackedScene" uid="uid://b2vww2ct07iuh" path="res://Characters/Enemies/Gooey/gooey.tscn" id="1_48wki"]
 [ext_resource type="Shader" path="res://Characters/Enemies/anti_hit_flash.gdshader" id="2_5uy1s"]
