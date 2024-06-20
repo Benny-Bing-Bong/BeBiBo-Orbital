@@ -2,6 +2,7 @@ class_name EnemyContainer
 extends Node
 
 func _process(delta: float) -> void:
+	SceneManager.update_enemies_left(get_children().size())
+	
 	if get_children().is_empty():
-		SceneManager.all_enemies_died()
 		queue_free()

@@ -2,6 +2,16 @@ extends Node
 
 signal enemies_cleared()
 
+var enemies_left: int:
+	get:
+		return enemies_left
+	set(value):
+		enemies_left = value
+		
+		if value == 0:
+			enemies_cleared.emit()
+
+
 var scenes: Dictionary = {
 	"Level1": "res://Levels/level_1.tscn",
 	"TestLevel1": "res://Levels/Test Level/test_level.tscn",
@@ -25,5 +35,5 @@ func transition_to_scene(scene_name: String) -> void:
 	if not err == OK:
 		print("Error: Unable to change scene")
 
-func all_enemies_died() -> void:
-	enemies_cleared.emit()
+func update_enemies_left(number: int) -> void:
+	enemies_left = number
