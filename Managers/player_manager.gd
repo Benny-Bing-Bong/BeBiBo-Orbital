@@ -22,6 +22,8 @@ func _ready() -> void:
 	inverted = false
 	jumped = false
 	double_jumped = false
+	air1ed = false
+	air2ed = false
 
 # Health Functions
 func set_health(new_value: int) -> void:
