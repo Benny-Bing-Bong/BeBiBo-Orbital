@@ -24,6 +24,9 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _input(event: InputEvent) -> void:
+	if not GameManager.player_alive:
+		return
+	
 	if event.is_action_pressed("esc"):
 		if not GameManager.on_main_screen and stack.is_empty():
 			add_layer_to_screen("pause")
