@@ -6,7 +6,9 @@ var enemies_left: int:
 	get:
 		return enemies_left
 	set(value):
-		enemies_left = value
+		if enemies_left != value:
+			enemies_left = value
+			# to put in new signal enemies_changed() here
 		
 		if value == 0:
 			enemies_cleared.emit()
