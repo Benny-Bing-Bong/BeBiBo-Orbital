@@ -29,6 +29,9 @@ func _input(event: InputEvent) -> void:
 			add_layer_to_screen("pause")
 		else:
 			remove_layer_from_screen()
+	if event.is_action_pressed("unlocks"):
+		if not GameManager.on_main_screen and stack.is_empty():
+			add_layer_to_screen("unlocks")
 
 func remove_all_layers() -> void:
 	while not stack.is_empty():
@@ -49,8 +52,9 @@ func add_layer_to_screen(name: String) -> void:
 		# set the layer for the screen, and push it to the stack
 		screen.layer = layer
 		
-		# pause the game if layer being added is pause
-		if name == "pause":
+		# pause the game if layer being added is the first one
+		# don't pause on death
+		if stack.is_empty() and name != "death":
 			get_tree().paused = true
 		
 		stack.push_back(screen)
