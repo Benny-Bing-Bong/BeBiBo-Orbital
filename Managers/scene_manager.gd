@@ -1,6 +1,7 @@
 extends Node
 
 signal enemies_cleared()
+signal enemies_changed(number: int)
 
 var enemies_left: int:
 	get:
@@ -8,7 +9,7 @@ var enemies_left: int:
 	set(value):
 		if enemies_left != value:
 			enemies_left = value
-			# to put in new signal enemies_changed() here
+			enemies_changed.emit(value)
 		
 		if value == 0:
 			enemies_cleared.emit()
