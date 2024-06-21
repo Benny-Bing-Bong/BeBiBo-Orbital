@@ -21,9 +21,10 @@ const ANTI_PLATFORM: int = 10
 
 func _ready() -> void:
 	animation_tree.active = true
-	# temporary fix for visual bug before implementing phase manager
-	RenderingServer.global_shader_parameter_set("inverted", 
-		PlayerManager.is_anti())
+	
+	if PlayerManager.is_anti():
+		RenderingServer.global_shader_parameter_set("inverted", true)
+		swap_layers_and_masks()
 
 func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("phase") and UnlockManager.able_to("phase")
@@ -37,7 +38,6 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, direction.x * max_speed, accel)
 		else:
 			velocity.x = move_toward(velocity.x, 0, accel)
-	
 	
 	# currently called in gravity
 	#move_and_slide()
@@ -88,12 +88,9 @@ func get_facing_direction() -> Vector2:
 		return Vector2.LEFT
 
 func phase_shift() -> void:
-	
 	# sprite inversion
-	if not PlayerManager.is_anti():
-		RenderingServer.global_shader_parameter_set("inverted", true)
-	else:
-		RenderingServer.global_shader_parameter_set("inverted", false)
+	RenderingServer.global_shader_parameter_set("inverted", 
+			not PlayerManager.is_anti())
 	
 	# play animation and start cooldown timer
 	sprite.phase_animation()
@@ -103,6 +100,11 @@ func phase_shift() -> void:
 	# buffer to ensure phase change is complete before setting collision values
 	await get_tree().create_timer(0.5).timeout
 	
+	swap_layers_and_masks()
+	
+	PlayerManager.phase_shift()
+
+func swap_layers_and_masks() -> void:
 	# set default or anti platform mask
 	set_collision_mask_value(DEFAULT_PLATFORM,
 			not get_collision_mask_value(DEFAULT_PLATFORM))
@@ -132,6 +134,3 @@ func phase_shift() -> void:
 			not hitbox_2.get_collision_mask_value(ENEMY_COLLISION))
 	hitbox_2.set_collision_mask_value(ANTI_ENEMY, 
 			not hitbox_2.get_collision_mask_value(ANTI_ENEMY))
-	
-	PlayerManager.phase_shift()
-	

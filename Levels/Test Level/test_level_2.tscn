@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c0irrfrykprg3"]
+[gd_scene load_steps=17 format=3 uid="uid://c0irrfrykprg3"]
 
 [ext_resource type="Texture2D" uid="uid://dd88sqdg8bsuj" path="res://Art/Assets/TileSet.png" id="1_nqn6w"]
 [ext_resource type="PackedScene" uid="uid://bd06xtnb3u2f2" path="res://Characters/Player/player.tscn" id="2_t6fdd"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ci4klsnqge7t8" path="res://Items/thumbdrive.tscn" id="5_vfsav"]
 [ext_resource type="PackedScene" uid="uid://bpbmmhjdbu223" path="res://Levels/change_level_area_2d.tscn" id="6_3uhc8"]
 [ext_resource type="Texture2D" uid="uid://dir5ihtcs3v84" path="res://Art/Assets/Cyberpunk City Tileset/Assets/Tiles Anti.png" id="8_0mafb"]
+[ext_resource type="PackedScene" path="res://Levels/enemy_container.tscn" id="8_m5wkh"]
 [ext_resource type="PackedScene" uid="uid://cx65k3re7acsc" path="res://Characters/Enemies/Clawfly/clawfly.tscn" id="8_y8p6g"]
 [ext_resource type="Texture2D" uid="uid://d3e2hrsk5tl3r" path="res://Art/Assets/Cyberpunk City Tileset/Assets/Tiles Default.png" id="9_pfy3a"]
 [ext_resource type="PackedScene" uid="uid://b2vww2ct07iuh" path="res://Characters/Enemies/Gooey/gooey.tscn" id="15_8jca8"]
@@ -1175,14 +1176,16 @@ offset_bottom = 38.0
 text = "To test level1"
 autowrap_mode = 2
 
-[node name="Clawfly" parent="." instance=ExtResource("8_y8p6g")]
+[node name="EnemyContainer" parent="." instance=ExtResource("8_m5wkh")]
+
+[node name="Clawfly" parent="EnemyContainer" instance=ExtResource("8_y8p6g")]
 position = Vector2(169, -21)
 
-[node name="Gooey" parent="." instance=ExtResource("15_8jca8")]
+[node name="Gooey" parent="EnemyContainer" instance=ExtResource("15_8jca8")]
 position = Vector2(1180, -9)
 
-[node name="Gooey2" parent="." instance=ExtResource("15_8jca8")]
+[node name="Gooey2" parent="EnemyContainer" instance=ExtResource("15_8jca8")]
 position = Vector2(1188, -120)
 
-[node name="Golem" parent="." instance=ExtResource("3_c0gqj")]
+[node name="Golem" parent="EnemyContainer" instance=ExtResource("3_c0gqj")]
 position = Vector2(1443, 11)
