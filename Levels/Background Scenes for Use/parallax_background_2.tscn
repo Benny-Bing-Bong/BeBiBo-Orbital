@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://q2a3xg1kxaoj" path="res://Art/Assets/Main Background/city 3/1.png" id="1_fhnwp"]
 [ext_resource type="Texture2D" uid="uid://cmllmbrtphchj" path="res://Art/Assets/Main Background/city 3/2.png" id="2_rkbk7"]
 [ext_resource type="Texture2D" uid="uid://coyuwsxxc16ve" path="res://Art/Assets/Main Background/city 3/3.png" id="3_4iysa"]
-[ext_resource type="Texture2D" uid="uid://cnanliota7xhf" path="res://Art/Assets/Main Background/city 3/4.png" id="4_5ufn8"]
+[ext_resource type="Texture2D" uid="uid://bg6j44p6bn8cb" path="res://Art/Assets/Main Background/city 3/4-fixed.png" id="4_kd8eo"]
 [ext_resource type="Texture2D" uid="uid://bqjmq0lx3fpbj" path="res://Art/Assets/Main Background/city 3/5.png" id="5_jnudu"]
 
 [node name="ParallaxBackground2" type="ParallaxBackground"]
@@ -42,7 +42,7 @@ motion_mirroring = Vector2(1152, 0)
 [node name="Sprite2D" type="Sprite2D" parent="4thParallaxLayer"]
 position = Vector2(445, -315)
 scale = Vector2(2, 2)
-texture = ExtResource("4_5ufn8")
+texture = ExtResource("4_kd8eo")
 
 [node name="5thParallaxLayer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.98, 1)
