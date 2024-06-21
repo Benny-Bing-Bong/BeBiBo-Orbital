@@ -6,6 +6,7 @@ var on_main_screen: bool = false
 # load game when launched
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color(0.97, 0.74, 0.66, 1.00))
+	SaveLoadManager.load_game() # load game on launch first
 
 # save the game on quit (by clicking X at top right)
 func _notification(what: int) -> void:
