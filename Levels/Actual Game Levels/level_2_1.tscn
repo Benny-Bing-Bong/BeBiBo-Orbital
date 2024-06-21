@@ -41,13 +41,13 @@ position = Vector2(2105, -119)
 [node name="Gooey" parent="EnemyContainer" index="2" instance=ExtResource("5_20646")]
 position = Vector2(1453, -451)
 
-[node name="Gooey2" parent="EnemyContainer" index="3" instance=ExtResource("6_mw4f5")]
-position = Vector2(1598, -451)
-
-[node name="Gooey3" parent="EnemyContainer" index="4" instance=ExtResource("5_20646")]
+[node name="Gooey2" parent="EnemyContainer" index="3" instance=ExtResource("5_20646")]
 position = Vector2(1099, -41)
 
-[node name="Gooey4" parent="EnemyContainer" index="5" instance=ExtResource("6_mw4f5")]
+[node name="AntiGooey" parent="EnemyContainer" index="4" instance=ExtResource("6_mw4f5")]
+position = Vector2(1598, -451)
+
+[node name="AntiGooey2" parent="EnemyContainer" index="5" instance=ExtResource("6_mw4f5")]
 position = Vector2(1396, -39)
 
 [node name="ChangeLevelArea2D" parent="." index="5" instance=ExtResource("7_gs1ep")]

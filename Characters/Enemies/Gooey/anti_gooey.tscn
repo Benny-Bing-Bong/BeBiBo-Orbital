@@ -8,7 +8,7 @@ resource_local_to_scene = true
 shader = ExtResource("2_5uy1s")
 shader_parameter/active = false
 
-[node name="Gooey" instance=ExtResource("1_48wki")]
+[node name="AntiGooey" instance=ExtResource("1_48wki")]
 collision_layer = 32
 
 [node name="AnimatedSprite2D" parent="." index="0"]
