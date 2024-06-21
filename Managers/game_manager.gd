@@ -3,10 +3,13 @@ extends Node
 var player_alive: bool = true
 var on_main_screen: bool = false
 
+var debug_mode: bool = true
+
 # load game when launched
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color(0.97, 0.74, 0.66, 1.00))
-	SaveLoadManager.load_game() # load game on launch first
+	if debug_mode:
+		SaveLoadManager.load_game() # load game on launch first
 
 # save the game on quit (by clicking X at top right)
 func _notification(what: int) -> void:

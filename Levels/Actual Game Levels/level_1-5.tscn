@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://x8shuk6drpdw"]
+[gd_scene load_steps=8 format=3 uid="uid://x8shuk6drpdw"]
 
 [ext_resource type="PackedScene" uid="uid://cnb1q5qwbielt" path="res://Levels/base_level.tscn" id="1_d1gcl"]
 [ext_resource type="PackedScene" uid="uid://d01hjpvimba31" path="res://Levels/Background Scenes for Use/parallax_background.tscn" id="2_misa4"]
 [ext_resource type="PackedScene" uid="uid://ci4klsnqge7t8" path="res://Items/thumbdrive.tscn" id="3_sfdn2"]
 [ext_resource type="PackedScene" uid="uid://b2vww2ct07iuh" path="res://Characters/Enemies/Gooey/gooey.tscn" id="4_c4f26"]
 [ext_resource type="PackedScene" uid="uid://bjsyb8bfpsmi" path="res://Characters/Enemies/Gooey/anti_gooey.tscn" id="5_ppxmw"]
+[ext_resource type="PackedScene" uid="uid://bpbmmhjdbu223" path="res://Levels/change_level_area_2d.tscn" id="6_xyg0t"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_q5qdk"]
+normal = Vector2(-1, 0)
 
 [node name="Level1-5" instance=ExtResource("1_d1gcl")]
 
@@ -28,7 +32,7 @@ position = Vector2(63, -41)
 position = Vector2(63, -41)
 limit_left = 36
 limit_top = -630
-limit_right = 2730
+limit_right = 2708
 limit_bottom = 54
 editor_draw_limits = true
 
@@ -62,12 +66,9 @@ position = Vector2(1962, -40)
 [node name="Gooey10" parent="EnemyContainer" index="9" instance=ExtResource("5_ppxmw")]
 position = Vector2(1991, -38)
 
-[node name="Label" type="Label" parent="." index="6"]
-offset_left = 2398.0
-offset_top = -235.0
-offset_right = 2674.0
-offset_bottom = -97.0
-text = "You have finished Phaseshift v0.1 !
+[node name="ChangeLevelArea2D" parent="." index="6" instance=ExtResource("6_xyg0t")]
+position = Vector2(2730, -48)
+new_level_name = "Level2-1"
 
-Thanks for playing tester ! :D"
-autowrap_mode = 2
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeLevelArea2D" index="0"]
+shape = SubResource("WorldBoundaryShape2D_q5qdk")
