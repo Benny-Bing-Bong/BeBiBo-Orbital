@@ -5,7 +5,7 @@ const HURT = preload("res://Audio/SFX/EnemySFX/GooeySFX/Hurt.wav")
 const DEATH = preload("res://Audio/SFX/EnemySFX/GooeySFX/Death.wav")
 
 func crawl() -> void:
-	play_sfx(CRAWL, 0).play()
+	play_sfx(CRAWL, -5).play()
 
 func hurt() -> void:
 	play_sfx(HURT, 0).play()

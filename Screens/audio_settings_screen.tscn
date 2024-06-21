@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1r23vhopdjsb"]
+
+[ext_resource type="Script" path="res://Screens/audio_settings_screen.gd" id="1_qqdny"]
+[ext_resource type="Texture2D" uid="uid://bj7pp6ormxo3w" path="res://Art/UI/Back Button.png" id="1_tgr87"]
+
+[node name="AudioSettingsScreen" type="CanvasLayer"]
+script = ExtResource("1_qqdny")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 18
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("1_tgr87")
+
+[node name="AudioLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderMedium"
+text = "AUDIO"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(53, 0)
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 100
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="MasterLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="MusicLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="SFXLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
