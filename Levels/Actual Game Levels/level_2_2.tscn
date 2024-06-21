@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfuydnlvii6ey"]
+[gd_scene load_steps=12 format=3 uid="uid://dfuydnlvii6ey"]
 
 [ext_resource type="PackedScene" uid="uid://cnb1q5qwbielt" path="res://Levels/base_level.tscn" id="1_4w10q"]
 [ext_resource type="PackedScene" uid="uid://dm7xpgmjurvst" path="res://Levels/Background Scenes for Use/parallax_background_2.tscn" id="2_xtoxa"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bjsyb8bfpsmi" path="res://Characters/Enemies/Gooey/anti_gooey.tscn" id="5_3kaev"]
 [ext_resource type="PackedScene" uid="uid://bc3tov8n23ie2" path="res://Characters/Enemies/Golem/golem.tscn" id="6_5nbno"]
 [ext_resource type="PackedScene" uid="uid://cx65k3re7acsc" path="res://Characters/Enemies/Clawfly/clawfly.tscn" id="7_arw1r"]
+[ext_resource type="PackedScene" uid="uid://cvl6v4ihwyrpl" path="res://Characters/Enemies/Golem/anti_golem.tscn" id="7_pfkdh"]
+[ext_resource type="PackedScene" uid="uid://cgr1soo5rhocm" path="res://Characters/Enemies/Clawfly/anti_clawfly.tscn" id="9_8f1ng"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2pecs"]
 normal = Vector2(-1, 0)
@@ -59,17 +61,17 @@ position = Vector2(1107, -531)
 [node name="AntiGooey3" parent="EnemyContainer" index="6" instance=ExtResource("5_3kaev")]
 position = Vector2(423, -40)
 
-[node name="Golem1" parent="EnemyContainer" index="7" instance=ExtResource("6_5nbno")]
+[node name="Golem" parent="EnemyContainer" index="7" instance=ExtResource("6_5nbno")]
 position = Vector2(1517, -109)
 
-[node name="Golem2" parent="EnemyContainer" index="8" instance=ExtResource("6_5nbno")]
-position = Vector2(1878, -135)
+[node name="AntiGolem" parent="EnemyContainer" index="8" instance=ExtResource("7_pfkdh")]
+position = Vector2(1856, -138)
 
 [node name="Clawfly" parent="EnemyContainer" index="9" instance=ExtResource("7_arw1r")]
-position = Vector2(1566, -152)
-
-[node name="Clawfly2" parent="EnemyContainer" index="10" instance=ExtResource("7_arw1r")]
 position = Vector2(1920, -177)
+
+[node name="AntiClawfly" parent="EnemyContainer" index="10" instance=ExtResource("9_8f1ng")]
+position = Vector2(1574, -150)
 
 [node name="ChangeLevelArea2D" parent="." index="6" instance=ExtResource("3_t24ou")]
 position = Vector2(2042, -106)

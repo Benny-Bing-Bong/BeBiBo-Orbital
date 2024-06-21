@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://x8shuk6drpdw"]
+[gd_scene load_steps=9 format=3 uid="uid://x8shuk6drpdw"]
 
 [ext_resource type="PackedScene" uid="uid://cnb1q5qwbielt" path="res://Levels/base_level.tscn" id="1_d1gcl"]
 [ext_resource type="PackedScene" uid="uid://d01hjpvimba31" path="res://Levels/Background Scenes for Use/parallax_background.tscn" id="2_misa4"]
 [ext_resource type="PackedScene" uid="uid://ci4klsnqge7t8" path="res://Items/thumbdrive.tscn" id="3_sfdn2"]
 [ext_resource type="PackedScene" uid="uid://b2vww2ct07iuh" path="res://Characters/Enemies/Gooey/gooey.tscn" id="4_c4f26"]
 [ext_resource type="PackedScene" uid="uid://bjsyb8bfpsmi" path="res://Characters/Enemies/Gooey/anti_gooey.tscn" id="5_ppxmw"]
+[ext_resource type="PackedScene" uid="uid://cgr1soo5rhocm" path="res://Characters/Enemies/Clawfly/anti_clawfly.tscn" id="6_t058r"]
 [ext_resource type="PackedScene" uid="uid://bpbmmhjdbu223" path="res://Levels/change_level_area_2d.tscn" id="6_xyg0t"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_q5qdk"]
@@ -48,23 +49,20 @@ position = Vector2(1845, -39)
 [node name="Gooey4" parent="EnemyContainer" index="3" instance=ExtResource("4_c4f26")]
 position = Vector2(1904, -39)
 
-[node name="Gooey5" parent="EnemyContainer" index="4" instance=ExtResource("4_c4f26")]
-position = Vector2(1962, -40)
-
-[node name="AntiGooey" parent="EnemyContainer" index="5" instance=ExtResource("5_ppxmw")]
+[node name="AntiGooey" parent="EnemyContainer" index="4" instance=ExtResource("5_ppxmw")]
 position = Vector2(1020, -35)
 
-[node name="AntiGooey2" parent="EnemyContainer" index="6" instance=ExtResource("5_ppxmw")]
+[node name="AntiGooey2" parent="EnemyContainer" index="5" instance=ExtResource("5_ppxmw")]
 position = Vector2(1430, -35)
 
-[node name="AntiGooey3" parent="EnemyContainer" index="7" instance=ExtResource("5_ppxmw")]
+[node name="AntiGooey3" parent="EnemyContainer" index="6" instance=ExtResource("5_ppxmw")]
 position = Vector2(1874, -39)
 
-[node name="AntiGooey4" parent="EnemyContainer" index="8" instance=ExtResource("5_ppxmw")]
+[node name="AntiGooey4" parent="EnemyContainer" index="7" instance=ExtResource("5_ppxmw")]
 position = Vector2(1933, -39)
 
-[node name="AntiGooey5" parent="EnemyContainer" index="9" instance=ExtResource("5_ppxmw")]
-position = Vector2(1991, -38)
+[node name="AntiClawfly" parent="EnemyContainer" index="8" instance=ExtResource("6_t058r")]
+position = Vector2(2119, -248)
 
 [node name="ChangeLevelArea2D" parent="." index="6" instance=ExtResource("6_xyg0t")]
 position = Vector2(2730, -48)
