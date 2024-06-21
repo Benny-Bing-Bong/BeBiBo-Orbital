@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgr1soo5rhocm"]
+
+[ext_resource type="PackedScene" uid="uid://cx65k3re7acsc" path="res://Characters/Enemies/Clawfly/clawfly.tscn" id="1_6v4sl"]
+[ext_resource type="Shader" path="res://Characters/Enemies/anti_hit_flash.gdshader" id="2_t3xys"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lh5d3"]
+resource_local_to_scene = true
+shader = ExtResource("2_t3xys")
+shader_parameter/active = false
+
+[node name="AntiClawfly" instance=ExtResource("1_6v4sl")]
+collision_layer = 32
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_lh5d3")
+
+[node name="Hitbox" parent="." index="6"]
+collision_layer = 32
+
+[node name="Hurtbox" parent="." index="7"]
+collision_layer = 32
+collision_mask = 16

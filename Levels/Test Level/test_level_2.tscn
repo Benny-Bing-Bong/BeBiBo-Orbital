@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c0irrfrykprg3"]
+[gd_scene load_steps=19 format=3 uid="uid://c0irrfrykprg3"]
 
 [ext_resource type="Texture2D" uid="uid://dd88sqdg8bsuj" path="res://Art/Assets/TileSet.png" id="1_nqn6w"]
 [ext_resource type="PackedScene" uid="uid://bd06xtnb3u2f2" path="res://Characters/Player/player.tscn" id="2_t6fdd"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cx65k3re7acsc" path="res://Characters/Enemies/Clawfly/clawfly.tscn" id="8_y8p6g"]
 [ext_resource type="Texture2D" uid="uid://d3e2hrsk5tl3r" path="res://Art/Assets/Cyberpunk City Tileset/Assets/Tiles Default.png" id="9_pfy3a"]
 [ext_resource type="PackedScene" uid="uid://cvl6v4ihwyrpl" path="res://Characters/Enemies/Golem/anti_golem.tscn" id="12_88qny"]
+[ext_resource type="PackedScene" uid="uid://cgr1soo5rhocm" path="res://Characters/Enemies/Clawfly/anti_clawfly.tscn" id="13_pp70x"]
 [ext_resource type="PackedScene" uid="uid://b2vww2ct07iuh" path="res://Characters/Enemies/Gooey/gooey.tscn" id="15_8jca8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xbt7y"]
@@ -1193,3 +1194,6 @@ position = Vector2(1443, 11)
 
 [node name="AntiGolem" parent="EnemyContainer" instance=ExtResource("12_88qny")]
 position = Vector2(2085, 37)
+
+[node name="AntiClawfly" parent="." instance=ExtResource("13_pp70x")]
+position = Vector2(2291, -3)
