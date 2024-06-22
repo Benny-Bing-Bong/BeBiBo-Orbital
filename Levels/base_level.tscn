@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://cnb1q5qwbielt"]
+[gd_scene load_steps=20 format=3 uid="uid://cnb1q5qwbielt"]
 
+[ext_resource type="Script" path="res://Levels/base_level.gd" id="1_c5lov"]
 [ext_resource type="Texture2D" uid="uid://b3sn3twsvajog" path="res://Art/Assets/Cyberpunk City Tileset/Assets/Tiles.png" id="1_smwv0"]
 [ext_resource type="Texture2D" uid="uid://dxpsuhf1sao1t" path="res://Art/Assets/Cyberpunk City Tileset/Assets/Props-01.png" id="2_u0vgo"]
 [ext_resource type="Texture2D" uid="uid://41ruwmm6rt6s" path="res://Art/Assets/Cyberpunk City Tileset/Assets/Buildings.png" id="3_1dd5s"]
@@ -6135,6 +6136,7 @@ sources/5 = SubResource("TileSetAtlasSource_gdb4s")
 sources/6 = SubResource("TileSetAtlasSource_1wawu")
 
 [node name="BaseLevel" type="Node2D"]
+script = ExtResource("1_c5lov")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_4yucu")
