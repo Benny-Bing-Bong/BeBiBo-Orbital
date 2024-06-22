@@ -1,7 +1,7 @@
 extends Sprite2D
 
 const ANTI_PLAYER_COLLISION: int = 16
-const ANTI_ENEMY_WORLD_MASK: int = 33
+const ANTI_ENEMY_WORLD_MASK: int = 545
 
 @export var hitbox: Hitbox
 

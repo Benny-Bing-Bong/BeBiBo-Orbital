@@ -6,6 +6,7 @@ var stack: Array # use pop_back and push_back, not the front versions
 var screens: Dictionary = {
 	"pause": preload("res://Screens/pause_screen.tscn"),
 	"death": preload("res://Screens/death_screen.tscn"),
+	"checkpoint": preload("res://Screens/checkpoint_screen.tscn"),
 	"unlocks": preload("res://Screens/unlocks_screen.tscn"),
 	"move": preload("res://Screens/Unlock Screens/move_unlock_screen.tscn"),
 	"attack": preload("res://Screens/Unlock Screens/attack_unlock_screen.tscn"),
@@ -27,11 +28,17 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _input(event: InputEvent) -> void:
+	if not GameManager.player_alive:
+		return
+	
 	if event.is_action_pressed("esc"):
 		if not GameManager.on_main_screen and stack.is_empty():
 			add_layer_to_screen("pause")
 		else:
 			remove_layer_from_screen()
+	if event.is_action_pressed("unlocks"):
+		if not GameManager.on_main_screen and stack.is_empty():
+			add_layer_to_screen("unlocks")
 
 func remove_all_layers() -> void:
 	while not stack.is_empty():
@@ -52,8 +59,9 @@ func add_layer_to_screen(name: String) -> void:
 		# set the layer for the screen, and push it to the stack
 		screen.layer = layer
 		
-		# pause the game if layer being added is pause
-		if name == "pause":
+		# pause the game if layer being added is the first one
+		# don't pause on death
+		if stack.is_empty() and name != "death":
 			get_tree().paused = true
 		
 		stack.push_back(screen)

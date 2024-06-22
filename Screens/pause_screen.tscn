@@ -48,7 +48,11 @@ text = "Resume"
 
 [node name="RestartButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "Restart"
+text = "Restart from Beginning"
+
+[node name="CheckpointButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Restart from Checkpoint"
 
 [node name="UnlocksButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -69,6 +73,7 @@ text = "Save and Quit Game"
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/CheckpointButton" to="." method="_on_checkpoint_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/UnlocksButton" to="." method="_on_unlocks_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/MainButton" to="." method="_on_main_button_pressed"]

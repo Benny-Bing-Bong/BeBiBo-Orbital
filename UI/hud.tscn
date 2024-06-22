@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://biu8yengrvq78"]
+[gd_scene load_steps=11 format=3 uid="uid://biu8yengrvq78"]
 
 [ext_resource type="Theme" uid="uid://b87efi81vr2yb" path="res://Themes/main_theme.tres" id="1_aodyr"]
 [ext_resource type="PackedScene" uid="uid://vlcy5cgx3axs" path="res://UI/Health Bar/health_bar.tscn" id="1_hw2kd"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bxwcnfh7yup4k" path="res://Art/UI/Cooldown Icons/ui Skill Phase.png" id="5_3wgv4"]
 [ext_resource type="Texture2D" uid="uid://cguxsbpd0hgke" path="res://Art/UI/Cooldown Icons/ui Skill Laser.png" id="6_mbh0q"]
 [ext_resource type="Texture2D" uid="uid://c7jhylrdr4en4" path="res://Art/UI/Cooldown Icons/ui Skill Bomb.png" id="9_wotxx"]
+[ext_resource type="PackedScene" uid="uid://b6akdag35nwh8" path="res://UI/Enemy Counter/enemy_counter.tscn" id="10_rv4m4"]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -26,14 +27,14 @@ theme_override_constants/margin_bottom = 10
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="TopHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/TopHBoxContainer"]
 layout_mode = 2
 columns = 2
 
-[node name="HPLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer"]
+[node name="HPLabel" type="Label" parent="MarginContainer/VBoxContainer/TopHBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -43,46 +44,57 @@ text = "HP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HealthBar" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("1_hw2kd")]
+[node name="HealthBar" parent="MarginContainer/VBoxContainer/TopHBoxContainer/GridContainer" instance=ExtResource("1_hw2kd")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="STLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer"]
+[node name="STLabel" type="Label" parent="MarginContainer/VBoxContainer/TopHBoxContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("1_aodyr")
 text = "ST"
 script = ExtResource("3_88o5t")
 
-[node name="StaminaBar" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("3_tm42f")]
+[node name="StaminaBar" parent="MarginContainer/VBoxContainer/TopHBoxContainer/GridContainer" instance=ExtResource("3_tm42f")]
 layout_mode = 2
 
-[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/TopHBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TutorialLabel" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_3qmxs")]
+[node name="TutorialLabel" parent="MarginContainer/VBoxContainer/TopHBoxContainer" instance=ExtResource("3_3qmxs")]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="CooldownHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="BotHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 10
 
-[node name="PhaseCooldownIcon" parent="MarginContainer/VBoxContainer/CooldownHBoxContainer" instance=ExtResource("4_vnq75")]
+[node name="CooldownHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/BotHBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="PhaseCooldownIcon" parent="MarginContainer/VBoxContainer/BotHBoxContainer/CooldownHBoxContainer" instance=ExtResource("4_vnq75")]
 layout_mode = 2
 sprite_icon = ExtResource("5_3wgv4")
 skill_name = "phase"
-key_name = "Tab"
+key_name = "Shift"
 
-[node name="LaserCooldownIcon" parent="MarginContainer/VBoxContainer/CooldownHBoxContainer" instance=ExtResource("4_vnq75")]
+[node name="LaserCooldownIcon" parent="MarginContainer/VBoxContainer/BotHBoxContainer/CooldownHBoxContainer" instance=ExtResource("4_vnq75")]
 layout_mode = 2
 sprite_icon = ExtResource("6_mbh0q")
 skill_name = "laser"
 key_name = "Q"
 
-[node name="BombCooldownIcon" parent="MarginContainer/VBoxContainer/CooldownHBoxContainer" instance=ExtResource("4_vnq75")]
+[node name="BombCooldownIcon" parent="MarginContainer/VBoxContainer/BotHBoxContainer/CooldownHBoxContainer" instance=ExtResource("4_vnq75")]
 layout_mode = 2
 sprite_icon = ExtResource("9_wotxx")
 skill_name = "bomb"
 key_name = "E"
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/BotHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EnemyCounter" parent="MarginContainer/VBoxContainer/BotHBoxContainer" instance=ExtResource("10_rv4m4")]
+layout_mode = 2

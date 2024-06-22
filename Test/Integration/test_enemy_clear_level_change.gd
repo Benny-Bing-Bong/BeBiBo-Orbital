@@ -28,7 +28,7 @@ func test_clear_enemies_scenemanager_signal() -> void:
 func test_scenemanager_signal_changelevelarea_monitoring() -> void:
 	watch_signals(SceneManager)
 	
-	SceneManager.all_enemies_died()
+	SceneManager.enemies_left = 0
 	
 	assert_true(change_level_area.monitoring)
 

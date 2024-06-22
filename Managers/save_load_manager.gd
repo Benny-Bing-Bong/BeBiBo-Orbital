@@ -34,6 +34,7 @@ func save_game() -> void:
 	var to_save: SaveLoadResource = SaveLoadResource.new()
 	
 	to_save.unlock_dictionary = UnlockManager.save_dictionary()
+	to_save.checkpoint_dictionary = CheckpointManager.save_dictionary()
 	
 	ResourceSaver.save(to_save, game_file_path)
 
@@ -46,6 +47,7 @@ func load_game() -> void:
 		saved = load(game_file_path) as SaveLoadResource
 	
 	UnlockManager.load_dictionary(saved.unlock_dictionary)
+	CheckpointManager.load_dictionary(saved.checkpoint_dictionary)
 
 func has_save_file() -> bool:
 	var saved: SaveLoadResource = load(game_file_path)
@@ -58,6 +60,7 @@ func has_save_file() -> bool:
 func delete_save() -> void:
 	# reset all the current saved in the current instance of game
 	UnlockManager.reset_unlocks()
+	CheckpointManager.reset_checkpoints()
 	
 	# delete actual save file
 	DirAccess.remove_absolute(game_file_path)

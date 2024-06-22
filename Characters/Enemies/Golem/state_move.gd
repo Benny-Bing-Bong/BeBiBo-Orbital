@@ -45,6 +45,10 @@ func instantiate_waves() -> void:
 	wave_left = shockwave.instantiate()
 	wave_right = shockwave.instantiate()
 	wave_left.flip_shockwave()
+	
+	if character.collision_layer == 32: # if its anti golem
+		wave_left.change_to_anti()
+		wave_right.change_to_anti()
 
 func put_at_position(first: int, second: int) -> void:
 	if direction == Vector2.LEFT:

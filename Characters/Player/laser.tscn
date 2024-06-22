@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwotlsknt0jcl"]
+[gd_scene load_steps=7 format=3 uid="uid://dl02nmmveaowl"]
 
 [ext_resource type="Texture2D" uid="uid://bameceg6ip0ip" path="res://Art/Character/Laser.png" id="1_bhluv"]
 [ext_resource type="Shader" path="res://Characters/Player/player.gdshader" id="1_l0g5r"]
@@ -20,7 +20,7 @@ hitbox = NodePath("Hitbox")
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 261
 script = ExtResource("2_xqx02")
 hit_value = 5
 

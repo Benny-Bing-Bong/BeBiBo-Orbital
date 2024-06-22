@@ -48,7 +48,7 @@ func hurt() -> void:
 	play_sfx(HURT, -5).play()
 
 func die() -> void:
-	var dying: AudioStreamPlayer = play_sfx(DEATH_1, 0)
+	var dying: AudioStreamPlayer = play_sfx(DEATH_1, -5)
 	dying.play()
 	await dying.finished
 	play_sfx(DEATH_2, 5).play()
