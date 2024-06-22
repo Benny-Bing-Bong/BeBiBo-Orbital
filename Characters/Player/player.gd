@@ -117,6 +117,10 @@ func swap_layers_and_masks() -> void:
 	set_collision_layer_value(ANTI_PLAYER, 
 			not get_collision_layer_value(ANTI_PLAYER))
 	
+	# stop processing if hitbox doesn't exist
+	if not hitbox:
+		return
+	
 	hitbox.set_collision_layer_value(PLAYER_COLLISION, 
 			not hitbox.get_collision_layer_value(PLAYER_COLLISION))
 	hitbox.set_collision_layer_value(ANTI_PLAYER, 
