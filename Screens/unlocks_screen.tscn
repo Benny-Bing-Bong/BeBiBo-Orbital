@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bd6ipgw4l7ooj"]
 
-[ext_resource type="PackedScene" uid="uid://3nhl5anqig7i" path="res://UI/back_button.tscn" id="1_ap10c"]
+[ext_resource type="PackedScene" path="res://UI/back_button.tscn" id="1_ap10c"]
 [ext_resource type="PackedScene" uid="uid://caw0mewdmywpx" path="res://UI/Unlock Icon/unlock_tutorial_button.tscn" id="2_dkbhs"]
 [ext_resource type="Texture2D" uid="uid://dikqh6egffnyw" path="res://Art/UI/Unlock Icons/Move Unlock Icon.png" id="3_v0og3"]
 [ext_resource type="Texture2D" uid="uid://bjnmakyjk4m2y" path="res://Art/UI/Unlock Icons/Attack Unlock Icon.png" id="4_y351t"]

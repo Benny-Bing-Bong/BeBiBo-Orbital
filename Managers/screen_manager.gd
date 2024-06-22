@@ -6,6 +6,7 @@ var stack: Array # use pop_back and push_back, not the front versions
 var screens: Dictionary = {
 	"pause": preload("res://Screens/pause_screen.tscn"),
 	"death": preload("res://Screens/death_screen.tscn"),
+	"checkpoint": preload("res://Screens/checkpoint_screen.tscn"),
 	"unlocks": preload("res://Screens/unlocks_screen.tscn"),
 	"move": preload("res://Screens/Unlock Screens/move_unlock_screen.tscn"),
 	"attack": preload("res://Screens/Unlock Screens/attack_unlock_screen.tscn"),

@@ -34,12 +34,17 @@ func transition_to_scene(scene_name: String) -> void:
 	var scene_path: String
 	if scenes.has(scene_name):
 		scene_path = scenes.get(scene_name)
+		# try to unlock checkpoint on every level change
+		CheckpointManager.update_checkpoint(scene_name)
 	else:
 		return
 	
 	# Make sure enemies becomes 0 when going back to main to prevent bugs
 	if scene_name == "Main":
 		enemies_left = 0
+	
+	# this is in case there are any levels with no enemies
+	enemies_left += 1
 	
 	var err: int = get_tree().change_scene_to_file(scene_path)
 	if not err == OK:
