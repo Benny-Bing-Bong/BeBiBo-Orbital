@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://42a7v27p0j0h"]
+
+[ext_resource type="Script" path="res://Screens/video_settings_screen.gd" id="1_fkyy8"]
+[ext_resource type="Texture2D" uid="uid://bj7pp6ormxo3w" path="res://Art/UI/Back Button.png" id="2_pkrhb"]
+
+[node name="VideoSettingsScreen" type="CanvasLayer"]
+script = ExtResource("1_fkyy8")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+theme_type_variation = &"SolidPanelContainer"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 18
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("2_pkrhb")
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderMedium"
+text = "VIDEO
+"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(53, 0)
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="ResolutionLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Resolution"
+
+[node name="ResolutionButton" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DisplayLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Display
+"
+
+[node name="DisplayButton" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="item_selected" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/ResolutionButton" to="." method="_on_resolution_button_item_selected"]
+[connection signal="item_selected" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/DisplayButton" to="." method="_on_display_button_item_selected"]

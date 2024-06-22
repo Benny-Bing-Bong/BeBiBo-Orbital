@@ -7,5 +7,5 @@ func play_sfx(audio_stream: AudioStream, volume: float) -> AudioStreamPlayer:
 	player.finished.connect(player.queue_free)
 	player.stream = audio_stream
 	player.volume_db = volume
-	player.bus = "Player SFX"
+	player.bus = "SFX"
 	return player

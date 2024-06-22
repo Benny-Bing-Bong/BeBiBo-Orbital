@@ -18,7 +18,7 @@ func run() -> void:
 	play_sfx(STEPS, -5).play()
 
 func pick_up() -> void:
-	play_sfx(PICK_UP, 0).play()
+	play_sfx(PICK_UP, -5).play()
 
 func attack() -> void:
 	play_sfx(ATTACK, 0).play()
@@ -51,4 +51,4 @@ func die() -> void:
 	var dying: AudioStreamPlayer = play_sfx(DEATH_1, -5)
 	dying.play()
 	await dying.finished
-	play_sfx(DEATH_2, 0).play()
+	play_sfx(DEATH_2, 5).play()
