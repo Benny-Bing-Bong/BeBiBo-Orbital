@@ -10,6 +10,7 @@ func _ready() -> void:
 		load_button.disabled = true
 	
 	GameManager.on_main_screen = true
+	GameMusic.play_menu_music()
 
 func _on_new_button_pressed() -> void:
 	GameManager.restart_player()
