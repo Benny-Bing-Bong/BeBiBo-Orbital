@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Audio/Music/game_music.gd" id="1_d2cwm"]
 
 [node name="GameMusic" type="AudioStreamPlayer"]
+process_mode = 3
 volume_db = -20.0
 bus = &"Music"
 script = ExtResource("1_d2cwm")
