@@ -18,10 +18,9 @@ func _on_new_button_pressed() -> void:
 	SceneManager.transition_to_scene("Level1-1")
 	
 func _on_load_button_pressed() -> void:
-	GameManager.restart_player()
-	GameManager.on_main_screen = false
+	# restart player and on_main_screen setting is now in checkpoint_button
 	SaveLoadManager.load_game()
-	SceneManager.transition_to_scene("Level1-1")
+	ScreenManager.add_layer_to_screen("checkpoint")
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()

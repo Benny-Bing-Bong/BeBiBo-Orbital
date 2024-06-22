@@ -34,6 +34,7 @@ SFX="*res://Audio/SFX/sfx_manager.gd"
 GolemSFX="*res://Audio/SFX/EnemySFX/GolemSFX/golem_sfx_manager.gd"
 GooeySFX="*res://Audio/SFX/EnemySFX/GooeySFX/gooey_sfx_manager.gd"
 ClawflySFX="*res://Audio/SFX/EnemySFX/ClawflySFX/clawfly_sfx_manager.gd"
+CheckpointManager="*res://Managers/checkpoint_manager.gd"
 
 [debug]
 
