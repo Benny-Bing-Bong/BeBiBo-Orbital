@@ -1,26 +1,54 @@
 extends Node
 
-var file_path: String = "user://save_file.tres"
+@onready var MASTER_INDEX: int = AudioServer.get_bus_index("Master")
+@onready var MUSIC_INDEX: int = AudioServer.get_bus_index("Music")
+@onready var SFX_INDEX: int = AudioServer.get_bus_index("SFX")
+
+var settings_file_path: String = "user://user_settings.tres"
+var game_file_path: String = "user://save_file.tres"
+
+func load_settings() -> UserSettings:
+	var saved: UserSettings = load(settings_file_path) as UserSettings
+	
+	if not saved:
+		saved = UserSettings.new()
+	
+	var master_volume: float = linear_to_db(saved.master_audio_level)
+	AudioServer.set_bus_volume_db(MASTER_INDEX, master_volume)
+	
+	var music_volume: float = linear_to_db(saved.music_audio_level)
+	AudioServer.set_bus_volume_db(MUSIC_INDEX, music_volume)
+	
+	var sfx_volume: float = linear_to_db(saved.sfx_audio_level)
+	AudioServer.set_bus_volume_db(SFX_INDEX, sfx_volume)
+	
+	DisplayServer.window_set_mode(saved.display_mode)
+	
+	return saved
+
+func save_settings() -> void:
+	var to_save: UserSettings = load_settings()
+	ResourceSaver.save(to_save, settings_file_path)
 
 func save_game() -> void:
 	var to_save: SaveLoadResource = SaveLoadResource.new()
 	
 	to_save.unlock_dictionary = UnlockManager.save_dictionary()
 	
-	ResourceSaver.save(to_save, file_path)
+	ResourceSaver.save(to_save, game_file_path)
 
 func load_game() -> void:
-	var saved: SaveLoadResource = load(file_path) as SaveLoadResource
+	var saved: SaveLoadResource = load(game_file_path) as SaveLoadResource
 	
 	# check if saved file exists. if not, create one now
 	if not saved:
 		save_game()
-		saved = load(file_path) as SaveLoadResource
+		saved = load(game_file_path) as SaveLoadResource
 	
 	UnlockManager.load_dictionary(saved.unlock_dictionary)
 
 func has_save_file() -> bool:
-	var saved: SaveLoadResource = load(file_path)
+	var saved: SaveLoadResource = load(game_file_path)
 	
 	if not saved:
 		return false
@@ -32,5 +60,5 @@ func delete_save() -> void:
 	UnlockManager.reset_unlocks()
 	
 	# delete actual save file
-	DirAccess.remove_absolute(file_path)
+	DirAccess.remove_absolute(game_file_path)
 	

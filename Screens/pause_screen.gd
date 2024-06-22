@@ -16,7 +16,9 @@ func _on_main_button_pressed() -> void:
 	SaveLoadManager.save_game()
 	SceneManager.transition_to_scene("Main")
 
+func _on_settings_button_pressed() -> void:
+	ScreenManager.add_layer_to_screen("settings")
+
 func _on_quit_button_pressed() -> void:
 	SaveLoadManager.save_game()
 	get_tree().quit()
-

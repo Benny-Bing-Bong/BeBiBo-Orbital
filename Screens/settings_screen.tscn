@@ -1,12 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://blpdowkmyh46p"]
+[gd_scene load_steps=3 format=3 uid="uid://blpdowkmyh46p"]
 
 [ext_resource type="Texture2D" uid="uid://bj7pp6ormxo3w" path="res://Art/UI/Back Button.png" id="1_grxyh"]
+[ext_resource type="Script" path="res://Screens/settings_screen.gd" id="1_nuv4l"]
 
 [node name="SettingsScreen" type="CanvasLayer"]
+script = ExtResource("1_nuv4l")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 offset_right = 640.0
 offset_bottom = 360.0
+theme_type_variation = &"SolidPanelContainer"
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -59,3 +62,7 @@ text = "Video"
 [node name="KeybindsButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Keybinds"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/AudioButton" to="." method="_on_audio_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/VideoButton" to="." method="_on_video_button_pressed"]

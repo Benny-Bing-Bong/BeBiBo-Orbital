@@ -10,6 +10,8 @@ script = ExtResource("1_u6a4d")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -5.5
+offset_bottom = 5.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -31,7 +33,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Spacer" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
@@ -52,6 +54,11 @@ text = "Restart"
 layout_mode = 2
 text = "Unlocked Controls"
 
+[node name="SettingsButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Settings
+"
+
 [node name="MainButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Save and Quit to Main Menu"
@@ -63,5 +70,6 @@ text = "Save and Quit Game"
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/UnlocksButton" to="." method="_on_unlocks_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/MainButton" to="." method="_on_main_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
