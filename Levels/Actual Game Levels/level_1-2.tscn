@@ -23,7 +23,7 @@ layer_3/tile_data = PackedInt32Array(-1572820, 327681, 11, -1507284, 327681, 12,
 [node name="Thumbdrive" parent="." index="2" instance=ExtResource("3_kcrb1")]
 position = Vector2(566, -47)
 unlock_name = "double_jump"
-tutorial_string = "You have unlocked the Double Jump Module! Press W  or Spacebar while in the air, to jump another time. Press 'I' or go to the Pause Menu for more information."
+tutorial_string = "You have unlocked the Double Jump Module! Press W or Spacebar while in the air, to jump another time. Press 'I' or go to the Pause Menu for more information."
 
 [node name="Player" parent="." index="3"]
 position = Vector2(41, -154)

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ci4klsnqge7t8" path="res://Items/thumbdrive.tscn" id="3_sfdn2"]
 [ext_resource type="PackedScene" uid="uid://b2vww2ct07iuh" path="res://Characters/Enemies/Gooey/gooey.tscn" id="4_c4f26"]
 [ext_resource type="PackedScene" uid="uid://bjsyb8bfpsmi" path="res://Characters/Enemies/Gooey/anti_gooey.tscn" id="5_ppxmw"]
-[ext_resource type="PackedScene" uid="uid://cgr1soo5rhocm" path="res://Characters/Enemies/Clawfly/anti_clawfly.tscn" id="6_t058r"]
+[ext_resource type="PackedScene" path="res://Characters/Enemies/Clawfly/anti_clawfly.tscn" id="6_t058r"]
 [ext_resource type="PackedScene" uid="uid://bpbmmhjdbu223" path="res://Levels/change_level_area_2d.tscn" id="6_xyg0t"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_q5qdk"]
@@ -24,7 +24,7 @@ layer_3/tile_data = PackedInt32Array(-196465, 1, 0, -130929, 1, 1, -196464, 6553
 [node name="Thumbdrive" parent="." index="2" instance=ExtResource("3_sfdn2")]
 position = Vector2(248, -43)
 unlock_name = "phase"
-tutorial_string = "You have unlocked the Phaseshift Module! Press TAB to switch between your DEFAULT phase and your ANTI phase. Press 'I' or go to the Pause Menu for more information."
+tutorial_string = "You have unlocked the Phaseshift Module! Press SHIFT to switch between your DEFAULT phase and your ANTI phase. Press 'I' or go to the Pause Menu for more information."
 
 [node name="Player" parent="." index="3"]
 position = Vector2(63, -41)

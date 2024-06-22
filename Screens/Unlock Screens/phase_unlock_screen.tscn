@@ -5,7 +5,7 @@
 
 [node name="PhaseUnlockScreen" instance=ExtResource("1_1t3xn")]
 skill_name = "phase"
-skill_description = "Press Tab to switch between the POSIT and ANTI phase. 
+skill_description = "Press SHIFT to switch between the POSIT and ANTI phase. 
 You can only hit POSIT and ANTI enemies using the respective phases. However, you can still be hurt by all enemies in different phases. Be careful!
 You can only land on gray or white platforms in the respective phases as well."
 screenshot = ExtResource("2_0s0g5")

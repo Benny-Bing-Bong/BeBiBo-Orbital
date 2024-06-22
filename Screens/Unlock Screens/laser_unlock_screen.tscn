@@ -5,5 +5,6 @@
 
 [node name="LaserUnlockScreen" instance=ExtResource("1_6552q")]
 skill_name = "laser"
-skill_description = "Press Q to charge up and shoot a powerful laser. You are immobile while charging the laser, and you have to wait a while before using it again. Note: You can only shoot at eye level, so you can't defeat short enemies with it."
+skill_description = "Press Q to charge up and shoot a powerful laser. You are immobile while charging the laser, and you have to wait a while before using it again. 
+Note: You can only shoot at eye level, so you can't defeat short enemies with it."
 screenshot = ExtResource("2_mtmt3")
