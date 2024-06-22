@@ -24,7 +24,7 @@ layer_3/tile_data = PackedInt32Array(-196465, 1, 0, -130929, 1, 1, -196464, 6553
 [node name="Thumbdrive" parent="." index="2" instance=ExtResource("3_sfdn2")]
 position = Vector2(248, -43)
 unlock_name = "phase"
-tutorial_string = "You have unlocked the Phaseshift Module! Press SHIFT to switch between your DEFAULT phase and your ANTI phase. Press 'I' or go to the Pause Menu for more information."
+tutorial_string = "You have unlocked the Phaseshift Module! Press SHIFT to switch between your POSIT phase and your ANTI phase. Press 'I' or go to the Pause Menu for more information."
 
 [node name="Player" parent="." index="3"]
 position = Vector2(63, -41)

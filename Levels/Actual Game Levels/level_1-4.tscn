@@ -24,7 +24,7 @@ layer_3/tile_data = PackedInt32Array(-65527, 917506, 5, 9, 917506, 5, 65545, 917
 [node name="Thumbdrive" parent="." index="2" instance=ExtResource("3_np4mf")]
 position = Vector2(449, -47)
 unlock_name = "dash"
-tutorial_string = "You have unlocked the Dash Module! Press RMB to make a quick dash while you are on the ground. Press 'I' or go to the Pause Menu for more information."
+tutorial_string = "You have unlocked the Dash Module! Press RMB to make a quick dash while you are on the ground or in the air. Press 'I' or go to the Pause Menu for more information."
 
 [node name="Player" parent="." index="3"]
 position = Vector2(49, -42)
