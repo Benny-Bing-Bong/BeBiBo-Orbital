@@ -133,6 +133,11 @@ bomb={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"echo":false,"script":null)
 ]
 }
+unlocks={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":73,"key_label":0,"unicode":105,"echo":false,"script":null)
+]
+}
 
 [layer_names]
 
@@ -144,6 +149,8 @@ bomb={
 2d_physics/layer_6="ANTI ENEMIES"
 2d_physics/layer_7="LEVELCHANGER"
 2d_physics/layer_8="ENEMYDETECTION"
+2d_physics/layer_9="DEFAULTPLATFORM"
+2d_physics/layer_10="ANTIPLATFORM"
 
 [rendering]
 

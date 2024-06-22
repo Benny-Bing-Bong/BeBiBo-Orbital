@@ -21,7 +21,8 @@ func state_physics_process(_delta: float) -> void:
 	# Player has to hold down the key to wallhang
 	if ((wall_direction > 0 and not Input.is_action_pressed("left")) or 
 		(wall_direction < 0 and not Input.is_action_pressed("right")) or
-		(wall_direction == 0)):
+		(wall_direction == 0) or
+		(not character.is_on_wall())):
 		fall()
 
 func fall() -> void:

@@ -9,7 +9,7 @@ radius = 21.0238
 
 [node name="Thumbdrive" type="Area2D"]
 collision_layer = 8
-collision_mask = 2
+collision_mask = 18
 script = ExtResource("1_l3oft")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

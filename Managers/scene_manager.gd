@@ -1,6 +1,19 @@
 extends Node
 
 signal enemies_cleared()
+signal enemies_changed(number: int)
+
+var enemies_left: int:
+	get:
+		return enemies_left
+	set(value):
+		if enemies_left != value:
+			enemies_left = value
+			enemies_changed.emit(value)
+		
+		if value == 0:
+			enemies_cleared.emit()
+
 
 var scenes: Dictionary = {
 	"Level1": "res://Levels/level_1.tscn",
@@ -12,6 +25,9 @@ var scenes: Dictionary = {
 	"Level1-3": "res://Levels/Actual Game Levels/level_1-3.tscn",
 	"Level1-4": "res://Levels/Actual Game Levels/level_1-4.tscn",
 	"Level1-5": "res://Levels/Actual Game Levels/level_1-5.tscn",
+	"Level2-1": "res://Levels/Actual Game Levels/level_2_1.tscn",
+	"Level2-2": "res://Levels/Actual Game Levels/level_2_2.tscn",
+	"Level2-3": "res://Levels/Actual Game Levels/level_2_3.tscn",
 }
 
 func transition_to_scene(scene_name: String) -> void:
@@ -21,9 +37,13 @@ func transition_to_scene(scene_name: String) -> void:
 	else:
 		return
 	
+	# Make sure enemies becomes 0 when going back to main to prevent bugs
+	if scene_name == "Main":
+		enemies_left = 0
+	
 	var err: int = get_tree().change_scene_to_file(scene_path)
 	if not err == OK:
 		print("Error: Unable to change scene")
 
-func all_enemies_died() -> void:
-	enemies_cleared.emit()
+func update_enemies_left(number: int) -> void:
+	enemies_left = number

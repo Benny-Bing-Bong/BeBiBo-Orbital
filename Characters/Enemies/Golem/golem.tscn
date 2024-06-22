@@ -460,6 +460,7 @@ _data = {
 [node name="Golem" type="CharacterBody2D"]
 position = Vector2(0, -48)
 collision_layer = 4
+collision_mask = 769
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -469,9 +470,7 @@ libraries = {
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_lskya")
 sprite_frames = SubResource("SpriteFrames_82uc0")
-animation = &"dead"
-frame = 21
-frame_progress = 1.0
+animation = &"idle"
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 4
