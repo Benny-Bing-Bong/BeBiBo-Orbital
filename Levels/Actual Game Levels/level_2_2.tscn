@@ -1,15 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://dfuydnlvii6ey"]
+[gd_scene load_steps=12 format=3 uid="uid://d0b88758xfs1s"]
 
 [ext_resource type="PackedScene" uid="uid://cnb1q5qwbielt" path="res://Levels/base_level.tscn" id="1_4w10q"]
-[ext_resource type="PackedScene" uid="uid://dm7xpgmjurvst" path="res://Levels/Background Scenes for Use/parallax_background_2.tscn" id="2_xtoxa"]
+[ext_resource type="PackedScene" path="res://Levels/Background Scenes for Use/parallax_background_2.tscn" id="2_xtoxa"]
 [ext_resource type="PackedScene" uid="uid://ci4klsnqge7t8" path="res://Items/thumbdrive.tscn" id="3_48a7c"]
 [ext_resource type="PackedScene" uid="uid://bpbmmhjdbu223" path="res://Levels/change_level_area_2d.tscn" id="3_t24ou"]
 [ext_resource type="PackedScene" uid="uid://b2vww2ct07iuh" path="res://Characters/Enemies/Gooey/gooey.tscn" id="4_xunir"]
 [ext_resource type="PackedScene" uid="uid://bjsyb8bfpsmi" path="res://Characters/Enemies/Gooey/anti_gooey.tscn" id="5_3kaev"]
 [ext_resource type="PackedScene" uid="uid://bc3tov8n23ie2" path="res://Characters/Enemies/Golem/golem.tscn" id="6_5nbno"]
 [ext_resource type="PackedScene" uid="uid://cx65k3re7acsc" path="res://Characters/Enemies/Clawfly/clawfly.tscn" id="7_arw1r"]
-[ext_resource type="PackedScene" uid="uid://cvl6v4ihwyrpl" path="res://Characters/Enemies/Golem/anti_golem.tscn" id="7_pfkdh"]
-[ext_resource type="PackedScene" uid="uid://cgr1soo5rhocm" path="res://Characters/Enemies/Clawfly/anti_clawfly.tscn" id="9_8f1ng"]
+[ext_resource type="PackedScene" path="res://Characters/Enemies/Golem/anti_golem.tscn" id="7_pfkdh"]
+[ext_resource type="PackedScene" path="res://Characters/Enemies/Clawfly/anti_clawfly.tscn" id="9_8f1ng"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2pecs"]
 normal = Vector2(-1, 0)

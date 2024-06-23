@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://blpdowkmyh46p"]
+[gd_scene load_steps=3 format=3 uid="uid://drl2bqkgnjr1t"]
 
 [ext_resource type="Texture2D" uid="uid://bj7pp6ormxo3w" path="res://Art/UI/Back Button.png" id="1_grxyh"]
 [ext_resource type="Script" path="res://Screens/settings_screen.gd" id="1_nuv4l"]
@@ -58,10 +58,6 @@ text = "Audio"
 [node name="VideoButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Video"
-
-[node name="KeybindsButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-text = "Keybinds"
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/AudioButton" to="." method="_on_audio_button_pressed"]
