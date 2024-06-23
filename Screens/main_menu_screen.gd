@@ -11,6 +11,7 @@ func _ready() -> void:
 	
 	GameManager.on_main_screen = true
 	
+	SaveLoadManager.load_settings()
 	GameMusic.play_menu_music()
 
 func _on_new_button_pressed() -> void:
