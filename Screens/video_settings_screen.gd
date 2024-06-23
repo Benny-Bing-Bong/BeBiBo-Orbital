@@ -24,8 +24,14 @@ func _ready() -> void:
 	for d: String in DISPLAY_MODES:
 		display_button.add_item(d)
 	
-	resolution_button.selected = RESOLUTIONS.keys().find(SettingsManager.resolution)
-	display_button.selected = DISPLAY_MODES.keys().find(SettingsManager.display_mode)
+	resolution_button.selected = RESOLUTIONS.keys().find(
+			SettingsManager.resolution)
+	display_button.selected = DISPLAY_MODES.keys().find(
+			SettingsManager.display_mode)
+	
+	if not (SettingsManager.get_display_mode_index() 
+			== DisplayServer.WINDOW_MODE_WINDOWED):
+		resolution_button.disabled = true
 
 func _on_resolution_button_item_selected(index: int) -> void:
 	DisplayServer.window_set_size(RESOLUTIONS.values()[index])
@@ -37,10 +43,12 @@ func _on_resolution_button_item_selected(index: int) -> void:
 
 func _on_display_button_item_selected(index: int) -> void:
 	if index == 0:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+		DisplayServer.window_set_mode(
+				DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 		resolution_button.disabled = true
 	elif index == 1:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		DisplayServer.window_set_mode(
+				DisplayServer.WINDOW_MODE_FULLSCREEN)
 		resolution_button.disabled = true
 	elif index == 2:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
