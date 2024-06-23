@@ -35,6 +35,7 @@ GolemSFX="*res://Audio/SFX/EnemySFX/GolemSFX/golem_sfx_manager.gd"
 GooeySFX="*res://Audio/SFX/EnemySFX/GooeySFX/gooey_sfx_manager.gd"
 ClawflySFX="*res://Audio/SFX/EnemySFX/ClawflySFX/clawfly_sfx_manager.gd"
 CheckpointManager="*res://Managers/checkpoint_manager.gd"
+SettingsManager="*res://Managers/settings_manager.gd"
 
 [debug]
 
@@ -45,7 +46,7 @@ gdscript/warnings/untyped_declaration=2
 
 window/size/viewport_width=640
 window/size/viewport_height=360
-window/size/mode=4
+window/size/resizable=false
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"
