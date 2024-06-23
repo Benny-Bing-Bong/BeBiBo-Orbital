@@ -1,33 +1,26 @@
 extends Node
 
-@onready var MASTER_INDEX: int = AudioServer.get_bus_index("Master")
-@onready var MUSIC_INDEX: int = AudioServer.get_bus_index("Music")
-@onready var SFX_INDEX: int = AudioServer.get_bus_index("SFX")
-
 var settings_file_path: String = "user://user_settings.tres"
 var game_file_path: String = "user://save_file.tres"
 
-func load_settings() -> UserSettings:
+func load_settings() -> void:
 	var saved: UserSettings = load(settings_file_path) as UserSettings
 	
 	if not saved:
 		saved = UserSettings.new()
 	
-	var master_volume: float = linear_to_db(saved.master_audio_level)
-	AudioServer.set_bus_volume_db(MASTER_INDEX, master_volume)
-	
-	var music_volume: float = linear_to_db(saved.music_audio_level)
-	AudioServer.set_bus_volume_db(MUSIC_INDEX, music_volume)
-	
-	var sfx_volume: float = linear_to_db(saved.sfx_audio_level)
-	AudioServer.set_bus_volume_db(SFX_INDEX, sfx_volume)
-	
-	DisplayServer.window_set_mode(saved.display_mode)
-	
-	return saved
+	SettingsManager.load_settings(saved)
 
 func save_settings() -> void:
-	var to_save: UserSettings = load_settings()
+	var to_save: UserSettings = UserSettings.new()
+	
+	to_save.master_audio_level = SettingsManager.master_audio_level
+	to_save.music_audio_level = SettingsManager.music_audio_level
+	to_save.sfx_audio_level = SettingsManager.sfx_audio_level
+	
+	to_save.resolution = SettingsManager.resolution
+	to_save.display_mode = SettingsManager.display_mode
+	
 	ResourceSaver.save(to_save, settings_file_path)
 
 func save_game() -> void:

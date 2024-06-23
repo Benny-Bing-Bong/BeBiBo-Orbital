@@ -1,8 +1,7 @@
 extends CanvasLayer
 
-@onready var resolution_button: OptionButton = $PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/ResolutionButton
-@onready var display_button:  OptionButton = $PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/DisplayButton
-
+@onready var display_button: OptionButton = %DisplayButton
+@onready var resolution_button: OptionButton = %ResolutionButton
 
 var RESOLUTIONS: Dictionary = {
 	"1920 x 1080": Vector2i(1920, 1080),
@@ -15,10 +14,8 @@ var RESOLUTIONS: Dictionary = {
 var DISPLAY_MODES: Dictionary = {
 	"Fullscreen": DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN,
 	"Borderless Windowed": DisplayServer.WINDOW_MODE_FULLSCREEN,
-	"Bordered Windowed": DisplayServer.WINDOW_MODE_MAXIMIZED
+	"Bordered Windowed": DisplayServer.WINDOW_MODE_WINDOWED
 }
-
-var user_settings: UserSettings
 
 func _ready() -> void:
 	for r: String in RESOLUTIONS:
@@ -27,28 +24,29 @@ func _ready() -> void:
 	for d: String in DISPLAY_MODES:
 		display_button.add_item(d)
 	
-	user_settings = SaveLoadManager.load_settings()
-	
-	display_button.selected = 4 - user_settings.display_mode
+	resolution_button.selected = RESOLUTIONS.keys().find(SettingsManager.resolution)
+	display_button.selected = DISPLAY_MODES.keys().find(SettingsManager.display_mode)
 
 func _on_resolution_button_item_selected(index: int) -> void:
 	DisplayServer.window_set_size(RESOLUTIONS.values()[index])
 	
-	user_settings.resolution = RESOLUTIONS.values()[index]
+	SettingsManager.resolution = RESOLUTIONS.keys()[index]
+	
+	#user_settings.resolution = RESOLUTIONS.values()[index]
 	SaveLoadManager.save_settings()
-
 
 func _on_display_button_item_selected(index: int) -> void:
 	if index == 0:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+		resolution_button.disabled = true
 	elif index == 1:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		resolution_button.disabled = true
 	elif index == 2:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		DisplayServer.window_set_size(SettingsManager.get_resolution_size())
+		resolution_button.disabled = false
 	
-	user_settings.display_mode = 4 - index
+	SettingsManager.display_mode = DISPLAY_MODES.keys()[index]
+	#user_settings.display_mode = 4 - index
 	SaveLoadManager.save_settings()
-
-
-func _on_back_button_pressed() -> void:
-	ScreenManager.remove_layer_from_screen()
