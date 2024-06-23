@@ -59,5 +59,10 @@ func put_at_position(first: int, second: int) -> void:
 		wave_right.global_position = wave_spawn.get_child(first).global_position
 
 func add_wave_to_scene() -> void:
+	if character.get_parent() is EnemyContainer:
+		character.get_parent().get_parent().add_child(wave_left)
+		character.get_parent().get_parent().add_child(wave_right)
+		return
+	
 	character.get_parent().add_child(wave_left)
 	character.get_parent().add_child(wave_right)
