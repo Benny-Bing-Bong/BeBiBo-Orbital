@@ -40,7 +40,6 @@ func create_action_list() -> void:
 		
 		if not UnlockManager.contains(action_name):
 			action_label.text = action_name.capitalize()
-			print(action_name)
 		else:
 			if UnlockManager.able_to(action_name):
 				action_label.text = action_name.capitalize()
@@ -50,7 +49,7 @@ func create_action_list() -> void:
 		
 		var events: Array[InputEvent] = InputMap.action_get_events(action)
 		if events.size() > 0:
-			input_label.text = events[0].as_text().trim_suffix(" (Physical)")
+			input_label.text = events[0].as_text()
 		else:
 			input_label.text = "UNBINDED"
 		
@@ -66,10 +65,10 @@ func on_input_button_pressed(button: Button, action: StringName) -> void:
 
 func _input(event: InputEvent) -> void:
 	if is_remapping:
-		if (event is InputEventKey) or (event is InputEventMouseButton and event.is_pressed()):
-			if event is InputEventMouseButton and event.double_click:
+		if event is InputEventMouseButton and event.double_click:
 				event.double_click = false
 				
+		if (event is InputEventKey) or (event is InputEventMouseButton and event.is_pressed()):
 			InputMap.action_erase_events(action_to_remap)
 			InputMap.action_add_event(action_to_remap, event)
 			update_action_list(remapping_button, event)
@@ -79,8 +78,7 @@ func _input(event: InputEvent) -> void:
 			remapping_button = null
 
 func update_action_list(button: Button, event: InputEvent) -> void:
-	button.find_child("InputLabel").text = event.as_text().trim_suffix(" Physical()")
-
+	button.find_child("InputLabel").text = event.as_text()
 
 func _on_reset_button_pressed() -> void:
 	create_action_list()
