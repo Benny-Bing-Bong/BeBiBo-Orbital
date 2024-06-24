@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://blpdowkmyh46p"]
 
 [ext_resource type="Script" path="res://Screens/settings_screen.gd" id="1_nuv4l"]
-[ext_resource type="PackedScene" path="res://UI/back_button.tscn" id="2_jhjmu"]
+[ext_resource type="PackedScene" uid="uid://3nhl5anqig7i" path="res://UI/Back Button/back_button.tscn" id="2_fk7kv"]
 
 [node name="SettingsScreen" type="CanvasLayer"]
 script = ExtResource("1_nuv4l")
@@ -24,7 +24,7 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="BackButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_jhjmu")]
+[node name="BackButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_fk7kv")]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
@@ -63,3 +63,4 @@ text = "Keybinds"
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/AudioButton" to="." method="_on_audio_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/VideoButton" to="." method="_on_video_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/KeybindsButton" to="." method="_on_keybinds_button_pressed"]

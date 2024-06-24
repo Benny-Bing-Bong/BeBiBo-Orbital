@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1r23vhopdjsb"]
 
 [ext_resource type="Script" path="res://Screens/audio_settings_screen.gd" id="1_qqdny"]
-[ext_resource type="PackedScene" path="res://UI/back_button.tscn" id="2_j1qgx"]
+[ext_resource type="PackedScene" uid="uid://3nhl5anqig7i" path="res://UI/Back Button/back_button.tscn" id="2_j1qgx"]
 
 [node name="AudioSettingsScreen" type="CanvasLayer"]
 script = ExtResource("1_qqdny")

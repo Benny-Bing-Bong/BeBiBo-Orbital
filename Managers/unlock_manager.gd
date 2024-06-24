@@ -11,7 +11,7 @@ var unlock_dictionary: Dictionary = {
 	"crouch": false,
 	"dash": false,
 	"wallhang": false,
-	"phase": false,
+	"phaseshift": false,
 	"laser": false,
 	"bomb": false,
 	}
@@ -46,3 +46,6 @@ func load_dictionary(dict: Dictionary) -> void:
 
 func save_dictionary() -> Dictionary:
 	return unlock_dictionary
+
+func contains(action: String) -> bool:
+	return unlock_dictionary.has(action)

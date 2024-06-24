@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://co2ysxhka6nr"]
 
 [ext_resource type="Script" path="res://Screens/Unlock Screens/base_unlock_screen.gd" id="1_3w4wp"]
-[ext_resource type="PackedScene" path="res://UI/back_button.tscn" id="1_ufpah"]
+[ext_resource type="PackedScene" uid="uid://3nhl5anqig7i" path="res://UI/Back Button/back_button.tscn" id="1_ufpah"]
 [ext_resource type="Texture2D" uid="uid://viqp0dxwiq7h" path="res://Art/Game Screenshots/Move Screenshot.png" id="2_6fkgb"]
 
 [node name="BaseUnlockScreen" type="CanvasLayer"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://42a7v27p0j0h"]
 
 [ext_resource type="Script" path="res://Screens/video_settings_screen.gd" id="1_fkyy8"]
-[ext_resource type="PackedScene" path="res://UI/back_button.tscn" id="2_0pcig"]
+[ext_resource type="PackedScene" uid="uid://3nhl5anqig7i" path="res://UI/Back Button/back_button.tscn" id="2_sntup"]
 
 [node name="VideoSettingsScreen" type="CanvasLayer"]
 script = ExtResource("1_fkyy8")
@@ -24,7 +24,7 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="BackButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_0pcig")]
+[node name="BackButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_sntup")]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
