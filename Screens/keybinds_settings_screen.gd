@@ -54,7 +54,7 @@ func create_action_list() -> void:
 		# current key binded to action
 		var events: Array[InputEvent] = InputMap.action_get_events(action)
 		if events.size() > 0:
-			input_label.text = events[0].as_text()
+			input_label.text = events[0].as_text().to_upper()
 		else:
 			input_label.text = "UNBINDED"
 		
@@ -88,7 +88,7 @@ func _input(event: InputEvent) -> void:
 			remapping_button = null
 
 func update_action_list(button: Button, event: InputEvent) -> void:
-	button.find_child("InputLabel").text = event.as_text()
+	button.find_child("InputLabel").text = event.as_text().to_upper()
 
 func _on_reset_button_pressed() -> void:
 	# load default controls from project settings and save
