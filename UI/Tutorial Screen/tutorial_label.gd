@@ -1,6 +1,7 @@
 extends PanelContainer
 
 @onready var tutorial_label: Label = $MarginContainer/VBoxContainer/TutorialLabel
+@onready var close_label: Label = %CloseLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,6 +10,7 @@ func _ready() -> void:
 
 func on_tutorial_triggered(action_name: String, tutorial_string: String) -> void:
 	tutorial_label.text = filter_string(tutorial_string, action_name)
+	close_label.text = close_label.text.replace("%close%", SettingsManager.INPUT_MAPPINGS["close"].as_text().to_upper())
 	visible = true
 
 func _input(event: InputEvent) -> void:

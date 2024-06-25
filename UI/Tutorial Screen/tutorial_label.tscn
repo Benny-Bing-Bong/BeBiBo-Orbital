@@ -35,7 +35,8 @@ theme_override_font_sizes/font_size = 12
 autowrap_mode = 2
 
 [node name="CloseLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "Press X to Close"
+text = "Press %close% to Close"
 horizontal_alignment = 1
