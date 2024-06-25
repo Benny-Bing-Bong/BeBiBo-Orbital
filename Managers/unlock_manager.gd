@@ -26,7 +26,7 @@ func able_to(action: String) -> bool:
 
 # first check if the key is being tracked by the dictionary. if it is,
 #set its value to true
-func unlock(skill_name: String, tutorial_string: String) -> void:
+func unlock(skill_name: String, action_name: String, tutorial_string: String) -> void:
 	if unlock_dictionary.has(skill_name):
 		unlock_dictionary[skill_name] = true
 		
@@ -34,7 +34,7 @@ func unlock(skill_name: String, tutorial_string: String) -> void:
 		skill_unlocked.emit(skill_name)
 		
 		# trigger tutorial to pop up on screen
-		tutorial_triggered.emit(tutorial_string)
+		tutorial_triggered.emit(action_name, tutorial_string)
 
 func reset_unlocks() -> void:
 	for key: String in unlock_dictionary.keys():

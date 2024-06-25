@@ -11,6 +11,9 @@ radius = 21.0238
 collision_layer = 8
 collision_mask = 18
 script = ExtResource("1_l3oft")
+unlock_name = null
+action_name = null
+tutorial_string = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_o7s8a")

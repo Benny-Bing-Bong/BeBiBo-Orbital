@@ -22,7 +22,8 @@ layer_3/tile_data = PackedInt32Array(-196607, 327683, 2, -131071, 327683, 3, -19
 [node name="Thumbdrive" parent="." index="2" instance=ExtResource("3_aaviu")]
 position = Vector2(1750, -46)
 unlock_name = "jump"
-tutorial_string = "You have unlocked the Jump Module! Press W or Spacebar to jump up onto a higher platform. Press 'I' or go to the Pause Menu for more information."
+action_name = "up"
+tutorial_string = "You have unlocked the Jump Module! Press %key% to jump up onto a higher platform. Press '%ul%' or go to the Pause Menu for more information."
 
 [node name="Player" parent="." index="3"]
 position = Vector2(128, -50)

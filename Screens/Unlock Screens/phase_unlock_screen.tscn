@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://cl425kn7vvryg" path="res://Art/Game Screenshots/Phase Screenshot.png" id="2_0s0g5"]
 
 [node name="PhaseUnlockScreen" instance=ExtResource("1_1t3xn")]
-skill_name = "phase"
-skill_description = "Press SHIFT to switch between the POSIT and ANTI phase. 
+skill_name = "phaseshift"
+action_name = "phaseshift"
+skill_description = "Press %key% to switch between the POSIT and ANTI phase. 
 You can only hit POSIT and ANTI enemies using the respective phases. However, you can still be hurt by all enemies in different phases. Be careful!
 You can only land on gray or white platforms in the respective phases as well."
 screenshot = ExtResource("2_0s0g5")

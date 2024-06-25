@@ -5,5 +5,6 @@
 
 [node name="AttackUnlockScreen" instance=ExtResource("1_heuvl")]
 skill_name = "attack"
-skill_description = "Press Left Mouse Button (LMB) to do an attack. If you click LMB just before the first attack finishes, you will do a second combo attack, which deals more damage. Attack and defeat enemies!"
+action_name = "attack"
+skill_description = "Press %key% to do an attack. If you click %key% just before the first attack finishes, you will do a second combo attack, which deals more damage. Attack and defeat enemies!"
 screenshot = ExtResource("2_ago2y")

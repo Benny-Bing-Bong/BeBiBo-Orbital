@@ -5,5 +5,5 @@
 
 [node name="WallhangUnlockScreen" instance=ExtResource("1_henqu")]
 skill_name = "wallhang"
-skill_description = "Press A or D while you are against a left or right wall to hang on the wall. Then, jump and press on the opposite direction to jump to the opposite wall. Gain height and get to high areas such as rooftops."
+skill_description = "Hold %left% or %right% while you are against a left or right wall to hang on the wall. Then, jump and press on the opposite direction to jump to the opposite wall. Gain height and get to high areas such as rooftops."
 screenshot = ExtResource("2_7ifpk")

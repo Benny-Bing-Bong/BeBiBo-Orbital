@@ -23,12 +23,13 @@ layer_3/tile_data = PackedInt32Array(-655342, 327681, 0, -589806, 327681, 1, -11
 [node name="Thumbdrive" parent="." index="2" instance=ExtResource("3_hr85b")]
 position = Vector2(921, -51)
 unlock_name = "crouch"
-tutorial_string = "You have unlocked the Crouch Module! Press S  while you are on the ground to crouch. Press 'I' or go to the Pause Menu for more information."
+action_name = "down"
+tutorial_string = "You have unlocked the Crouch Module! Press %key% while you are on the ground to crouch. Press '%ul%' or go to the Pause Menu for more information."
 
 [node name="Thumbdrive2" parent="." index="3" instance=ExtResource("3_hr85b")]
 position = Vector2(1402, -54)
 unlock_name = "wallhang"
-tutorial_string = "You have unlocked the Walljump Module! Press A or D while you are against a left or right wall to hang on the wall. Press 'I' or go to the Pause Menu for more information."
+tutorial_string = "You have unlocked the Walljump Module! Hold %left% or %right% while you are against a left or right wall to hang on the wall. Press '%ul%' or go to the Pause Menu for more information."
 
 [node name="Player" parent="." index="4"]
 position = Vector2(40, -44)

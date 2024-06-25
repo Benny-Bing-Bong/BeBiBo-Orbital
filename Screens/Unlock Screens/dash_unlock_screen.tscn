@@ -5,5 +5,6 @@
 
 [node name="DashUnlockScreen" instance=ExtResource("1_von6f")]
 skill_name = "dash"
-skill_description = "Press Right Mouse Button (RMB) to dash forward briefly. While you are dashing, enemies cannot hurt you, so you can use dash to avoid attacks. You can dash the air as well. You have a set number of dashes you can store, and they recharge over time."
+action_name = "dash"
+skill_description = "Press %key% to dash forward briefly. While you are dashing, enemies cannot hurt you, so you can use dash to avoid attacks. You can dash the air as well. You have a set number of dashes you can store, and they recharge over time."
 screenshot = ExtResource("2_drngm")

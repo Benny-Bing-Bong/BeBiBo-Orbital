@@ -5,5 +5,6 @@
 
 [node name="BombUnlockScreen" instance=ExtResource("1_4nfv4")]
 skill_name = "bomb"
-skill_description = "Press E to throw a bomb that detonates upon collision with any platform or enemy. Enemies within the blast radius will be damaged. You have to wait a while before using it again."
+action_name = "bomb"
+skill_description = "Press %key% to throw a bomb that detonates upon collision with any platform or enemy. Enemies within the blast radius will be damaged. You have to wait a while before using it again."
 screenshot = ExtResource("2_uctsf")
