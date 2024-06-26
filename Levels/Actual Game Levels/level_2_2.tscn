@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://d0b88758xfs1s"]
 
 [ext_resource type="PackedScene" uid="uid://cnb1q5qwbielt" path="res://Levels/base_level.tscn" id="1_4w10q"]
-[ext_resource type="PackedScene" path="res://Levels/Background Scenes for Use/parallax_background_2.tscn" id="2_xtoxa"]
+[ext_resource type="PackedScene" uid="uid://dm7xpgmjurvst" path="res://Levels/Background Scenes for Use/parallax_background_2.tscn" id="2_xtoxa"]
 [ext_resource type="PackedScene" uid="uid://ci4klsnqge7t8" path="res://Items/thumbdrive.tscn" id="3_48a7c"]
 [ext_resource type="PackedScene" uid="uid://bpbmmhjdbu223" path="res://Levels/change_level_area_2d.tscn" id="3_t24ou"]
 [ext_resource type="PackedScene" uid="uid://b2vww2ct07iuh" path="res://Characters/Enemies/Gooey/gooey.tscn" id="4_xunir"]
@@ -28,7 +28,7 @@ layer_3/tile_data = PackedInt32Array(-262042, 131076, 0, -262037, 131076, 0, -45
 position = Vector2(952, -320)
 unlock_name = "laser"
 action_name = "laser"
-tutorial_string = "You have unlocked the Laser Module! Press %key% to charge and fire a powerful laser. Press '%ul' or go to the Pause Menu for more information."
+tutorial_string = "You have unlocked the Laser Module! Press %key% to charge and fire a powerful laser. Press '%ul%' or go to the Pause Menu for more information."
 
 [node name="Player" parent="." index="3"]
 position = Vector2(43, -50)

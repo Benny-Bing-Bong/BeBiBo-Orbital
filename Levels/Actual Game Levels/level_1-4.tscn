@@ -25,7 +25,7 @@ layer_3/tile_data = PackedInt32Array(-65527, 917506, 5, 9, 917506, 5, 65545, 917
 position = Vector2(449, -47)
 unlock_name = "dash"
 action_name = "dash"
-tutorial_string = "You have unlocked the Dash Module! Press %key% to make a quick dash while you are on the ground or in the air. Press '%ul' or go to the Pause Menu for more information."
+tutorial_string = "You have unlocked the Dash Module! Press %key% to make a quick dash while you are on the ground or in the air. Press '%ul%' or go to the Pause Menu for more information."
 
 [node name="Player" parent="." index="3"]
 position = Vector2(49, -42)
