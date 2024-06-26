@@ -27,7 +27,8 @@ layer_3/tile_data = PackedInt32Array(-262042, 131076, 0, -262037, 131076, 0, -45
 [node name="Thumbdrive" parent="." index="2" instance=ExtResource("3_48a7c")]
 position = Vector2(952, -320)
 unlock_name = "laser"
-tutorial_string = "You have unlocked the Laser Module! Press Q to charge and fire a powerful laser. Press 'I' or go to the Pause Menu for more information."
+action_name = "laser"
+tutorial_string = "You have unlocked the Laser Module! Press %key% to charge and fire a powerful laser. Press '%ul' or go to the Pause Menu for more information."
 
 [node name="Player" parent="." index="3"]
 position = Vector2(43, -50)

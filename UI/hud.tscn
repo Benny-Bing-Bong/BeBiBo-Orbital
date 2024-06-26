@@ -77,7 +77,7 @@ size_flags_vertical = 4
 [node name="PhaseCooldownIcon" parent="MarginContainer/VBoxContainer/BotHBoxContainer/CooldownHBoxContainer" instance=ExtResource("4_vnq75")]
 layout_mode = 2
 sprite_icon = ExtResource("5_3wgv4")
-skill_name = "phase"
+skill_name = "phaseshift"
 key_name = "Shift"
 
 [node name="LaserCooldownIcon" parent="MarginContainer/VBoxContainer/BotHBoxContainer/CooldownHBoxContainer" instance=ExtResource("4_vnq75")]

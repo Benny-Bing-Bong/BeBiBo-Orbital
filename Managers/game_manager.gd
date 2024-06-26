@@ -9,8 +9,10 @@ var debug_mode: bool = true
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color(0.97, 0.74, 0.66, 1.00))
 	
+	# load game and settings on launch first
 	if debug_mode:
-		SaveLoadManager.load_game() # load game on launch first
+		SaveLoadManager.load_game() 
+		SaveLoadManager.load_settings()
 
 # save the game on quit (by clicking X at top right)
 func _notification(what: int) -> void:

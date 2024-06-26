@@ -14,12 +14,18 @@ func load_settings() -> void:
 func save_settings() -> void:
 	var to_save: UserSettings = UserSettings.new()
 	
+	# save audio settings
 	to_save.master_audio_level = SettingsManager.master_audio_level
 	to_save.music_audio_level = SettingsManager.music_audio_level
 	to_save.sfx_audio_level = SettingsManager.sfx_audio_level
 	
+	# save video settings
 	to_save.resolution = SettingsManager.resolution
 	to_save.display_mode = SettingsManager.display_mode
+	
+	# save input mappings
+	for action: String in to_save.saved_inputs:
+		to_save.saved_inputs[action] = SettingsManager.INPUT_MAPPINGS[action]
 	
 	ResourceSaver.save(to_save, settings_file_path)
 

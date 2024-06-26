@@ -14,11 +14,14 @@ func _ready() -> void:
 		visible = false
 	
 	sprite_2d.texture = sprite_icon
-	key_label.text = key_name
+	key_label.text = SettingsManager.INPUT_MAPPINGS[skill_name].as_text().to_upper()
 	timer_label.visible = false
 	UnlockManager.connect("skill_unlocked", on_skill_unlocked)
 
 func _process(delta: float) -> void:
+	if key_label.text != SettingsManager.INPUT_MAPPINGS[skill_name].as_text().to_upper():
+		key_label.text = SettingsManager.INPUT_MAPPINGS[skill_name].as_text().to_upper()
+		
 	if not CooldownManager.skill_ready(skill_name):
 		timer_label.text = "%.1f" % CooldownManager.get_remaining_time(skill_name)
 		timer_label.visible = true

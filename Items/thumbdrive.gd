@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var unlock_name: String
+@export var action_name: String
 @export_multiline var tutorial_string: String
 
 var player_in_range: bool = false
@@ -16,7 +17,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and player_in_range:
-		UnlockManager.unlock(unlock_name, tutorial_string)
+		UnlockManager.unlock(unlock_name, action_name, tutorial_string)
 		PlayerSFX.pick_up()
 		queue_free()
 

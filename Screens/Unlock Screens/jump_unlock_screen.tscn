@@ -5,5 +5,6 @@
 
 [node name="JumpUnlockScreen" instance=ExtResource("1_hpv2u")]
 skill_name = "jump"
-skill_description = "Press W or Spacebar to jump. Pressing A or S while jumping will allow you to jump towards the left or right while in the air. Jump to get to higher platforms. You can also attack while in the air."
+action_name = "up"
+skill_description = "Press %key% to jump. Pressing %left% or %right% while jumping will allow you to jump towards the left or right while in the air. Jump to get to higher platforms. You can also attack while in the air."
 screenshot = ExtResource("2_tibrn")

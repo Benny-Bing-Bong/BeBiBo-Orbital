@@ -22,7 +22,8 @@ layer_3/tile_data = PackedInt32Array(-196479, 327683, 0, -130943, 327683, 1, -19
 [node name="Thumbdrive" parent="." index="2" instance=ExtResource("3_xngkp")]
 position = Vector2(328, -18)
 unlock_name = "bomb"
-tutorial_string = "You have unlocked the Bomb Module! Press E to throw a bomb that damages in an area. Press 'I' or go to the Pause Menu for more information."
+action_name = "bomb"
+tutorial_string = "You have unlocked the Bomb Module! Press %key% to throw a bomb that damages in an area. Press '%ul' or go to the Pause Menu for more information."
 
 [node name="Player" parent="." index="3"]
 position = Vector2(24, -110)

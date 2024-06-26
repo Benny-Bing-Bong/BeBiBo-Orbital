@@ -27,8 +27,8 @@ func _ready() -> void:
 		swap_layers_and_masks()
 
 func _input(event: InputEvent) -> void:
-	if (event.is_action_pressed("phase") and UnlockManager.able_to("phase")
-	and CooldownManager.skill_ready("phase")):
+	if (event.is_action_pressed("phaseshift") and UnlockManager.able_to("phaseshift")
+	and CooldownManager.skill_ready("phaseshift")):
 		phase_shift()
 
 func _physics_process(delta: float) -> void:
@@ -94,7 +94,7 @@ func phase_shift() -> void:
 	
 	# play animation and start cooldown timer
 	sprite.phase_animation()
-	CooldownManager.start_cooldown("phase")
+	CooldownManager.start_cooldown("phaseshift")
 	PlayerSFX.phase_shift()
 	
 	# buffer to ensure phase change is complete before setting collision values

@@ -17,12 +17,13 @@ var screens: Dictionary = {
 	"dash": preload("res://Screens/Unlock Screens/dash_unlock_screen.tscn"),
 	"wallhang": 
 		preload("res://Screens/Unlock Screens/wallhang_unlock_screen.tscn"),
-	"phase": preload("res://Screens/Unlock Screens/phase_unlock_screen.tscn"),
+	"phaseshift": preload("res://Screens/Unlock Screens/phase_unlock_screen.tscn"),
 	"laser": preload("res://Screens/Unlock Screens/laser_unlock_screen.tscn"),
 	"bomb": preload("res://Screens/Unlock Screens/bomb_unlock_screen.tscn"),
 	"settings": preload("res://Screens/settings_screen.tscn"),
 	"audio_settings": preload("res://Screens/audio_settings_screen.tscn"),
 	"video_settings": preload("res://Screens/video_settings_screen.tscn"),
+	"keybind_settings": preload("res://Screens/keybinds_settings_screen.tscn"),
 	}
 
 func _ready() -> void:
