@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dd7i0yst73fxx"]
 
-[ext_resource type="PackedScene" path="res://UI/back_button.tscn" id="1_rkdfd"]
+[ext_resource type="PackedScene" uid="uid://3nhl5anqig7i" path="res://UI/Back Button/back_button.tscn" id="1_rkdfd"]
 [ext_resource type="PackedScene" uid="uid://b30588ngks5r8" path="res://UI/Checkpoint Button/checkpoint_button.tscn" id="2_7f4x3"]
 
 [node name="CheckpointScreen" type="CanvasLayer"]
