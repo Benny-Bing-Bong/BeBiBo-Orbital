@@ -111,7 +111,7 @@ sprite_icon = ExtResource("8_hg3q7")
 
 [node name="UnlockTutorialButton8" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_dkbhs")]
 layout_mode = 2
-skill_name = "phase"
+skill_name = "phaseshift"
 sprite_icon = ExtResource("10_8aese")
 
 [node name="UnlockTutorialButton9" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_dkbhs")]
