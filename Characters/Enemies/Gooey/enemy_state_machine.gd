@@ -30,10 +30,6 @@ func _ready() -> void:
 	
 	interrupt_state.connect(on_state_interrupt_state)
 
-func _input(event: InputEvent) -> void:
-	if current_state:
-		current_state.state_input(event)
-
 func _process(delta: float) -> void:
 	if current_state:
 		current_state.state_process(delta)
