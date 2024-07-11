@@ -36,6 +36,7 @@ GooeySFX="*res://Audio/SFX/EnemySFX/GooeySFX/gooey_sfx_manager.gd"
 ClawflySFX="*res://Audio/SFX/EnemySFX/ClawflySFX/clawfly_sfx_manager.gd"
 CheckpointManager="*res://Managers/checkpoint_manager.gd"
 SettingsManager="*res://Managers/settings_manager.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [debug]
 
@@ -62,7 +63,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gut/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/gut/plugin.cfg")
 
 [gui]
 
