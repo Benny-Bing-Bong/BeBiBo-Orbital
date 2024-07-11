@@ -21,6 +21,7 @@ func try_dialogue(dialogue_name: String) -> void:
 
 	dialogues_done[dialogue_name] = true
 	
+	# Instantiate and use the custom balloon
 	var dia_balloon: Node = BALLOON.instantiate()
 	get_tree().current_scene.add_child(dia_balloon)
 	dia_balloon.start(mechanic_dialogue_resource, dialogue_name)
