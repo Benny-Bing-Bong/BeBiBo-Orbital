@@ -49,3 +49,33 @@ The Mechanic: You can interact with different phases of matter around you. Fasci
 The Mechanic: This is incredible! Use this to your advantage and find a way out of the city!
 Robot: …
 => END
+
+~ meet_boss
+The Mechanic: You’re really close to the exit, Robot.
+The Mechanic: But my senses are telling me that the Dictator wouldn’t make it easy for escapees to leave. Be careful. Something big’s up ahead.
+Robot: …
+=> END
+
+~ defeat_boss
+The Mechanic: You… you actually did it…
+The Mechanic: You defeated that huge creature blocking the way out…
+The Mechanic: I… I’m finally… DONE WITH THE EXPERIMENTS!!
+The Mechanic?: Ha… [wait=1] haha… [wait=1] MWAHAHAHAHAHA!!!
+The Mechanic?: Well, don’t be surprised, Robot. Did you think a random mechanic would have access to so many materials to build so many robots?
+The Mechanic?: Did you think that precious thumbdrive modules would just randomly be found lying around in a city?
+The Mechanic?: Did you think your body COINCIDENTALLY had the parts to run the data from the thumbdrive modules?
+The Mechanic?: Allow me to formally introduce myself, Robot.
+The Dictator: I am Leader Magnus, the supreme benevolent ruler of this country and city.
+The Dictator: And this city was created for you, my beloved AI.
+The Dictator: See, a great leader has great ambitions, and my great ambition is to rule the world under me. With my perfect vision, Earth will thrive.
+The Dictator: But of course, there are always obstacles. Stupid things like conventions and world laws and politics in my way.
+The Dictator: And you are my solution.
+The Dictator: I gracefully took over this city, and created this testing environment to ensure that you will be able to adapt and deal with any situation.
+The Dictator: You have been trained to move, jump, fight and defeat countless enemies.
+The Dictator: With your victory over my greatest military asset, you have proven that you are the ultimate weapon in my world conquest.
+The Dictator: And it just so happens that phasing technology belongs only to me.
+The Dictator: The sacrifices I’ve made developing it, the countless scientists who gave their lives to create ANTI phase matter.
+The Dictator: And you have weaponized it. With millions of ANTI phase Robots on the frontlines, and your combat AI installed, there will be nothing that can stop me.
+The Dictator: All that’s left… is to take control of you, my beloved AI.
+The Dictator: I thank you for your service to me. Witness how I usher in a new age for humanity with me!!! HAHAHAHAHAHA!
+=> END

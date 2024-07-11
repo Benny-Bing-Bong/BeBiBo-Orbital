@@ -10,6 +10,8 @@ var dialogues_done: Dictionary = {
 	"first_thumbdrive" : false,
 	"first_death" : false,
 	"unlock_phaseshift" : false,
+	"meet_boss": false,
+	"defeat_boss": false,
 }
 
 func try_dialogue(dialogue_name: String) -> void:
