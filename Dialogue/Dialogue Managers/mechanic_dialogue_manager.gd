@@ -26,11 +26,11 @@ func try_dialogue(dialogue_name: String) -> void:
 	get_tree().current_scene.add_child(dia_balloon)
 	dia_balloon.start(mechanic_dialogue_resource, dialogue_name)
 
-func load_dict(dict: Dictionary) -> void:
+func load_dictionary(dict: Dictionary) -> void:
 	for key: String in dict.keys():
 		dialogues_done[key] = dict[key]
 
-func save_dict() -> Dictionary:
+func save_dictionary() -> Dictionary:
 	return dialogues_done
 
 func reset_mechanic_dialogue() -> void:
