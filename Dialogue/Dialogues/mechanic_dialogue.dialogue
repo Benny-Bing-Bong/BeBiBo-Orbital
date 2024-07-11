@@ -1,13 +1,50 @@
-~ this_is_a_node_title
+~ new_game
+The Mechanic: Alright… aaaand all systems are a GO!
+The Mechanic: How’re ya feeling, Robot?
+Robot: …
+The Mechanic: Ah right, I don’t have a speech module on hand so you can’t talk. Oh well.
+The Mechanic: Anyway, welcome to New Evercity. Honestly, I preferred the old Evercity, but what can we do, the military lost to that damn Dictator 30 years ago.
+The Mechanic: And it’s been like this ever since. The city got stripped of its resources, people started getting paid peanuts…
+The Mechanic: And that’s where you come in. :)
+Robot: …
+The Mechanic: Your job is to help me find a way out of this city. That’s why I created you, my own personal scouting and combat AI. The city is fraught with different aggressive creatures, and I want out.
+The Mechanic: It’s no longer worth staying here anymore, even with all the memories I have of this place…
+The Mechanic: The door on the right will lead you out of the workshop, and you’ll be able to proceed from there.
+The Mechanic: I also have my computer connected to you through the network, so I’ll chime in on your journey anytime something interesting happens.
+The Mechanic: Godspeed, Robot. Good luck!
+Robot: …
+=> END
 
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => this_is_a_node_title
-- End the conversation => END
-Nathan: For more information see the online documentation.
+~ first_thumbdrive
+The Mechanic: Hey, what’s that you found?
+The Mechanic: Oh, it’s one of those thumbdrive modules I’ve seen lying around. This one seems special though…
+The Mechanic: Why don’t you try plugging it into the port on your body?
+Robot: …
+The Mechanic: Hold on… I’m getting a data transmission sequence from the module…
+The Mechanic: Wow, I think you’ve just unlocked a new ability…
+The Mechanic: It says on my screen that a jump module was successfully uploaded into your software and hardware systems.
+Robot: …
+The Mechanic: This is amazing… Keep going, maybe you’ll find more of these.
+Robot: …
+=> END
 
+~ first_death
+The Mechanic: Aw damn, I knew I shouldn’t have made you with fragile materials…
+The Mechanic: No worries, I’ve made dozens of copies of you from what I’ve scrapped, and I just have to upload your AI software into a new robot.
+The Mechanic: So, don’t worry about getting destroyed or anything. Just keep trying and pushing forward, Robot.
+The Mechanic: You can do it. The more you go through the city, the more you learn, and the better you’ll get at things.
+The Mechanic: At least… that’s what I programmed you to do.
+Robot: …
+The Mechanic: Alright, let’s go.
+=> END
+
+~ unlock_phaseshift
+The Mechanic: Ah, a new thumbdrive…
+The Mechanic: Wait a minute… This one seems… different…
+The Mechanic: What in the world did you find?
+Robot: …
+The Mechanic: It seems that you can now… phase into a different state of matter… an ANTI state. You can phase between a POSIT phase and ANTI phase!
+The Mechanic: You can interact with different phases of matter around you. Fascinating… I wonder who left this thumbdrive module here…
+The Mechanic: This is incredible! Use this to your advantage and find a way out of the city!
+Robot: …
 => END

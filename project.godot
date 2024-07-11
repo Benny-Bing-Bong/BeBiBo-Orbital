@@ -37,6 +37,7 @@ ClawflySFX="*res://Audio/SFX/EnemySFX/ClawflySFX/clawfly_sfx_manager.gd"
 CheckpointManager="*res://Managers/checkpoint_manager.gd"
 SettingsManager="*res://Managers/settings_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+MDM="*res://Dialogue/Dialogue Managers/mechanic_dialogue_manager.gd"
 
 [debug]
 
