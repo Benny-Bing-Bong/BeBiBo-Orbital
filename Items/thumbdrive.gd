@@ -23,7 +23,12 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and player_in_range:
 		UnlockManager.unlock(unlock_name, action_name, tutorial_string)
-		MDM.try_dialogue("first_thumbdrive")
+		
+		if unlock_name == "jump":
+			MDM.try_dialogue("first_thumbdrive")
+		if unlock_name == "phaseshift":
+			MDM.try_dialogue("unlock_phaseshift")
+		
 		PlayerSFX.pick_up()
 		queue_free()
 
