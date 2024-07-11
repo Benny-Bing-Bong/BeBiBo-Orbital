@@ -33,6 +33,7 @@ var dialogue_line: DialogueLine:
 		# The dialogue has finished so close the balloon
 		if not next_dialogue_line:
 			queue_free()
+			get_tree().paused = false # CUSTOM: Resume when dialogue ends
 			return
 
 		# If the node isn't ready yet then none of the labels will be ready yet either
@@ -100,6 +101,7 @@ func _notification(what: int) -> void:
 
 ## Start some dialogue
 func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = []) -> void:
+	get_tree().paused = true # CUSTOM: Pause game when dialogue comes up
 	temporary_game_states =  [self] + extra_game_states
 	is_waiting_for_input = false
 	resource = dialogue_resource
