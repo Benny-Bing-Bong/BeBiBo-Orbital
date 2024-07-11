@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://kc24ppg7keyp"
+path="res://.godot/imported/mechanic_dialogue.dialogue-13f05a1739d484d6cda7d2e484f8ed9f.tres"
+
+[deps]
+
+source_file="res://Dialogue/Dialogues/mechanic_dialogue.dialogue"
+dest_files=["res://.godot/imported/mechanic_dialogue.dialogue-13f05a1739d484d6cda7d2e484f8ed9f.tres"]
+
+[params]
+
+defaults=true
