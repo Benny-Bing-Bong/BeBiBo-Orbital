@@ -1,5 +1,6 @@
 extends Node
 
+const BALLOON = preload("res://Dialogue/balloon.tscn")
 @onready var mechanic_dialogue_resource: DialogueResource = preload(
 	"res://Dialogue/Dialogues/mechanic_dialogue.dialogue")
 
@@ -19,9 +20,10 @@ func try_dialogue(dialogue_name: String) -> void:
 		return
 
 	dialogues_done[dialogue_name] = true
-	DialogueManager.show_example_dialogue_balloon(mechanic_dialogue_resource, 
-		dialogue_name)
-# this can be another custom balloon
+	
+	var dia_balloon: Node = BALLOON.instantiate()
+	get_tree().current_scene.add_child(dia_balloon)
+	dia_balloon.start(mechanic_dialogue_resource, dialogue_name)
 
 func load_dict(dict: Dictionary) -> void:
 	for key: String in dict.keys():
