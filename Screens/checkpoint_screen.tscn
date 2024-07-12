@@ -49,11 +49,6 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="CheckpointButton5" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_7f4x3")]
-layout_mode = 2
-button_text = "The Workshop"
-checkpoint_name = "Workshop"
-
 [node name="CheckpointButton2" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_7f4x3")]
 layout_mode = 2
 button_text = "Level 1-1: The Beginning"
