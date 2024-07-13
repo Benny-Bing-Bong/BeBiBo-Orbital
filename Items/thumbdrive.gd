@@ -28,6 +28,10 @@ func _input(event: InputEvent) -> void:
 			MDM.try_dialogue("first_thumbdrive")
 		if unlock_name == "phaseshift":
 			MDM.try_dialogue("unlock_phaseshift")
+		if unlock_name == "crouch" or unlock_name == "wallhang":
+			MDM.try_dialogue("unlock_movement")
+		if unlock_name == "laser" or unlock_name == "bomb":
+			MDM.try_dialogue("unlock_combat")
 		
 		PlayerSFX.pick_up()
 		queue_free()

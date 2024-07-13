@@ -50,6 +50,11 @@ func transition_to_scene(scene_name: String) -> void:
 	var err: int = get_tree().change_scene_to_file(scene_path)
 	if not err == OK:
 		print("Error: Unable to change scene")
+	
+	# show platforming dialogue when reaching level 2-1
+	if scene_name == "Level2-1":
+		await get_tree().create_timer(1).timeout
+		MDM.try_dialogue("platforming")
 
 func update_enemies_left(number: int) -> void:
 	enemies_left = number

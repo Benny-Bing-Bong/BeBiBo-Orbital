@@ -10,6 +10,9 @@ var dialogues_done: Dictionary = {
 	"first_thumbdrive" : false,
 	"first_death" : false,
 	"unlock_phaseshift" : false,
+	"unlock_movement": false,
+	"unlock_combat": false,
+	"platforming": false,
 	"meet_boss": false,
 	"defeat_boss": false,
 }
