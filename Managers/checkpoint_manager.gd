@@ -1,7 +1,6 @@
 extends Node
 
 var checkpoint_dictionary: Dictionary = {
-	"Workshop": true,
 	"Level1-1": false,
 	"Level1-3": false,
 	"Level1-5": false,
