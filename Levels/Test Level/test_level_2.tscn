@@ -1199,7 +1199,7 @@ position = Vector2(1443, 11)
 [node name="AntiGolem" parent="EnemyContainer" instance=ExtResource("12_88qny")]
 position = Vector2(2460, 39)
 
-[node name="AntiClawfly" parent="." instance=ExtResource("13_pp70x")]
+[node name="AntiClawfly" parent="EnemyContainer" instance=ExtResource("13_pp70x")]
 position = Vector2(2660, -2)
 
 [node name="Donn" parent="." instance=ExtResource("14_c30bc")]
