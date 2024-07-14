@@ -38,6 +38,7 @@ CheckpointManager="*res://Managers/checkpoint_manager.gd"
 SettingsManager="*res://Managers/settings_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 MDM="*res://Dialogue/Dialogue Managers/mechanic_dialogue_manager.gd"
+DSM="*res://Dialogue/Dialogue Managers/dialogue_state_manager.gd"
 
 [debug]
 
@@ -150,7 +151,7 @@ unlocks={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogue/Dialogues/mechanic_dialogue.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogue/Dialogues/mechanic_dialogue.dialogue", "res://Dialogue/Dialogues/donn_dialogue.dialogue")
 
 [layer_names]
 
