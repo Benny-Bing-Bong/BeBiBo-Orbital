@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Characters/NPCs/talk_area_2d.gd" id="1_xplmi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2qjld"]
-size = Vector2(100, 20)
+size = Vector2(60, 20)
 
 [node name="TalkArea2D" type="Area2D"]
 collision_layer = 1024

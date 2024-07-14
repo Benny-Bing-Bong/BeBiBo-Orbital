@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c0irrfrykprg3"]
+[gd_scene load_steps=23 format=3 uid="uid://c0irrfrykprg3"]
 
 [ext_resource type="Texture2D" uid="uid://dd88sqdg8bsuj" path="res://Art/Assets/TileSet.png" id="1_nqn6w"]
 [ext_resource type="PackedScene" uid="uid://bd06xtnb3u2f2" path="res://Characters/Player/player.tscn" id="2_t6fdd"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://cgf58mj33diqf" path="res://Characters/NPCs/donn.tscn" id="14_c30bc"]
 [ext_resource type="PackedScene" uid="uid://b2vww2ct07iuh" path="res://Characters/Enemies/Gooey/gooey.tscn" id="15_8jca8"]
 [ext_resource type="PackedScene" uid="uid://cqlo753nhfkm1" path="res://Characters/NPCs/moto.tscn" id="15_ogawy"]
+[ext_resource type="PackedScene" uid="uid://bhjrgi51bleee" path="res://Characters/NPCs/pooja.tscn" id="16_iwju7"]
+[ext_resource type="PackedScene" uid="uid://ctq40nlnuyoqy" path="res://Characters/NPCs/ross.tscn" id="17_uk6wu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xbt7y"]
 texture = ExtResource("1_nqn6w")
@@ -1195,13 +1197,19 @@ position = Vector2(1188, -120)
 position = Vector2(1443, 11)
 
 [node name="AntiGolem" parent="EnemyContainer" instance=ExtResource("12_88qny")]
-position = Vector2(2085, 37)
+position = Vector2(2460, 39)
 
 [node name="AntiClawfly" parent="." instance=ExtResource("13_pp70x")]
-position = Vector2(2291, -3)
+position = Vector2(2660, -2)
 
 [node name="Donn" parent="." instance=ExtResource("14_c30bc")]
 position = Vector2(1653, 72)
 
 [node name="Moto" parent="." instance=ExtResource("15_ogawy")]
-position = Vector2(1766, 72)
+position = Vector2(1723, 72)
+
+[node name="Pooja" parent="." instance=ExtResource("16_iwju7")]
+position = Vector2(1789, 72)
+
+[node name="Ross" parent="." instance=ExtResource("17_uk6wu")]
+position = Vector2(1854, 72)
