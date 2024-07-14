@@ -5,7 +5,7 @@ if not DSM.has_completed_first_inter("Donn", false):
 if not DSM.has_completed_sidequest("Donn"):
 	=> interaction_without_sidequest
 # from here on means complete first interaction and also sidequest already
-if DSM.has_completed_first_inter("Donn", true):
+if not DSM.has_completed_first_inter("Donn", true):
 	=> first_interaction_with_sidequest
 else:
 	=> repeat_interaction_with_sidequest

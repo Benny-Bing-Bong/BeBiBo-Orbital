@@ -20,10 +20,10 @@ var dialogues_done: Dictionary = {
 func try_dialogue(dialogue_name: String) -> void:
 	if not dialogues_done.has(dialogue_name):
 		return
-
+	
 	if dialogues_done[dialogue_name]: # if already done dialogue, return
 		return
-
+	
 	dialogues_done[dialogue_name] = true
 	
 	# Instantiate and use the custom balloon

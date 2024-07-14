@@ -36,22 +36,20 @@ func finish_first_inter(name: String, quest: bool) -> void:
 func has_completed_sidequest(name: String) -> bool:
 	if not sidequest_completed_dict.has(name):
 		return false
-
-
+	
 	return sidequest_completed_dict[name]
 
 func has_completed_first_inter(name: String, quest: bool) -> bool:
 	var key: String
-
+	
 	if quest:
 		key = name + "_quest_inter"
 	else:
 		key = name + "_inter"
-
+	
 	if not first_interactions_completed_dict.has(key):
 		return false
-
-
+	
 	return first_interactions_completed_dict[key]
 
 func load_sidequest_dict(dict: Dictionary) -> void:
