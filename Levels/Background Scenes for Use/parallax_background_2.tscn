@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dm7xpgmjurvst"]
 
-[ext_resource type="Texture2D" uid="uid://bhi6atalw2uih" path="res://Art/Assets/Main Background/city 3/1_extended.png" id="1_vgq7y"]
+[ext_resource type="Texture2D" uid="uid://bwhm7xcuf3bfv" path="res://Art/Assets/Main Background/city 3/1_extended.png" id="1_vgq7y"]
 [ext_resource type="Texture2D" uid="uid://cmllmbrtphchj" path="res://Art/Assets/Main Background/city 3/2.png" id="2_rkbk7"]
 [ext_resource type="Texture2D" uid="uid://coyuwsxxc16ve" path="res://Art/Assets/Main Background/city 3/3.png" id="3_4iysa"]
 [ext_resource type="Texture2D" uid="uid://bg6j44p6bn8cb" path="res://Art/Assets/Main Background/city 3/4-fixed.png" id="4_kd8eo"]
@@ -13,7 +13,7 @@ motion_scale = Vector2(0.8, 1)
 motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="BGParallaxLayer"]
-position = Vector2(445, -715)
+position = Vector2(445, -615)
 scale = Vector2(2, 2)
 texture = ExtResource("1_vgq7y")
 
