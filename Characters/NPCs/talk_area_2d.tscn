@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvsoihnpe5rct"]
+
+[ext_resource type="Script" path="res://Characters/NPCs/talk_area_2d.gd" id="1_xplmi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pl0ue"]
+size = Vector2(114, 20)
+
+[node name="TalkArea2D" type="Area2D"]
+collision_layer = 1024
+collision_mask = 18
+script = ExtResource("1_xplmi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pl0ue")
+
+[node name="InteractLabel" type="Label" parent="."]
+offset_left = -129.0
+offset_top = -60.0
+offset_right = 129.0
+offset_bottom = -39.0
+text = "Press blank to interact"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
