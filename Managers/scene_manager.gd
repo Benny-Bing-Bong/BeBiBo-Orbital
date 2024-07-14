@@ -20,6 +20,7 @@ var scenes: Dictionary = {
 	"TestLevel1": "res://Levels/Test Level/test_level.tscn",
 	"TestLevel2": "res://Levels/Test Level/test_level_2.tscn",
 	"Main": "res://Screens/main_menu_screen.tscn",
+	"Workshop": "res://Levels/Actual Game Levels/workshop.tscn",
 	"Level1-1": "res://Levels/Actual Game Levels/level_1-1.tscn",
 	"Level1-2": "res://Levels/Actual Game Levels/level_1-2.tscn",
 	"Level1-3": "res://Levels/Actual Game Levels/level_1-3.tscn",
@@ -49,6 +50,11 @@ func transition_to_scene(scene_name: String) -> void:
 	var err: int = get_tree().change_scene_to_file(scene_path)
 	if not err == OK:
 		print("Error: Unable to change scene")
+	
+	# show platforming dialogue when reaching level 2-1
+	if scene_name == "Level2-1":
+		await get_tree().create_timer(1).timeout
+		MDM.try_dialogue("platforming")
 
 func update_enemies_left(number: int) -> void:
 	enemies_left = number

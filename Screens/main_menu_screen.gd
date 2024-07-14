@@ -18,7 +18,7 @@ func _on_new_button_pressed() -> void:
 	GameManager.restart_player()
 	GameManager.on_main_screen = false
 	SaveLoadManager.delete_save()
-	SceneManager.transition_to_scene("Level1-1")
+	SceneManager.transition_to_scene("Workshop")
 	
 func _on_load_button_pressed() -> void:
 	# restart player and on_main_screen setting is now in checkpoint_button

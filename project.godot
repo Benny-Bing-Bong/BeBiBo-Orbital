@@ -36,11 +36,17 @@ GooeySFX="*res://Audio/SFX/EnemySFX/GooeySFX/gooey_sfx_manager.gd"
 ClawflySFX="*res://Audio/SFX/EnemySFX/ClawflySFX/clawfly_sfx_manager.gd"
 CheckpointManager="*res://Managers/checkpoint_manager.gd"
 SettingsManager="*res://Managers/settings_manager.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+MDM="*res://Dialogue/Dialogue Managers/mechanic_dialogue_manager.gd"
 
 [debug]
 
 gdscript/warnings/unassigned_variable=2
 gdscript/warnings/untyped_declaration=2
+
+[dialogue_manager]
+
+general/balloon_path="res://Dialogue/balloon.tscn"
 
 [display]
 
@@ -62,7 +68,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gut/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/gut/plugin.cfg")
 
 [gui]
 
@@ -141,6 +147,10 @@ unlocks={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":73,"physical_keycode":0,"key_label":0,"unicode":105,"echo":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://Dialogue/Dialogues/mechanic_dialogue.dialogue")
 
 [layer_names]
 

@@ -23,6 +23,16 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and player_in_range:
 		UnlockManager.unlock(unlock_name, action_name, tutorial_string)
+		
+		if unlock_name == "jump":
+			MDM.try_dialogue("first_thumbdrive")
+		if unlock_name == "phaseshift":
+			MDM.try_dialogue("unlock_phaseshift")
+		if unlock_name == "crouch" or unlock_name == "wallhang":
+			MDM.try_dialogue("unlock_movement")
+		if unlock_name == "laser" or unlock_name == "bomb":
+			MDM.try_dialogue("unlock_combat")
+		
 		PlayerSFX.pick_up()
 		queue_free()
 

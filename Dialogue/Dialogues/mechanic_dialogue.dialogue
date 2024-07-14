@@ -1,0 +1,119 @@
+~ new_game
+The Mechanic: [speed=0.2]Alright… aaaand [speed=1]all systems are a GO!
+The Mechanic: How’re ya feeling, Robot?
+Robot: …
+The Mechanic: Ah right, I don’t have a speech module on hand so you can’t talk. Oh well.
+The Mechanic: Anyway, welcome to New Evercity. Honestly, I preferred the old Evercity, but what can we do, the military lost to that damn Dictator 30 years ago.
+The Mechanic: And it’s been like this ever since. The city got stripped of its resources, people started getting paid peanuts…
+The Mechanic: And that’s where you come in. :)
+Robot: …
+The Mechanic: Your job is to help me find a way out of this city. That’s why I created you, my own personal scouting and combat AI.
+The Mechanic: The city is fraught with different aggressive creatures, and I want out.
+The Mechanic: It’s no longer worth staying here anymore, even with all the memories I have of this place…
+The Mechanic: The door on the right will lead you out of the workshop, and you’ll be able to proceed from there.
+The Mechanic: Use A or D to move left or right. And use the Left Mouse Button (LMB) to attack.
+The Mechanic: Don't ask me why I chose those keys, I just programmed you like that okay...
+The Mechanic: I also have my computer connected to you through the network, so I’ll chime in on your journey anytime something interesting happens.
+The Mechanic: Godspeed, Robot. Good luck!
+Robot: …
+=> END
+
+~ first_thumbdrive
+The Mechanic: Hey, what’s that you found?
+The Mechanic: Oh, it’s one of those thumbdrive modules I’ve seen lying around. This one seems special though…
+The Mechanic: Why don’t you try plugging it into the port on your body?
+Robot: …
+The Mechanic: Hold on… I’m getting a data transmission sequence from the module…
+The Mechanic: Wow, I think you’ve just unlocked a new ability…
+The Mechanic: It says on my screen that a jump module was successfully uploaded into your software and hardware systems.
+Robot: …
+The Mechanic: This is amazing… Keep going, maybe you’ll find more of these.
+Robot: …
+=> END
+
+~ first_death
+The Mechanic: Aw damn, I knew I shouldn’t have made you with fragile materials…
+The Mechanic: No worries, I’ve made dozens of copies of you from what I’ve scrapped, and I just have to upload your AI software into a new robot.
+The Mechanic: So, don’t worry about getting destroyed or anything. Just keep trying and pushing forward, Robot.
+The Mechanic: You can do it. The more you go through the city, the more you learn, and the better you’ll get at things.
+The Mechanic: At least… that’s what I programmed you to do.
+Robot: …
+The Mechanic: Alright, let’s go.
+=> END
+
+~ unlock_phaseshift
+The Mechanic: Ah, a new thumbdrive…
+The Mechanic: Wait a minute… This one seems… different…
+The Mechanic: What in the world did you find?
+Robot: …
+The Mechanic: It seems that you can now… phase into a different state of matter… an ANTI state. You can phase between a POSIT phase and ANTI phase!
+The Mechanic: You can interact with different phases of matter around you. Fascinating… I wonder who left this thumbdrive module here…
+The Mechanic: This is incredible! Use this to your advantage and find a way out of the city!
+Robot: …
+=> END
+
+~ unlock_movement
+The Mechanic: It seems that you’ve unlocked quite a few different abilities.
+The Mechanic: Being able to jump, double jump, and more…
+Robot: …
+The Mechanic: You’re like a land drone!
+Robot: …
+The Mechanic: Or some kind of robot monkey…
+Robot: …
+The Mechanic: Whatever it is, you’re really able to move around a lot more freely now!
+The Mechanic: This will definitely help you in finding a route out of the city for me.
+The Mechanic: I really can’t wait to escape the grasp of this Dictator.
+Robot: …
+=> END
+
+~ unlock_combat
+The Mechanic: I’m getting some different readings from the thumbdrive module you just picked up… Hold on…
+The Mechanic: This new ability seems to be… combat-oriented? That’s what I’m seeing on my screen.
+Robot: …
+The Mechanic: This is interesting. You can probably approach the aggressive creatures in a variety of different ways now, using abilities other than your sword.
+The Mechanic: Though, it does seem that such combat abilities have a cooldown, needing to recharge before you can use them again.
+Robot: …
+The Mechanic: They should prove useful in your journey, Robot. I do wonder, who is actually leaving these around…?
+Robot: …
+=> END
+
+~ platforming
+The Mechanic: Hey, what’s that ahead of you?
+Robot: …
+The Mechanic: Ah, right, can’t talk, got it.
+Robot: …
+The Mechanic: Those grey and white platforms seem like they are exhibiting some of the POSIT and ANTI characteristics.
+The Mechanic: My intuition is telling me that you can probably only touch them while you are in certain phases.
+The Mechanic: Try jumping on them while you are in the POSIT and ANTI phase. I’m curious to see the interactions with you.
+Robot: …
+=> END
+
+~ meet_boss
+The Mechanic: You’re really close to the exit, Robot.
+The Mechanic: But my senses are telling me that the Dictator wouldn’t make it easy for escapees to leave. Be careful. Something big’s up ahead.
+Robot: …
+=> END
+
+~ defeat_boss
+The Mechanic: You… you actually did it…
+The Mechanic: You defeated that huge creature blocking the way out…
+The Mechanic: I… I’m finally… DONE WITH THE EXPERIMENTS!!
+The Mechanic?: Ha… [wait=1] haha… [wait=1] MWAHAHAHAHAHA!!!
+The Mechanic?: Well, don’t be surprised, Robot. Did you think a random mechanic would have access to so many materials to build so many robots?
+The Mechanic?: Did you think that precious thumbdrive modules would just randomly be found lying around in a city?
+The Mechanic?: Did you think your body COINCIDENTALLY had the parts to run the data from the thumbdrive modules?
+The Mechanic?: Allow me to formally introduce myself, Robot.
+The Dictator: I am Leader Magnus, the supreme benevolent ruler of this country and city.
+The Dictator: And this city was created for you, my beloved AI.
+The Dictator: See, a great leader has great ambitions, and my great ambition is to rule the world under me. With my perfect vision, Earth will thrive.
+The Dictator: But of course, there are always obstacles. Stupid things like conventions and world laws and politics in my way.
+The Dictator: And you are my solution.
+The Dictator: I gracefully took over this city, and created this testing environment to ensure that you will be able to adapt and deal with any situation.
+The Dictator: You have been trained to move, jump, fight and defeat countless enemies.
+The Dictator: With your victory over my greatest military asset, you have proven that you are the ultimate weapon in my world conquest.
+The Dictator: And it just so happens that phasing technology belongs only to me.
+The Dictator: The sacrifices I’ve made developing it, the countless scientists who gave their lives to create ANTI phase matter.
+The Dictator: And you have weaponized it. With millions of ANTI phase Robots on the frontlines, and your combat AI installed, there will be nothing that can stop me.
+The Dictator: All that’s left… is to take control of you, my beloved AI.
+The Dictator: I thank you for your service to me. Witness how I usher in a new age for humanity with me!!! HAHAHAHAHAHA!
+=> END

@@ -26,11 +26,11 @@ action_name = "up"
 tutorial_string = "You have unlocked the Jump Module! Press %key% to jump up onto a higher platform. Press '%ul%' or go to the Pause Menu for more information."
 
 [node name="Player" parent="." index="3"]
-position = Vector2(128, -50)
+position = Vector2(12, -43)
 
 [node name="Camera2D" parent="." index="4"]
-position = Vector2(128, -50)
-limit_left = -24
+position = Vector2(12, -43)
+limit_left = 10
 limit_top = -630
 limit_right = 2342
 limit_bottom = 58
