@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c0irrfrykprg3"]
+[gd_scene load_steps=20 format=3 uid="uid://c0irrfrykprg3"]
 
 [ext_resource type="Texture2D" uid="uid://dd88sqdg8bsuj" path="res://Art/Assets/TileSet.png" id="1_nqn6w"]
 [ext_resource type="PackedScene" uid="uid://bd06xtnb3u2f2" path="res://Characters/Player/player.tscn" id="2_t6fdd"]
@@ -7,11 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://ci4klsnqge7t8" path="res://Items/thumbdrive.tscn" id="5_vfsav"]
 [ext_resource type="PackedScene" uid="uid://bpbmmhjdbu223" path="res://Levels/change_level_area_2d.tscn" id="6_3uhc8"]
 [ext_resource type="Texture2D" uid="uid://dir5ihtcs3v84" path="res://Art/Assets/Cyberpunk City Tileset/Assets/Tiles Anti.png" id="8_0mafb"]
-[ext_resource type="PackedScene" path="res://Levels/enemy_container.tscn" id="8_m5wkh"]
+[ext_resource type="PackedScene" uid="uid://d3gtiuopfgnlc" path="res://Levels/enemy_container.tscn" id="8_m5wkh"]
 [ext_resource type="PackedScene" uid="uid://cx65k3re7acsc" path="res://Characters/Enemies/Clawfly/clawfly.tscn" id="8_y8p6g"]
 [ext_resource type="Texture2D" uid="uid://d3e2hrsk5tl3r" path="res://Art/Assets/Cyberpunk City Tileset/Assets/Tiles Default.png" id="9_pfy3a"]
-[ext_resource type="PackedScene" uid="uid://cvl6v4ihwyrpl" path="res://Characters/Enemies/Golem/anti_golem.tscn" id="12_88qny"]
-[ext_resource type="PackedScene" uid="uid://cgr1soo5rhocm" path="res://Characters/Enemies/Clawfly/anti_clawfly.tscn" id="13_pp70x"]
+[ext_resource type="PackedScene" path="res://Characters/Enemies/Golem/anti_golem.tscn" id="12_88qny"]
+[ext_resource type="PackedScene" path="res://Characters/Enemies/Clawfly/anti_clawfly.tscn" id="13_pp70x"]
+[ext_resource type="PackedScene" uid="uid://cgf58mj33diqf" path="res://Characters/NPCs/donn.tscn" id="14_c30bc"]
 [ext_resource type="PackedScene" uid="uid://b2vww2ct07iuh" path="res://Characters/Enemies/Gooey/gooey.tscn" id="15_8jca8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xbt7y"]
@@ -1134,7 +1135,7 @@ tutorial_string = "You have unlocked dash!"
 
 [node name="Thumbdrive6" parent="Thumbdrives" instance=ExtResource("5_vfsav")]
 position = Vector2(391, 208)
-unlock_name = "phase"
+unlock_name = "phaseshift"
 tutorial_string = "You have unlocked phase!"
 
 [node name="Thumbdrive7" parent="Thumbdrives" instance=ExtResource("5_vfsav")]
@@ -1148,13 +1149,13 @@ unlock_name = "bomb"
 tutorial_string = "You have unlocked bomb!"
 
 [node name="Player" parent="." instance=ExtResource("2_t6fdd")]
-position = Vector2(1086, 33)
+position = Vector2(1139, 61)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1086, 33)
+position = Vector2(1139, 61)
 process_callback = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
@@ -1197,3 +1198,6 @@ position = Vector2(2085, 37)
 
 [node name="AntiClawfly" parent="." instance=ExtResource("13_pp70x")]
 position = Vector2(2291, -3)
+
+[node name="Donn" parent="." instance=ExtResource("14_c30bc")]
+position = Vector2(1653, 72)

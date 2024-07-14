@@ -1,4 +1,3 @@
-class_name TalkArea2D
 extends Area2D
 
 const BALLOON = preload("res://Dialogue/balloon.tscn")
