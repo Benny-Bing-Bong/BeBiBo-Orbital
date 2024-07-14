@@ -13,31 +13,31 @@ else:
 
 ~ first_interaction
 Moto: Why, hello there. My name is Moto. And you are?
-Robot: …
+Robot: ...
 Moto: Well, it seems that you don’t speak. That’s perfectly fine. I’m just trying to tend to my garden but some slime creatures seem to have gotten in, and it seems a bit unsafe.
 Moto: Do you think you could help me remove the monsters from my garden? If it’s not too intrusive, I could help tend to your wounds or any injuries you have after you help me.
-Robot: …
+Robot: ...
 Moto: You have my sincerest thanks, good sir.
 do DSM.finish_first_inter("Moto", false)
 => END
 
 ~ interaction_without_sidequest
 Moto: Hey there, young man. Just trying to get into my garden without alerting the slimes here.
-Robot: …
+Robot: ...
 => END
 
 ~ first_interaction_with_sidequest
 Moto: Oh thank you! I saw that you have removed the slimes from my garden. I can finally walk into my garden without needing to worry about them.
-Robot: …
-Moto: As promised, let me take a look at you. … … Oh. It seems like you are more… ‘mechanical’ in nature. I’m sorry, I’m a doctor but I’m no mechanic. Apologies as my eyesight has been getting worse lately and I didn’t realise you were a robot.
-Robot: …
+Robot: ...
+Moto: As promised, let me take a look at you. ... ... Oh. It seems like you are more... ‘mechanical’ in nature. I’m sorry, I’m a doctor but I’m no mechanic. Apologies as my eyesight has been getting worse lately and I didn’t realise you were a robot.
+Robot: ...
 Moto: No matter, you could go to Donn’s workshop down the road. She always says shes a car mechanic but she’s the best mechanics engineer I’ve seen in the city.
 Moto: Thank you kindly again, young man! I mean, young robot. Here’s a flower for your efforts. It’d look lovely on you
-Robot: … [wait = 1] :)
+Robot: ... [wait = 1] :)
 do DSM.finish_first_inter("Moto", true)
 => END
 
 ~ repeat_interaction_with_sidequest
 Moto: Hi robot! Thanks for helping me with the slimes. Feel free to admire my garden!
-Robot: …
+Robot: ...
 => END

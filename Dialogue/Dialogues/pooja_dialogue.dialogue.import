@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://bpdkhwgdoi4de"
+path="res://.godot/imported/pooja_dialogue.dialogue-8e58cf8afc2478a4a0390b7642705eb3.tres"
+
+[deps]
+
+source_file="res://Dialogue/Dialogues/pooja_dialogue.dialogue"
+dest_files=["res://.godot/imported/pooja_dialogue.dialogue-8e58cf8afc2478a4a0390b7642705eb3.tres"]
+
+[params]
+
+defaults=true
