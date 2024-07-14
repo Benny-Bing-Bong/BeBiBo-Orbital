@@ -1,6 +1,8 @@
 extends Area2D
 
-@export var sidequest_person_name: String # This has to be the same name as the one in sidequest_completed_dict of the dialogue_state_manager.gd
+# This has to be the same name as the one in sidequest_completed_dict of 
+#the dialogue_state_manager.gd
+@export var sidequest_person_name: String
 @export var sprite_texture: Texture2D
 
 var player_in_range: bool = false
