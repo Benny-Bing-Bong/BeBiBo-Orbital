@@ -67,6 +67,7 @@ func delete_save() -> void:
 	UnlockManager.reset_unlocks()
 	CheckpointManager.reset_checkpoints()
 	MDM.reset_mechanic_dialogue()
+	DSM.reset_dialogue_states()
 	
 	# delete actual save file
 	DirAccess.remove_absolute(game_file_path)
