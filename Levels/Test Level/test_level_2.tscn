@@ -1165,8 +1165,6 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_vertical_offset = -0.5
 
-[node name="HUD" parent="." instance=ExtResource("4_8mfku")]
-
 [node name="ChangeLevelArea2D" parent="." instance=ExtResource("6_3uhc8")]
 position = Vector2(-356, 46)
 new_level_name = "Level1"
@@ -1213,3 +1211,5 @@ position = Vector2(1789, 72)
 
 [node name="Ross" parent="." instance=ExtResource("17_uk6wu")]
 position = Vector2(1854, 72)
+
+[node name="HUD" parent="." instance=ExtResource("4_8mfku")]
