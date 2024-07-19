@@ -6,6 +6,7 @@ var scroll_speed: float = 30.0
 var wait_done: bool = false
 
 func _ready() -> void:
+	GameManager.on_main_screen = true
 	GameMusic.play_game_music()
 	
 	await get_tree().create_timer(3).timeout
