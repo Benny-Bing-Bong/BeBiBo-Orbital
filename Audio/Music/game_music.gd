@@ -24,3 +24,6 @@ func play_bad_end_music() -> void:
 
 func play_good_end_music() -> void:
 	_play_music(GOOD_END_MUSIC, 0)
+
+func stop_music() -> void:
+	stop()

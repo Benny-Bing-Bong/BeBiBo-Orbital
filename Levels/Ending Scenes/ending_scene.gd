@@ -14,6 +14,8 @@ const BAD_END_TEXT = preload(
 var ending_type: String = "Good"
 
 func _ready() -> void:
+	GameMusic.stop_music()
+	
 	# If there is even one SQ not completed, change ending_type_to Bad
 	for key: String in DSM.sidequest_completed_dict:
 		if not DSM.sidequest_completed_dict[key]:
