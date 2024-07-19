@@ -1,12 +1,78 @@
-[gd_scene load_steps=4 format=3 uid="uid://doguw4yfmvm6d"]
+[gd_scene load_steps=8 format=3 uid="uid://doguw4yfmvm6d"]
 
 [ext_resource type="Texture2D" uid="uid://dm487yuma8ntw" path="res://Art/Cutscenes/Base Ending Screen.png" id="1_x0gl2"]
+[ext_resource type="Script" path="res://Levels/Ending Scenes/ending_scene.gd" id="1_xtqmc"]
 [ext_resource type="Texture2D" uid="uid://dha3hmcyvu0wf" path="res://Art/Cutscenes/Good Ending Screen.png" id="2_i7vpr"]
 [ext_resource type="Texture2D" uid="uid://lyufcawh0ia6" path="res://Art/Cutscenes/Bad Ending Screen.png" id="3_q1hst"]
 
+[sub_resource type="Animation" id="Animation_umi3a"]
+resource_name = "Good End"
+length = 7.5
+step = 0.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"fade_base_to_black"
+}, {
+"args": [],
+"method": &"fade_base_to_black"
+}, {
+"args": [],
+"method": &"fade_base_to_black"
+}, {
+"args": [],
+"method": &"show_good_end"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_bbkmk"]
+resource_name = "Bad End"
+length = 7.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"fade_base_to_black"
+}, {
+"args": [],
+"method": &"fade_base_to_black"
+}, {
+"args": [],
+"method": &"fade_base_to_black"
+}, {
+"args": [],
+"method": &"show_bad_end"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ug4dt"]
+_data = {
+"Bad End": SubResource("Animation_bbkmk"),
+"Good End": SubResource("Animation_umi3a")
+}
+
 [node name="EndingScene" type="CanvasLayer"]
+script = ExtResource("1_xtqmc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ug4dt")
+}
 
 [node name="BaseTextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
