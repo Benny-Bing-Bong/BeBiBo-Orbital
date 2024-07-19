@@ -35,6 +35,8 @@ func save_game() -> void:
 	to_save.unlock_dictionary = UnlockManager.save_dictionary()
 	to_save.checkpoint_dictionary = CheckpointManager.save_dictionary()
 	to_save.mechanic_dialogue_dictionary = MDM.save_dictionary()
+	to_save.sidequest_dictionary = DSM.save_sidequest_dict()
+	to_save.interactions_dictionary = DSM.save_inter_dict()
 	
 	ResourceSaver.save(to_save, game_file_path)
 
@@ -49,6 +51,8 @@ func load_game() -> void:
 	UnlockManager.load_dictionary(saved.unlock_dictionary)
 	CheckpointManager.load_dictionary(saved.checkpoint_dictionary)
 	MDM.load_dictionary(saved.mechanic_dialogue_dictionary)
+	DSM.load_sidequest_dict(saved.sidequest_dictionary)
+	DSM.load_inter_dict(saved.interactions_dictionary)
 
 func has_save_file() -> bool:
 	var saved: SaveLoadResource = load(game_file_path)
@@ -63,6 +67,7 @@ func delete_save() -> void:
 	UnlockManager.reset_unlocks()
 	CheckpointManager.reset_checkpoints()
 	MDM.reset_mechanic_dialogue()
+	DSM.reset_dialogue_states()
 	
 	# delete actual save file
 	DirAccess.remove_absolute(game_file_path)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bia7xbgsfgdpv"]
+
+[ext_resource type="PackedScene" uid="uid://cvsoihnpe5rct" path="res://Characters/NPCs/talk_area_2d.tscn" id="1_0uw6j"]
+
+[node name="BaseNPC" type="StaticBody2D"]
+collision_layer = 1024
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+animation = &""
+autoplay = "idle"
+
+[node name="TalkArea2D" parent="." instance=ExtResource("1_0uw6j")]

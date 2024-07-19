@@ -1,0 +1,85 @@
+[gd_scene load_steps=14 format=3 uid="uid://cqlo753nhfkm1"]
+
+[ext_resource type="PackedScene" uid="uid://bia7xbgsfgdpv" path="res://Characters/NPCs/base_npc.tscn" id="1_nsxmt"]
+[ext_resource type="Texture2D" uid="uid://btm621yj4imea" path="res://Art/NPC/Moto Idle.png" id="2_0g8or"]
+[ext_resource type="Resource" uid="uid://d3dwy8afll6b4" path="res://Dialogue/Dialogues/moto_dialogue.dialogue" id="3_872l3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ih7sl"]
+size = Vector2(20, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ph65p"]
+atlas = ExtResource("2_0g8or")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0emf"]
+atlas = ExtResource("2_0g8or")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrs13"]
+atlas = ExtResource("2_0g8or")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlvtc"]
+atlas = ExtResource("2_0g8or")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0aw8"]
+atlas = ExtResource("2_0g8or")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcwld"]
+atlas = ExtResource("2_0g8or")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2vtq"]
+atlas = ExtResource("2_0g8or")
+region = Rect2(480, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58xt2"]
+atlas = ExtResource("2_0g8or")
+region = Rect2(560, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ey66q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ph65p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0emf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrs13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlvtc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0aw8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcwld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2vtq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58xt2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="Moto" instance=ExtResource("1_nsxmt")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ih7sl")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_ey66q")
+animation = &"idle"
+
+[node name="TalkArea2D" parent="." index="2"]
+npc_dialogue_resource = ExtResource("3_872l3")

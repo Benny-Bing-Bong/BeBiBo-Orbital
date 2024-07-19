@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bugkmc6gf2tvt"]
+
+[ext_resource type="Script" path="res://Items/sidequest_item.gd" id="1_dyn7q"]
+[ext_resource type="Theme" uid="uid://b87efi81vr2yb" path="res://Themes/main_theme.tres" id="1_ob2e0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y1k43"]
+radius = 21.0238
+
+[node name="SidequestItem" type="Area2D"]
+collision_layer = 2048
+collision_mask = 18
+script = ExtResource("1_dyn7q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_y1k43")
+
+[node name="PickupLabel" type="Label" parent="."]
+visible = false
+offset_left = -92.0
+offset_top = -47.0
+offset_right = 92.0
+offset_bottom = -24.0
+theme = ExtResource("1_ob2e0")
+horizontal_alignment = 3
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
