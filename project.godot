@@ -47,7 +47,7 @@ gdscript/warnings/untyped_declaration=2
 
 [dialogue_manager]
 
-general/balloon_path="res://Dialogue/balloon.tscn"
+general/balloon_path="res://Levels/Ending Scenes/screen_balloon.tscn"
 
 [display]
 
