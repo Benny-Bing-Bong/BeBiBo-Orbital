@@ -21,3 +21,7 @@ func _process(delta: float) -> void:
 		scroll_speed = 30
 	
 	v_box_container.position.y -= scroll_speed * delta
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
+		SceneManager.transition_to_scene("Main")

@@ -31,6 +31,7 @@ var scenes: Dictionary = {
 	"Level2-3": "res://Levels/Actual Game Levels/level_2_3.tscn",
 	"HubLevel": "res://Levels/Actual Game Levels/hub_level.tscn",
 	"Ending": "res://Levels/Ending Scenes/ending_scene.tscn",
+	"Credits": "res://Levels/Credits Scene/credits_scene.tscn",
 }
 
 func transition_to_scene(scene_name: String) -> void:
