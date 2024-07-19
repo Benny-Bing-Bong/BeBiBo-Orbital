@@ -2,4 +2,5 @@
 [center]You've done it...[/center]
 [center]You beat the boss.[/center]
 [center]AND you got the good end[/center]
+do SceneManager.transition_to_scene("Main")
 => END
