@@ -1,5 +1,11 @@
 extends CanvasLayer
 
+const SCREEN_BALLOON = preload("res://Levels/Ending Scenes/screen_balloon.tscn")
+const GOOD_END_TEXT = preload(
+	"res://Levels/Ending Scenes/Ending Text/good_end_text.dialogue")
+const BAD_END_TEXT = preload(
+	"res://Levels/Ending Scenes/Ending Text/bad_end_text.dialogue")
+
 @onready var base_texture_rect: TextureRect = $BaseTextureRect
 @onready var good_texture_rect: TextureRect = $GoodTextureRect
 @onready var bad_texture_rect: TextureRect = $BadTextureRect
@@ -40,7 +46,9 @@ func show_good_end() -> void:
 	_tween.tween_property(good_texture_rect, "modulate", Color(0,0,0), 2)
 
 func start_good_end_dialogue() -> void:
-	print("Good Ending Dialogue Started")
+	var dia_balloon: Node = SCREEN_BALLOON.instantiate()
+	get_tree().current_scene.add_child(dia_balloon)
+	dia_balloon.start(GOOD_END_TEXT, "start")
 
 func show_bad_end() -> void:
 	bad_texture_rect.visible = true
@@ -55,4 +63,6 @@ func show_bad_end() -> void:
 	_tween.tween_property(bad_texture_rect, "modulate", Color(0,0,0), 2)
 
 func start_bad_end_dialogue() -> void:
-	print("Bad Ending Dialogue Started")
+	var dia_balloon: Node = SCREEN_BALLOON.instantiate()
+	get_tree().current_scene.add_child(dia_balloon)
+	dia_balloon.start(BAD_END_TEXT, "start")

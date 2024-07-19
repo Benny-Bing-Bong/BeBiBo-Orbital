@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://bpnisylmutww"
+path="res://.godot/imported/good_end_text.dialogue-89ea87da8e835bf1de13bd5f24537ded.tres"
+
+[deps]
+
+source_file="res://Levels/Ending Scenes/Ending Text/good_end_text.dialogue"
+dest_files=["res://.godot/imported/good_end_text.dialogue-89ea87da8e835bf1de13bd5f24537ded.tres"]
+
+[params]
+
+defaults=true
