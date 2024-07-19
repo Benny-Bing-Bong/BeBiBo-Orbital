@@ -40,6 +40,10 @@ func show_good_end() -> void:
 	good_texture_rect.visible = true
 	base_texture_rect.visible = false
 	
+	# Play SFX and Music
+	GameMusic.play_good_end_music()
+	CutsceneSFX.good_end()
+	
 	# Allow player to take in what happened
 	await get_tree().create_timer(3).timeout
 	
