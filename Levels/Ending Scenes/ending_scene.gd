@@ -29,6 +29,9 @@ func fade_base_to_black() -> void:
 	# Change back to original color first
 	base_texture_rect.modulate = Color(1,1,1)
 	
+	# Play pulsing sfx
+	CutsceneSFX.pulse()
+	
 	var _tween: Tween = get_tree().create_tween()
 	# Fade to black in 2 seconds
 	_tween.tween_property(base_texture_rect, "modulate", Color(0,0,0), 2)
@@ -53,6 +56,10 @@ func start_good_end_dialogue() -> void:
 func show_bad_end() -> void:
 	bad_texture_rect.visible = true
 	base_texture_rect.visible = false
+	
+	# Play SFX and Music
+	GameMusic.play_bad_end_music()
+	CutsceneSFX.bad_end()
 	
 	# Allow player to take in what happened
 	await get_tree().create_timer(3).timeout

@@ -39,6 +39,7 @@ SettingsManager="*res://Managers/settings_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 MDM="*res://Dialogue/Dialogue Managers/mechanic_dialogue_manager.gd"
 DSM="*res://Dialogue/Dialogue Managers/dialogue_state_manager.gd"
+CutsceneSFX="*res://Audio/SFX/CutsceneSFX/cutscene_sfx_manager.gd"
 
 [debug]
 
