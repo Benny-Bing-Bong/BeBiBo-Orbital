@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="BeBiBo-Orbital"
+config/name="PhaseShift"
 run/main_scene="res://Levels/SplashArt/splash_art_1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0.0705882, 0.0627451, 0.0431373, 1)
