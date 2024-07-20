@@ -27,10 +27,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
+offset_left = -266.0
 offset_top = -37.0
-offset_right = 250.0
-offset_bottom = 1640.0
+offset_right = 267.0
+offset_bottom = 2200.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -67,7 +67,7 @@ vertical_alignment = 1
 [node name="ArtContentLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
-text = "Character Sprite     Sherman & Desean
+text = "Character Sprites     Sherman & Desean
 Enemy Sprites     Sherman & Desean
 Backgrounds     Free Game Assets (itch.io)
 World Tileset     Anokolisa
@@ -137,6 +137,43 @@ Scripts     Sherman & Desean"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Spacer6" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="ThanksLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Special Thanks to"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ThanksContentLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Advisor     Kenneth Hong Jia Wei
+Mentor     Chen Yiyang
+Facilitator     Dr Zhao Jin
+Facilitator     Dr Henry Chia
+
+Every single one of you who
+helped us test the game
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer7" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="Orbital Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "An NUS Orbital 2024 Project
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="InfoPanel" type="Panel" parent="."]
 offset_left = 500.0
 offset_top = 3.0
@@ -153,3 +190,20 @@ offset_bottom = 35.0
 theme_override_font_sizes/font_size = 10
 text = "LMB: Speed up
 F: Back to Main Menu"
+
+[node name="ThankYouLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.0
+offset_top = -27.0
+offset_right = 254.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"HeaderMedium"
+text = "Thanks for playing!"
+horizontal_alignment = 1
+vertical_alignment = 1
