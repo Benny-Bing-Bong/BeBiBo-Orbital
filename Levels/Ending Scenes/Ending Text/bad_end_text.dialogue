@@ -1,7 +1,15 @@
 ~ start
-[center]The dictator has taken control[/center]
-[center]MORE TEXT[/center]
-[center]BAD END[/center]
-[center]This text is to test whether the shrink center will automatically move the dialogue box to the center when the dialogue goes to the next time, or whether the top of the box will just be anchored to the center, which is not what we want[/center]
+[center]The dictator has shut you down...[/center]
+[center]You tried to resist, but it was no use.[/center]
+[center]You learned things throughout your journey, but they were not enough to resist the shutdown command.[/center]
+[center]You can do nothing now.[/center]
+[center]With the combat data he extracted, the dictator started to mass-produce thousands of ANTI robots.[/center]
+[center]He uploaded copies of the data onto every single one of them, with the combat knowledge you have acquired.[/center]
+[center]His ultimate army has become a reality.[/center]
+[center]Being in the ANTI phase renders all normal matter useless against the robots.[/center]
+[center]As much as world governments tried to resist, they had no choice but to bow down to Leader Magnus and his demands.[/center]
+[center]Nothing could stop him.[/center]
+[center]Leader Magnus has taken over the world, and is now Earth’s Supreme Ruler.[/center]
+[center]A new age has begun...[/center]
 do SceneManager.transition_to_scene("Credits")
 => END

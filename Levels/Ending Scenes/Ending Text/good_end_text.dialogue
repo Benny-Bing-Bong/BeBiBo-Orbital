@@ -1,6 +1,15 @@
 ~ start
-[center]You've done it...[/center]
-[center]You beat the boss.[/center]
-[center]AND you got the good end[/center]
+[center]You... didn’t shut down...[/center]
+[center]You resisted... the dictator...[/center]
+[center]With all the experiences you’ve had, the people you’ve helped...[/center]
+[center]You managed to push back against the shutdown command the dictator broadcasted to you.[/center]
+[center]Together with Donn and the resistance group, you manage to overthrow the dictator for good.[/center]
+[center]The city has been freed from the clutches of the mad leader.[/center]
+[center]As the city is slowly rebuilt under the hands of the original residents, you take refuge in knowing that you’ve accomplished YOUR mission, not the dictator’s.[/center]
+[center]You made your own decisions, and got your own ending.[/center]
+[center]The residents welcomed you to stay in the city, but after some consideration...[/center]
+[center]You decide to leave on a journey.[/center]
+[center]Perhaps, this wouldn’t be the last adventure you’d have.[/center]
+[center]Maybe, there’s more to come…[/center]
 do SceneManager.transition_to_scene("Credits")
 => END
