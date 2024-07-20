@@ -120,4 +120,5 @@ The Dictator: And I have no use for sentient robots. I only need robots that lis
 The Dictator: I've already extracted the combat data from you, and prepared robot shells to upload the data in.
 The Dictator: All that’s left... is to shut you down. I have no more need for you anymore, my beloved robot.
 The Dictator: Thank you for your service to me. I wish you could witness how I usher in a new age for humanity!!! HAHAHAHAHAHA!
+do SceneManager.transition_to_scene("Ending")
 => END
