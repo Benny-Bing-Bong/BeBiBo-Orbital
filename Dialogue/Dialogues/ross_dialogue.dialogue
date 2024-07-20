@@ -41,7 +41,7 @@ do DSM.finish_first_inter("Ross", true)
 => END
 
 ~ repeat_interaction_with_sidequest
-Ross: Yo robot! How’s that module from the thumbdrive coming along?
+Ross: Yo robot! How’s it going with you?
 Robot: ...
-Ross: Yea, I know. It’s a pretty good module.
+Ross: That's good to know. Keep on doing whatchu do.
 => END
