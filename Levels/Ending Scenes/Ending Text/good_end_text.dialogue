@@ -10,6 +10,6 @@
 [center]The residents welcomed you to stay in the city, but after some consideration...[/center]
 [center]You decide to leave on a journey.[/center]
 [center]Perhaps, this wouldn’t be the last adventure you’d have.[/center]
-[center]Maybe, there’s more to come…[/center]
+[center]Maybe, there’s more to come...[/center]
 do SceneManager.transition_to_scene("Credits")
 => END
