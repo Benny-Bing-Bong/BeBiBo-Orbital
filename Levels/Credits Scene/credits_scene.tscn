@@ -1,0 +1,209 @@
+[gd_scene load_steps=3 format=3 uid="uid://v02fgnd7d7sf"]
+
+[ext_resource type="Script" path="res://Levels/Credits Scene/credits_scene.gd" id="1_86lah"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tsuqe"]
+bg_color = Color(0.6, 0.6, 0.6, 0.247059)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.164706, 0.419608, 0.615686, 1)
+
+[node name="CreditsScene" type="CanvasLayer"]
+script = ExtResource("1_86lah")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -266.0
+offset_top = -37.0
+offset_right = 267.0
+offset_bottom = 2200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "PHASESHIFT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="GameByLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "A game by 
+Team Benny Bing Bong"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer2" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="ArtLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Art"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ArtContentLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Character Sprites     Sherman & Desean
+Enemy Sprites     Sherman & Desean
+Backgrounds     Free Game Assets (itch.io)
+World Tileset     Anokolisa
+City Assets     G.Lerf (Guadalupe)
+Food Assets     Ghostpixxells
+Character Template     ZeggyGames
+Retro Gaming Font     Daymarius"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer3" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicContentLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Paradrizzle     Ian Aisling
+A Bit of Hope     Fesliyan Studios"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer4" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="SFXLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Sound Effects"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SFXContentLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Royalty-Free SFX Library     FilmCow
+200 Free SFX     Kronbits
+Audio Free SFX     Shapeforms"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer5" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="GameLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameContentLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Planning     Sherman & Desean
+Design     Sherman & Desean
+Scripts     Sherman & Desean"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer6" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="ThanksLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Special Thanks to"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ThanksContentLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Advisor     Kenneth Hong Jia Wei
+Mentor     Chen Yiyang
+Facilitator     Dr Zhao Jin
+Facilitator     Dr Henry Chia
+
+Every single one of you who
+helped us test the game
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer7" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="Orbital Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "An NUS Orbital 2024 Project
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InfoPanel" type="Panel" parent="."]
+offset_left = 500.0
+offset_top = 3.0
+offset_right = 637.0
+offset_bottom = 43.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tsuqe")
+
+[node name="Label" type="Label" parent="InfoPanel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 132.0
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 10
+text = "LMB: Speed up
+F: Back to Main Menu"
+
+[node name="ThankYouLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.0
+offset_top = -27.0
+offset_right = 254.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"HeaderMedium"
+text = "Thanks for playing!"
+horizontal_alignment = 1
+vertical_alignment = 1

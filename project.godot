@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="BeBiBo-Orbital"
-run/main_scene="res://Screens/main_menu_screen.tscn"
+config/name="Phaseshift"
+run/main_scene="res://Levels/SplashArt/splash_art_1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0.0705882, 0.0627451, 0.0431373, 1)
 boot_splash/image="res://Art/Promotional Art/GameLogo480x480.png"
@@ -39,6 +39,7 @@ SettingsManager="*res://Managers/settings_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 MDM="*res://Dialogue/Dialogue Managers/mechanic_dialogue_manager.gd"
 DSM="*res://Dialogue/Dialogue Managers/dialogue_state_manager.gd"
+CutsceneSFX="*res://Audio/SFX/CutsceneSFX/cutscene_sfx_manager.gd"
 
 [debug]
 
@@ -47,7 +48,7 @@ gdscript/warnings/untyped_declaration=2
 
 [dialogue_manager]
 
-general/balloon_path="res://Dialogue/balloon.tscn"
+general/balloon_path="res://Levels/Ending Scenes/screen_balloon.tscn"
 
 [display]
 
@@ -151,7 +152,7 @@ unlocks={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogue/Dialogues/mechanic_dialogue.dialogue", "res://Dialogue/Dialogues/donn_dialogue.dialogue", "res://Dialogue/Dialogues/moto_dialogue.dialogue", "res://Dialogue/Dialogues/pooja_dialogue.dialogue", "res://Dialogue/Dialogues/ross_dialogue.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogue/Dialogues/mechanic_dialogue.dialogue", "res://Dialogue/Dialogues/donn_dialogue.dialogue", "res://Dialogue/Dialogues/moto_dialogue.dialogue", "res://Dialogue/Dialogues/pooja_dialogue.dialogue", "res://Dialogue/Dialogues/ross_dialogue.dialogue", "res://Levels/Ending Scenes/Ending Text/bad_end_text.dialogue", "res://Levels/Ending Scenes/Ending Text/good_end_text.dialogue")
 
 [layer_names]
 
