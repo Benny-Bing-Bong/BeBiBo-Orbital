@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://bumarj1v8jdik"]
+
+[ext_resource type="Texture2D" uid="uid://c6n3hd7ypi0bu" path="res://Art/Enemies/Boss/Boss Projectile.png" id="1_dfmsf"]
+[ext_resource type="Script" path="res://Characters/Enemies/Boss/boss_projectile.gd" id="1_sw567"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no4bf"]
+atlas = ExtResource("1_dfmsf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fih2x"]
+atlas = ExtResource("1_dfmsf")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wkpm"]
+atlas = ExtResource("1_dfmsf")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hi05d"]
+atlas = ExtResource("1_dfmsf")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_18s3p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_no4bf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fih2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wkpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hi05d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pgx8m"]
+radius = 8.06226
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gk5gb"]
+size = Vector2(567.5, 314)
+
+[node name="BossProjectile" type="CharacterBody2D"]
+script = ExtResource("1_sw567")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_18s3p")
+frame = 2
+frame_progress = 0.00697827
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pgx8m")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("RectangleShape2D_gk5gb")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

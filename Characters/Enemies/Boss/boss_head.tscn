@@ -1,0 +1,109 @@
+[gd_scene load_steps=15 format=3 uid="uid://d14aomb1nxdul"]
+
+[ext_resource type="Texture2D" uid="uid://c8p1snq75706p" path="res://Art/Enemies/Boss/Boss Head.png" id="1_p6smh"]
+[ext_resource type="Script" path="res://Characters/Enemies/Gooey/enemy_state_machine.gd" id="3_1ghqh"]
+[ext_resource type="Script" path="res://Characters/Enemies/Boss/state_hover.gd" id="3_7j2cy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm2k7"]
+atlas = ExtResource("1_p6smh")
+region = Rect2(0, 0, 180, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b16le"]
+atlas = ExtResource("1_p6smh")
+region = Rect2(180, 0, 180, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shbw5"]
+atlas = ExtResource("1_p6smh")
+region = Rect2(360, 0, 180, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihpjq"]
+atlas = ExtResource("1_p6smh")
+region = Rect2(540, 0, 180, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b88cv"]
+atlas = ExtResource("1_p6smh")
+region = Rect2(720, 0, 180, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njac0"]
+atlas = ExtResource("1_p6smh")
+region = Rect2(900, 0, 180, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1eof"]
+atlas = ExtResource("1_p6smh")
+region = Rect2(1080, 0, 180, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_576io"]
+atlas = ExtResource("1_p6smh")
+region = Rect2(1260, 0, 180, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ls6x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm2k7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b16le")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shbw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihpjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b88cv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njac0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1eof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_576io")
+}],
+"loop": true,
+"name": &"hover",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8jbdf"]
+radius = 60.0
+height = 128.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3l5o6"]
+size = Vector2(567.5, 314)
+
+[node name="BossHead" type="CharacterBody2D"]
+collision_layer = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1ls6x")
+animation = &"hover"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, 7)
+shape = SubResource("CapsuleShape2D_8jbdf")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("RectangleShape2D_3l5o6")
+
+[node name="EnemyStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "character", "sprite")]
+script = ExtResource("3_1ghqh")
+initial_state = NodePath("Hover")
+character = NodePath("..")
+sprite = NodePath("../AnimatedSprite2D")
+
+[node name="Hover" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("3_7j2cy")
+
+[node name="Timer" type="Timer" parent="EnemyStateMachine/Hover"]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="body_entered" from="DetectionArea" to="EnemyStateMachine/Hover" method="_on_detection_area_body_entered"]

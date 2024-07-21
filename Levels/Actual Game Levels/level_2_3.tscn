@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://ct3tfyl57f0xn"]
 
 [ext_resource type="PackedScene" uid="uid://cnb1q5qwbielt" path="res://Levels/base_level.tscn" id="1_0x5wa"]
-[ext_resource type="PackedScene" uid="uid://dm7xpgmjurvst" path="res://Levels/Background Scenes for Use/parallax_background_2.tscn" id="2_lr1qe"]
+[ext_resource type="PackedScene" path="res://Levels/Background Scenes for Use/parallax_background_2.tscn" id="2_lr1qe"]
 [ext_resource type="PackedScene" uid="uid://ci4klsnqge7t8" path="res://Items/thumbdrive.tscn" id="3_xngkp"]
 [ext_resource type="PackedScene" uid="uid://b2vww2ct07iuh" path="res://Characters/Enemies/Gooey/gooey.tscn" id="4_i1tf8"]
 [ext_resource type="PackedScene" uid="uid://bjsyb8bfpsmi" path="res://Characters/Enemies/Gooey/anti_gooey.tscn" id="5_eeo6m"]
