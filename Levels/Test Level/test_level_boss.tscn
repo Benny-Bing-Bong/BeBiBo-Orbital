@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddfhvk36f8lo3"]
+[gd_scene load_steps=8 format=3 uid="uid://ddfhvk36f8lo3"]
 
 [ext_resource type="Texture2D" uid="uid://dd88sqdg8bsuj" path="res://Art/Assets/TileSet.png" id="1_ql6jj"]
 [ext_resource type="PackedScene" uid="uid://bd06xtnb3u2f2" path="res://Characters/Player/player.tscn" id="2_3nssd"]
 [ext_resource type="PackedScene" uid="uid://biu8yengrvq78" path="res://UI/hud.tscn" id="3_2xi06"]
 [ext_resource type="PackedScene" uid="uid://d14aomb1nxdul" path="res://Characters/Enemies/Boss/boss_head.tscn" id="4_wrmuj"]
-[ext_resource type="PackedScene" uid="uid://bumarj1v8jdik" path="res://Characters/Enemies/Boss/boss_projectile.tscn" id="5_kdksp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6qejt"]
 texture = ExtResource("1_ql6jj")
@@ -140,9 +139,6 @@ drag_vertical_offset = -0.5
 
 [node name="BossHead" parent="." instance=ExtResource("4_wrmuj")]
 position = Vector2(396, -58)
-
-[node name="BossProjectile" parent="." instance=ExtResource("5_kdksp")]
-position = Vector2(-263, 37)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_w1s48")

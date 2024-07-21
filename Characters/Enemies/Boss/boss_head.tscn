@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://d14aomb1nxdul"]
+[gd_scene load_steps=16 format=3 uid="uid://d14aomb1nxdul"]
 
 [ext_resource type="Texture2D" uid="uid://c8p1snq75706p" path="res://Art/Enemies/Boss/Boss Head.png" id="1_p6smh"]
 [ext_resource type="Script" path="res://Characters/Enemies/Gooey/enemy_state_machine.gd" id="3_1ghqh"]
 [ext_resource type="Script" path="res://Characters/Enemies/Boss/state_hover.gd" id="3_7j2cy"]
+[ext_resource type="PackedScene" uid="uid://bumarj1v8jdik" path="res://Characters/Enemies/Boss/boss_projectile.tscn" id="4_yilfy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hm2k7"]
 atlas = ExtResource("1_p6smh")
@@ -101,9 +102,23 @@ sprite = NodePath("../AnimatedSprite2D")
 
 [node name="Hover" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("3_7j2cy")
+projectile = ExtResource("4_yilfy")
+speed = 5000.0
+first_anim_name = "hover"
 
-[node name="Timer" type="Timer" parent="EnemyStateMachine/Hover"]
+[node name="HoverTimer" type="Timer" parent="EnemyStateMachine/Hover"]
 wait_time = 2.0
 one_shot = true
+
+[node name="ProjectileTimer" type="Timer" parent="EnemyStateMachine/Hover"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="LeftMarker" type="Marker2D" parent="."]
+position = Vector2(-46, 55)
+
+[node name="RightMarker" type="Marker2D" parent="."]
+position = Vector2(34, 55)
 
 [connection signal="body_entered" from="DetectionArea" to="EnemyStateMachine/Hover" method="_on_detection_area_body_entered"]
