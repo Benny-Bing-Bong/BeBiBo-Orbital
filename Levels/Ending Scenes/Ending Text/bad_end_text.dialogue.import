@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://bobqfy8q24hm1"
+path="res://.godot/imported/bad_end_text.dialogue-09508e9e0b25beed3b4f8766283b9037.tres"
+
+[deps]
+
+source_file="res://Levels/Ending Scenes/Ending Text/bad_end_text.dialogue"
+dest_files=["res://.godot/imported/bad_end_text.dialogue-09508e9e0b25beed3b4f8766283b9037.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvvs85bbpuy6r"]
+
+[ext_resource type="Script" path="res://Levels/sq_enemy_container.gd" id="1_hj4h1"]
+
+[node name="SQEnemyContainer" type="Node"]
+script = ExtResource("1_hj4h1")

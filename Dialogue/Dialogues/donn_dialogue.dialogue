@@ -1,0 +1,49 @@
+~ start
+if not DSM.has_completed_first_inter("Donn", false):
+	=> first_interaction
+# from here on means complete first interaction already
+if not DSM.has_completed_sidequest("Donn"):
+	=> interaction_without_sidequest
+# from here on means complete first interaction and also sidequest already
+if not DSM.has_completed_first_inter("Donn", true):
+	=> first_interaction_with_sidequest
+else:
+	=> repeat_interaction_with_sidequest
+=> END
+
+~ first_interaction
+Donn: Woah what the... The heck, don’t sneak up on me.
+Robot: ...
+Donn: Name’s Donn. What are you anyway? Some kind of robot? Where’d you come from?
+Robot: ...
+Donn: Okay... guess you don’t talk. I see that big sword on your back. Do you fight?
+Robot: ...
+Donn: Well, there are some robots and flies that’ve been hanging around the front of my car workshop, and it's disrupting my business. If you can understand me, help me get rid of them.
+Donn: And no, I don’t have any reward for you.
+Robot: ...
+Donn: ...
+Donn: Okay, I’m gonna get back to this paint job now.
+do DSM.finish_first_inter("Donn", false)
+=> END
+
+~ interaction_without_sidequest
+Donn: Hey there, what’re you doing here?
+Robot: ...
+Donn: Well, I’m working so... don’t bother me okay?
+Robot: ...
+=> END
+
+~ first_interaction_with_sidequest
+Donn: I see you’ve cleared out the pests in front of my workshop. Thanks.
+Robot: ...
+Donn: What are you anyway? I’ve never seen you around before. *dink dink* And you’re made out of some pretty high quality stuff? Got a name? Your mechanic’s name?
+Robot: ...
+Donn: Well whatever, thanks again anyway. Maybe I could give you a paint job sometime.
+Robot: ... [wait = 1] ?
+do DSM.finish_first_inter("Donn", true)
+=> END
+
+~ repeat_interaction_with_sidequest
+Donn: Hey there, thanks for clearing out the monsters again. I appreciate it.
+Robot: ...
+=> END
