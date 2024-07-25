@@ -4,16 +4,13 @@ extends EditorPlugin
 
 const DialogueConstants = preload("./constants.gd")
 const DialogueImportPlugin = preload("./import_plugin.gd")
-const DialogueInspectorPlugin = preload("./inspector_plugin.gd")
 const DialogueTranslationParserPlugin = preload("./editor_translation_parser_plugin.gd")
 const DialogueSettings = preload("./settings.gd")
 const DialogueCache = preload("./components/dialogue_cache.gd")
 const MainView = preload("./views/main_view.tscn")
-const DialogueResource = preload("./dialogue_resource.gd")
 
 
 var import_plugin: DialogueImportPlugin
-var inspector_plugin: DialogueInspectorPlugin
 var translation_parser_plugin: DialogueTranslationParserPlugin
 var main_view
 var dialogue_cache: DialogueCache
@@ -27,22 +24,20 @@ func _enter_tree() -> void:
 
 		DialogueSettings.prepare()
 
-		dialogue_cache = DialogueCache.new()
-		Engine.set_meta("DialogueCache", dialogue_cache)
-
 		import_plugin = DialogueImportPlugin.new()
 		add_import_plugin(import_plugin)
-
-		inspector_plugin = DialogueInspectorPlugin.new()
-		add_inspector_plugin(inspector_plugin)
 
 		translation_parser_plugin = DialogueTranslationParserPlugin.new()
 		add_translation_parser_plugin(translation_parser_plugin)
 
 		main_view = MainView.instantiate()
+		main_view.editor_plugin = self
 		get_editor_interface().get_editor_main_screen().add_child(main_view)
 		_make_visible(false)
+
+		dialogue_cache = DialogueCache.new()
 		main_view.add_child(dialogue_cache)
+		Engine.set_meta("DialogueCache", dialogue_cache)
 
 		_update_localization()
 
@@ -52,7 +47,7 @@ func _enter_tree() -> void:
 		add_tool_menu_item("Create copy of dialogue example balloon...", _copy_dialogue_balloon)
 
 		# Prevent the project from showing as unsaved even though it was only just opened
-		if DialogueSettings.get_setting("try_suppressing_startup_unsaved_indicator", false) and Engine.get_physics_frames() == 0:
+		if Engine.get_physics_frames() == 0:
 			var timer: Timer = Timer.new()
 			var suppress_unsaved_marker: Callable
 			suppress_unsaved_marker = func():
@@ -70,9 +65,6 @@ func _exit_tree() -> void:
 
 	remove_import_plugin(import_plugin)
 	import_plugin = null
-
-	remove_inspector_plugin(inspector_plugin)
-	inspector_plugin = null
 
 	remove_translation_parser_plugin(translation_parser_plugin)
 	translation_parser_plugin = null
@@ -156,9 +148,6 @@ func get_editor_shortcuts() -> Dictionary:
 			_create_event("Ctrl+K"),
 			_create_event("Ctrl+Slash")
 		],
-		delete_line = [
-			_create_event("Ctrl+Shift+K")
-		],
 		move_up = [
 			_create_event("Alt+Up")
 		],
@@ -190,13 +179,9 @@ func get_editor_shortcuts() -> Dictionary:
 	}
 
 	var paths = get_editor_interface().get_editor_paths()
-	var settings
-	if FileAccess.file_exists(paths.get_config_dir() + "/editor_settings-4.3.tres"):
-		settings = load(paths.get_config_dir() + "/editor_settings-4.3.tres")
-	elif FileAccess.file_exists(paths.get_config_dir() + "/editor_settings-4.tres"):
-		settings = load(paths.get_config_dir() + "/editor_settings-4.tres")
-	else:
-		return shortcuts
+	var settings = load(paths.get_config_dir() + "/editor_settings-4.tres")
+
+	if not settings: return shortcuts
 
 	for s in settings.get("shortcuts"):
 		for key in shortcuts:
@@ -225,7 +210,7 @@ func get_editor_shortcut(event: InputEventKey) -> String:
 	var shortcuts: Dictionary = get_editor_shortcuts()
 	for key in shortcuts:
 		for shortcut in shortcuts.get(key, []):
-			if event.as_text().split(" ")[0] == shortcut.as_text().split(" ")[0]:
+			if event.is_match(shortcut):
 				return key
 	return ""
 

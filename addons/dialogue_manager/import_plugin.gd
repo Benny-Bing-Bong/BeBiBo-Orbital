@@ -6,7 +6,6 @@ signal compiled_resource(resource: Resource)
 
 
 const DialogueResource = preload("./dialogue_resource.gd")
-const DialogueManagerParser = preload("./components/parser.gd")
 const DialogueManagerParseResult = preload("./components/parse_result.gd")
 
 const compiler_version = 12
@@ -70,8 +69,6 @@ func _import(source_file: String, save_path: String, options: Dictionary, platfo
 
 	var file: FileAccess = FileAccess.open(source_file, FileAccess.READ)
 	var raw_text: String = file.get_as_text()
-
-	cache.file_content_changed.emit(source_file, raw_text)
 
 	# Parse the text
 	var parser: DialogueManagerParser = DialogueManagerParser.new()

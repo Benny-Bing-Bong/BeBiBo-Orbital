@@ -5,7 +5,6 @@ var checkpoint_dictionary: Dictionary = {
 	"Level1-3": false,
 	"Level1-5": false,
 	"Level2-2": false,
-	"HubLevel": false,
 }
 
 func update_checkpoint(level_name: String) -> void:

@@ -68,8 +68,3 @@ checkpoint_name = "Level1-5"
 layout_mode = 2
 button_text = "Level 2-2: Stronger Weapons"
 checkpoint_name = "Level2-2"
-
-[node name="CheckpointButton5" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_7f4x3")]
-layout_mode = 2
-button_text = "The Hub"
-checkpoint_name = "HubLevel"

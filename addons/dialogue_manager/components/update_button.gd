@@ -14,6 +14,9 @@ const REMOTE_RELEASES_URL = "https://api.github.com/repos/nathanhoad/godot_dialo
 @onready var update_failed_dialog: AcceptDialog = $UpdateFailedDialog
 @onready var timer: Timer = $Timer
 
+# The main editor plugin
+var editor_plugin: EditorPlugin
+
 var needs_reload: bool = false
 
 # A lambda that gets called just before refreshing the plugin. Return false to stop the reload.
@@ -63,7 +66,7 @@ func check_for_update() -> void:
 func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	if result != HTTPRequest.RESULT_SUCCESS: return
 
-	var current_version: String = Engine.get_meta("DialogueManagerPlugin").get_version()
+	var current_version: String = editor_plugin.get_version()
 
 	# Work out the next version from the releases information on GitHub
 	var response = JSON.parse_string(body.get_string_from_utf8())
@@ -72,9 +75,7 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 	# GitHub releases are in order of creation, not order of version
 	var versions = (response as Array).filter(func(release):
 		var version: String = release.tag_name.substr(1)
-		var major_version: int = version.split(".")[0].to_int()
-		var current_major_version: int = current_version.split(".")[0].to_int()
-		return major_version == current_major_version and version_to_number(version) > version_to_number(current_version)
+		return version_to_number(version) > version_to_number(current_version)
 	)
 	if versions.size() > 0:
 		download_update_panel.next_version_release = versions[0]
@@ -86,9 +87,9 @@ func _on_update_button_pressed() -> void:
 	if needs_reload:
 		var will_refresh = on_before_refresh.call()
 		if will_refresh:
-			Engine.get_meta("DialogueManagerPlugin").get_editor_interface().restart_editor(true)
+			editor_plugin.get_editor_interface().restart_editor(true)
 	else:
-		var scale: float = Engine.get_meta("DialogueManagerPlugin").get_editor_interface().get_editor_scale()
+		var scale: float = editor_plugin.get_editor_interface().get_editor_scale()
 		download_dialog.min_size = Vector2(300, 250) * scale
 		download_dialog.popup_centered()
 
@@ -117,7 +118,7 @@ func _on_download_update_panel_failed() -> void:
 
 
 func _on_needs_reload_dialog_confirmed() -> void:
-	Engine.get_meta("DialogueManagerPlugin").get_editor_interface().restart_editor(true)
+	editor_plugin.get_editor_interface().restart_editor(true)
 
 
 func _on_timer_timeout() -> void:

@@ -28,8 +28,5 @@ func _on_load_button_pressed() -> void:
 func _on_settings_button_pressed() -> void:
 	ScreenManager.add_layer_to_screen("settings")
 
-func _on_credits_button_pressed() -> void:
-	SceneManager.transition_to_scene("Credits")
-
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()

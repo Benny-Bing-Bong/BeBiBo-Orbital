@@ -2,9 +2,6 @@
 extends SyntaxHighlighter
 
 
-const DialogueManagerParser = preload("./parser.gd")
-
-
 enum ExpressionType {DO, SET, IF}
 
 
