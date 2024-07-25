@@ -21,6 +21,9 @@ func state_process(_delta: float) -> void:
 
 
 func state_input(_input: InputEvent) -> void:
+	if not character.can_move:
+		return
+		
 	if _input.is_action_pressed("up"):
 		jump()
 	if _input.is_action_pressed("dash"):

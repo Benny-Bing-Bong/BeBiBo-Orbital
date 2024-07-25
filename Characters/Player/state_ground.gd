@@ -8,6 +8,9 @@ func enter() -> void:
 	atk_buffer_timer.start()
 
 func state_input(_input: InputEvent) -> void:
+	if not character.can_move:
+		return
+		
 	if _input.is_action_pressed("up"):
 		jump()
 	if _input.is_action_pressed("attack"):

@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://d14aomb1nxdul"]
+[gd_scene load_steps=18 format=3 uid="uid://d14aomb1nxdul"]
 
 [ext_resource type="Texture2D" uid="uid://c8p1snq75706p" path="res://Art/Enemies/Boss/Boss Head.png" id="1_p6smh"]
 [ext_resource type="Script" path="res://Characters/Enemies/Gooey/enemy_state_machine.gd" id="3_1ghqh"]
 [ext_resource type="Script" path="res://Characters/Enemies/Boss/state_hover.gd" id="3_7j2cy"]
 [ext_resource type="PackedScene" uid="uid://bumarj1v8jdik" path="res://Characters/Enemies/Boss/boss_projectile.tscn" id="4_yilfy"]
+[ext_resource type="Script" path="res://Characters/Enemies/Boss/state_warning.gd" id="5_rv41e"]
+[ext_resource type="Script" path="res://Characters/Enemies/Boss/state_attack.gd" id="6_j37q5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hm2k7"]
 atlas = ExtResource("1_p6smh")
@@ -39,6 +41,21 @@ region = Rect2(1260, 0, 180, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1ls6x"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"cooldown",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hm2k7")
@@ -67,6 +84,11 @@ animations = [{
 "loop": true,
 "name": &"hover",
 "speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"warning",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8jbdf"]
@@ -82,6 +104,8 @@ collision_layer = 4
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1ls6x")
 animation = &"hover"
+frame = 2
+frame_progress = 0.198048
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-6, 7)
@@ -115,10 +139,18 @@ wait_time = 5.0
 one_shot = true
 autostart = true
 
+[node name="Warning" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("5_rv41e")
+
+[node name="Attack" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("6_j37q5")
+
 [node name="LeftMarker" type="Marker2D" parent="."]
 position = Vector2(-46, 55)
 
 [node name="RightMarker" type="Marker2D" parent="."]
 position = Vector2(34, 55)
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="EnemyStateMachine/Warning" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="DetectionArea" to="EnemyStateMachine/Hover" method="_on_detection_area_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="EnemyStateMachine/Attack" method="_on_detection_area_body_entered"]
