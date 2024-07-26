@@ -48,8 +48,8 @@ func transition_to_scene(scene_name: String) -> void:
 	if scene_name == "Main":
 		enemies_left = 0
 	
-	# this is in case there are any levels with no enemies
-	enemies_left += 1
+	# this is in case there are any levels with no enemies, and for level resets
+	enemies_left += 500
 	
 	var err: int = get_tree().change_scene_to_file(scene_path)
 	if not err == OK:
