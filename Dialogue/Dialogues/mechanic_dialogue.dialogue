@@ -92,6 +92,9 @@ Robot: ...
 The Mechanic: You’re really close to the exit, Robot.
 The Mechanic: But my senses are telling me that the Dictator wouldn’t make it easy for escapees to leave. Be careful. Something big’s up ahead.
 Robot: ...
+The Mechanic: Make sure that you do everything you need before going forward robot.
+The Mechanic: There's no turning back after this. All the best, Robot.
+Robot: ...
 => END
 
 ~ defeat_boss
