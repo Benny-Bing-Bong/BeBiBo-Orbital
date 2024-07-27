@@ -98,7 +98,7 @@ func phase_shift() -> void:
 	PlayerSFX.phase_shift()
 	
 	# buffer to ensure phase change is complete before setting collision values
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.25).timeout
 	
 	swap_layers_and_masks()
 	
