@@ -15,10 +15,7 @@ func _ready() -> void:
 	GameMusic.play_menu_music()
 
 func _on_new_button_pressed() -> void:
-	GameManager.restart_player()
-	GameManager.on_main_screen = false
-	SaveLoadManager.delete_save()
-	SceneManager.transition_to_scene("Workshop")
+	ScreenManager.add_layer_to_screen("new_confirm")
 	
 func _on_load_button_pressed() -> void:
 	# restart player and on_main_screen setting is now in checkpoint_button

@@ -24,6 +24,7 @@ var screens: Dictionary = {
 	"audio_settings": preload("res://Screens/audio_settings_screen.tscn"),
 	"video_settings": preload("res://Screens/video_settings_screen.tscn"),
 	"keybind_settings": preload("res://Screens/keybinds_settings_screen.tscn"),
+	"new_confirm": preload("res://Screens/new_confirm_screen.tscn"),
 	}
 
 func _ready() -> void:
