@@ -8,5 +8,5 @@ skill_name = "phaseshift"
 action_name = "phaseshift"
 skill_description = "Press %key% to switch between the POSIT and ANTI phase. 
 You can only hit POSIT and ANTI enemies using the respective phases. However, you can still be hurt by all enemies in different phases. Be careful!
-You can only land on gray or white platforms in the respective phases as well."
+You can only land on gray or white platforms in the respective phases as well. If you get stuck, just change to another phase to get unstuck!"
 screenshot = ExtResource("2_0s0g5")
