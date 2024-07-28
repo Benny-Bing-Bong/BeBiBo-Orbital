@@ -61,6 +61,9 @@ func transition_to_scene(scene_name: String) -> void:
 	if scene_name == "Level2-1":
 		await get_tree().create_timer(1).timeout
 		MDM.try_dialogue("platforming")
+	if scene_name == "BefBossLevel":
+		await get_tree().create_timer(3).timeout
+		MDM.force_dialogue("meet_boss")
 
 func update_enemies_left(number: int) -> void:
 	enemies_left = number
