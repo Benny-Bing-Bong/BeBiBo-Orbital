@@ -19,7 +19,6 @@ func flash_times(times: int) -> void:
 		character.visible = true
 		await get_tree().create_timer(0.2).timeout
 
-
 func _on_timer_timeout() -> void:
 	await flash_times(3)
 	character.queue_free()

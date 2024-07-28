@@ -33,7 +33,8 @@ var dialogue_line: DialogueLine:
 		# The dialogue has finished so close the balloon
 		if not next_dialogue_line:
 			queue_free()
-			get_tree().paused = false # CUSTOM: Resume when dialogue ends
+			if get_tree():
+				get_tree().paused = false # CUSTOM: Resume when dialogue ends
 			return
 
 		# If the node isn't ready yet then none of the labels will be ready yet either

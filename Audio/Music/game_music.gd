@@ -5,6 +5,7 @@ const MENU_MUSIC: AudioStreamMP3 = preload("res://Audio/Music/main_menu_music.mp
 const BAD_END_MUSIC = preload("res://Audio/Music/bad_end_music.mp3")
 const GOOD_END_MUSIC = preload("res://Audio/Music/good_end_music.mp3")
 const BOSS_MUSIC = preload("res://Audio/Music/boss_music.mp3")
+const DICTATOR_MUSIC = preload("res://Audio/Music/dictator_music.mp3")
 
 func _play_music(music: AudioStreamMP3, volume: float = -10) -> void:
 	if stream == music:
@@ -28,6 +29,9 @@ func play_good_end_music() -> void:
 
 func play_boss_music() -> void:
 	_play_music(BOSS_MUSIC)
+
+func play_dictator_music() -> void:
+	_play_music(DICTATOR_MUSIC)
 
 func stop_music() -> void:
 	stop()

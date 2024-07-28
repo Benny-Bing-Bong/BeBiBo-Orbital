@@ -30,8 +30,13 @@ func start_cutscene() -> void:
 	boss.velocity.x = 0
 	boss.is_agitated = false
 	boss_sprite.speed_scale = 1
+	GameMusic.stop_music()
 	super()
 
+func end_cutscene() -> void:
+	super()
+	await get_tree().create_timer(2).timeout
+	MDM.force_dialogue("defeat_boss")
 
 func _on_boss_damageable_die() -> void:
 	path_2d.curve.add_point(player.global_position)

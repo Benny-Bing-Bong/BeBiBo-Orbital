@@ -15,6 +15,7 @@ var ending_type: String = "Good"
 
 func _ready() -> void:
 	GameMusic.stop_music()
+	get_tree().paused = false
 	
 	# If there is even one SQ not completed, change ending_type_to Bad
 	for key: String in DSM.sidequest_completed_dict:
