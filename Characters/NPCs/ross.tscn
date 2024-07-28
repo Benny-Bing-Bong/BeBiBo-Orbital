@@ -1,0 +1,84 @@
+[gd_scene load_steps=14 format=3 uid="uid://ctq40nlnuyoqy"]
+
+[ext_resource type="PackedScene" uid="uid://bia7xbgsfgdpv" path="res://Characters/NPCs/base_npc.tscn" id="1_8d7fx"]
+[ext_resource type="Texture2D" uid="uid://dll0uftaeq1pj" path="res://Art/NPC/Ross Idle.png" id="2_0g5ce"]
+[ext_resource type="Resource" uid="uid://dhhgxt5u20lp6" path="res://Dialogue/Dialogues/ross_dialogue.dialogue" id="3_ekwhc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgwqx"]
+size = Vector2(20, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhj2f"]
+atlas = ExtResource("2_0g5ce")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xo8vr"]
+atlas = ExtResource("2_0g5ce")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inqva"]
+atlas = ExtResource("2_0g5ce")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nblve"]
+atlas = ExtResource("2_0g5ce")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4808"]
+atlas = ExtResource("2_0g5ce")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbyy5"]
+atlas = ExtResource("2_0g5ce")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2p7v"]
+atlas = ExtResource("2_0g5ce")
+region = Rect2(480, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qotr7"]
+atlas = ExtResource("2_0g5ce")
+region = Rect2(560, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0u24b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhj2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xo8vr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inqva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nblve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4808")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbyy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2p7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qotr7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="Ross" instance=ExtResource("1_8d7fx")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_vgwqx")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_0u24b")
+animation = &"idle"
+
+[node name="TalkArea2D" parent="." index="2"]
+npc_dialogue_resource = ExtResource("3_ekwhc")

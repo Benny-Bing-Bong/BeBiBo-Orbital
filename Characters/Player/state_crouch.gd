@@ -5,11 +5,11 @@ extends State
 
 func enter() -> void:
 	super()
-	col_shape.shape.height = 30
+	col_shape.shape.size.y = 30
 	col_shape.position.y = 9
 
 func exit() -> void:
-	col_shape.shape.height = 46
+	col_shape.shape.size.y = 46
 	col_shape.position.y = 1
 
 func state_process(_delta: float) -> void:

@@ -1,0 +1,50 @@
+~ start
+if not DSM.has_completed_first_inter("Pooja", false):
+	=> first_interaction
+# from here on means complete first interaction already
+if not DSM.has_completed_sidequest("Pooja"):
+	=> interaction_without_sidequest
+# from here on means complete first interaction and also sidequest already
+if not DSM.has_completed_first_inter("Pooja", true):
+	=> first_interaction_with_sidequest
+else:
+	=> repeat_interaction_with_sidequest
+=> END
+
+~ first_interaction
+Pooja: *BONK* HEY WATCH IT! Oh! What are you?
+Pooja: You aren’t a human... Are you a ROBOT? Holy sh*t, COOL!!!
+Pooja: I’m Pooja, you can call me PJ.
+Robot: ...
+Pooja: Okay so your mechanic didn’t give you a speech module? Wow... Sucks to be you.
+Robot: ...
+Pooja: I wasn’t doing anything with the spare parts from Donn’s workshop...
+Robot: ...
+Pooja: Alright, alright I MIGHT HAVE BEEN trying to make a makeshift rocket from the extra fuel and canisters...
+Pooja: And launched them up on that rooftop...
+Pooja: Donn’s gonna kill me... Wait a minute... You look pretty nimble.
+Pooja: You think you could help me get the canisters back from the rooftop? C’mon, it shouldn’t be that difficult for you right?
+Pooja: Heh, unless you can’t... It’s up to you.
+Robot: ...
+do DSM.finish_first_inter("Pooja", false)
+=> END
+
+~ interaction_without_sidequest
+Pooja: Damn, I guess you really CAN’T climb up a simple building... heh...
+Robot: ...
+=> END
+
+~ first_interaction_with_sidequest
+Pooja: Aw nice, you actually did it! Thanks robot!
+Pooja: You know what? You’re pretty cool, robot. I’m gonna give you a name.
+Pooja: Hmm... Alright, I’m gonna call you Hyper Action Dynamo Laser Mecha Ver.1101X Deus Persephone. Or RB for short. How’s that?
+Robot: ... [wait = 1] -_-
+do DSM.finish_first_inter("Pooja", true)
+=> END
+
+~ repeat_interaction_with_sidequest
+Pooja: Hey RB. Whatcha up to?
+Robot: ...
+Pooja: Oh me? Nothing much... Definitely not doing anything with Donn’s stuff...
+Robot: ... [wait = 1] -_-
+=> END

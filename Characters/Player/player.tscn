@@ -44,9 +44,8 @@ resource_local_to_scene = true
 shader = ExtResource("2_pbvti")
 shader_parameter/active = false
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eh2ya"]
-radius = 9.0
-height = 46.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abqq2"]
+size = Vector2(18, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_juwdw"]
 size = Vector2(58, 36)
@@ -1111,7 +1110,7 @@ script = ExtResource("4_p6qyj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
-shape = SubResource("CapsuleShape2D_eh2ya")
+shape = SubResource("RectangleShape2D_abqq2")
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2
