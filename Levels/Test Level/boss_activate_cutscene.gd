@@ -6,6 +6,10 @@ extends Cutscene
 var activate_played: bool = false
 var activate_playing: bool = false
 
+func start_cutscene() -> void:
+	super()
+	GameMusic.play_boss_music()
+
 func _physics_process(delta: float) -> void:
 	if is_playing:
 		player.velocity.x = 0
