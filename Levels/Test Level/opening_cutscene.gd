@@ -12,7 +12,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_player_enter_detection_body_entered(body: CharacterBody2D) -> void:
-	var final_point: Vector2 = player_camera.position
+	var final_point: Vector2 = player_camera.global_position
 	path_2d.curve.add_point(final_point)
 	
 	if not played_cutscene:

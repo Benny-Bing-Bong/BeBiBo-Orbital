@@ -12,6 +12,7 @@ var is_playing: bool = false
 var played_cutscene: bool = false
 
 func start_cutscene() -> void:
+	await get_tree().create_timer(0.3).timeout
 	player.stop_player()
 	player.set_process_input(false)
 	player_camera.enabled = false

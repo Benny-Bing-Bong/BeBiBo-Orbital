@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var detection_area: Area2D = $DetectionArea
 
 var target: CharacterBody2D
-var speed: float = 100
+var speed: float = 300
 
 func _ready() -> void:
 	animated_sprite_2d.play()

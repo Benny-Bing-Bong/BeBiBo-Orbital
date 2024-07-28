@@ -8,12 +8,27 @@
 [ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hitbox.gd" id="3_6rmoq"]
 [ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hurtbox.gd" id="4_70mtd"]
 [ext_resource type="Script" path="res://States and Abstracts/gravity.gd" id="5_lsn47"]
-[ext_resource type="Script" path="res://States and Abstracts/damageable.gd" id="5_vxrwk"]
 [ext_resource type="Script" path="res://Characters/Enemies/Gooey/enemy_state_machine.gd" id="7_urxxc"]
 [ext_resource type="Script" path="res://Characters/Enemies/Boss/state_idle.gd" id="8_m4hnq"]
+[ext_resource type="Script" path="res://Characters/Enemies/Boss/boss_damageable.gd" id="8_u6ykn"]
 [ext_resource type="Script" path="res://Characters/Enemies/Boss/state_move.gd" id="9_bf30x"]
 [ext_resource type="PackedScene" uid="uid://coudjq42pjonp" path="res://Characters/Enemies/Boss/boss_shockwave.tscn" id="10_1w3di"]
 [ext_resource type="Script" path="res://Characters/Enemies/Boss/state_deactivated.gd" id="12_hmyol"]
+
+[sub_resource type="Animation" id="Animation_i6qdh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_at8ab"]
 resource_name = "hit"
@@ -29,21 +44,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [true, false, true, false, true, false]
-}
-
-[sub_resource type="Animation" id="Animation_i6qdh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/active")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cd4h0"]
@@ -340,6 +340,30 @@ size = Vector2(187, 308)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hx6i1"]
 size = Vector2(210, 327)
 
+[sub_resource type="Animation" id="Animation_17lf7"]
+resource_name = "attack1"
+length = 1.81
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.9, 1.8, 1.81),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"step_one"
+}, {
+"args": [],
+"method": &"step_two"
+}, {
+"args": [],
+"method": &"go_back_idle"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_ehdfs"]
 resource_name = "attack2"
 length = 3.61
@@ -359,30 +383,6 @@ tracks/0/keys = {
 "args": [],
 "method": &"step_two"
 }, {
-"args": [],
-"method": &"step_one"
-}, {
-"args": [],
-"method": &"step_two"
-}, {
-"args": [],
-"method": &"go_back_idle"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_17lf7"]
-resource_name = "attack1"
-length = 1.81
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.9, 1.8, 1.81),
-"transitions": PackedFloat32Array(1, 1, 1),
-"values": [{
 "args": [],
 "method": &"step_one"
 }, {
@@ -548,7 +548,8 @@ shape = SubResource("RectangleShape2D_hx6i1")
 debug_color = Color(0.6, 0.545098, 0.00784314, 0.419608)
 
 [node name="BossDamageable" type="Node" parent="."]
-script = ExtResource("5_vxrwk")
+script = ExtResource("8_u6ykn")
+health = 50
 
 [node name="Gravity" type="Node" parent="." node_paths=PackedStringArray("character_body")]
 script = ExtResource("5_lsn47")

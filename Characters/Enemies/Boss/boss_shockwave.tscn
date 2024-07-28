@@ -1,8 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://coudjq42pjonp"]
+[gd_scene load_steps=14 format=3 uid="uid://coudjq42pjonp"]
 
 [ext_resource type="Script" path="res://Characters/Enemies/Boss/boss_shockwave.gd" id="1_le5yh"]
 [ext_resource type="Texture2D" uid="uid://cxju83mcy3adw" path="res://Art/Enemies/Boss/Boss Shockwaves.png" id="2_lfr4p"]
+[ext_resource type="Shader" path="res://Levels/Test Level/golem_boss.gdshader" id="2_vn05m"]
 [ext_resource type="Script" path="res://States and Abstracts/HitHurtBoxes/hitbox.gd" id="3_a4mq8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2lbsq"]
+shader = ExtResource("2_vn05m")
+shader_parameter/active = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ns1n"]
 atlas = ExtResource("2_lfr4p")
@@ -44,11 +49,11 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 10.0
+"speed": 7.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ndki"]
-size = Vector2(172, 56.5)
+size = Vector2(144, 56.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_paoga"]
 size = Vector2(124, 58.5)
@@ -59,11 +64,12 @@ script = ExtResource("1_le5yh")
 animated_sprite_2d = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_2lbsq")
 sprite_frames = SubResource("SpriteFrames_ypb4o")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-10, 52.25)
+position = Vector2(4, 52.25)
 shape = SubResource("RectangleShape2D_0ndki")
 
 [node name="Hitbox" type="Area2D" parent="."]

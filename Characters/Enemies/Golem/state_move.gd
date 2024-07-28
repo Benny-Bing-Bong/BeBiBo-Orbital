@@ -5,8 +5,8 @@ extends State
 
 var direction: Vector2
 # For shockwave instances
-var wave_left: Shockwave
-var wave_right: Shockwave
+var wave_left: BossShockwave
+var wave_right: BossShockwave
 
 @onready var wave_spawn: Node2D = $"../../ShockwaveSpawnLocs"
 @onready var move_animation_player: AnimationPlayer = $MoveAnimationPlayer

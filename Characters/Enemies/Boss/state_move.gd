@@ -18,20 +18,24 @@ func enter() -> void:
 	super()
 	direction = Vector2.RIGHT if anim_sprite.flip_h else Vector2.LEFT
 	
-	var attack_rng: int = randi_range(1, 4)
-	var speed_rng: int = randi_range(1, 2)
-	
-	anim_sprite.speed_scale = speed_rng
-	move_animation_player.speed_scale = speed_rng
-	
-	if attack_rng == 1:
-		move_animation_player.play("attack1")
-	elif attack_rng == 2:
+	if not agitated:
 		move_animation_player.play("attack2")
-	elif attack_rng == 3:
-		move_animation_player.play("attack3")
+	
 	else:
-		move_animation_player.play("attack4")
+		var attack_rng: int = randi_range(1, 4)
+		var speed_rng: int = randi_range(1, 2)
+		
+		anim_sprite.speed_scale = 1.5 if speed_rng == 2 else 1
+		move_animation_player.speed_scale = anim_sprite.speed_scale
+		
+		if attack_rng == 1:
+			move_animation_player.play("attack1")
+		elif attack_rng == 2:
+			move_animation_player.play("attack2")
+		elif attack_rng == 3:
+			move_animation_player.play("attack3")
+		else:
+			move_animation_player.play("attack4")
 
 func exit() -> void:
 	move_animation_player.stop()
