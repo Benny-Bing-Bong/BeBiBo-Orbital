@@ -30,6 +30,8 @@ var scenes: Dictionary = {
 	"Level2-2": "res://Levels/Actual Game Levels/level_2_2.tscn",
 	"Level2-3": "res://Levels/Actual Game Levels/level_2_3.tscn",
 	"HubLevel": "res://Levels/Actual Game Levels/hub_level.tscn",
+	"BefBossLevel": "res://Levels/Actual Game Levels/bef_boss_level.tscn",
+	"BossLevel": "res://Levels/Actual Game Levels/boss_level.tscn",
 	"Ending": "res://Levels/Ending Scenes/ending_scene.tscn",
 	"Credits": "res://Levels/Credits Scene/credits_scene.tscn",
 	"Splash2": "res://Levels/SplashArt/splash_art_2.tscn",
