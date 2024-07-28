@@ -31,6 +31,13 @@ func try_dialogue(dialogue_name: String) -> void:
 	get_tree().current_scene.add_child(dia_balloon)
 	dia_balloon.start(mechanic_dialogue_resource, dialogue_name)
 
+func force_dialogue(dialogue_name: String) -> void:
+	if not dialogues_done.has(dialogue_name):
+		return
+	
+	dialogues_done[dialogue_name] = false
+	try_dialogue(dialogue_name)
+
 func load_dictionary(dict: Dictionary) -> void:
 	for key: String in dict.keys():
 		dialogues_done[key] = dict[key]
