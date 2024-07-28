@@ -8,13 +8,34 @@ var direction: Vector2
 var wave_left: BossShockwave
 var wave_right: BossShockwave
 
+var agitated: bool = false
+
 @onready var wave_spawn: Node2D = $"../../ShockwaveSpawnLocs"
+
 @onready var move_animation_player: AnimationPlayer = $MoveAnimationPlayer
 
 func enter() -> void:
 	super()
 	direction = Vector2.RIGHT if anim_sprite.flip_h else Vector2.LEFT
-	move_animation_player.play("summon_shockwaves")
+	
+	if not agitated:
+		move_animation_player.play("attack2")
+	
+	else:
+		var attack_rng: int = randi_range(1, 4)
+		var speed_rng: int = randi_range(1, 2)
+		
+		anim_sprite.speed_scale = 1.5 if speed_rng == 2 else 1
+		move_animation_player.speed_scale = anim_sprite.speed_scale
+		
+		if attack_rng == 1:
+			move_animation_player.play("attack1")
+		elif attack_rng == 2:
+			move_animation_player.play("attack2")
+		elif attack_rng == 3:
+			move_animation_player.play("attack3")
+		else:
+			move_animation_player.play("attack4")
 
 func exit() -> void:
 	move_animation_player.stop()
@@ -59,10 +80,5 @@ func put_at_position(first: int, second: int) -> void:
 		wave_right.global_position = wave_spawn.get_child(first).global_position
 
 func add_wave_to_scene() -> void:
-	if character.get_parent() is EnemyContainer:
-		character.get_parent().get_parent().add_child(wave_left)
-		character.get_parent().get_parent().add_child(wave_right)
-		return
-	
 	character.get_parent().add_child(wave_left)
 	character.get_parent().add_child(wave_right)

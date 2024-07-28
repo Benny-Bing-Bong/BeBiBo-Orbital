@@ -183,3 +183,7 @@ invert_projectile={
 "type": "bool",
 "value": false
 }
+boss_inverted={
+"type": "bool",
+"value": false
+}

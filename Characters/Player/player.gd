@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var max_speed: float = 200.0
 
 var direction: Vector2 = Vector2.ZERO
+var can_move: bool = true
 
 const PLAYER_COLLISION: int = 2
 const ENEMY_COLLISION: int = 3
@@ -27,12 +28,15 @@ func _ready() -> void:
 		swap_layers_and_masks()
 
 func _input(event: InputEvent) -> void:
+	if not can_move:
+		return
+		
 	if (event.is_action_pressed("phaseshift") and UnlockManager.able_to("phaseshift")
 	and CooldownManager.skill_ready("phaseshift")):
 		phase_shift()
 
 func _physics_process(delta: float) -> void:
-	if player_state_machine.get_can_move():
+	if player_state_machine.get_can_move() and can_move:
 		direction = Input.get_vector("left", "right", "up", "down")
 		if direction.x != 0:
 			velocity.x = move_toward(velocity.x, direction.x * max_speed, accel)
@@ -138,3 +142,11 @@ func swap_layers_and_masks() -> void:
 			not hitbox_2.get_collision_mask_value(ENEMY_COLLISION))
 	hitbox_2.set_collision_mask_value(ANTI_ENEMY, 
 			not hitbox_2.get_collision_mask_value(ANTI_ENEMY))
+
+func stop_player() -> void:
+	can_move = false
+	velocity.x = move_toward(velocity.x, 0, accel)
+	player_state_machine.emit_signal("interrupted_state", "ground")
+	
+func enable_movement() -> void:
+	can_move = true
