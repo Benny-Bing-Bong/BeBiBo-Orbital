@@ -1007,6 +1007,7 @@ path_2d = NodePath("Path2D")
 path_follow_2d = NodePath("Path2D/PathFollow2D")
 
 [node name="PlayerEnterDetection" type="Area2D" parent="Cutscenes/OpeningCutscene" index="0"]
+collision_layer = 128
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscenes/OpeningCutscene/PlayerEnterDetection" index="0"]

@@ -9,7 +9,7 @@ var speed: float = 9000.0
 var direction: Vector2
 
 func _physics_process(delta: float) -> void:
-	# keep updating direction so that clawfly follows player
+	# keep updating direction so that boss head follows player
 	detection_area.monitoring = false
 	detection_area.monitoring = true
 	
