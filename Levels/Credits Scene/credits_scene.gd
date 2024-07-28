@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 	
 	v_box_container.position.y -= scroll_speed * delta
 	
-	if v_box_container.position.y < -2050 and not thank_you_label_out:
+	if v_box_container.position.y < -2100 and not thank_you_label_out:
 		thank_you_label_out = true
 		show_thank_you_label()
 
