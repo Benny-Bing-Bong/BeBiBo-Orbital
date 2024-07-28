@@ -60,6 +60,7 @@ size = Vector2(124, 58.5)
 
 [node name="BossShockwave" type="RigidBody2D" node_paths=PackedStringArray("animated_sprite_2d")]
 collision_layer = 4
+lock_rotation = true
 script = ExtResource("1_le5yh")
 animated_sprite_2d = NodePath("AnimatedSprite2D")
 
